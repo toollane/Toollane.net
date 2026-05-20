@@ -5,8 +5,12 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "Toollane",
-  description: "Simple online tools and converters.",
+  title: {
+    default: "Toollane | Fast Online Tools for Everyday Tasks",
+    template: "%s",
+  },
+  description:
+    "Free online calculators, converters and utility tools built for speed, simplicity and everyday productivity.",
 };
 
 export default function RootLayout({
