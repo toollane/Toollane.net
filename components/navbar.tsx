@@ -79,7 +79,7 @@ export default function Navbar() {
 
                 {openCategory === category && (
                   <div className="absolute top-full left-0 pt-4">
-                    <div className="w-72 rounded-3xl border border-black/10 bg-white/90 backdrop-blur-xl shadow-2xl p-3">
+                    <div className="w-80 max-h-[70vh] overflow-y-auto rounded-3xl border border-black/10 bg-white/95 backdrop-blur-xl shadow-2xl p-3">
                       {data.tools.map((tool) => (
                         <Link
                           key={tool.href}
@@ -123,7 +123,7 @@ export default function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="lg:hidden border-t border-black/10 bg-[#fff8df]/95 backdrop-blur-xl">
+        <div className="lg:hidden border-t border-black/10 bg-[#fff8df]/95 backdrop-blur-xl max-h-[80vh] overflow-y-auto">
           <div className="max-w-6xl mx-auto px-6 py-6 space-y-6">
             <Link
               href="/"

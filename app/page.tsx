@@ -13,9 +13,15 @@ const groupedTools = tools.reduce((acc, tool) => {
   return acc;
 }, {} as Record<string, typeof tools>);
 
+const popularTools = tools.filter(
+  (tool) => tool.popular
+);
+
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#fff8df] text-[#171717]">
+      {/* HERO */}
+
       <section className="relative overflow-hidden border-b border-black/10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_#ffe680,_transparent_35%),radial-gradient(circle_at_top_right,_#ffd6e7,_transparent_30%)]" />
 
@@ -43,7 +49,7 @@ export default function HomePage() {
                 href="/percentage-calculator"
                 className="bg-black text-white px-7 py-4 rounded-2xl hover:scale-[1.02] transition shadow-lg"
               >
-                Try Percentage Calculator
+                Try Popular Tools
               </Link>
 
               <Link
@@ -57,6 +63,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* POPULAR TOOLS */}
+
       <section className="max-w-6xl mx-auto px-6 py-20">
         <div className="mb-10">
           <p className="text-sm font-semibold text-black/50 mb-3 uppercase tracking-widest">
@@ -69,14 +77,14 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {tools.slice(0, 6).map((tool) => (
+          {popularTools.map((tool) => (
             <Link
               key={tool.href}
               href={tool.href}
               className="group bg-white/75 backdrop-blur border border-black/10 rounded-3xl p-8 hover:bg-white hover:-translate-y-1 hover:shadow-xl transition"
             >
               <div className="w-12 h-12 rounded-2xl bg-[#fff0a8] border border-black/10 flex items-center justify-center text-xl mb-6">
-                ✦
+                {tool.icon}
               </div>
 
               <h3 className="text-2xl font-semibold mb-3 group-hover:translate-x-1 transition">
@@ -90,6 +98,8 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* CATEGORIES */}
 
       <section className="bg-white/55 border-y border-black/10">
         <div className="max-w-6xl mx-auto px-6 py-20">
@@ -141,6 +151,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* WHY TOOLLANE */}
 
       <section className="max-w-6xl mx-auto px-6 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
