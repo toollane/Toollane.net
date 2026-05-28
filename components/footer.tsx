@@ -2,168 +2,176 @@ import Link from "next/link";
 
 import { tools } from "@/data/tools";
 
-const categories = [
-  {
-    name: "Quick Math & Daily Calculators",
-    href: "/category/quick-math-daily-calculators",
-  },
+const footerCategories = [
 
-  {
-    name: "Media & Social Helpers",
-    href: "/category/media-social-helpers",
-  },
 
-  {
-    name: "Dev & Design Utilities",
-    href: "/category/dev-design-utilities",
-  },
 
-  {
-    name: "Office & Data Converters",
-    href: "/category/office-data-converters",
-  },
+
+
+
+
+
 ];
 
 export default function Footer() {
+  const groupedTools = footerCategories
+    .map((category) => {
+      const categoryTools = tools
+        .filter((tool) => tool.category === category)
+        .slice(0, 6);
+
+      return {
+        category,
+        slug: categoryTools[0]?.categorySlug || "",
+        tools: categoryTools,
+      };
+    })
+    .filter((group) => group.tools.length > 0);
+
+  const popularTools = tools
+    .filter((tool) => tool.popular)
+    .slice(0, 8);
+
   return (
-    <footer className="bg-[#171717] text-white">
-
-      <div className="max-w-6xl mx-auto px-6 py-16">
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-
-          {/* BRAND */}
-
+    <footer className="border-t border-white/10 bg-black">
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-[1.2fr_2fr]">
           <div>
-
-            <div className="flex items-center gap-3 mb-5">
-
-              <div className="w-10 h-10 rounded-2xl bg-white text-black flex items-center justify-center font-bold">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-3"
+            >
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-sm font-bold text-black shadow-sm">
                 T
               </div>
 
               <div>
-
-                <div className="text-xl font-bold">
+                <div className="text-xl font-bold text-white">
                   Toollane
                 </div>
 
-                <div className="text-sm text-white/50">
+                <div className="text-sm text-white/55">
                   Fast online tools
                 </div>
-
               </div>
+            </Link>
 
-            </div>
-
-            <p className="text-white/60 leading-7">
-              Free calculators, converters and utility tools built for speed, simplicity and productivity.
+            <p className="mt-5 max-w-sm text-sm leading-7 text-white/60">
+              Toollane offers fast and modern browser-based tools for
+              productivity, SEO, business, development and everyday work.
             </p>
 
-          </div>
-
-
-
-          {/* CATEGORIES */}
-
-          <div>
-
-            <h3 className="font-semibold mb-5">
-              Categories
-            </h3>
-
-            <div className="space-y-3">
-
-              {categories.map((category) => (
-                <Link
-                  key={category.href}
-                  href={category.href}
-                  className="block text-white/60 hover:text-white transition"
-                >
-                  {category.name}
-                </Link>
-              ))}
-
-            </div>
-
-          </div>
-
-
-
-          {/* POPULAR TOOLS */}
-
-          <div>
-
-            <h3 className="font-semibold mb-5">
-              Popular Tools
-            </h3>
-
-            <div className="space-y-3">
-
-              {tools.slice(0, 5).map((tool) => (
-                <Link
-                  key={tool.href}
-                  href={tool.href}
-                  className="block text-white/60 hover:text-white transition"
-                >
-                  {tool.name}
-                </Link>
-              ))}
-
-            </div>
-
-          </div>
-
-
-
-          {/* LEGAL */}
-
-          <div>
-
-            <h3 className="font-semibold mb-5">
-              Legal
-            </h3>
-
-            <div className="space-y-3">
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link
+                href="/about"
+                className="rounded-full border border-white/10 px-4 py-2 text-sm font-medium text-white/70 transition hover:border-white/20 hover:bg-white/5 hover:text-white"
+              >
+                About
+              </Link>
 
               <Link
-                href="/imprint"
-                className="block text-white/60 hover:text-white transition"
+                href="/contact"
+                className="rounded-full border border-white/10 px-4 py-2 text-sm font-medium text-white/70 transition hover:border-white/20 hover:bg-white/5 hover:text-white"
               >
-                Imprint
+                Contact
               </Link>
 
               <Link
                 href="/privacy-policy"
-                className="block text-white/60 hover:text-white transition"
+                className="rounded-full border border-white/10 px-4 py-2 text-sm font-medium text-white/70 transition hover:border-white/20 hover:bg-white/5 hover:text-white"
               >
-                Privacy Policy
+                Privacy
               </Link>
 
-            </div>
+              <Link
+                href="/terms"
+                className="rounded-full border border-white/10 px-4 py-2 text-sm font-medium text-white/70 transition hover:border-white/20 hover:bg-white/5 hover:text-white"
+              >
+                Terms
+              </Link>
 
+              <Link
+                href="/disclaimer"
+                className="rounded-full border border-white/10 px-4 py-2 text-sm font-medium text-white/70 transition hover:border-white/20 hover:bg-white/5 hover:text-white"
+              >
+                Disclaimer
+              </Link>
+            </div>
           </div>
 
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            <div>
+              <div className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-white/35">
+                Popular
+              </div>
+
+              <div className="grid gap-3">
+                {popularTools.map((tool) => (
+                  <Link
+                    key={tool.href}
+                    href={tool.href}
+                    className="text-sm font-medium text-white/65 transition hover:text-white"
+                  >
+                    {tool.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {groupedTools.slice(0, 3).map((group) => (
+              <div key={group.category}>
+                <Link
+                  href={`/category/${group.slug}`}
+                  className="mb-5 block text-xs font-bold uppercase tracking-[0.2em] text-white/35 transition hover:text-white"
+                >
+                  {group.category}
+                </Link>
+
+                <div className="grid gap-3">
+                  {group.tools.map((tool) => (
+                    <Link
+                      key={tool.href}
+                      href={tool.href}
+                      className="text-sm font-medium text-white/65 transition hover:text-white"
+                    >
+                      {tool.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
+        <div className="mt-14 grid gap-10 border-t border-white/10 pt-10 sm:grid-cols-2 lg:grid-cols-4">
+          {groupedTools.slice(3).map((group) => (
+            <div key={group.category}>
+              <Link
+                href={`/category/${group.slug}`}
+                className="mb-5 block text-xs font-bold uppercase tracking-[0.2em] text-white/35 transition hover:text-white"
+              >
+                {group.category}
+              </Link>
 
-
-        {/* BOTTOM */}
-
-        <div className="border-t border-white/10 mt-14 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-
-          <p className="text-sm text-white/40">
-            © 2026 Toollane. All rights reserved.
-          </p>
-
-          <p className="text-sm text-white/30">
-            Built for fast everyday productivity.
-          </p>
-
+              <div className="grid gap-3">
+                {group.tools.map((tool) => (
+                  <Link
+                    key={tool.href}
+                    href={tool.href}
+                    className="text-sm font-medium text-white/65 transition hover:text-white"
+                  >
+                    {tool.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
 
+        <div className="mt-12 border-t border-white/10 pt-6 text-sm text-white/40">
+          © {new Date().getFullYear()} Toollane. All rights reserved.
+        </div>
       </div>
-
     </footer>
   );
 }

@@ -39,8 +39,8 @@ export default function RetirementCalculatorPage() {
     <ToolPageLayout
       title="Retirement Calculator"
       description="Estimate retirement savings and future investment growth instantly online."
-      categoryName="Finance & Investment Tools"
-      categorySlug="finance-investment-tools"
+
+
       href="/retirement-calculator"
       faqs={faqs}
     >

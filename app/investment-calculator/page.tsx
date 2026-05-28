@@ -26,7 +26,7 @@ const faqs = [
       "What is compound investment growth?",
 
     answer:
-      "Compound growth means investment returns can generate additional returns over time.",
+
   },
 
   {
@@ -43,8 +43,8 @@ export default function InvestmentCalculatorPage() {
     <ToolPageLayout
       title="Investment Calculator"
       description="Calculate investment growth and future portfolio value instantly online."
-      categoryName="Finance & Investment Tools"
-      categorySlug="finance-investment-tools"
+
+
       href="/investment-calculator"
       faqs={faqs}
     >

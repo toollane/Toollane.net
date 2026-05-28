@@ -1,59 +1,55 @@
 import type { Metadata } from "next";
+
 import "./globals.css";
 
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
+import { defaultSEO } from "./seo";
+
 export const metadata: Metadata = {
   metadataBase: new URL(
-    "https://toollane.net"
+    "https://toollane.com"
   ),
 
   title: {
-    default:
-      "Toollane | Fast Online Tools for Everyday Tasks",
+    default: defaultSEO.title,
 
-    template: "%s",
+    template:
+      "%s | Toollane",
   },
 
   description:
-    "Free online calculators, converters and utility tools built for speed, simplicity and everyday productivity.",
+    defaultSEO.description,
 
-  openGraph: {
-    title:
-      "Toollane | Fast Online Tools for Everyday Tasks",
+  keywords:
+    defaultSEO.keywords,
 
-    description:
-      "Free online calculators, converters and utility tools built for speed and simplicity.",
+  openGraph:
+    defaultSEO.openGraph,
 
-    url: "https://toollane.net",
+  twitter:
+    defaultSEO.twitter,
 
-    siteName: "Toollane",
-
-    locale: "en_US",
-
-    type: "website",
+  robots: {
+    index: true,
+    follow: true,
   },
 
-  twitter: {
-    card: "summary_large_image",
-
-    title:
-      "Toollane | Fast Online Tools for Everyday Tasks",
-
-    description:
-      "Free online calculators, converters and utility tools built for speed and simplicity.",
+  alternates: {
+    canonical:
+      "https://toollane.net",
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-[#fff8df] text-[#171717] antialiased">
         <Navbar />
 
         {children}

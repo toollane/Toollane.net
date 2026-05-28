@@ -1,91 +1,100 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import { tools } from "@/data/tools";
 
-const groupedTools = tools.reduce((acc, tool) => {
-  if (!acc[tool.category]) {
-    acc[tool.category] = {
-      slug: tool.categorySlug,
-      tools: [],
-    };
-  }
+const categoryOrder = [
 
-  acc[tool.category].tools.push(tool);
 
-  return acc;
-}, {} as Record<
-  string,
-  {
-    slug: string;
-    tools: typeof tools;
-  }
->);
+
+
+
+
+
+
+];
 
 export default function Navbar() {
-  const [openCategory, setOpenCategory] =
-    useState<string | null>(null);
+  const [openCategory, setOpenCategory] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  const [mobileOpen, setMobileOpen] =
-    useState(false);
+  const groupedTools = useMemo(() => {
+    return categoryOrder
+      .map((category) => {
+        const categoryTools = tools.filter((tool) => tool.category === category);
+
+        return {
+          category,
+          slug: categoryTools[0]?.categorySlug || "",
+          tools: categoryTools,
+        };
+      })
+      .filter((group) => group.tools.length > 0);
+  }, []);
+
+  const popularTools = useMemo(() => {
+    return tools.filter((tool) => tool.popular).slice(0, 8);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-xl bg-[#fff8df]/90 border-b border-black/10">
-      <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-2xl bg-black text-white flex items-center justify-center font-bold shadow-sm">
+    <header className="sticky top-0 z-50 border-b border-black/10 bg-[#fff8df]/90 backdrop-blur-xl">
+      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link href="/" className="flex items-center gap-3" aria-label="Toollane Home">
+          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-black text-sm font-bold text-white shadow-sm">
             T
           </div>
 
-          <div>
-            <div className="text-xl font-bold tracking-tight text-black">
+          <div className="leading-tight">
+            <div className="text-lg font-bold tracking-tight text-black">
               Toollane
             </div>
-
-            <div className="text-xs text-black/70">
+            <div className="text-xs font-medium text-black/50">
               Fast online tools
             </div>
           </div>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-8">
-          <Link
-            href="/"
-            className="text-black/75 hover:text-black transition"
-          >
+        <nav className="hidden items-center gap-6 lg:flex">
+          <Link href="/" className="text-sm font-medium text-black/70 transition hover:text-black">
             Home
           </Link>
 
-          {Object.entries(groupedTools).map(([category, data]) => (
+          {groupedTools.map((group) => (
             <div
-              key={category}
+              key={group.category}
               className="relative"
-              onMouseEnter={() => setOpenCategory(category)}
+              onMouseEnter={() => setOpenCategory(group.category)}
               onMouseLeave={() => setOpenCategory(null)}
             >
               <Link
-                href={`/category/${data.slug}`}
-                className="text-black/75 hover:text-black transition"
+                href={`/category/${group.slug}`}
+                className="text-sm font-medium text-black/70 transition hover:text-black"
               >
-                {category}
+                {group.category}
               </Link>
 
-              {openCategory === category && (
-                <div className="absolute top-full left-0 pt-4">
-                  <div className="w-80 max-h-[70vh] overflow-y-auto rounded-3xl border border-black/10 bg-white/95 backdrop-blur-xl shadow-2xl p-3">
-                    {data.tools.map((tool) => (
+              {openCategory === group.category && (
+                <div className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-4">
+                  <div className="max-h-[70vh] w-80 overflow-y-auto rounded-3xl border border-black/10 bg-white/95 p-3 shadow-2xl backdrop-blur-xl">
+                    <Link
+                      href={`/category/${group.slug}`}
+                      className="mb-2 block rounded-2xl bg-black px-4 py-3 text-sm font-semibold text-white"
+                    >
+                      View all {group.category}
+                    </Link>
+
+                    {group.tools.map((tool) => (
                       <Link
                         key={tool.href}
                         href={tool.href}
-                        className="block rounded-2xl px-4 py-3 hover:bg-black/5 transition"
+                        className="block rounded-2xl px-4 py-3 transition hover:bg-black/5"
                       >
-                        <div className="font-medium mb-1 text-black">
+                        <div className="text-sm font-semibold text-black">
                           {tool.name}
                         </div>
-
-                        <div className="text-sm text-black/65">
+                        <div className="mt-1 line-clamp-2 text-xs leading-5 text-black/55">
                           {tool.description}
                         </div>
                       </Link>
@@ -97,10 +106,10 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden md:flex lg:flex items-center gap-4">
+        <div className="hidden items-center gap-3 lg:flex">
           <Link
-            href="/percentage-calculator"
-            className="bg-black text-white px-5 py-3 rounded-2xl hover:scale-[1.02] transition shadow-lg"
+            href="/qr-code-generator"
+            className="rounded-2xl bg-black px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:scale-[1.02]"
           >
             Popular Tool
           </Link>
@@ -108,8 +117,8 @@ export default function Navbar() {
 
         <button
           type="button"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden bg-black text-white px-5 py-3 rounded-2xl font-semibold shadow-lg"
+          onClick={() => setMobileOpen((value) => !value)}
+          className="rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm font-semibold text-black shadow-sm lg:hidden"
           aria-label="Open menu"
         >
           {mobileOpen ? "Close" : "Menu"}
@@ -117,46 +126,75 @@ export default function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="lg:hidden border-t border-black/10 bg-[#fff8df] max-h-[80vh] overflow-y-auto shadow-2xl">
-          <div className="max-w-6xl mx-auto px-6 py-6 space-y-6">
-            <Link
-              href="/"
-              onClick={() => setMobileOpen(false)}
-              className="block text-lg font-semibold text-black"
-            >
-              Home
-            </Link>
+        <div className="border-t border-black/10 bg-[#fff8df]/95 backdrop-blur-xl lg:hidden">
+          <div className="mx-auto max-h-[calc(100vh-72px)] max-w-7xl overflow-y-auto px-4 py-5 sm:px-6">
+            <div className="grid gap-3">
+              <Link
+                href="/"
+                onClick={() => setMobileOpen(false)}
+                className="rounded-2xl bg-white px-4 py-4 font-semibold text-black shadow-sm"
+              >
+                Home
+              </Link>
 
-            {Object.entries(groupedTools).map(([category, data]) => (
-              <div key={category}>
-                <Link
-                  href={`/category/${data.slug}`}
-                  onClick={() => setMobileOpen(false)}
-                  className="block text-lg font-bold text-black mb-3"
-                >
-                  {category}
-                </Link>
+              <div className="rounded-3xl border border-black/10 bg-white p-4">
+                <div className="mb-3 text-xs font-bold uppercase tracking-wide text-black/40">
+                  Popular Tools
+                </div>
 
                 <div className="grid gap-2">
-                  {data.tools.map((tool) => (
+                  {popularTools.map((tool) => (
                     <Link
                       key={tool.href}
                       href={tool.href}
                       onClick={() => setMobileOpen(false)}
-                      className="block bg-white border border-black/10 rounded-2xl p-4 shadow-sm"
+                      className="rounded-2xl bg-black/[0.03] px-4 py-3"
                     >
-                      <div className="font-semibold text-black">
+                      <div className="text-sm font-semibold text-black">
                         {tool.name}
-                      </div>
-
-                      <div className="text-sm text-black/70 mt-1">
-                        {tool.description}
                       </div>
                     </Link>
                   ))}
                 </div>
               </div>
-            ))}
+
+              {groupedTools.map((group) => (
+                <details
+                  key={group.category}
+                  className="rounded-3xl border border-black/10 bg-white p-4 shadow-sm"
+                >
+                  <summary className="cursor-pointer text-base font-bold text-black">
+                    {group.category}
+                  </summary>
+
+                  <div className="mt-4 grid gap-2">
+                    <Link
+                      href={`/category/${group.slug}`}
+                      onClick={() => setMobileOpen(false)}
+                      className="rounded-2xl bg-black px-4 py-3 text-sm font-semibold text-white"
+                    >
+                      View all {group.category}
+                    </Link>
+
+                    {group.tools.map((tool) => (
+                      <Link
+                        key={tool.href}
+                        href={tool.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="rounded-2xl bg-black/[0.03] px-4 py-3"
+                      >
+                        <div className="text-sm font-semibold text-black">
+                          {tool.name}
+                        </div>
+                        <div className="mt-1 text-xs leading-5 text-black/55">
+                          {tool.description}
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </details>
+              ))}
+            </div>
           </div>
         </div>
       )}

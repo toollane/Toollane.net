@@ -32,8 +32,8 @@ export default function PercentageCalculatorPage() {
     <ToolPageLayout
       title="Percentage Calculator"
       description="Calculate percentages, percentage increases and percentage decreases instantly online."
-      categoryName="Quick Math & Daily Calculators"
-      categorySlug="quick-math-daily-calculators"
+
+
       href="/percentage-calculator"
       faqs={faqs}
     >

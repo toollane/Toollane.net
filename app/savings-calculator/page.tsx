@@ -16,14 +16,14 @@ const faqs = [
     question: "How does a savings calculator work?",
 
     answer:
-      "A savings calculator estimates your future savings by adding your starting amount and regular monthly savings over a chosen time period.",
+
   },
 
   {
     question: "Can I use this savings calculator for monthly savings?",
 
     answer:
-      "Yes. Enter your monthly savings amount and the calculator will estimate how much you can save over time.",
+
   },
 
   {
@@ -39,8 +39,8 @@ export default function SavingsCalculatorPage() {
     <ToolPageLayout
       title="Savings Calculator"
       description="Calculate how much you can save over time instantly online."
-      categoryName="Finance & Investment Tools"
-      categorySlug="finance-investment-tools"
+
+
       href="/savings-calculator"
       faqs={faqs}
     >

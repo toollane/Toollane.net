@@ -30,7 +30,7 @@ const faqs = [
     question: "Can I use different VAT rates?",
 
     answer:
-      "Yes. You can choose common VAT rates or enter a custom VAT percentage manually.",
+
   },
 ];
 
@@ -39,8 +39,8 @@ export default function VatCalculatorPage() {
     <ToolPageLayout
       title="VAT Calculator"
       description="Calculate VAT, net price and gross price instantly online."
-      categoryName="Business & Pricing Calculators"
-      categorySlug="business-pricing-calculators"
+
+
       href="/vat-calculator"
       faqs={faqs}
     >

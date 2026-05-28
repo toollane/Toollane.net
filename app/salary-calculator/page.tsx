@@ -16,14 +16,14 @@ const faqs = [
     question: "How do you calculate monthly salary from annual salary?",
 
     answer:
-      "Monthly salary is calculated by dividing annual salary by 12.",
+
   },
 
   {
     question: "How do you calculate hourly rate from annual salary?",
 
     answer:
-      "Hourly rate is calculated by dividing annual salary by total working hours per year.",
+
   },
 
   {
@@ -39,8 +39,8 @@ export default function SalaryCalculatorPage() {
     <ToolPageLayout
       title="Salary Calculator"
       description="Convert annual salary into monthly, weekly, daily and hourly pay instantly online."
-      categoryName="Finance & Investment Tools"
-      categorySlug="finance-investment-tools"
+
+
       href="/salary-calculator"
       faqs={faqs}
     >

@@ -34,7 +34,7 @@ const faqs = [
       "Why use an online age calculator?",
 
     answer:
-      "An online age calculator helps you quickly determine exact age differences without manual calculations.",
+
   },
 ];
 
@@ -43,8 +43,8 @@ export default function AgeCalculatorPage() {
     <ToolPageLayout
       title="Age Calculator"
       description="Calculate your exact age instantly online."
-      categoryName="Quick Math & Daily Calculators"
-      categorySlug="quick-math-daily-calculators"
+
+
       href="/age-calculator"
       faqs={faqs}
     >

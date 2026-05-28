@@ -22,7 +22,7 @@ const faqs = [
   {
     question: "Why use an LBS to KG converter?",
     answer:
-      "A converter helps you quickly convert imperial weight values into metric kilograms.",
+
   },
 ];
 
@@ -31,8 +31,8 @@ export default function LbsToKgPage() {
     <ToolPageLayout
       title="LBS to KG Converter"
       description="Convert pounds to kilograms instantly online."
-      categoryName="Quick Math & Daily Calculators"
-      categorySlug="quick-math-daily-calculators"
+
+
       href="/lbs-to-kg"
       faqs={faqs}
     >

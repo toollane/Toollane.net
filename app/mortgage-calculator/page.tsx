@@ -39,8 +39,8 @@ export default function MortgageCalculatorPage() {
     <ToolPageLayout
       title="Mortgage Calculator"
       description="Calculate mortgage payments, loan amount and total interest instantly online."
-      categoryName="Finance & Investment Tools"
-      categorySlug="finance-investment-tools"
+
+
       href="/mortgage-calculator"
       faqs={faqs}
     >

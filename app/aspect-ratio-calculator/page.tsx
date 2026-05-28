@@ -17,7 +17,7 @@ const faqs = [
       "What is an aspect ratio?",
 
     answer:
-      "An aspect ratio describes the proportional relationship between width and height.",
+
   },
 
   {
@@ -25,7 +25,7 @@ const faqs = [
       "Why is aspect ratio important?",
 
     answer:
-      "Maintaining aspect ratio prevents images and videos from appearing stretched or distorted.",
+
   },
 
   {
@@ -33,7 +33,7 @@ const faqs = [
       "How do you calculate aspect ratio scaling?",
 
     answer:
-      "Divide the new width by the original width and multiply the original height by that value.",
+
   },
 ];
 
@@ -42,8 +42,8 @@ export default function AspectRatioCalculatorPage() {
     <ToolPageLayout
       title="Aspect Ratio Calculator"
       description="Calculate image and video aspect ratios instantly online."
-      categoryName="Quick Math & Daily Calculators"
-      categorySlug="quick-math-daily-calculators"
+
+
       href="/aspect-ratio-calculator"
       faqs={faqs}
     >

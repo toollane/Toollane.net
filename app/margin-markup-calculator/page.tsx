@@ -18,7 +18,7 @@ const faqs = [
       "What is profit margin?",
 
     answer:
-      "Profit margin measures how much profit remains after costs compared to the selling price.",
+
   },
 
   {
@@ -26,7 +26,7 @@ const faqs = [
       "What is markup?",
 
     answer:
-      "Markup measures how much the selling price exceeds the original cost.",
+
   },
 
   {
@@ -34,7 +34,7 @@ const faqs = [
       "Why are margin and markup different?",
 
     answer:
-      "Margin is based on selling price while markup is based on cost price.",
+
   },
 ];
 
@@ -43,8 +43,8 @@ export default function MarginMarkupCalculatorPage() {
     <ToolPageLayout
       title="Margin & Markup Calculator"
       description="Calculate profit margin, markup and profit instantly online."
-      categoryName="Business & Pricing Calculators"
-      categorySlug="business-pricing-calculators"
+
+
       href="/margin-markup-calculator"
       faqs={faqs}
     >

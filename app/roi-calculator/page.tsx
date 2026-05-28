@@ -18,7 +18,7 @@ const faqs = [
       "What is ROI?",
 
     answer:
-      "ROI stands for Return on Investment and measures profitability compared to the original investment cost.",
+
   },
 
   {
@@ -34,7 +34,7 @@ const faqs = [
       "Why use an ROI calculator?",
 
     answer:
-      "An ROI calculator helps investors and businesses quickly estimate profitability and investment performance.",
+
   },
 ];
 
@@ -43,8 +43,8 @@ export default function RoiCalculatorPage() {
     <ToolPageLayout
       title="ROI Calculator"
       description="Calculate return on investment and profitability instantly online."
-      categoryName="Finance & Investment Tools"
-      categorySlug="finance-investment-tools"
+
+
       href="/roi-calculator"
       faqs={faqs}
     >

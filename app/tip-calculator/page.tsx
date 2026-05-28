@@ -39,8 +39,8 @@ export default function TipCalculatorPage() {
     <ToolPageLayout
       title="Tip Calculator"
       description="Calculate tips, totals and split bills instantly online."
-      categoryName="Quick Math & Daily Calculators"
-      categorySlug="quick-math-daily-calculators"
+
+
       href="/tip-calculator"
       faqs={faqs}
     >

@@ -23,7 +23,7 @@ const faqs = [
     question: "What does total interest mean?",
 
     answer:
-      "Total interest is the amount paid above the original loan amount over the full repayment period.",
+
   },
 
   {
@@ -39,8 +39,8 @@ export default function LoanCalculatorPage() {
     <ToolPageLayout
       title="Loan Calculator"
       description="Calculate monthly loan payments, total repayment and interest instantly online."
-      categoryName="Finance & Investment Tools"
-      categorySlug="finance-investment-tools"
+
+
       href="/loan-calculator"
       faqs={faqs}
     >

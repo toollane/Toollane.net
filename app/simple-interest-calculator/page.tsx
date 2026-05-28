@@ -16,7 +16,7 @@ const faqs = [
     question: "How do you calculate simple interest?",
 
     answer:
-      "Simple interest is calculated by multiplying the principal amount by the interest rate and the time period.",
+
   },
 
   {
@@ -39,8 +39,8 @@ export default function SimpleInterestCalculatorPage() {
     <ToolPageLayout
       title="Simple Interest Calculator"
       description="Calculate simple interest and total amount instantly online."
-      categoryName="Finance & Investment Tools"
-      categorySlug="finance-investment-tools"
+
+
       href="/simple-interest-calculator"
       faqs={faqs}
     >

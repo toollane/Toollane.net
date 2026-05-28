@@ -23,7 +23,7 @@ const faqs = [
     question: "What is total interest on an auto loan?",
 
     answer:
-      "Total interest is the amount paid above the borrowed loan amount over the full repayment period.",
+
   },
 
   {
@@ -39,8 +39,8 @@ export default function AutoLoanCalculatorPage() {
     <ToolPageLayout
       title="Auto Loan Calculator"
       description="Calculate car loan payments and total interest instantly online."
-      categoryName="Finance & Investment Tools"
-      categorySlug="finance-investment-tools"
+
+
       href="/auto-loan-calculator"
       faqs={faqs}
     >

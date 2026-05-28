@@ -1,167 +1,120 @@
 import type { Metadata } from "next";
-
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 import { tools } from "@/data/tools";
 
 type Props = {
-  params: Promise<{
+  params: {
     slug: string;
-  }>;
+  };
 };
 
-export async function generateMetadata({
-  params,
-}: Props): Promise<Metadata> {
-  const { slug } = await params;
+const categories = Array.from(
+  new Map(
+    tools.map((tool) => [
+      tool.categorySlug,
+      {
+        name: tool.category,
+        slug: tool.categorySlug,
+      },
+    ])
+  ).values()
+);
 
-  const filteredTools = tools.filter(
-    (tool) => tool.categorySlug === slug
-  );
+export function generateStaticParams() {
+  return categories.map((category) => ({
+    slug: category.slug,
+  }));
+}
 
-  if (filteredTools.length === 0) {
+export function generateMetadata({ params }: Props): Metadata {
+  const category = categories.find((item) => item.slug === params.slug);
+
+  if (!category) {
     return {
-      title: "Category Not Found | Toollane",
+      title: "Category Not Found",
     };
   }
 
-  const categoryName =
-    filteredTools[0].category;
-
   return {
-    title: `${categoryName} | Toollane`,
-
-    description:
-      `Explore free online ${categoryName.toLowerCase()} built for speed, simplicity and productivity.`,
-
-    openGraph: {
-      title: `${categoryName} | Toollane`,
-
-      description:
-        `Explore free online ${categoryName.toLowerCase()} built for speed and simplicity.`,
+    title: `${category.name} | Free Online Tools`,
+    description: `Explore free online ${category.name.toLowerCase()} on Toollane. Fast browser-based tools with instant results.`,
+    alternates: {
+      canonical: `https://toollane.net/category/${category.slug}`,
     },
   };
 }
 
-export default async function CategoryPage({
-  params,
-}: Props) {
-  const { slug } = await params;
+export default function CategoryPage({ params }: Props) {
+  const category = categories.find((item) => item.slug === params.slug);
 
-  const filteredTools = tools.filter(
-    (tool) => tool.categorySlug === slug
-  );
-
-  if (filteredTools.length === 0) {
-    return (
-      <main className="min-h-screen flex items-center justify-center bg-[#fff8df]">
-        <h1 className="text-3xl font-bold">
-          Category not found
-        </h1>
-      </main>
-    );
+  if (!category) {
+    notFound();
   }
 
-  const categoryName =
-    filteredTools[0].category;
+  const categoryTools = tools.filter(
+    (tool) => tool.categorySlug === category.slug
+  );
 
   return (
-    <main className="min-h-screen bg-[#fff8df] text-[#171717]">
-
-      {/* HERO */}
-
-      <section className="relative overflow-hidden border-b border-black/10">
-
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_#ffe680,_transparent_35%),radial-gradient(circle_at_top_right,_#ffd6e7,_transparent_30%)]" />
-
-        <div className="relative max-w-6xl mx-auto px-6 py-24">
-
-          <div className="max-w-3xl">
-
-            <div className="inline-flex items-center rounded-full border border-black/10 bg-white/70 backdrop-blur px-4 py-2 text-sm mb-6 shadow-sm">
-              {filteredTools.length} tools available
-            </div>
-
-            <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
-              {categoryName}
-            </h1>
-
-            <p className="text-xl text-black/60 leading-8">
-              Explore free online {categoryName.toLowerCase()} built for speed, simplicity and productivity.
-            </p>
-
+    <main className="min-h-screen bg-[#fff8df] text-black">
+      <section className="border-b border-black/10">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+          <div className="mb-5 inline-flex rounded-full border border-black/10 bg-white/70 px-4 py-2 text-sm font-semibold shadow-sm">
+            Toollane Category
           </div>
 
-        </div>
+          <h1 className="max-w-3xl text-4xl font-black tracking-tight sm:text-5xl lg:text-6xl">
+            {category.name}
+          </h1>
 
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-black/60">
+            Explore fast, free and browser-based {category.name.toLowerCase()}.
+            Every tool is built for quick results, clean UX and everyday use.
+          </p>
+        </div>
       </section>
 
+      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+        <div className="mb-6 flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-2xl font-bold">
+              All {category.name}
+            </h2>
 
+            <p className="mt-2 text-black/60">
+              {categoryTools.length} tools available in this category.
+            </p>
+          </div>
+        </div>
 
-      {/* TOOLS */}
-
-      <section className="max-w-6xl mx-auto px-6 py-20">
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          {filteredTools.map((tool) => (
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {categoryTools.map((tool) => (
             <Link
               key={tool.href}
               href={tool.href}
-              className="group bg-white/75 backdrop-blur border border-black/10 rounded-3xl p-8 hover:bg-white hover:-translate-y-1 hover:shadow-xl transition"
+              className="group rounded-3xl border border-black/10 bg-white/80 p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-black/20 hover:shadow-md"
             >
-
-              <div className="w-12 h-12 rounded-2xl bg-[#fff0a8] border border-black/10 flex items-center justify-center text-xl mb-6">
-                ✦
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-sm font-bold text-white">
+                {tool.icon}
               </div>
 
-              <h2 className="text-2xl font-semibold mb-3 group-hover:translate-x-1 transition">
+              <h3 className="text-xl font-bold group-hover:underline">
                 {tool.name}
-              </h2>
+              </h3>
 
-              <p className="text-black/60 leading-7">
+              <p className="mt-3 line-clamp-3 text-sm leading-6 text-black/60">
                 {tool.description}
               </p>
 
+              <div className="mt-5 text-sm font-semibold text-black">
+                Open tool →
+              </div>
             </Link>
           ))}
-
         </div>
-
       </section>
-
-
-
-      {/* SEO CONTENT */}
-
-      <section className="border-t border-black/10 bg-white/40">
-
-        <div className="max-w-4xl mx-auto px-6 py-20">
-
-          <h2 className="text-4xl font-bold tracking-tight mb-8">
-            Free {categoryName}
-          </h2>
-
-          <div className="space-y-6 text-lg text-black/65 leading-8">
-
-            <p>
-              Toollane provides fast, free and easy-to-use {categoryName.toLowerCase()} for everyday productivity.
-            </p>
-
-            <p>
-              All tools are optimized for desktop and mobile devices and designed with a strong focus on simplicity and speed.
-            </p>
-
-            <p>
-              Whether you need quick calculations, conversions or utility tools, Toollane helps you solve tasks instantly without registration or unnecessary complexity.
-            </p>
-
-          </div>
-
-        </div>
-
-      </section>
-
     </main>
   );
 }

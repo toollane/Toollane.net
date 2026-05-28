@@ -23,14 +23,14 @@ const faqs = [
     question: "How do you calculate the final price after a discount?",
 
     answer:
-      "Subtract the discount amount from the original price to get the final price.",
+
   },
 
   {
     question: "Why use a discount calculator?",
 
     answer:
-      "A discount calculator helps you quickly see how much you save and what the final price will be.",
+
   },
 ];
 
@@ -39,8 +39,8 @@ export default function DiscountCalculatorPage() {
     <ToolPageLayout
       title="Discount Calculator"
       description="Calculate discounts, savings and final prices instantly online."
-      categoryName="Quick Math & Daily Calculators"
-      categorySlug="quick-math-daily-calculators"
+
+
       href="/discount-calculator"
       faqs={faqs}
     >
