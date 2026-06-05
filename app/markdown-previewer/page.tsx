@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Preview Markdown instantly with Toollane's free online Markdown previewer.",
 };
 
-const faqs = [
-  {
-    question:
-      "What does a Markdown previewer do?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Who uses Markdown previewers?",
-
-    answer:
-      "Developers, bloggers, technical writers and GitHub users use Markdown previewers daily.",
-  },
-
-  {
-    question:
-      "Can I preview Markdown live?",
-
-    answer:
-
-  },
-];
-
 export default function MarkdownPreviewerPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function MarkdownPreviewerPage() {
 
 
       href="/markdown-previewer"
-      faqs={faqs}
     >
       <MarkdownPreviewerClient />
     </ToolPageLayout>

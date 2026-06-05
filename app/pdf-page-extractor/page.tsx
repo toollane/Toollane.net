@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Extract PDF pages instantly with Toollane's free online PDF page extractor.",
 };
 
-const faqs = [
-  {
-    question:
-      "What does a PDF page extractor do?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Can I extract multiple pages?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Are my PDF files uploaded?",
-
-    answer:
-
-  },
-];
-
 export default function PdfPageExtractorPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function PdfPageExtractorPage() {
 
 
       href="/pdf-page-extractor"
-      faqs={faqs}
     >
       <PdfPageExtractorClient />
     </ToolPageLayout>

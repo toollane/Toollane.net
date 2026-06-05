@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Calculate discounts and price decreases instantly with Toollane's free online price decrease calculator.",
 };
 
-const faqs = [
-  {
-    question: "How do you calculate a price decrease?",
-
-    answer:
-
-  },
-
-  {
-    question: "How do you calculate a discounted price?",
-
-    answer:
-
-  },
-
-  {
-    question: "Can I enter decimal percentages?",
-
-    answer:
-
-  },
-];
-
 export default function PriceDecreaseCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function PriceDecreaseCalculatorPage() {
 
 
       href="/price-decrease-calculator"
-      faqs={faqs}
     >
       <PriceDecreaseCalculatorClient />
     </ToolPageLayout>

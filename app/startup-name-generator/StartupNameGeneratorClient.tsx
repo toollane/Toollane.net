@@ -2,88 +2,129 @@
 
 import { useMemo, useState } from "react";
 
-const techPrefixes = [
+import ToolResultBox from "@/components/ToolResultBox";
 
-
-
-
-
-
-
-
-
-
-];
-
-const techSuffixes = [
-
-
-
-
-
-
-
-
-
-
+const ENDINGS = [
+  "AI",
+  "Flow",
+  "Sync",
+  "Base",
+  "Cloud",
+  "Forge",
+  "Stack",
+  "Works",
+  "ly",
+  "HQ",
 ];
 
 export default function StartupNameGeneratorClient() {
-  const [keyword, setKeyword] = useState("");
-  const [refreshKey, setRefreshKey] = useState(0);
+  const [keyword, setKeyword] = useState("Growth");
 
-  const names = useMemo(() => {
-    const value =
-      keyword.trim().replace(/\s+/g, "") || "Start";
+  const startups = useMemo(() => {
+    const normalized = keyword
+      .replace(/\s+/g, "")
+      .trim();
 
-    return Array.from({ length: 12 }, (_, index) => {
-      const prefix =
-        techPrefixes[(index + refreshKey) % techPrefixes.length];
+    const generated = new Set<string>();
 
-      const suffix =
-        techSuffixes[(index * 2 + refreshKey) % techSuffixes.length];
-
-      return `${prefix}${value}${suffix}`;
+    ENDINGS.forEach((ending) => {
+      generated.add(`${normalized}${ending}`);
+      generated.add(`${ending}${normalized}`);
     });
-  }, [keyword, refreshKey]);
+
+    generated.add(`${normalized}ify`);
+    generated.add(`${normalized}Labs`);
+    generated.add(`${normalized}Pilot`);
+    generated.add(`${normalized}Nest`);
+
+    return Array.from(generated).slice(0, 30);
+  }, [keyword]);
+
+  async function copyAll() {
+    await navigator.clipboard.writeText(
+      startups.join("\n")
+    );
+  }
+
+  function resetExample() {
+    setKeyword("Growth");
+  }
 
   return (
     <div className="grid gap-8">
-      <div className="space-y-3">
-        <h2 className="text-2xl font-bold">
-          Startup Name Generator
+      <div>
+        <h2 className="text-2xl font-black tracking-tight text-black">
+          Generate startup names
         </h2>
 
-        <p className="text-black/60 leading-7">
-          Generate startup and tech company name ideas instantly for SaaS,
-          AI, apps and digital brands.
+        <p className="mt-3 text-sm leading-7 text-black/60 sm:text-base">
+          Generate startup and SaaS brand names for technology, AI, fintech and
+          online businesses.
         </p>
       </div>
 
-      <input
+      <Input
+        label="Startup keyword"
         value={keyword}
-        onChange={(event) => setKeyword(event.target.value)}
-        placeholder="Enter startup niche..."
-        className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
+        onChange={setKeyword}
       />
 
-      <button
-        onClick={() => setRefreshKey((value) => value + 1)}
-        className="bg-black text-white rounded-2xl px-6 py-4 font-semibold"
-      >
-        Generate Startup Names
-      </button>
+      <ToolResultBox title="Generated startup names">
+        <div className="grid gap-3">
+          {startups.map((name) => (
+            <div
+              key={name}
+              className="rounded-2xl border border-black/10 bg-white px-5 py-4 font-bold text-black"
+            >
+              {name}
+            </div>
+          ))}
+        </div>
+      </ToolResultBox>
 
-      <div className="grid gap-3">
-        {names.map((name) => (
-          <div
-            key={name}
-            className="bg-white border border-black/10 rounded-2xl px-5 py-4 font-semibold"
-          >
-            {name}
-          </div>
-        ))}
+      <div className="flex gap-3">
+        <button
+          type="button"
+          onClick={copyAll}
+          className="rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90"
+        >
+          Copy startup names
+        </button>
+
+        <button
+          type="button"
+          onClick={resetExample}
+          className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:bg-black/5"
+        >
+          Reset
+        </button>
       </div>
     </div>
+  );
+}
+
+function Input({
+  label,
+  value,
+  onChange,
+}: {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+}) {
+  return (
+    <label className="block">
+      <span className="text-sm font-bold text-black">
+        {label}
+      </span>
+
+      <input
+        value={value}
+        onChange={(event) =>
+          onChange(event.target.value)
+        }
+        className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
+      />
+    </label>
   );
 }

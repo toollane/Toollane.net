@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Estimate ad revenue from pageviews and RPM with Toollane's free online ad revenue calculator.",
 };
 
-const faqs = [
-  {
-    question: "How does an ad revenue calculator work?",
-
-    answer:
-      "An ad revenue calculator estimates earnings by multiplying pageviews by RPM and dividing by 1,000.",
-  },
-
-  {
-    question: "What is RPM?",
-
-    answer:
-
-  },
-
-  {
-    question: "Are ad revenue estimates exact?",
-
-    answer:
-      "No. Actual revenue can vary based on traffic source, country, ad placement, niche and monetization platform.",
-  },
-];
-
 export default function AdRevenueCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function AdRevenueCalculatorPage() {
 
 
       href="/ad-revenue-calculator"
-      faqs={faqs}
     >
       <AdRevenueCalculatorClient />
     </ToolPageLayout>

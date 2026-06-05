@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Generate random male, female and full names instantly with Toollane's free online random name generator.",
 };
 
-const faqs = [
-  {
-    question: "What does a random name generator do?",
-
-    answer:
-      "A random name generator creates random full names for writing, testing, games and creative projects.",
-  },
-
-  {
-    question: "Can I generate male or female names?",
-
-    answer:
-      "Yes. You can choose mixed, male or female name generation.",
-  },
-
-  {
-    question: "What can I use random names for?",
-
-    answer:
-      "Random names can be useful for stories, games, mockups, test data and creative work.",
-  },
-];
-
 export default function RandomNameGeneratorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function RandomNameGeneratorPage() {
 
 
       href="/random-name-generator"
-      faqs={faqs}
     >
       <RandomNameGeneratorClient />
     </ToolPageLayout>

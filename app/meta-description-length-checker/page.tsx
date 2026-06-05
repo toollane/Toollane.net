@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Check meta description length instantly with Toollane's free online SEO description checker.",
 };
 
-const faqs = [
-  {
-    question:
-      "What is a meta description?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "How long should a meta description be?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Why check meta description length?",
-
-    answer:
-
-  },
-];
-
 export default function MetaDescriptionLengthCheckerPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function MetaDescriptionLengthCheckerPage() {
 
 
       href="/meta-description-length-checker"
-      faqs={faqs}
     >
       <MetaDescriptionLengthCheckerClient />
     </ToolPageLayout>

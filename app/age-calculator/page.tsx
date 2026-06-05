@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Calculate your exact age in years, months and days instantly with Toollane's free online age calculator.",
 };
 
-const faqs = [
-  {
-    question:
-      "How does an age calculator work?",
-
-    answer:
-      "An age calculator compares your date of birth with today's date to calculate your exact age.",
-  },
-
-  {
-    question:
-      "Can I calculate age in months and days?",
-
-    answer:
-      "Yes. Toollane's age calculator shows your age in years, months and days.",
-  },
-
-  {
-    question:
-      "Why use an online age calculator?",
-
-    answer:
-
-  },
-];
-
 export default function AgeCalculatorPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function AgeCalculatorPage() {
 
 
       href="/age-calculator"
-      faqs={faqs}
     >
       <AgeCalculatorClient />
     </ToolPageLayout>

@@ -10,24 +10,6 @@ export const metadata: Metadata = {
     "Convert images to PDF using Toollane's free online image to PDF converter.",
 };
 
-const faqs = [
-  {
-    question: "How does an image to PDF converter work?",
-    answer:
-
-  },
-  {
-    question: "Are my images uploaded?",
-    answer:
-
-  },
-  {
-    question: "Can I combine multiple images?",
-    answer:
-
-  },
-];
-
 export default function ImageToPdfPage() {
   return (
     <ToolPageLayout
@@ -36,7 +18,6 @@ export default function ImageToPdfPage() {
 
 
       href="/image-to-pdf"
-      faqs={faqs}
     >
       <ImageToPdfClient />
     </ToolPageLayout>

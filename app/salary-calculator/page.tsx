@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Convert annual salary into monthly, weekly, daily and hourly pay with Toollane's free online salary calculator.",
 };
 
-const faqs = [
-  {
-    question: "How do you calculate monthly salary from annual salary?",
-
-    answer:
-
-  },
-
-  {
-    question: "How do you calculate hourly rate from annual salary?",
-
-    answer:
-
-  },
-
-  {
-    question: "Does this salary calculator include taxes?",
-
-    answer:
-      "No. This calculator shows gross salary before taxes, insurance, deductions or benefits.",
-  },
-];
-
 export default function SalaryCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function SalaryCalculatorPage() {
 
 
       href="/salary-calculator"
-      faqs={faqs}
     >
       <SalaryCalculatorClient />
     </ToolPageLayout>

@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Resize images online instantly with Toollane's free browser-based image resizer.",
 };
 
-const faqs = [
-  {
-    question: "How does an image resizer work?",
-
-    answer:
-
-  },
-
-  {
-    question: "Are my images uploaded?",
-
-    answer:
-
-  },
-
-  {
-    question: "Why resize images?",
-
-    answer:
-      "Resizing images helps prepare files for websites, social media, documents and online forms.",
-  },
-];
-
 export default function ImageResizerPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function ImageResizerPage() {
 
 
       href="/image-resizer"
-      faqs={faqs}
     >
       <ImageResizerClient />
     </ToolPageLayout>

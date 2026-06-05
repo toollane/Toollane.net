@@ -11,32 +11,6 @@ export const metadata: Metadata = {
     "Convert HTML to Markdown instantly with Toollane's free online HTML to Markdown converter.",
 };
 
-const faqs = [
-  {
-    question:
-      "What does an HTML to Markdown converter do?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Is my HTML uploaded?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Can I download the Markdown output?",
-
-    answer:
-
-  },
-];
-
 export default function HtmlToMarkdownPage() {
   return (
     <ToolPageLayout
@@ -45,7 +19,6 @@ export default function HtmlToMarkdownPage() {
 
 
       href="/html-to-markdown"
-      faqs={faqs}
     >
       <HtmlToMarkdownClient />
     </ToolPageLayout>

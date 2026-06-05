@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Calculate VAT, net price and gross price instantly with Toollane's free online VAT calculator.",
 };
 
-const faqs = [
-  {
-    question: "How do you calculate VAT?",
-
-    answer:
-      "To add VAT, multiply the net price by the VAT rate and add the result to the net price.",
-  },
-
-  {
-    question: "How do you remove VAT from a price?",
-
-    answer:
-      "To remove VAT from a gross price, divide the gross price by 1 plus the VAT rate divided by 100.",
-  },
-
-  {
-    question: "Can I use different VAT rates?",
-
-    answer:
-
-  },
-];
-
 export default function VatCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function VatCalculatorPage() {
 
 
       href="/vat-calculator"
-      faqs={faqs}
     >
       <VatCalculatorClient />
     </ToolPageLayout>

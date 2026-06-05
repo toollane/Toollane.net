@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Format SQL queries instantly with Toollane's free online SQL formatter.",
 };
 
-const faqs = [
-  {
-    question: "What does a SQL formatter do?",
-
-    answer:
-
-  },
-
-  {
-    question: "Who uses SQL formatters?",
-
-    answer:
-      "Developers, data analysts, students and database administrators use SQL formatters to clean up queries.",
-  },
-
-  {
-    question: "Can I copy the formatted SQL?",
-
-    answer:
-      "Yes. After formatting, you can copy the formatted SQL output.",
-  },
-];
-
 export default function SqlFormatterPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function SqlFormatterPage() {
 
 
       href="/sql-formatter"
-      faqs={faqs}
     >
       <SqlFormatterClient />
     </ToolPageLayout>

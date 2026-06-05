@@ -2,167 +2,258 @@
 
 import { useMemo, useState } from "react";
 
-export default function RoiCalculatorClient() {
-  const [investment, setInvestment] =
-    useState("");
+import ToolErrorBox from "@/components/ToolErrorBox";
+import ToolInfoBox from "@/components/ToolInfoBox";
+import ToolResultBox from "@/components/ToolResultBox";
 
-  const [returnValue, setReturnValue] =
-    useState("");
+function formatCurrency(value: number) {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 2,
+  }).format(value);
+}
+
+function formatPercent(value: number) {
+  return `${value.toFixed(2)}%`;
+}
+
+export default function RoiCalculatorClient() {
+  const [initialInvestment, setInitialInvestment] = useState(10000);
+  const [additionalCosts, setAdditionalCosts] = useState(1500);
+  const [revenue, setRevenue] = useState(18000);
+  const [ongoingCosts, setOngoingCosts] = useState(3000);
+  const [timeMonths, setTimeMonths] = useState(12);
+  const [error, setError] = useState("");
 
   const result = useMemo(() => {
-    const initial =
-      parseFloat(investment);
-
-    const final =
-      parseFloat(returnValue);
-
     if (
-      isNaN(initial) ||
-      isNaN(final) ||
-      initial <= 0
+      initialInvestment < 0 ||
+      additionalCosts < 0 ||
+      revenue < 0 ||
+      ongoingCosts < 0 ||
+      timeMonths <= 0
     ) {
-      return {
-        profit: "",
-        roi: "",
-        totalReturn: "",
-      };
+      return null;
     }
 
-    const profit =
-      final - initial;
-
-    const roi =
-      (profit / initial) * 100;
+    const totalInvestment = initialInvestment + additionalCosts + ongoingCosts;
+    const netProfit = revenue - totalInvestment;
+    const roi = totalInvestment > 0 ? (netProfit / totalInvestment) * 100 : 0;
+    const annualizedRoi =
+      timeMonths > 0 ? (Math.pow(1 + roi / 100, 12 / timeMonths) - 1) * 100 : 0;
+    const paybackMonths =
+      revenue > ongoingCosts
+        ? totalInvestment / ((revenue - ongoingCosts) / timeMonths)
+        : null;
 
     return {
-      profit:
-        profit.toFixed(2),
-
-      roi:
-        roi.toFixed(2),
-
-      totalReturn:
-        final.toFixed(2),
+      totalInvestment,
+      netProfit,
+      roi,
+      annualizedRoi,
+      paybackMonths,
+      profitMargin: revenue > 0 ? (netProfit / revenue) * 100 : 0,
     };
-  }, [investment, returnValue]);
+  }, [initialInvestment, additionalCosts, revenue, ongoingCosts, timeMonths]);
+
+  function validateInputs() {
+    if (
+      initialInvestment < 0 ||
+      additionalCosts < 0 ||
+      revenue < 0 ||
+      ongoingCosts < 0
+    ) {
+      setError("Values cannot be negative.");
+      return false;
+    }
+
+    if (timeMonths <= 0) {
+      setError("Time period must be greater than zero.");
+      return false;
+    }
+
+    setError("");
+    return true;
+  }
+
+  function resetExample() {
+    setInitialInvestment(10000);
+    setAdditionalCosts(1500);
+    setRevenue(18000);
+    setOngoingCosts(3000);
+    setTimeMonths(12);
+    setError("");
+  }
 
   return (
     <div className="grid gap-8">
-
-      {/* INTRO */}
-
-      <div className="space-y-3">
-
-        <h2 className="text-2xl font-bold">
-          Calculate Return on Investment
+      <div>
+        <h2 className="text-2xl font-black tracking-tight text-black">
+          Calculate ROI
         </h2>
 
-        <p className="text-black/60 leading-7">
-          Estimate investment performance by calculating total profit and ROI percentage.
+        <p className="mt-3 text-sm leading-7 text-black/60 sm:text-base">
+          Calculate return on investment with revenue, initial investment,
+          additional costs, ongoing costs and time period.
         </p>
-
       </div>
 
+      <div className="grid gap-5">
+        <div className="grid gap-4 sm:grid-cols-2">
+          <NumberInput
+            label="Initial investment"
+            value={initialInvestment}
+            onChange={setInitialInvestment}
+            onBlur={validateInputs}
+          />
 
+          <NumberInput
+            label="Additional setup costs"
+            value={additionalCosts}
+            onChange={setAdditionalCosts}
+            onBlur={validateInputs}
+          />
 
-      {/* INPUTS */}
+          <NumberInput
+            label="Total revenue"
+            value={revenue}
+            onChange={setRevenue}
+            onBlur={validateInputs}
+          />
 
-      <div className="grid gap-6">
+          <NumberInput
+            label="Ongoing costs"
+            value={ongoingCosts}
+            onChange={setOngoingCosts}
+            onBlur={validateInputs}
+          />
 
-        <div>
-          <label className="block mb-2 font-medium">
-            Initial Investment (USD)
-          </label>
-
-          <input
-            type="number"
-            value={investment}
-            onChange={(e) =>
-              setInvestment(e.target.value)
-            }
-            placeholder="1000"
-            className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
+          <NumberInput
+            label="Time period months"
+            value={timeMonths}
+            onChange={setTimeMonths}
+            onBlur={validateInputs}
           />
         </div>
 
-        <div>
-          <label className="block mb-2 font-medium">
-            Final Value (USD)
-          </label>
+        {error && <ToolErrorBox message={error} />}
 
-          <input
-            type="number"
-            value={returnValue}
-            onChange={(e) =>
-              setReturnValue(e.target.value)
-            }
-            placeholder="1500"
-            className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
-          />
-        </div>
-
+        <button
+          type="button"
+          onClick={resetExample}
+          className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:bg-black/5 sm:w-fit"
+        >
+          Reset example
+        </button>
       </div>
 
-
-
-      {/* RESULTS */}
-
-      <div className="grid md:grid-cols-3 gap-4">
-
-        <div className="bg-white border border-black/10 rounded-3xl p-6">
-
-          <div className="text-sm text-black/50 mb-2">
-            Profit
+      {result ? (
+        <ToolResultBox title="ROI result">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <ResultCard label="ROI" value={formatPercent(result.roi)} highlight />
+            <ResultCard
+              label="Net profit"
+              value={formatCurrency(result.netProfit)}
+            />
+            <ResultCard
+              label="Total investment"
+              value={formatCurrency(result.totalInvestment)}
+            />
+            <ResultCard
+              label="Annualized ROI"
+              value={formatPercent(result.annualizedRoi)}
+            />
+            <ResultCard
+              label="Profit margin"
+              value={formatPercent(result.profitMargin)}
+            />
+            <ResultCard
+              label="Estimated payback"
+              value={
+                result.paybackMonths
+                  ? `${result.paybackMonths.toFixed(1)} months`
+                  : "Not reached"
+              }
+            />
           </div>
 
-          <div className="text-3xl font-bold">
-            ${result.profit || "0"}
+          <div className="mt-5 rounded-2xl border border-black/10 bg-white p-5 text-sm leading-7 text-black/65">
+            Your estimated ROI is{" "}
+            <strong className="text-black">{formatPercent(result.roi)}</strong>{" "}
+            with a net profit of{" "}
+            <strong className="text-black">
+              {formatCurrency(result.netProfit)}
+            </strong>
+            .
           </div>
+        </ToolResultBox>
+      ) : (
+        <ToolInfoBox>
+          Enter valid investment and revenue values to calculate ROI.
+        </ToolInfoBox>
+      )}
 
-        </div>
+      <ToolInfoBox>
+        ROI is useful for comparing investments, campaigns and projects, but it
+        does not account for risk, cash flow timing, taxes or opportunity cost.
+      </ToolInfoBox>
+    </div>
+  );
+}
 
-        <div className="bg-white border border-black/10 rounded-3xl p-6">
+function NumberInput({
+  label,
+  value,
+  onChange,
+  onBlur,
+}: {
+  label: string;
+  value: number;
+  onChange: (value: number) => void;
+  onBlur: () => void;
+}) {
+  return (
+    <label className="block">
+      <span className="text-sm font-bold text-black">{label}</span>
 
-          <div className="text-sm text-black/50 mb-2">
-            ROI
-          </div>
+      <input
+        type="number"
+        value={value}
+        onChange={(event) => onChange(Number(event.target.value))}
+        onBlur={onBlur}
+        className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
+      />
+    </label>
+  );
+}
 
-          <div className="text-3xl font-bold">
-            {result.roi || "0"}%
-          </div>
-
-        </div>
-
-        <div className="bg-white border border-black/10 rounded-3xl p-6">
-
-          <div className="text-sm text-black/50 mb-2">
-            Total Return
-          </div>
-
-          <div className="text-3xl font-bold">
-            ${result.totalReturn || "0"}
-          </div>
-
-        </div>
-
+function ResultCard({
+  label,
+  value,
+  highlight = false,
+}: {
+  label: string;
+  value: string;
+  highlight?: boolean;
+}) {
+  return (
+    <div
+      className={`rounded-2xl border p-5 ${
+        highlight
+          ? "border-black bg-black text-white"
+          : "border-black/10 bg-white text-black"
+      }`}
+    >
+      <div
+        className={`text-xs font-bold uppercase tracking-wide ${
+          highlight ? "text-white/50" : "text-black/40"
+        }`}
+      >
+        {label}
       </div>
 
-
-
-      {/* INFO */}
-
-      <div className="bg-white/60 border border-black/10 rounded-3xl p-6">
-
-        <h3 className="font-semibold mb-3">
-          What ROI means
-        </h3>
-
-        <p className="text-black/60 leading-7">
-          ROI (Return on Investment) measures how profitable an investment is compared to its original cost. Higher ROI percentages indicate stronger returns.
-        </p>
-
-      </div>
-
+      <div className="mt-2 text-xl font-black">{value}</div>
     </div>
   );
 }

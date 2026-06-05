@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Generate random color palettes instantly with Toollane's free online color palette generator.",
 };
 
-const faqs = [
-  {
-    question: "What does a color palette generator do?",
-
-    answer:
-      "It creates sets of color codes that can be used for websites, apps, branding and design projects.",
-  },
-
-  {
-    question: "Can I copy the color palette?",
-
-    answer:
-
-  },
-
-  {
-    question: "Who uses color palette generators?",
-
-    answer:
-      "Designers, developers, creators and marketers use color palettes for visual projects.",
-  },
-];
-
 export default function RandomColorPaletteGeneratorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function RandomColorPaletteGeneratorPage() {
 
 
       href="/random-color-palette-generator"
-      faqs={faqs}
     >
       <RandomColorPaletteGeneratorClient />
     </ToolPageLayout>

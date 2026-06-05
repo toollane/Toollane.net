@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Calculate future cost and price increase from inflation with Toollane's free online inflation calculator.",
 };
 
-const faqs = [
-  {
-    question: "How does an inflation calculator work?",
-
-    answer:
-
-  },
-
-  {
-    question: "What does inflation do to purchasing power?",
-
-    answer:
-      "Inflation means prices rise over time, so the same amount of money may buy less in the future.",
-  },
-
-  {
-    question: "Can I use different currencies?",
-
-    answer:
-      "Yes. You can choose common currencies such as USD, EUR, GBP, CAD and AUD.",
-  },
-];
-
 export default function InflationCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function InflationCalculatorPage() {
 
 
       href="/inflation-calculator"
-      faqs={faqs}
     >
       <InflationCalculatorClient />
     </ToolPageLayout>

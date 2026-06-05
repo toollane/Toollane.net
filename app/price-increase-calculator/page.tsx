@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Calculate price increase amount and new price instantly with Toollane's free online price increase calculator.",
 };
 
-const faqs = [
-  {
-    question: "How do you calculate a price increase?",
-
-    answer:
-
-  },
-
-  {
-    question: "How do you calculate the new price?",
-
-    answer:
-
-  },
-
-  {
-    question: "Can I enter decimal percentages?",
-
-    answer:
-
-  },
-];
-
 export default function PriceIncreaseCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function PriceIncreaseCalculatorPage() {
 
 
       href="/price-increase-calculator"
-      faqs={faqs}
     >
       <PriceIncreaseCalculatorClient />
     </ToolPageLayout>

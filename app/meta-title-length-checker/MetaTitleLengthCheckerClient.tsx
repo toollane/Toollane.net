@@ -2,80 +2,148 @@
 
 import { useMemo, useState } from "react";
 
+import ToolResultBox from "@/components/ToolResultBox";
+
 export default function MetaTitleLengthCheckerClient() {
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState(
+    "Best SEO Meta Title Length Checker for Websites"
+  );
 
   const result = useMemo(() => {
     const length = title.length;
 
-    let status = "Too short";
-    let advice = "Try adding more descriptive keywords.";
+    let status = "Good";
+    let color = "text-green-600";
 
-    if (length >= 40 && length <= 60) {
-      status = "Good length";
-      advice = "This title length is usually suitable for SEO snippets.";
-    } else if (length > 60) {
+    if (length < 30) {
+      status = "Too short";
+      color = "text-yellow-600";
+    }
+
+    if (length > 60) {
       status = "Too long";
-      advice = "Consider shortening the title to reduce truncation risk.";
+      color = "text-red-600";
     }
 
     return {
       length,
       status,
-      advice,
+      color,
+      pixels: length * 9,
     };
   }, [title]);
 
+  async function copyResult() {
+    await navigator.clipboard.writeText(title);
+  }
+
+  function resetExample() {
+    setTitle(
+      "Best SEO Meta Title Length Checker for Websites"
+    );
+  }
+
   return (
     <div className="grid gap-8">
-      <div className="space-y-3">
-        <h2 className="text-2xl font-bold">
-          Check Meta Title Length
+      <div>
+        <h2 className="text-2xl font-black tracking-tight text-black">
+          Check meta title length
         </h2>
 
-        <p className="text-black/60 leading-7">
-          Check your SEO title length and see whether it may be too short, too long or a good fit.
+        <p className="mt-3 text-sm leading-7 text-black/60 sm:text-base">
+          Analyze SEO title length for search engines and optimize your SERP
+          visibility.
         </p>
       </div>
 
-      <input
-        type="text"
+      <textarea
         value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="Enter your meta title..."
-        className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
+        onChange={(event) =>
+          setTitle(event.target.value)
+        }
+        className="min-h-[180px] w-full resize-y rounded-[2rem] border border-black/10 bg-white px-5 py-4 text-sm text-black outline-none transition focus:border-black"
       />
 
-      <div className="grid md:grid-cols-2 gap-4">
-        <div className="bg-white border border-black/10 rounded-3xl p-6">
-          <div className="text-sm text-black/50 mb-2">
-            Characters
-          </div>
+      <ToolResultBox title="SEO title analysis">
+        <div className="grid gap-4 sm:grid-cols-3">
+          <ResultCard
+            label="Characters"
+            value={result.length.toString()}
+          />
 
-          <div className="text-3xl font-bold">
-            {result.length}
+          <ResultCard
+            label="Estimated pixels"
+            value={result.pixels.toString()}
+          />
+
+          <div className="rounded-2xl border border-black/10 bg-white p-5">
+            <div className="text-xs font-bold uppercase tracking-wide text-black/40">
+              Status
+            </div>
+
+            <div
+              className={`mt-2 text-xl font-black ${result.color}`}
+            >
+              {result.status}
+            </div>
           </div>
         </div>
 
-        <div className="bg-white border border-black/10 rounded-3xl p-6">
-          <div className="text-sm text-black/50 mb-2">
-            Status
+        <div className="mt-6 rounded-2xl border border-black/10 bg-white p-5">
+          <div className="text-xs font-bold uppercase tracking-wide text-black/40">
+            Google SERP preview
           </div>
 
-          <div className="text-3xl font-bold">
-            {result.status}
+          <div className="mt-3 text-xl text-[#1a0dab]">
+            {title || "Your page title"}
+          </div>
+
+          <div className="mt-2 text-sm text-[#006621]">
+            https://example.com
+          </div>
+
+          <div className="mt-2 text-sm text-black/60">
+            Example meta description preview for search engine results pages.
           </div>
         </div>
+      </ToolResultBox>
+
+      <div className="flex gap-3">
+        <button
+          type="button"
+          onClick={copyResult}
+          className="rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90"
+        >
+          Copy title
+        </button>
+
+        <button
+          type="button"
+          onClick={resetExample}
+          className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:bg-black/5"
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function ResultCard({
+  label,
+  value,
+}: {
+  label: string;
+  value: string;
+}) {
+  return (
+    <div className="rounded-2xl border border-black/10 bg-white p-5">
+      <div className="text-xs font-bold uppercase tracking-wide text-black/40">
+        {label}
       </div>
 
-      <div className="bg-white/60 border border-black/10 rounded-3xl p-6">
-        <h3 className="font-semibold mb-3">
-          Recommendation
-        </h3>
-
-        <p className="text-black/60 leading-7">
-          {result.advice}
-        </p>
+      <div className="mt-2 text-xl font-black text-black">
+        {value}
       </div>
     </div>
   );

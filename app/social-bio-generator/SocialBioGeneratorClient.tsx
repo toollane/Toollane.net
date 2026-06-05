@@ -2,86 +2,162 @@
 
 import { useMemo, useState } from "react";
 
+import ToolResultBox from "@/components/ToolResultBox";
+
+const TONES = [
+  "Professional",
+  "Friendly",
+  "Minimal",
+  "Creative",
+  "Luxury",
+];
+
 export default function SocialBioGeneratorClient() {
-  const [name, setName] = useState("");
-  const [topic, setTopic] = useState("");
-  const [style, setStyle] = useState("creator");
+  const [name, setName] = useState("Alex");
+  const [profession, setProfession] =
+    useState("SEO Consultant");
+
+  const [tone, setTone] = useState("Professional");
 
   const bios = useMemo(() => {
-    const displayName = name.trim() || "Creator";
-    const niche = topic.trim() || "content";
-
-    if (style === "professional") {
-      return [
-        `${displayName} | Helping people with ${niche}`,
-        `${displayName} — ${niche} specialist`,
-        `Sharing practical insights about ${niche}`,
-        `${niche} tips, ideas and resources by ${displayName}`,
-      ];
-    }
-
-    if (style === "fun") {
-      return [
-        `${displayName} ✨ making ${niche} more fun`,
-        `Just here for good vibes and ${niche}`,
-        `${niche}, coffee and creative chaos`,
-        `Creating ${niche} content with personality`,
-      ];
-    }
-
-    return [
-      `${displayName} | ${niche} creator`,
-      `Daily ${niche} tips and ideas`,
-      `Creating content about ${niche}`,
-      `${niche} inspiration for curious minds`,
+    const generated = [
+      `${profession} helping brands grow online 🚀`,
+      `Building better visibility through ${profession.toLowerCase()} strategies.`,
+      `Helping businesses scale with smart digital growth.`,
+      `${profession} | Content | Strategy | Growth`,
+      `Turning ideas into online growth.`,
     ];
-  }, [name, topic, style]);
+
+    if (tone === "Creative") {
+      generated.push(
+        `Obsessed with growth, content and creative strategy ✨`
+      );
+    }
+
+    if (tone === "Luxury") {
+      generated.push(
+        `Premium ${profession.toLowerCase()} services for ambitious brands.`
+      );
+    }
+
+    return generated.map(
+      (bio) => `${name} • ${bio}`
+    );
+  }, [name, profession, tone]);
+
+  async function copyAll() {
+    await navigator.clipboard.writeText(
+      bios.join("\n")
+    );
+  }
+
+  function resetExample() {
+    setName("Alex");
+    setProfession("SEO Consultant");
+    setTone("Professional");
+  }
+function Input({
+  label,
+  value,
+  onChange,
+}: {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+}) {
+  return (
+    <label className="block">
+      <span className="text-sm font-bold text-black">
+        {label}
+      </span>
+
+      <input
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
+        className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
+      />
+    </label>
+  );
+}
 
   return (
     <div className="grid gap-8">
-      <div className="space-y-3">
-        <h2 className="text-2xl font-bold">
-          Social Bio Generator
+      <div>
+        <h2 className="text-2xl font-black tracking-tight text-black">
+          Generate social media bios
         </h2>
 
-        <p className="text-black/60 leading-7">
-          Generate short bio ideas for Instagram, TikTok, YouTube, X and social profiles.
+        <p className="mt-3 text-sm leading-7 text-black/60 sm:text-base">
+          Create bios for Instagram, TikTok, X, LinkedIn and creator profiles.
         </p>
       </div>
 
-      <input
-        value={name}
-        onChange={(event) => setName(event.target.value)}
-        placeholder="Name or brand..."
-        className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
-      />
+      <div className="grid gap-4">
+        <Input
+          label="Name or brand"
+          value={name}
+          onChange={setName}
+        />
 
-      <input
-        value={topic}
-        onChange={(event) => setTopic(event.target.value)}
-        placeholder="Topic or niche..."
-        className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
-      />
+        <Input
+          label="Profession or niche"
+          value={profession}
+          onChange={setProfession}
+        />
 
-      <select
-        value={style}
-        onChange={(event) => setStyle(event.target.value)}
-        className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
-      >
-        <option value="creator">Creator Style</option>
-        <option value="professional">Professional Style</option>
-        <option value="fun">Fun Style</option>
-      </select>
+        <label className="block">
+          <span className="text-sm font-bold text-black">
+            Tone
+          </span>
 
-      <div className="grid gap-3">
-        {bios.map((bio) => (
-          <div
-            key={bio}
-            className="bg-white border border-black/10 rounded-2xl px-5 py-4 font-semibold break-words"
+          <select
+            value={tone}
+            onChange={(event) =>
+              setTone(event.target.value)
+            }
+            className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
           >
-            {bio}
-          </div>
-        ))}
+            {TONES.map((toneOption) => (
+              <option
+                key={toneOption}
+                value={toneOption}
+              >
+                {toneOption}
+              </option>
+            ))}
+          </select>
+        </label>
+      </div>
+
+      <ToolResultBox title="Generated bios">
+        <div className="grid gap-3">
+          {bios.map((bio) => (
+            <div
+              key={bio}
+              className="rounded-2xl border border-black/10 bg-white px-5 py-4 text-sm text-black"
+            >
+              {bio}
+            </div>
+          ))}
+        </div>
+      </ToolResultBox>
+
+      <div className="flex gap-3">
+        <button
+          type="button"
+          onClick={copyAll}
+          className="rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90"
+        >
+          Copy bios
+        </button>
+
+        <button
+          type="button"
+          onClick={resetExample}
+          className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:bg-black/5"
+        >
+          Reset
+        </button>
       </div>
     </div>
   );

@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Convert salary to hourly pay instantly with Toollane's free online salary to hourly calculator.",
 };
 
-const faqs = [
-  {
-    question:
-      "How do you convert salary to hourly pay?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Why use a salary to hourly calculator?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Can I adjust weekly hours?",
-
-    answer:
-
-  },
-];
-
 export default function SalaryToHourlyCalculatorPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function SalaryToHourlyCalculatorPage() {
 
 
       href="/salary-to-hourly-calculator"
-      faqs={faqs}
     >
       <SalaryToHourlyCalculatorClient />
     </ToolPageLayout>

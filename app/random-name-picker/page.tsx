@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Pick a random name instantly with Toollane's free online random name picker.",
 };
 
-const faqs = [
-  {
-    question: "What does a random name picker do?",
-
-    answer:
-
-  },
-
-  {
-    question: "Who can use a random name picker?",
-
-    answer:
-      "Teachers, teams, creators and event organizers can use it for classrooms, raffles, giveaways and group activities.",
-  },
-
-  {
-    question: "How do I enter names?",
-
-    answer:
-      "Enter one name per line, then click the button to randomly pick a name.",
-  },
-];
-
 export default function RandomNamePickerPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function RandomNamePickerPage() {
 
 
       href="/random-name-picker"
-      faqs={faqs}
     >
       <RandomNamePickerClient />
     </ToolPageLayout>

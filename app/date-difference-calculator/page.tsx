@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Calculate the difference between two dates instantly with Toollane's free online date difference calculator.",
 };
 
-const faqs = [
-  {
-    question: "How do you calculate date difference?",
-
-    answer:
-
-  },
-
-  {
-    question: "Can I calculate weeks between dates?",
-
-    answer:
-
-  },
-
-  {
-    question: "Why use a date difference calculator?",
-
-    answer:
-      "It helps quickly calculate time between events, deadlines, travel dates and schedules.",
-  },
-];
-
 export default function DateDifferenceCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function DateDifferenceCalculatorPage() {
 
 
       href="/date-difference-calculator"
-      faqs={faqs}
     >
       <DateDifferenceCalculatorClient />
     </ToolPageLayout>

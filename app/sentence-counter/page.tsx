@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Count sentences and words instantly with Toollane's free online sentence counter.",
 };
 
-const faqs = [
-  {
-    question: "How does a sentence counter work?",
-
-    answer:
-      "A sentence counter detects sentence-ending punctuation such as periods, question marks and exclamation marks.",
-  },
-
-  {
-    question: "Who can use a sentence counter?",
-
-    answer:
-      "Writers, students, editors and marketers can use it to review text structure and readability.",
-  },
-
-  {
-    question: "Does this tool count words too?",
-
-    answer:
-
-  },
-];
-
 export default function SentenceCounterPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function SentenceCounterPage() {
 
 
       href="/sentence-counter"
-      faqs={faqs}
     >
       <SentenceCounterClient />
     </ToolPageLayout>

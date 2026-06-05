@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Generate QR codes instantly with Toollane's free online QR code generator.",
 };
 
-const faqs = [
-  {
-    question:
-      "What does a QR code generator do?",
-
-    answer:
-      "It creates scannable QR codes for URLs, text, contact data, WiFi access and more.",
-  },
-
-  {
-    question:
-      "Can I download the QR code?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "What can QR codes be used for?",
-
-    answer:
-      "QR codes are used for websites, restaurant menus, business cards, WiFi sharing and social media.",
-  },
-];
-
 export default function QrCodeGeneratorPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function QrCodeGeneratorPage() {
 
 
       href="/qr-code-generator"
-      faqs={faqs}
     >
       <QrCodeGeneratorClient />
     </ToolPageLayout>

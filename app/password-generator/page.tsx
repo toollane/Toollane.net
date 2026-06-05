@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Generate secure random passwords instantly with Toollane's free online password generator.",
 };
 
-const faqs = [
-  {
-    question:
-      "What does a password generator do?",
-
-    answer:
-      "It creates secure random passwords using letters, numbers and symbols.",
-  },
-
-  {
-    question:
-      "Why should I use strong passwords?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Can I customize the password length?",
-
-    answer:
-
-  },
-];
-
 export default function PasswordGeneratorPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function PasswordGeneratorPage() {
 
 
       href="/password-generator"
-      faqs={faqs}
     >
       <PasswordGeneratorClient />
     </ToolPageLayout>

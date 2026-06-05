@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Check keyword density, keyword frequency and SEO content usage instantly with Toollane's free online keyword density checker.",
 };
 
-const faqs = [
-  {
-    question: "What is keyword density?",
-
-    answer:
-
-  },
-
-  {
-    question: "How do you calculate keyword density?",
-
-    answer:
-
-  },
-
-  {
-    question: "Why use a keyword density checker?",
-
-    answer:
-      "A keyword density checker helps writers, marketers and SEO specialists review content for keyword usage.",
-  },
-];
-
 export default function KeywordDensityCheckerPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function KeywordDensityCheckerPage() {
 
 
       href="/keyword-density-checker"
-      faqs={faqs}
     >
       <KeywordDensityCheckerClient />
     </ToolPageLayout>

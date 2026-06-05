@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Download YouTube thumbnails instantly with Toollane's free online YouTube thumbnail downloader.",
 };
 
-const faqs = [
-  {
-    question:
-      "What does a YouTube thumbnail downloader do?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Can I download thumbnails in HD?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Do I need to install anything?",
-
-    answer:
-
-  },
-];
-
 export default function YoutubeThumbnailDownloaderPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function YoutubeThumbnailDownloaderPage() {
 
 
       href="/youtube-thumbnail-downloader"
-      faqs={faqs}
     >
       <YoutubeThumbnailDownloaderClient />
     </ToolPageLayout>

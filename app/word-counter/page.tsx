@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Count words, characters and sentences instantly with Toollane's free online word counter.",
 };
 
-const faqs = [
-  {
-    question: "How does a word counter work?",
-
-    answer:
-
-  },
-
-  {
-    question: "Can I count characters too?",
-
-    answer:
-      "Yes. This tool counts total characters, characters without spaces, words and sentences.",
-  },
-
-  {
-    question: "Why use an online word counter?",
-
-    answer:
-      "It helps writers, students, marketers and creators quickly check text length.",
-  },
-];
-
 export default function WordCounterPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function WordCounterPage() {
 
 
       href="/word-counter"
-      faqs={faqs}
     >
       <WordCounterClient />
     </ToolPageLayout>

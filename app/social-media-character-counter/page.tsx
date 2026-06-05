@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Count characters for social media posts, captions and titles with Toollane's free online character counter.",
 };
 
-const faqs = [
-  {
-    question: "What does a social media character counter do?",
-
-    answer:
-
-  },
-
-  {
-    question: "Which platforms are included?",
-
-    answer:
-      "This tool includes character checks for Twitter/X, Instagram, TikTok and YouTube titles.",
-  },
-
-  {
-    question: "Why use a social media character counter?",
-
-    answer:
-      "It helps creators write captions, titles and posts that fit platform limits.",
-  },
-];
-
 export default function SocialMediaCharacterCounterPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function SocialMediaCharacterCounterPage() {
 
 
       href="/social-media-character-counter"
-      faqs={faqs}
     >
       <SocialMediaCharacterCounterClient />
     </ToolPageLayout>

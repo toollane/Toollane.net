@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Calculate sales commission instantly with Toollane's free online commission calculator.",
 };
 
-const faqs = [
-  {
-    question: "How do you calculate commission?",
-
-    answer:
-
-  },
-
-  {
-    question: "What is a commission rate?",
-
-    answer:
-
-  },
-
-  {
-    question: "Can I enter decimal commission rates?",
-
-    answer:
-
-  },
-];
-
 export default function CommissionCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function CommissionCalculatorPage() {
 
 
       href="/commission-calculator"
-      faqs={faqs}
     >
       <CommissionCalculatorClient />
     </ToolPageLayout>

@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Generate Open Graph meta tags instantly with Toollane's free online Open Graph generator.",
 };
 
-const faqs = [
-  {
-    question:
-      "What does an Open Graph generator do?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Why are Open Graph tags important?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Who uses Open Graph generators?",
-
-    answer:
-      "SEO specialists, developers, bloggers and marketers use Open Graph generators.",
-  },
-];
-
 export default function OpenGraphGeneratorPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function OpenGraphGeneratorPage() {
 
 
       href="/open-graph-generator"
-      faqs={faqs}
     >
       <OpenGraphGeneratorClient />
     </ToolPageLayout>

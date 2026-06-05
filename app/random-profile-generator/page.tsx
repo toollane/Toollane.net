@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Generate random sample profiles instantly with Toollane's free online random profile generator.",
 };
 
-const faqs = [
-  {
-    question: "What does a random profile generator do?",
-
-    answer:
-      "It creates sample profile data such as name, country, job, username and example email.",
-  },
-
-  {
-    question: "What can I use random profiles for?",
-
-    answer:
-      "Random profiles are useful for mockups, test data, writing, design layouts and creative projects.",
-  },
-
-  {
-    question: "Are these real identities?",
-
-    answer:
-
-  },
-];
-
 export default function RandomProfileGeneratorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function RandomProfileGeneratorPage() {
 
 
       href="/random-profile-generator"
-      faqs={faqs}
     >
       <RandomProfileGeneratorClient />
     </ToolPageLayout>

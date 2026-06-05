@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Calculate break-even units, break-even revenue and contribution margin with Toollane's free online break-even calculator.",
 };
 
-const faqs = [
-  {
-    question: "What is a break-even point?",
-
-    answer:
-
-  },
-
-  {
-    question: "How do you calculate break-even units?",
-
-    answer:
-
-  },
-
-  {
-    question: "What is contribution margin?",
-
-    answer:
-
-  },
-];
-
 export default function BreakEvenCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function BreakEvenCalculatorPage() {
 
 
       href="/break-even-calculator"
-      faqs={faqs}
     >
       <BreakEvenCalculatorClient />
     </ToolPageLayout>

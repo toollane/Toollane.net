@@ -2,229 +2,175 @@
 
 import { useMemo, useState } from "react";
 
+import ToolErrorBox from "@/components/ToolErrorBox";
+import ToolInfoBox from "@/components/ToolInfoBox";
+import ToolResultBox from "@/components/ToolResultBox";
+
+type UnitSystem = "metric" | "imperial";
+
+function getBmiCategory(bmi: number) {
+  if (bmi < 18.5) return "Underweight";
+  if (bmi < 25) return "Normal weight";
+  if (bmi < 30) return "Overweight";
+  return "Obesity";
+}
+
 export default function BmiCalculatorClient() {
-  const [unitSystem, setUnitSystem] = useState<"metric" | "imperial">("imperial");
-
-  const [heightCm, setHeightCm] = useState("");
-  const [weightKg, setWeightKg] = useState("");
-
-  const [heightFt, setHeightFt] = useState("");
-  const [heightIn, setHeightIn] = useState("");
-  const [weightLb, setWeightLb] = useState("");
+  const [unitSystem, setUnitSystem] = useState<UnitSystem>("metric");
+  const [heightCm, setHeightCm] = useState(175);
+  const [weightKg, setWeightKg] = useState(72);
+  const [heightFt, setHeightFt] = useState(5);
+  const [heightIn, setHeightIn] = useState(9);
+  const [weightLb, setWeightLb] = useState(160);
+  const [age, setAge] = useState(30);
+  const [error, setError] = useState("");
 
   const result = useMemo(() => {
-    if (unitSystem === "metric") {
-      const height = parseFloat(heightCm);
-      const weight = parseFloat(weightKg);
+    const heightMeters =
+      unitSystem === "metric"
+        ? heightCm / 100
+        : ((heightFt * 12 + heightIn) * 2.54) / 100;
 
-      if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
-        return {
-          bmi: "",
-          category: "",
-        };
-      }
+    const weight =
+      unitSystem === "metric" ? weightKg : weightLb * 0.45359237;
 
-      const heightM = height / 100;
-      const bmi = weight / (heightM * heightM);
-
-      return {
-        bmi: bmi.toFixed(1),
-        category: getBmiCategory(bmi),
-      };
+    if (heightMeters <= 0 || weight <= 0 || age < 0) {
+      return null;
     }
 
-    const feet = parseFloat(heightFt);
-    const inches = parseFloat(heightIn || "0");
-    const pounds = parseFloat(weightLb);
-
-    if (
-      isNaN(feet) ||
-      isNaN(inches) ||
-      isNaN(pounds) ||
-      feet < 0 ||
-      inches < 0 ||
-      pounds <= 0
-    ) {
-      return {
-        bmi: "",
-        category: "",
-      };
-    }
-
-    const totalInches = feet * 12 + inches;
-
-    if (totalInches <= 0) {
-      return {
-        bmi: "",
-        category: "",
-      };
-    }
-
-    const bmi = (pounds / (totalInches * totalInches)) * 703;
+    const bmi = weight / (heightMeters * heightMeters);
+    const minHealthyWeight = 18.5 * heightMeters * heightMeters;
+    const maxHealthyWeight = 24.9 * heightMeters * heightMeters;
 
     return {
-      bmi: bmi.toFixed(1),
+      bmi,
       category: getBmiCategory(bmi),
+      minHealthyWeightKg: minHealthyWeight,
+      maxHealthyWeightKg: maxHealthyWeight,
+      minHealthyWeightLb: minHealthyWeight * 2.20462262,
+      maxHealthyWeightLb: maxHealthyWeight * 2.20462262,
     };
-  }, [
-    unitSystem,
-    heightCm,
-    weightKg,
-    heightFt,
-    heightIn,
-    weightLb,
-  ]);
+  }, [unitSystem, heightCm, weightKg, heightFt, heightIn, weightLb, age]);
+
+  function validateInputs() {
+    if (age < 0) {
+      setError("Age cannot be negative.");
+      return false;
+    }
+
+    if (
+      (unitSystem === "metric" && (heightCm <= 0 || weightKg <= 0)) ||
+      (unitSystem === "imperial" && (heightFt < 0 || heightIn < 0 || heightFt * 12 + heightIn <= 0 || weightLb <= 0))
+    ) {
+      setError("Height and weight must be greater than zero.");
+      return false;
+    }
+
+    setError("");
+    return true;
+  }
+
+  function resetExample() {
+    setUnitSystem("metric");
+    setHeightCm(175);
+    setWeightKg(72);
+    setHeightFt(5);
+    setHeightIn(9);
+    setWeightLb(160);
+    setAge(30);
+    setError("");
+  }
 
   return (
-    <div className="grid gap-6">
-      <div className="flex gap-3">
-        <button
-          type="button"
-          onClick={() => setUnitSystem("imperial")}
-          className={`px-4 py-3 rounded-2xl border transition ${
-            unitSystem === "imperial"
-              ? "bg-black text-white border-black"
-              : "bg-white border-black/10"
-          }`}
-        >
-          US units
-        </button>
+    <div className="grid gap-8">
+      <div>
+        <h2 className="text-2xl font-black tracking-tight text-black">
+          Calculate BMI
+        </h2>
 
-        <button
-          type="button"
-          onClick={() => setUnitSystem("metric")}
-          className={`px-4 py-3 rounded-2xl border transition ${
-            unitSystem === "metric"
-              ? "bg-black text-white border-black"
-              : "bg-white border-black/10"
-          }`}
-        >
-          Metric
+        <p className="mt-3 text-sm leading-7 text-black/60 sm:text-base">
+          Calculate body mass index using metric or imperial units and view a
+          general weight category.
+        </p>
+      </div>
+
+      <div className="grid gap-5">
+        <label className="block">
+          <span className="text-sm font-bold text-black">Units</span>
+
+          <select
+            value={unitSystem}
+            onChange={(event) => {
+              setUnitSystem(event.target.value as UnitSystem);
+              setError("");
+            }}
+            className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
+          >
+            <option value="metric">Metric — cm / kg</option>
+            <option value="imperial">Imperial — ft / in / lb</option>
+          </select>
+        </label>
+
+        {unitSystem === "metric" ? (
+          <div className="grid gap-4 sm:grid-cols-2">
+            <NumberInput label="Height cm" value={heightCm} onChange={setHeightCm} onBlur={validateInputs} />
+            <NumberInput label="Weight kg" value={weightKg} onChange={setWeightKg} onBlur={validateInputs} />
+            <NumberInput label="Age optional" value={age} onChange={setAge} onBlur={validateInputs} />
+          </div>
+        ) : (
+          <div className="grid gap-4 sm:grid-cols-2">
+            <NumberInput label="Height feet" value={heightFt} onChange={setHeightFt} onBlur={validateInputs} />
+            <NumberInput label="Height inches" value={heightIn} onChange={setHeightIn} onBlur={validateInputs} />
+            <NumberInput label="Weight lb" value={weightLb} onChange={setWeightLb} onBlur={validateInputs} />
+            <NumberInput label="Age optional" value={age} onChange={setAge} onBlur={validateInputs} />
+          </div>
+        )}
+
+        {error && <ToolErrorBox message={error} />}
+
+        <button type="button" onClick={resetExample} className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:bg-black/5 sm:w-fit">
+          Reset example
         </button>
       </div>
 
-      {unitSystem === "imperial" && (
-        <div className="grid gap-6">
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="block mb-2 font-medium">
-                Height feet
-              </label>
-
-              <input
-                type="number"
-                value={heightFt}
-                onChange={(e) => setHeightFt(e.target.value)}
-                placeholder="5"
-                className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
-              />
-            </div>
-
-            <div>
-              <label className="block mb-2 font-medium">
-                Height inches
-              </label>
-
-              <input
-                type="number"
-                value={heightIn}
-                onChange={(e) => setHeightIn(e.target.value)}
-                placeholder="10"
-                className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
-              />
-            </div>
+      {result ? (
+        <ToolResultBox title="BMI result">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <ResultCard label="BMI" value={result.bmi.toFixed(1)} highlight />
+            <ResultCard label="Category" value={result.category} />
+            <ResultCard label="Healthy weight range kg" value={`${result.minHealthyWeightKg.toFixed(1)}–${result.maxHealthyWeightKg.toFixed(1)} kg`} />
+            <ResultCard label="Healthy weight range lb" value={`${result.minHealthyWeightLb.toFixed(1)}–${result.maxHealthyWeightLb.toFixed(1)} lb`} />
           </div>
-
-          <div>
-            <label className="block mb-2 font-medium">
-              Weight in lbs
-            </label>
-
-            <input
-              type="number"
-              value={weightLb}
-              onChange={(e) => setWeightLb(e.target.value)}
-              placeholder="170"
-              className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
-            />
-          </div>
-        </div>
+        </ToolResultBox>
+      ) : (
+        <ToolInfoBox>
+          Enter valid height and weight to calculate BMI.
+        </ToolInfoBox>
       )}
 
-      {unitSystem === "metric" && (
-        <div className="grid gap-6">
-          <div>
-            <label className="block mb-2 font-medium">
-              Height in cm
-            </label>
-
-            <input
-              type="number"
-              value={heightCm}
-              onChange={(e) => setHeightCm(e.target.value)}
-              placeholder="180"
-              className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
-            />
-          </div>
-
-          <div>
-            <label className="block mb-2 font-medium">
-              Weight in kg
-            </label>
-
-            <input
-              type="number"
-              value={weightKg}
-              onChange={(e) => setWeightKg(e.target.value)}
-              placeholder="75"
-              className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
-            />
-          </div>
-        </div>
-      )}
-
-      <div className="grid md:grid-cols-2 gap-4">
-        <div className="bg-white border border-black/10 rounded-3xl p-6">
-          <div className="text-sm text-black/50 mb-2">
-            BMI
-          </div>
-
-          <div className="text-3xl font-bold">
-            {result.bmi || "0"}
-          </div>
-        </div>
-
-        <div className="bg-white border border-black/10 rounded-3xl p-6">
-          <div className="text-sm text-black/50 mb-2">
-            Category
-          </div>
-
-          <div className="text-2xl font-bold">
-            {result.category || "—"}
-          </div>
-        </div>
-      </div>
-
-      <p className="text-sm text-black/50 leading-6">
-        BMI is a simple screening estimate and does not replace professional
-        medical advice.
-      </p>
+      <ToolInfoBox>
+        BMI is a general screening estimate only. It does not account for muscle
+        mass, body composition, pregnancy, age-specific guidance or medical
+        conditions.
+      </ToolInfoBox>
     </div>
   );
 }
 
-function getBmiCategory(bmi: number) {
-  if (bmi < 18.5) {
-    return "Underweight";
-  }
+function NumberInput({ label, value, onChange, onBlur }: { label: string; value: number; onChange: (value: number) => void; onBlur: () => void }) {
+  return (
+    <label className="block">
+      <span className="text-sm font-bold text-black">{label}</span>
+      <input type="number" value={value} onChange={(event) => onChange(Number(event.target.value))} onBlur={onBlur} className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black" />
+    </label>
+  );
+}
 
-  if (bmi >= 25 && bmi < 30) {
-    return "Overweight";
-  }
-
-  if (bmi >= 30) {
-    return "Obesity range";
-  }
-
-  return "Normal weight";
+function ResultCard({ label, value, highlight = false }: { label: string; value: string; highlight?: boolean }) {
+  return (
+    <div className={`rounded-2xl border p-5 ${highlight ? "border-black bg-black text-white" : "border-black/10 bg-white text-black"}`}>
+      <div className={`text-xs font-bold uppercase tracking-wide ${highlight ? "text-white/50" : "text-black/40"}`}>{label}</div>
+      <div className="mt-2 text-xl font-black">{value}</div>
+    </div>
+  );
 }

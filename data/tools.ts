@@ -2,52 +2,48 @@ export const categories = [
   {
     name: "Calculators",
     slug: "calculators",
-    description: "Fast calculators for finance, health, school, business and daily life.",
-  },
-  {
-    name: "SEO Tools",
-    slug: "seo-tools",
-    description: "Create SEO tags, slugs, metadata and website optimization files.",
-  },
-  {
-    name: "Developer Tools",
-    slug: "developer-tools",
-    description: "Format, encode, minify, convert and test code faster.",
-  },
-  {
-    name: "Image & PDF Tools",
-    slug: "image-pdf-tools",
-    description: "Convert, resize, compress, merge and edit images or PDF files online.",
-  },
-  {
-    name: "Text Tools",
-    slug: "text-tools",
-    description: "Count, clean, compare, format and transform text instantly.",
-  },
-  {
-    name: "Business Tools",
-    slug: "business-tools",
-    description: "Create invoices, receipts, resumes, signatures and business assets.",
-  },
-  {
-    name: "Social Media Tools",
-    slug: "social-media-tools",
-    description: "Create social content, bios, usernames, hashtags and creator assets.",
+    description:
+      "Fast calculators for finance, health, education, business and daily life.",
   },
   {
     name: "Generators",
     slug: "generators",
-    description: "Generate passwords, QR codes, names, colors, barcodes and random results.",
+    description:
+      "Generate names, passwords, QR codes, colors and other useful content.",
   },
   {
-    name: "Productivity Tools",
-    slug: "productivity-tools",
-    description: "Useful everyday tools for work, studying, planning and quick decisions.",
+    name: "Image & PDF",
+    slug: "image-pdf-tools",
+    description:
+      "Compress, convert, merge, resize and optimize images and PDF files.",
+  },
+  {
+    name: "Developer",
+    slug: "developer-tools",
+    description:
+      "Encode, decode, format, validate and transform developer data.",
+  },
+  {
+    name: "SEO",
+    slug: "seo-tools",
+    description:
+      "Create metadata, optimize content and improve search visibility.",
+  },
+  {
+    name: "Business",
+    slug: "business-tools",
+    description:
+      "Create invoices, resumes, business assets and productivity resources.",
+  },
+  {
+    name: "Text Tools",
+    slug: "text-tools",
+    description:
+      "Count, clean, compare, format and transform text instantly.",
   },
 ];
 
-export const tools = [
-{
+export const tools = [{
     category: "Calculators",
 
     categorySlug:
@@ -105,7 +101,6 @@ export const tools = [
       },
     ],
   },
-
 {
   category:
   "Calculators",
@@ -168,7 +163,59 @@ categorySlug:
     },
   ],
 },
+{
+  category: "Generators",
 
+  categorySlug: "generators",
+
+  name: "Baby Name Generator",
+
+  shortName: "Baby Names",
+
+  description:
+    "Find baby names by gender, origin, country style, meaning, popularity and surname compatibility.",
+
+  seoTitle: "Baby Name Generator | Toollane",
+
+  seoDescription:
+    "Find unique baby names for boys, girls and unisex names by origin, style, meaning, popularity and surname compatibility.",
+
+  href: "/baby-name-generator",
+
+  icon: "👶",
+
+  popular: true,
+
+  keywords: [
+    "baby name generator",
+    "girl names",
+    "boy names",
+    "unisex baby names",
+    "unique baby names",
+    "rare baby names",
+    "old fashioned baby names",
+    "german baby names",
+    "international baby names"
+  ],
+
+  faqs: [
+    {
+      question: "What does a baby name generator do?",
+      answer:
+        "A baby name generator helps parents discover baby names by gender, origin, style, meaning, popularity and other filters.",
+    },
+    {
+      question: "Can I find rare baby names?",
+      answer:
+        "Yes. You can filter by rare and uncommon names to discover less common baby name ideas.",
+    },
+    {
+      question: "Can I search by origin or country style?",
+      answer:
+        "Yes. You can filter names by origins such as German, Nordic, Hebrew, Japanese, Latin and more.",
+    },
+  ],
+},
 {
   category:
     "Calculators",
@@ -231,7 +278,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -294,7 +340,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -357,7 +402,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -420,7 +464,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -483,7 +526,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -546,7 +588,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -609,7 +650,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -672,7 +712,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -735,7 +774,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -798,7 +836,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -861,7 +898,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -924,7 +960,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -987,7 +1022,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -1050,7 +1084,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -1113,7 +1146,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -1176,7 +1208,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -1239,7 +1270,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -1302,7 +1332,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -1365,7 +1394,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -1428,7 +1456,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -1491,7 +1518,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -1554,7 +1580,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -1617,7 +1642,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -1680,7 +1704,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -1743,7 +1766,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -1806,7 +1828,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -1869,7 +1890,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -1932,7 +1952,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -1995,7 +2014,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -2058,7 +2076,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Developer Tools",
@@ -2121,7 +2138,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Developer Tools",
@@ -2184,7 +2200,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Developer Tools",
@@ -2247,7 +2262,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -2310,7 +2324,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -2373,7 +2386,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -2436,7 +2448,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Generators",
@@ -2499,7 +2510,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Developer Tools",
@@ -2562,13 +2572,12 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
-    "Social Media Tools",
+    "Generators",
 
   categorySlug:
-    "social-media-tools",
+    "generators",
 
   name:
     "Username Generator",
@@ -2625,7 +2634,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Generators",
@@ -2688,7 +2696,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Generators",
@@ -2751,7 +2758,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Generators",
@@ -2814,13 +2820,12 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
-    "Social Media Tools",
+    "Generators",
 
   categorySlug:
-    "social-media-tools",
+    "generators",
 
   name:
     "Social Bio Generator",
@@ -2877,7 +2882,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Developer Tools",
@@ -2940,7 +2944,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "SEO Tools",
@@ -3003,7 +3006,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Generators",
@@ -3066,7 +3068,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Text Tools",
@@ -3129,7 +3130,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "SEO Tools",
@@ -3192,7 +3192,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "SEO Tools",
@@ -3255,7 +3254,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "SEO Tools",
@@ -3318,7 +3316,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -3381,7 +3378,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -3444,7 +3440,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -3507,13 +3502,12 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
-    "Social Media Tools",
+    "Generators",
 
   categorySlug:
-    "social-media-tools",
+    "generators",
 
   name:
     "Hashtag Generator",
@@ -3570,13 +3564,12 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
-    "Social Media Tools",
+    "Generators",
 
   categorySlug:
-    "social-media-tools",
+    "generators",
 
   name:
     "YouTube Title Generator",
@@ -3633,7 +3626,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Text Tools",
@@ -3696,13 +3688,12 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
-    "Social Media Tools",
+    "Calculators",
 
   categorySlug:
-    "social-media-tools",
+    "calculators",
 
   name:
     "TikTok Money Calculator",
@@ -3759,13 +3750,12 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
-    "Social Media Tools",
+    "Calculators",
 
   categorySlug:
-    "social-media-tools",
+    "calculators",
 
   name:
     "Influencer Engagement Rate Calculator",
@@ -3822,7 +3812,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -3885,13 +3874,12 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
-    "Social Media Tools",
+    "Calculators",
 
   categorySlug:
-    "social-media-tools",
+    "calculators",
 
   name:
     "Instagram Money Calculator",
@@ -3948,7 +3936,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -4011,7 +3998,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -4074,7 +4060,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -4137,7 +4122,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -4200,7 +4184,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -4263,7 +4246,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Text Tools",
@@ -4326,7 +4308,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Text Tools",
@@ -4389,7 +4370,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Text Tools",
@@ -4452,7 +4432,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Text Tools",
@@ -4515,7 +4494,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Text Tools",
@@ -4578,7 +4556,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Generators",
@@ -4641,7 +4618,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -4704,7 +4680,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Generators",
@@ -4767,7 +4742,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Generators",
@@ -4830,7 +4804,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Generators",
@@ -4893,7 +4866,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -4956,7 +4928,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Text Tools",
@@ -5019,7 +4990,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Text Tools",
@@ -5082,7 +5052,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Text Tools",
@@ -5145,7 +5114,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "SEO Tools",
@@ -5208,7 +5176,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -5271,7 +5238,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Text Tools",
@@ -5334,7 +5300,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Text Tools",
@@ -5397,7 +5362,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Text Tools",
@@ -5460,7 +5424,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Developer Tools",
@@ -5523,7 +5486,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Developer Tools",
@@ -5586,7 +5548,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category: "Calculators",
 
@@ -5648,7 +5609,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category: "Calculators",
 
@@ -5710,7 +5670,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category: "Calculators",
 
@@ -5772,7 +5731,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -5835,7 +5793,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Calculators",
@@ -5898,7 +5855,6 @@ categorySlug:
     },
   ],
 },
-
 {
 category:
   "Calculators",
@@ -5961,7 +5917,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category: "Calculators",
 
@@ -6023,7 +5978,6 @@ categorySlug:
     },
   ],
 },
-
 {
     category: "Calculators",
 
@@ -6082,7 +6036,6 @@ categorySlug:
       },
     ],
   },
-
 {
     category: "Calculators",
 
@@ -6141,7 +6094,6 @@ categorySlug:
       },
     ],
   },
-
 {
   category:
     "Image & PDF Tools",
@@ -6204,7 +6156,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Image & PDF Tools",
@@ -6267,13 +6218,12 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
-    "Productivity Tools",
+    "Developer Tools",
 
   categorySlug:
-    "productivity-tools",
+    "developer-tools",
 
   name:
     "CSS Box Shadow Generator",
@@ -6330,7 +6280,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Developer Tools",
@@ -6393,13 +6342,12 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
-    "Productivity Tools",
+    "Developer Tools",
 
   categorySlug:
-    "productivity-tools",
+    "developer-tools",
 
   name:
     "CSS Border Radius Generator",
@@ -6456,7 +6404,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Generators",
@@ -6519,7 +6466,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Developer Tools",
@@ -6582,7 +6528,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Developer Tools",
@@ -6645,7 +6590,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Developer Tools",
@@ -6708,7 +6652,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Business Tools",
@@ -6771,7 +6714,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Business Tools",
@@ -6834,7 +6776,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Business Tools",
@@ -6897,7 +6838,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Image & PDF Tools",
@@ -6960,7 +6900,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Image & PDF Tools",
@@ -7024,7 +6963,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Image & PDF Tools",
@@ -7087,7 +7025,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Image & PDF Tools",
@@ -7150,7 +7087,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Business Tools",
@@ -7213,7 +7149,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Business Tools",
@@ -7276,7 +7211,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Business Tools",
@@ -7339,13 +7273,12 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
-    "Social Media Tools",
+    "Generators",
 
   categorySlug:
-    "social-media-tools",
+    "generators",
 
   name:
     "Link in Bio Generator",
@@ -7402,7 +7335,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Developer Tools",
@@ -7465,7 +7397,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Developer Tools",
@@ -7528,7 +7459,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Developer Tools",
@@ -7591,7 +7521,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "SEO Tools",
@@ -7654,7 +7583,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "SEO Tools",
@@ -7717,7 +7645,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Image & PDF Tools",
@@ -7781,7 +7708,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Image & PDF Tools",
@@ -7845,7 +7771,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Image & PDF Tools",
@@ -7909,7 +7834,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Generators",
@@ -7973,7 +7897,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Developer Tools",
@@ -8037,13 +7960,12 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
-    "Social Media Tools",
+    "Image & PDF Tools",
 
   categorySlug:
-    "social-media-tools",
+    "image-pdf-tools",
 
   name:
     "YouTube Thumbnail Downloader",
@@ -8101,7 +8023,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Generators",
@@ -8165,7 +8086,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Image & PDF Tools",
@@ -8229,7 +8149,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Image & PDF Tools",
@@ -8293,7 +8212,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Image & PDF Tools",
@@ -8357,13 +8275,12 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
-    "Social Media Tools",
+    "Generators",
 
   categorySlug:
-    "social-media-tools",
+    "generators",
 
   name:
     "Meme Generator",
@@ -8421,7 +8338,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Business Tools",
@@ -8485,7 +8401,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Developer Tools",
@@ -8549,7 +8464,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Image & PDF Tools",
@@ -8612,7 +8526,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Developer Tools",
@@ -8675,7 +8588,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Image & PDF Tools",
@@ -8738,7 +8650,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Image & PDF Tools",
@@ -8801,7 +8712,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Image & PDF Tools",
@@ -8864,13 +8774,12 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
-    "Productivity Tools",
+    "Developer Tools",
 
   categorySlug:
-    "productivity-tools",
+    "developer-tools",
 
   name:
     "CSS Gradient Generator",
@@ -8927,7 +8836,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Image & PDF Tools",
@@ -8990,7 +8898,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Image & PDF Tools",
@@ -9053,7 +8960,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Image & PDF Tools",
@@ -9116,7 +9022,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Image & PDF Tools",
@@ -9179,7 +9084,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Image & PDF Tools",
@@ -9242,7 +9146,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Image & PDF Tools",
@@ -9305,7 +9208,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Image & PDF Tools",
@@ -9368,7 +9270,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Developer Tools",
@@ -9431,7 +9332,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Developer Tools",
@@ -9494,7 +9394,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Image & PDF Tools",
@@ -9557,7 +9456,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Developer Tools",
@@ -9620,7 +9518,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Developer Tools",
@@ -9683,7 +9580,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Text Tools",
@@ -9746,7 +9642,6 @@ categorySlug:
     },
   ],
 },
-
 {
   category:
     "Text Tools",
@@ -9809,7 +9704,6 @@ categorySlug:
     },
   ],
 },
-
 {
     category: "Calculators",
 
@@ -9869,3 +9763,35 @@ categorySlug:
     ],
   }
 ];
+export function getToolByHref(href: string) {
+  const tool = tools.find((item) => item.href === href);
+
+  if (!tool) {
+    throw new Error(`Tool not found: ${href}`);
+  }
+
+  return tool;
+}
+
+export function getCategoryBySlug(slug: string) {
+  const category = categories.find((item) => item.slug === slug);
+
+  if (!category) {
+    throw new Error(`Category not found: ${slug}`);
+  }
+
+  return category;
+}
+
+export function getRelatedTools(currentHref: string, categorySlug: string) {
+  return tools
+    .filter(
+      (tool) => tool.href !== currentHref && tool.categorySlug === categorySlug
+    )
+    .sort(
+      (a, b) =>
+        Number(b.popular) - Number(a.popular) ||
+        a.name.localeCompare(b.name)
+    )
+    .slice(0, 6);
+}

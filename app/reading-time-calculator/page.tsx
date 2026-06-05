@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Estimate article and text reading time instantly with Toollane's free online reading time calculator.",
 };
 
-const faqs = [
-  {
-    question: "How does a reading time calculator work?",
-
-    answer:
-
-  },
-
-  {
-    question: "What reading speed is used?",
-
-    answer:
-
-  },
-
-  {
-    question: "Why use a reading time calculator?",
-
-    answer:
-      "It helps writers, bloggers and students estimate how long content takes to read.",
-  },
-];
-
 export default function ReadingTimeCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function ReadingTimeCalculatorPage() {
 
 
       href="/reading-time-calculator"
-      faqs={faqs}
     >
       <ReadingTimeCalculatorClient />
     </ToolPageLayout>

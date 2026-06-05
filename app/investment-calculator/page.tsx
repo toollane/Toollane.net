@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Calculate investment growth, future value and recurring contributions instantly with Toollane's free online investment calculator.",
 };
 
-const faqs = [
-  {
-    question:
-      "How does an investment calculator work?",
-
-    answer:
-      "An investment calculator estimates future portfolio growth using contributions, expected returns and investment duration.",
-  },
-
-  {
-    question:
-      "What is compound investment growth?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Can I use different currencies?",
-
-    answer:
-      "Yes. You can choose common currencies such as USD, EUR, GBP, CAD and AUD.",
-  },
-];
-
 export default function InvestmentCalculatorPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function InvestmentCalculatorPage() {
 
 
       href="/investment-calculator"
-      faqs={faqs}
     >
       <InvestmentCalculatorClient />
     </ToolPageLayout>

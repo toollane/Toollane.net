@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Convert SVG files to PNG instantly with Toollane's free online SVG to PNG converter.",
 };
 
-const faqs = [
-  {
-    question:
-      "How does an SVG to PNG converter work?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Are my SVG files uploaded?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Why convert SVG to PNG?",
-
-    answer:
-      "PNG is widely supported across websites, apps, forms and social media platforms.",
-  },
-];
-
 export default function SvgToPngPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function SvgToPngPage() {
 
 
       href="/svg-to-png"
-      faqs={faqs}
     >
       <SvgToPngClient />
     </ToolPageLayout>

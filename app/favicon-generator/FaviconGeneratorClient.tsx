@@ -1,130 +1,130 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+
+import ToolInfoBox from "@/components/ToolInfoBox";
 
 export default function FaviconGeneratorClient() {
-  const [file, setFile] =
-    useState<File | null>(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(
+    null
+  );
 
-  const [preview, setPreview] =
-    useState("");
+  const [preview, setPreview] = useState("");
 
-  const handleFileChange = (
-    selectedFile: File | null
-  ) => {
-    setFile(selectedFile);
+  function handleUpload(
+    event: React.ChangeEvent<HTMLInputElement>
+  ) {
+    const file = event.target.files?.[0];
 
-    if (!selectedFile) {
-      setPreview("");
-      return;
-    }
-
-    const url =
-      URL.createObjectURL(selectedFile);
-
-    setPreview(url);
-  };
-
-  const downloadFavicon = () => {
-    if (!file) {
-      return;
-    }
+    if (!file) return;
 
     const image = new Image();
 
     image.onload = () => {
-      const canvas =
-        document.createElement("canvas");
+      const canvas = canvasRef.current;
+
+      if (!canvas) return;
+
+      const context = canvas.getContext("2d");
+
+      if (!context) return;
 
       canvas.width = 64;
       canvas.height = 64;
 
-      const context =
-        canvas.getContext("2d");
-
-      if (!context) {
-        return;
-      }
-
       context.clearRect(0, 0, 64, 64);
 
-      context.drawImage(
-        image,
-        0,
-        0,
-        64,
-        64
-      );
+      context.drawImage(image, 0, 0, 64, 64);
 
-      canvas.toBlob((blob) => {
-        if (!blob) {
-          return;
-        }
-
-        const url =
-          URL.createObjectURL(blob);
-
-        const link =
-          document.createElement("a");
-
-        link.href = url;
-        link.download = "favicon.png";
-        link.click();
-
-        URL.revokeObjectURL(url);
-      }, "image/png");
+      setPreview(canvas.toDataURL("image/png"));
     };
 
-    image.src = preview;
-  };
+    image.src = URL.createObjectURL(file);
+  }
+
+  function downloadFavicon() {
+    const canvas = canvasRef.current;
+
+    if (!canvas) return;
+
+    const link = document.createElement("a");
+
+    link.href = canvas.toDataURL("image/png");
+    link.download = "favicon.png";
+    link.click();
+  }
+
+  function resetTool() {
+    setPreview("");
+  }
 
   return (
     <div className="grid gap-8">
-      <div className="space-y-3">
-        <h2 className="text-2xl font-bold">
-          Favicon Generator
+      <div>
+        <h2 className="text-2xl font-black tracking-tight text-black">
+          Generate favicons online
         </h2>
 
-        <p className="text-black/60 leading-7">
-          Create a favicon from any
-          image instantly in your
-          browser.
+        <p className="mt-3 text-sm leading-7 text-black/60 sm:text-base">
+          Upload an image and generate a favicon preview optimized for websites
+          and browser tabs.
         </p>
       </div>
 
-      <input
-        type="file"
-        accept="image/png,image/jpeg,image/webp"
-        onChange={(event) =>
-          handleFileChange(
-            event.target.files?.[0] ||
-              null
-          )
-        }
-        className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
-      />
+      <label className="flex min-h-[220px] cursor-pointer items-center justify-center rounded-[2rem] border-2 border-dashed border-black/10 bg-white px-6 py-10 text-center transition hover:border-black">
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleUpload}
+          className="hidden"
+        />
 
-      {preview && (
-        <div className="bg-white border border-black/10 rounded-3xl p-6 grid gap-4">
-          <div className="font-semibold">
-            Preview
+        <div>
+          <div className="text-lg font-black text-black">
+            Upload image
           </div>
 
+          <div className="mt-2 text-sm text-black/60">
+            PNG, JPG, WEBP and SVG supported
+          </div>
+        </div>
+      </label>
+
+      <canvas ref={canvasRef} className="hidden" />
+
+      {preview && (
+        <div className="flex justify-center rounded-[2rem] border border-black/10 bg-white p-10">
           <img
             src={preview}
             alt="Favicon preview"
-            className="w-16 h-16 rounded-xl border border-black/10 object-cover"
+            className="h-24 w-24 rounded-xl border border-black/10"
           />
         </div>
       )}
 
-      <button
-        onClick={downloadFavicon}
-        disabled={!file}
-        className="bg-black text-white rounded-2xl px-6 py-4 font-semibold disabled:opacity-50"
-      >
-        Download Favicon
-      </button>
+      <div className="flex flex-col gap-3 sm:flex-row">
+        <button
+          type="button"
+          onClick={downloadFavicon}
+          disabled={!preview}
+          className="rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90 disabled:opacity-50"
+        >
+          Download favicon
+        </button>
+
+        <button
+          type="button"
+          onClick={resetTool}
+          className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:bg-black/5"
+        >
+          Reset
+        </button>
+      </div>
+
+      <ToolInfoBox>
+        For best results, upload a square image with high resolution and strong
+        contrast.
+      </ToolInfoBox>
     </div>
   );
 }

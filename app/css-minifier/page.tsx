@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Minify CSS instantly with Toollane's free online CSS minifier.",
 };
 
-const faqs = [
-  {
-    question:
-      "What does a CSS minifier do?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Why minify CSS?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Who uses CSS minifiers?",
-
-    answer:
-      "Developers, designers and website owners use CSS minifiers to optimize stylesheets.",
-  },
-];
-
 export default function CssMinifierPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function CssMinifierPage() {
 
 
       href="/css-minifier"
-      faqs={faqs}
     >
       <CssMinifierClient />
     </ToolPageLayout>

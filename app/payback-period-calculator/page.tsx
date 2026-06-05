@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Calculate payback period in years and months with Toollane's free online payback period calculator.",
 };
 
-const faqs = [
-  {
-    question: "What is payback period?",
-
-    answer:
-
-  },
-
-  {
-    question: "How do you calculate payback period?",
-
-    answer:
-
-  },
-
-  {
-    question: "Why use a payback period calculator?",
-
-    answer:
-
-  },
-];
-
 export default function PaybackPeriodCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function PaybackPeriodCalculatorPage() {
 
 
       href="/payback-period-calculator"
-      faqs={faqs}
     >
       <PaybackPeriodCalculatorClient />
     </ToolPageLayout>

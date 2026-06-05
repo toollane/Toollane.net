@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Generate WiFi QR codes instantly with Toollane's free online WiFi QR generator.",
 };
 
-const faqs = [
-  {
-    question:
-      "What does a WiFi QR generator do?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Can guests scan the QR code to join WiFi?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Can I download the WiFi QR code?",
-
-    answer:
-
-  },
-];
-
 export default function WifiQrGeneratorPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function WifiQrGeneratorPage() {
 
 
       href="/wifi-qr-generator"
-      faqs={faqs}
     >
       <WifiQrGeneratorClient />
     </ToolPageLayout>

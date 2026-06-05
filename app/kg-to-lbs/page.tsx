@@ -9,23 +9,6 @@ export const metadata: Metadata = {
     "Convert kilograms to pounds instantly with Toollane's free online converter.",
 };
 
-const faqs = [
-  {
-    question: "How do you convert kilograms to pounds?",
-    answer:
-      "To convert kilograms to pounds, multiply the kilogram value by 2.20462.",
-  },
-  {
-    question: "What is 1 kilogram in pounds?",
-    answer: "1 kilogram equals approximately 2.20462 pounds.",
-  },
-  {
-    question: "Why use a KG to LBS converter?",
-    answer:
-
-  },
-];
-
 export default function KgToLbsPage() {
   return (
     <ToolPageLayout
@@ -34,7 +17,6 @@ export default function KgToLbsPage() {
 
 
       href="/kg-to-lbs"
-      faqs={faqs}
     >
       <KgToLbsClient />
     </ToolPageLayout>

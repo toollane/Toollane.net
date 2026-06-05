@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Calculate revenue from units sold and price per unit with Toollane's free online revenue calculator.",
 };
 
-const faqs = [
-  {
-    question: "How do you calculate revenue?",
-
-    answer:
-
-  },
-
-  {
-    question: "What is revenue?",
-
-    answer:
-
-  },
-
-  {
-    question: "Can I use different currencies?",
-
-    answer:
-      "Yes. You can choose common currencies such as USD, EUR, GBP, CAD and AUD.",
-  },
-];
-
 export default function RevenueCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function RevenueCalculatorPage() {
 
 
       href="/revenue-calculator"
-      faqs={faqs}
     >
       <RevenueCalculatorClient />
     </ToolPageLayout>

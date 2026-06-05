@@ -2,71 +2,113 @@
 
 import { useMemo, useState } from "react";
 
-const templates = [
-  "The future of {keyword}",
-  "Built for better {keyword}",
-  "Simple. Fast. {keyword}.",
-  "Where {keyword} meets innovation",
-  "Smarter {keyword} starts here",
-  "Powering modern {keyword}",
-  "Your daily {keyword} solution",
-  "Create better {keyword}",
-  "Modern tools for {keyword}",
-  "Everything {keyword} in one place",
+import ToolResultBox from "@/components/ToolResultBox";
+
+const TEMPLATES = [
+  "Powering better {keyword}.",
+  "The future of {keyword}.",
+  "Smarter {keyword} starts here.",
+  "Built for modern {keyword}.",
+  "Your partner in {keyword}.",
+  "Simplifying {keyword} every day.",
+  "Next-level {keyword} solutions.",
+  "Grow faster with {keyword}.",
 ];
 
 export default function SloganGeneratorClient() {
-  const [keyword, setKeyword] = useState("");
-  const [refreshKey, setRefreshKey] = useState(0);
+  const [keyword, setKeyword] = useState("marketing");
 
   const slogans = useMemo(() => {
-    const value = keyword.trim() || "business";
+    return TEMPLATES.map((template) =>
+      template.replace(/\{keyword\}/g, keyword)
+    );
+  }, [keyword]);
 
-    return Array.from({ length: 10 }, (_, index) => {
-      const template =
-        templates[(index + refreshKey) % templates.length];
+  async function copyAll() {
+    await navigator.clipboard.writeText(
+      slogans.join("\n")
+    );
+  }
 
-      return template.replace("{keyword}", value);
-    });
-  }, [keyword, refreshKey]);
+  function resetExample() {
+    setKeyword("marketing");
+  }
 
   return (
     <div className="grid gap-8">
-      <div className="space-y-3">
-        <h2 className="text-2xl font-bold">
-          Slogan Generator
+      <div>
+        <h2 className="text-2xl font-black tracking-tight text-black">
+          Generate slogans
         </h2>
 
-        <p className="text-black/60 leading-7">
-          Generate slogan and tagline ideas instantly for startups,
-          brands, creators and businesses.
+        <p className="mt-3 text-sm leading-7 text-black/60 sm:text-base">
+          Create catchy slogans and taglines for brands, startups, ecommerce
+          stores and marketing campaigns.
         </p>
       </div>
 
-      <input
+      <Input
+        label="Business keyword"
         value={keyword}
-        onChange={(event) => setKeyword(event.target.value)}
-        placeholder="Enter business or niche..."
-        className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
+        onChange={setKeyword}
       />
 
-      <button
-        onClick={() => setRefreshKey((value) => value + 1)}
-        className="bg-black text-white rounded-2xl px-6 py-4 font-semibold"
-      >
-        Generate Slogans
-      </button>
+      <ToolResultBox title="Generated slogans">
+        <div className="grid gap-3">
+          {slogans.map((slogan) => (
+            <div
+              key={slogan}
+              className="rounded-2xl border border-black/10 bg-white px-5 py-4 text-black"
+            >
+              {slogan}
+            </div>
+          ))}
+        </div>
+      </ToolResultBox>
 
-      <div className="grid gap-3">
-        {slogans.map((slogan) => (
-          <div
-            key={slogan}
-            className="bg-white border border-black/10 rounded-2xl px-5 py-4 font-semibold"
-          >
-            {slogan}
-          </div>
-        ))}
+      <div className="flex gap-3">
+        <button
+          type="button"
+          onClick={copyAll}
+          className="rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90"
+        >
+          Copy slogans
+        </button>
+
+        <button
+          type="button"
+          onClick={resetExample}
+          className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:bg-black/5"
+        >
+          Reset
+        </button>
       </div>
     </div>
+  );
+}
+
+function Input({
+  label,
+  value,
+  onChange,
+}: {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+}) {
+  return (
+    <label className="block">
+      <span className="text-sm font-bold text-black">
+        {label}
+      </span>
+
+      <input
+        value={value}
+        onChange={(event) =>
+          onChange(event.target.value)
+        }
+        className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
+      />
+    </label>
   );
 }

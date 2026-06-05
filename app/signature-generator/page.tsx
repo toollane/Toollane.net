@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Create digital signatures instantly with Toollane's free online signature generator.",
 };
 
-const faqs = [
-  {
-    question:
-      "What does a signature generator do?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Can I download my signature?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Are signatures stored online?",
-
-    answer:
-
-  },
-];
-
 export default function SignatureGeneratorPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function SignatureGeneratorPage() {
 
 
       href="/signature-generator"
-      faqs={faqs}
     >
       <SignatureGeneratorClient />
     </ToolPageLayout>

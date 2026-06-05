@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Generate robots.txt files instantly with Toollane's free online robots.txt generator.",
 };
 
-const faqs = [
-  {
-    question:
-      "What does a robots.txt generator do?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Why is robots.txt important?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Who uses robots.txt generators?",
-
-    answer:
-      "SEO specialists, developers and website owners use robots.txt generators.",
-  },
-];
-
 export default function RobotsTxtGeneratorPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function RobotsTxtGeneratorPage() {
 
 
       href="/robots-txt-generator"
-      faqs={faqs}
     >
       <RobotsTxtGeneratorClient />
     </ToolPageLayout>

@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Convert XML to JSON instantly with Toollane's free online XML to JSON converter.",
 };
 
-const faqs = [
-  {
-    question:
-      "What does an XML to JSON converter do?",
-
-    answer:
-      "It converts XML data structures into JSON format for APIs, apps and development workflows.",
-  },
-
-  {
-    question:
-      "Who uses XML to JSON converters?",
-
-    answer:
-      "Developers, analysts, students and engineers use them to work with structured data.",
-  },
-
-  {
-    question:
-      "Does the conversion happen online?",
-
-    answer:
-
-  },
-];
-
 export default function XmlToJsonPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function XmlToJsonPage() {
 
 
       href="/xml-to-json"
-      faqs={faqs}
     >
       <XmlToJsonClient />
     </ToolPageLayout>

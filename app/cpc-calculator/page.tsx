@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Calculate cost per click instantly with Toollane's free online CPC calculator.",
 };
 
-const faqs = [
-  {
-    question: "What is CPC?",
-
-    answer:
-
-  },
-
-  {
-    question: "How do you calculate CPC?",
-
-    answer:
-
-  },
-
-  {
-    question: "Why use a CPC calculator?",
-
-    answer:
-
-  },
-];
-
 export default function CpcCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function CpcCalculatorPage() {
 
 
       href="/cpc-calculator"
-      faqs={faqs}
     >
       <CpcCalculatorClient />
     </ToolPageLayout>

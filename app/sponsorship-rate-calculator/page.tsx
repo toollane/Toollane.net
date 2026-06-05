@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Estimate sponsorship rates from views, CPM and placements with Toollane's free online sponsorship rate calculator.",
 };
 
-const faqs = [
-  {
-    question: "How do you calculate sponsorship rates?",
-
-    answer:
-      "Sponsorship rates can be estimated by multiplying average views by CPM and dividing by 1,000.",
-  },
-
-  {
-    question: "What is sponsorship CPM?",
-
-    answer:
-      "Sponsorship CPM is the estimated amount a sponsor pays per 1,000 views or impressions.",
-  },
-
-  {
-    question: "Are sponsorship rates exact?",
-
-    answer:
-      "No. Actual rates can vary by niche, audience quality, platform, brand fit and negotiation.",
-  },
-];
-
 export default function SponsorshipRateCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function SponsorshipRateCalculatorPage() {
 
 
       href="/sponsorship-rate-calculator"
-      faqs={faqs}
     >
       <SponsorshipRateCalculatorClient />
     </ToolPageLayout>

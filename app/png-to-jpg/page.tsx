@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Convert PNG images to JPG instantly with Toollane's free online PNG to JPG converter.",
 };
 
-const faqs = [
-  {
-    question: "How does a PNG to JPG converter work?",
-
-    answer:
-
-  },
-
-  {
-    question: "Are my images uploaded?",
-
-    answer:
-
-  },
-
-  {
-    question: "Why convert PNG to JPG?",
-
-    answer:
-      "JPG files are often smaller and easier to use for websites, email and documents.",
-  },
-];
-
 export default function PngToJpgPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function PngToJpgPage() {
 
 
       href="/png-to-jpg"
-      faqs={faqs}
     >
       <PngToJpgClient />
     </ToolPageLayout>

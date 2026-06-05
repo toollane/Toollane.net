@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Convert HEX color codes to RGB instantly with Toollane's free online HEX to RGB converter.",
 };
 
-const faqs = [
-  {
-    question: "What does a HEX to RGB converter do?",
-
-    answer:
-
-  },
-
-  {
-    question: "What is a HEX color code?",
-
-    answer:
-
-  },
-
-  {
-    question: "Why convert HEX to RGB?",
-
-    answer:
-      "RGB values are useful for CSS, design systems, transparency effects and color editing.",
-  },
-];
-
 export default function HexRgbConverterPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function HexRgbConverterPage() {
 
 
       href="/hex-rgb-converter"
-      faqs={faqs}
     >
       <HexRgbConverterClient />
     </ToolPageLayout>

@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Estimate newsletter sponsorship revenue from subscribers, open rate and CPM with Toollane's free online calculator.",
 };
 
-const faqs = [
-  {
-    question: "How do you calculate newsletter revenue?",
-
-    answer:
-      "Newsletter sponsorship revenue can be estimated by multiplying opens by sponsor CPM and dividing by 1,000.",
-  },
-
-  {
-    question: "What is newsletter sponsor CPM?",
-
-    answer:
-      "Sponsor CPM is the estimated amount a sponsor pays per 1,000 newsletter opens.",
-  },
-
-  {
-    question: "Are newsletter revenue estimates exact?",
-
-    answer:
-      "No. Actual revenue can vary by niche, audience quality, sponsor demand and placement format.",
-  },
-];
-
 export default function NewsletterRevenueCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function NewsletterRevenueCalculatorPage() {
 
 
       href="/newsletter-revenue-calculator"
-      faqs={faqs}
     >
       <NewsletterRevenueCalculatorClient />
     </ToolPageLayout>

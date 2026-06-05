@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Generate random UUIDs instantly with Toollane's free online UUID generator.",
 };
 
-const faqs = [
-  {
-    question: "What is a UUID?",
-
-    answer:
-      "A UUID is a universally unique identifier commonly used in software systems, databases and APIs.",
-  },
-
-  {
-    question: "Why use a UUID generator?",
-
-    answer:
-      "A UUID generator quickly creates unique IDs for development, testing and data records.",
-  },
-
-  {
-    question: "Can UUIDs be used in databases?",
-
-    answer:
-
-  },
-];
-
 export default function UuidGeneratorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function UuidGeneratorPage() {
 
 
       href="/uuid-generator"
-      faqs={faqs}
     >
       <UuidGeneratorClient />
     </ToolPageLayout>

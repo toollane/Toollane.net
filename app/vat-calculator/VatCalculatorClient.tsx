@@ -2,188 +2,189 @@
 
 import { useMemo, useState } from "react";
 
-import NumberInput from "@/components/NumberInput";
+import ToolErrorBox from "@/components/ToolErrorBox";
+import ToolInfoBox from "@/components/ToolInfoBox";
+import ToolResultBox from "@/components/ToolResultBox";
 
-const currencies = [
-  { label: "USD ($)", symbol: "$" },
-  { label: "EUR (€)", symbol: "€" },
-  { label: "GBP (£)", symbol: "£" },
-];
+type CurrencyCode = "USD" | "EUR" | "GBP" | "CAD" | "AUD" | "CHF" | "JPY";
+type VatMode = "add" | "remove";
 
-const commonVatRates = ["0", "5", "7", "10", "19", "20", "21"];
+function formatCurrency(value: number, currency: CurrencyCode) {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency,
+    maximumFractionDigits: currency === "JPY" ? 0 : 2,
+  }).format(value);
+}
 
 export default function VatCalculatorClient() {
-  const [mode, setMode] = useState<"add" | "extract">("add");
-  const [currency, setCurrency] = useState(currencies[0]);
-  const [price, setPrice] = useState("");
-  const [vatRate, setVatRate] = useState("20");
+  const [currency, setCurrency] = useState<CurrencyCode>("EUR");
+  const [mode, setMode] = useState<VatMode>("add");
+  const [amount, setAmount] = useState(100);
+  const [vatRate, setVatRate] = useState(19);
+  const [discountPercent, setDiscountPercent] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  const [error, setError] = useState("");
 
   const result = useMemo(() => {
-    const priceNumber = parseFloat(price);
-    const rateNumber = parseFloat(vatRate);
-
     if (
-      isNaN(priceNumber) ||
-      isNaN(rateNumber) ||
-      priceNumber < 0 ||
-      rateNumber < 0
+      amount < 0 ||
+      vatRate < 0 ||
+      vatRate > 100 ||
+      discountPercent < 0 ||
+      discountPercent > 100 ||
+      quantity <= 0
     ) {
-      return {
-        netPrice: "",
-        vatAmount: "",
-        grossPrice: "",
-      };
+      return null;
     }
+
+    const discountedAmount = amount * (1 - discountPercent / 100);
+    const lineAmount = discountedAmount * quantity;
 
     if (mode === "add") {
-      const vatAmount = priceNumber * (rateNumber / 100);
-      const grossPrice = priceNumber + vatAmount;
+      const vatAmount = lineAmount * (vatRate / 100);
+      const grossAmount = lineAmount + vatAmount;
 
       return {
-        netPrice: priceNumber.toFixed(2),
-        vatAmount: vatAmount.toFixed(2),
-        grossPrice: grossPrice.toFixed(2),
+        netAmount: lineAmount,
+        vatAmount,
+        grossAmount,
+        unitNet: discountedAmount,
+        unitGross: discountedAmount * (1 + vatRate / 100),
       };
     }
 
-    const netPrice = priceNumber / (1 + rateNumber / 100);
-    const vatAmount = priceNumber - netPrice;
+    const netAmount = lineAmount / (1 + vatRate / 100);
+    const vatAmount = lineAmount - netAmount;
 
     return {
-      netPrice: netPrice.toFixed(2),
-      vatAmount: vatAmount.toFixed(2),
-      grossPrice: priceNumber.toFixed(2),
+      netAmount,
+      vatAmount,
+      grossAmount: lineAmount,
+      unitNet: netAmount / quantity,
+      unitGross: discountedAmount,
     };
-  }, [price, vatRate, mode]);
+  }, [amount, vatRate, discountPercent, quantity, mode]);
+
+  function validateInputs() {
+    if (amount < 0) {
+      setError("Amount cannot be negative.");
+      return false;
+    }
+
+    if (vatRate < 0 || vatRate > 100 || discountPercent < 0 || discountPercent > 100) {
+      setError("VAT and discount percentages must be between 0 and 100.");
+      return false;
+    }
+
+    if (quantity <= 0) {
+      setError("Quantity must be greater than zero.");
+      return false;
+    }
+
+    setError("");
+    return true;
+  }
+
+  function resetExample() {
+    setCurrency("EUR");
+    setMode("add");
+    setAmount(100);
+    setVatRate(19);
+    setDiscountPercent(0);
+    setQuantity(1);
+    setError("");
+  }
 
   return (
     <div className="grid gap-8">
-      <div className="space-y-3">
-        <h2 className="text-2xl font-bold">
+      <div>
+        <h2 className="text-2xl font-black tracking-tight text-black">
           Calculate VAT
         </h2>
 
-        <p className="text-black/60 leading-7">
-          Add VAT to a net price or extract VAT from a gross price. Choose a currency and enter any VAT rate.
+        <p className="mt-3 text-sm leading-7 text-black/60 sm:text-base">
+          Add or remove VAT from prices with quantity and discount support.
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-3">
-        <button
-          type="button"
-          onClick={() => setMode("add")}
-          className={`px-4 py-3 rounded-2xl border transition ${
-            mode === "add"
-              ? "bg-black text-white border-black"
-              : "bg-white border-black/10"
-          }`}
-        >
-          Add VAT
-        </button>
+      <div className="grid gap-5">
+        <CurrencySelect currency={currency} setCurrency={setCurrency} />
 
-        <button
-          type="button"
-          onClick={() => setMode("extract")}
-          className={`px-4 py-3 rounded-2xl border transition ${
-            mode === "extract"
-              ? "bg-black text-white border-black"
-              : "bg-white border-black/10"
-          }`}
-        >
-          Extract VAT
-        </button>
-      </div>
+        <label className="block">
+          <span className="text-sm font-bold text-black">VAT mode</span>
 
-      <div>
-        <label className="block mb-2 font-medium">
-          Currency
+          <select
+            value={mode}
+            onChange={(event) => {
+              setMode(event.target.value as VatMode);
+              setError("");
+            }}
+            className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
+          >
+            <option value="add">Add VAT to net amount</option>
+            <option value="remove">Remove VAT from gross amount</option>
+          </select>
         </label>
 
-        <select
-          value={currency.label}
-          onChange={(e) => {
-            const selected = currencies.find(
-              (item) => item.label === e.target.value
-            );
-
-            if (selected) {
-              setCurrency(selected);
-            }
-          }}
-          className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
-        >
-          {currencies.map((item) => (
-            <option key={item.label} value={item.label}>
-              {item.label}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <NumberInput
-        label={mode === "add" ? "Net Price" : "Gross Price"}
-        value={price}
-        onChange={setPrice}
-        placeholder="100"
-      />
-
-      <div>
-        <label className="block mb-2 font-medium">
-          VAT Rate (%)
-        </label>
-
-        <select
-          value={vatRate}
-          onChange={(e) => setVatRate(e.target.value)}
-          className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white mb-3"
-        >
-          {commonVatRates.map((rate) => (
-            <option key={rate} value={rate}>
-              {rate}%
-            </option>
-          ))}
-        </select>
-
-        <NumberInput
-          label="Custom VAT Rate (%)"
-          value={vatRate}
-          onChange={setVatRate}
-          placeholder="20"
-          hint="You can enter any VAT rate, for example 19, 20 or 21."
-        />
-      </div>
-
-      <div className="grid md:grid-cols-3 gap-4">
-        <div className="bg-white border border-black/10 rounded-3xl p-6">
-          <div className="text-sm text-black/50 mb-2">
-            Net Price
-          </div>
-
-          <div className="text-3xl font-bold">
-            {currency.symbol}{result.netPrice || "0"}
-          </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <NumberInput label={mode === "add" ? "Net amount" : "Gross amount"} value={amount} onChange={setAmount} onBlur={validateInputs} />
+          <NumberInput label="VAT rate %" value={vatRate} onChange={setVatRate} onBlur={validateInputs} />
+          <NumberInput label="Discount %" value={discountPercent} onChange={setDiscountPercent} onBlur={validateInputs} />
+          <NumberInput label="Quantity" value={quantity} onChange={setQuantity} onBlur={validateInputs} />
         </div>
 
-        <div className="bg-white border border-black/10 rounded-3xl p-6">
-          <div className="text-sm text-black/50 mb-2">
-            VAT Amount
-          </div>
+        {error && <ToolErrorBox message={error} />}
 
-          <div className="text-3xl font-bold">
-            {currency.symbol}{result.vatAmount || "0"}
-          </div>
-        </div>
-
-        <div className="bg-white border border-black/10 rounded-3xl p-6">
-          <div className="text-sm text-black/50 mb-2">
-            Gross Price
-          </div>
-
-          <div className="text-3xl font-bold">
-            {currency.symbol}{result.grossPrice || "0"}
-          </div>
-        </div>
+        <button type="button" onClick={resetExample} className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:bg-black/5 sm:w-fit">
+          Reset example
+        </button>
       </div>
+
+      {result ? (
+        <ToolResultBox title="VAT result">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <ResultCard label="Gross amount" value={formatCurrency(result.grossAmount, currency)} highlight />
+            <ResultCard label="Net amount" value={formatCurrency(result.netAmount, currency)} />
+            <ResultCard label="VAT amount" value={formatCurrency(result.vatAmount, currency)} />
+            <ResultCard label="Unit gross" value={formatCurrency(result.unitGross, currency)} />
+            <ResultCard label="Unit net" value={formatCurrency(result.unitNet, currency)} />
+          </div>
+        </ToolResultBox>
+      ) : (
+        <ToolInfoBox>
+          Enter valid VAT values to calculate net and gross amounts.
+        </ToolInfoBox>
+      )}
+    </div>
+  );
+}
+
+function CurrencySelect({ currency, setCurrency }: { currency: CurrencyCode; setCurrency: (currency: CurrencyCode) => void }) {
+  return (
+    <label className="block">
+      <span className="text-sm font-bold text-black">Currency</span>
+      <select value={currency} onChange={(event) => setCurrency(event.target.value as CurrencyCode)} className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black">
+        <option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option><option value="CAD">CAD</option><option value="AUD">AUD</option><option value="CHF">CHF</option><option value="JPY">JPY</option>
+      </select>
+    </label>
+  );
+}
+
+function NumberInput({ label, value, onChange, onBlur }: { label: string; value: number; onChange: (value: number) => void; onBlur: () => void }) {
+  return (
+    <label className="block">
+      <span className="text-sm font-bold text-black">{label}</span>
+      <input type="number" value={value} onChange={(event) => onChange(Number(event.target.value))} onBlur={onBlur} className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black" />
+    </label>
+  );
+}
+
+function ResultCard({ label, value, highlight = false }: { label: string; value: string; highlight?: boolean }) {
+  return (
+    <div className={`rounded-2xl border p-5 ${highlight ? "border-black bg-black text-white" : "border-black/10 bg-white text-black"}`}>
+      <div className={`text-xs font-bold uppercase tracking-wide ${highlight ? "text-white/50" : "text-black/40"}`}>{label}</div>
+      <div className="mt-2 text-xl font-black">{value}</div>
     </div>
   );
 }

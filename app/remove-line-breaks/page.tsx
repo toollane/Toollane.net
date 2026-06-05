@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Remove line breaks from text instantly with Toollane's free online line break remover.",
 };
 
-const faqs = [
-  {
-    question: "What does a line break remover do?",
-
-    answer:
-
-  },
-
-  {
-    question: "Why remove line breaks?",
-
-    answer:
-      "Removing line breaks helps clean copied text from PDFs, emails, documents and websites.",
-  },
-
-  {
-    question: "Does this tool change the words?",
-
-    answer:
-
-  },
-];
-
 export default function RemoveLineBreaksPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function RemoveLineBreaksPage() {
 
 
       href="/remove-line-breaks"
-      faqs={faqs}
     >
       <RemoveLineBreaksClient />
     </ToolPageLayout>

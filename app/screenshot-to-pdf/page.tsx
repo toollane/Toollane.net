@@ -11,32 +11,6 @@ export const metadata: Metadata = {
     "Convert screenshots to PDF instantly with Toollane's free online screenshot to PDF converter.",
 };
 
-const faqs = [
-  {
-    question:
-      "What does a screenshot to PDF converter do?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Are my screenshots uploaded?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Can I convert multiple screenshots?",
-
-    answer:
-
-  },
-];
-
 export default function ScreenshotToPdfPage() {
   return (
     <ToolPageLayout
@@ -45,7 +19,6 @@ export default function ScreenshotToPdfPage() {
 
 
       href="/screenshot-to-pdf"
-      faqs={faqs}
     >
       <ScreenshotToPdfClient />
     </ToolPageLayout>

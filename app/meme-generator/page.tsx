@@ -11,32 +11,6 @@ export const metadata: Metadata = {
     "Create memes instantly with Toollane's free online meme generator.",
 };
 
-const faqs = [
-  {
-    question:
-      "What does a meme generator do?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Are my images uploaded?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Can I download my meme?",
-
-    answer:
-
-  },
-];
-
 export default function MemeGeneratorPage() {
   return (
     <ToolPageLayout
@@ -45,7 +19,6 @@ export default function MemeGeneratorPage() {
 
 
       href="/meme-generator"
-      faqs={faqs}
     >
       <MemeGeneratorClient />
     </ToolPageLayout>

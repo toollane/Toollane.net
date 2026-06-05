@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Convert CSV to JSON instantly with Toollane's free online CSV to JSON converter.",
 };
 
-const faqs = [
-  {
-    question: "What does a CSV to JSON converter do?",
-
-    answer:
-
-  },
-
-  {
-    question: "Can I use semicolon CSV files?",
-
-    answer:
-
-  },
-
-  {
-    question: "Who uses CSV to JSON converters?",
-
-    answer:
-      "Developers, analysts, students and office workers use them to transform spreadsheet data into structured JSON.",
-  },
-];
-
 export default function CsvToJsonPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function CsvToJsonPage() {
 
 
       href="/csv-to-json"
-      faqs={faqs}
     >
       <CsvToJsonClient />
     </ToolPageLayout>

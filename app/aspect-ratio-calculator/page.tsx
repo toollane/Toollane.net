@@ -11,32 +11,6 @@ export const metadata: Metadata = {
     "Calculate image and video aspect ratios instantly with Toollane's free online aspect ratio calculator.",
 };
 
-const faqs = [
-  {
-    question:
-      "What is an aspect ratio?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Why is aspect ratio important?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "How do you calculate aspect ratio scaling?",
-
-    answer:
-
-  },
-];
-
 export default function AspectRatioCalculatorPage() {
   return (
     <ToolPageLayout
@@ -45,7 +19,6 @@ export default function AspectRatioCalculatorPage() {
 
 
       href="/aspect-ratio-calculator"
-      faqs={faqs}
     >
       <AspectRatioCalculatorClient />
     </ToolPageLayout>

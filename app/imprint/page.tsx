@@ -1,3 +1,8 @@
+import type { Metadata } from "next";
+import { getToolMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = getToolMetadata("/imprint");
+
 export default function ImprintPage() {
   return (
     <main className="max-w-4xl mx-auto px-6 py-20">

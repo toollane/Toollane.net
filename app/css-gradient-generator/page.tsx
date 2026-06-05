@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Create CSS gradients visually with Toollane's free online CSS gradient generator.",
 };
 
-const faqs = [
-  {
-    question: "What is a CSS gradient generator?",
-
-    answer:
-
-  },
-
-  {
-    question: "Can I change the colors?",
-
-    answer:
-
-  },
-
-  {
-    question: "Who uses CSS gradient generators?",
-
-    answer:
-      "Web designers and developers use them to create backgrounds, buttons and visual effects.",
-  },
-];
-
 export default function CssGradientGeneratorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function CssGradientGeneratorPage() {
 
 
       href="/css-gradient-generator"
-      faqs={faqs}
     >
       <CssGradientGeneratorClient />
     </ToolPageLayout>

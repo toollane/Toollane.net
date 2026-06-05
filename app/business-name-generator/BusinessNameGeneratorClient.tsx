@@ -2,122 +2,174 @@
 
 import { useMemo, useState } from "react";
 
-const prefixes = [
+import ToolResultBox from "@/components/ToolResultBox";
 
-
-
-
-
-
-
-
-
-
+const PREFIXES = [
+  "Nova",
+  "Bright",
+  "Prime",
+  "Next",
+  "Peak",
+  "Smart",
+  "Blue",
+  "Cloud",
+  "Urban",
+  "Rapid",
 ];
 
-const suffixes = [
-
-
-
-
-
-
-
-
-
-
+const SUFFIXES = [
+  "Labs",
+  "Studio",
+  "Works",
+  "Hub",
+  "Solutions",
+  "Media",
+  "Systems",
+  "Digital",
+  "Co",
+  "Group",
 ];
 
 export default function BusinessNameGeneratorClient() {
-  const [keyword, setKeyword] =
-    useState("");
+  const [keyword, setKeyword] = useState("SEO");
 
-  const [refreshKey, setRefreshKey] =
-    useState(0);
+  const [style, setStyle] = useState("Modern");
 
   const names = useMemo(() => {
-    const base =
-      keyword
-        .trim()
-        .replace(/\s+/g, "") || "Brand";
+    const normalized = keyword.trim();
 
-    return Array.from(
-      { length: 12 },
-      (_, index) => {
-        const prefix =
-          prefixes[
-            (index + refreshKey) %
-              prefixes.length
-          ];
+    const generated = new Set<string>();
 
-        const suffix =
-          suffixes[
-            (index * 2 +
-              refreshKey) %
-              suffixes.length
-          ];
+    PREFIXES.forEach((prefix) => {
+      generated.add(`${prefix} ${normalized}`);
+      generated.add(`${prefix}${normalized}`);
+    });
 
-        return `${prefix}${base}${suffix}`;
-      }
-    );
-  }, [keyword, refreshKey]);
+    SUFFIXES.forEach((suffix) => {
+      generated.add(`${normalized} ${suffix}`);
+      generated.add(`${normalized}${suffix}`);
+    });
 
-  const copyName = async (
-    name: string
-  ) => {
+    if (style === "Minimal") {
+      generated.add(`${normalized}ly`);
+      generated.add(`${normalized}io`);
+    }
+
+    if (style === "Luxury") {
+      generated.add(`Elite ${normalized}`);
+      generated.add(`${normalized} Prestige`);
+    }
+
+    return Array.from(generated).slice(0, 30);
+  }, [keyword, style]);
+
+  async function copyAll() {
     await navigator.clipboard.writeText(
-      name
+      names.join("\n")
     );
-  };
+  }
+
+  function resetExample() {
+    setKeyword("SEO");
+    setStyle("Modern");
+  }
 
   return (
     <div className="grid gap-8">
-      <div className="space-y-3">
-        <h2 className="text-2xl font-bold">
-          Business Name Generator
+      <div>
+        <h2 className="text-2xl font-black tracking-tight text-black">
+          Generate business names
         </h2>
 
-        <p className="text-black/60 leading-7">
-          Generate business and
-          startup name ideas instantly
-          for brands, companies and
-          online projects.
+        <p className="mt-3 text-sm leading-7 text-black/60 sm:text-base">
+          Generate brandable business names for startups, agencies, ecommerce
+          brands and online businesses.
         </p>
       </div>
 
-      <input
-        value={keyword}
-        onChange={(event) =>
-          setKeyword(event.target.value)
-        }
-        placeholder="Enter keyword or niche..."
-        className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
-      />
+      <div className="grid gap-4">
+        <Input
+          label="Business keyword"
+          value={keyword}
+          onChange={setKeyword}
+        />
 
-      <button
-        onClick={() =>
-          setRefreshKey(
-            (value) => value + 1
-          )
-        }
-        className="bg-black text-white rounded-2xl px-6 py-4 font-semibold"
-      >
-        Generate Business Names
-      </button>
+        <label className="block">
+          <span className="text-sm font-bold text-black">
+            Naming style
+          </span>
 
-      <div className="grid gap-3">
-        {names.map((name) => (
-          <button
-            key={name}
-            onClick={() =>
-              copyName(name)
+          <select
+            value={style}
+            onChange={(event) =>
+              setStyle(event.target.value)
             }
-            className="bg-white border border-black/10 rounded-2xl px-5 py-4 text-left font-semibold hover:border-black transition"
+            className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
           >
-            {name}
-          </button>
-        ))}
+            <option>Modern</option>
+            <option>Minimal</option>
+            <option>Luxury</option>
+            <option>Corporate</option>
+          </select>
+        </label>
+      </div>
+
+      <ToolResultBox title="Generated business names">
+        <div className="grid gap-3">
+          {names.map((name) => (
+            <div
+              key={name}
+              className="rounded-2xl border border-black/10 bg-white px-5 py-4 font-bold text-black"
+            >
+              {name}
+            </div>
+          ))}
+        </div>
+      </ToolResultBox>
+
+      <div className="flex gap-3">
+        <button
+          type="button"
+          onClick={copyAll}
+          className="rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90"
+        >
+          Copy names
+        </button>
+
+        <button
+          type="button"
+          onClick={resetExample}
+          className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:bg-black/5"
+        >
+          Reset
+        </button>
       </div>
     </div>
+  );
+}
+
+function Input({
+  label,
+  value,
+  onChange,
+}: {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+}) {
+  return (
+    <label className="block">
+      <span className="text-sm font-bold text-black">
+        {label}
+      </span>
+
+      <input
+        value={value}
+        onChange={(event) =>
+          onChange(event.target.value)
+        }
+        className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
+      />
+    </label>
   );
 }

@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Calculate total assets, total debts and net worth instantly with Toollane's free online net worth calculator.",
 };
 
-const faqs = [
-  {
-    question: "How do you calculate net worth?",
-
-    answer:
-
-  },
-
-  {
-    question: "What counts as an asset?",
-
-    answer:
-      "Assets can include cash, bank accounts, investments, property and other valuable possessions.",
-  },
-
-  {
-    question: "What counts as debt?",
-
-    answer:
-      "Debt can include loans, credit card balances, mortgages and other financial obligations.",
-  },
-];
-
 export default function NetWorthCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function NetWorthCalculatorPage() {
 
 
       href="/net-worth-calculator"
-      faqs={faqs}
     >
       <NetWorthCalculatorClient />
     </ToolPageLayout>

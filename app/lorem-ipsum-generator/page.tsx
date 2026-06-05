@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Generate Lorem Ipsum dummy text instantly with Toollane's free online Lorem Ipsum generator.",
 };
 
-const faqs = [
-  {
-    question: "What is Lorem Ipsum?",
-
-    answer:
-      "Lorem Ipsum is placeholder text commonly used in design, publishing and web development.",
-  },
-
-  {
-    question: "Can I generate multiple paragraphs?",
-
-    answer:
-
-  },
-
-  {
-    question: "Can this generate HTML paragraphs?",
-
-    answer:
-
-  },
-];
-
 export default function LoremIpsumGeneratorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function LoremIpsumGeneratorPage() {
 
 
       href="/lorem-ipsum-generator"
-      faqs={faqs}
     >
       <LoremIpsumGeneratorClient />
     </ToolPageLayout>

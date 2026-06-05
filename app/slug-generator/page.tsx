@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Generate SEO-friendly URL slugs instantly with Toollane's free online slug generator.",
 };
 
-const faqs = [
-  {
-    question: "What is a slug?",
-
-    answer:
-
-  },
-
-  {
-    question: "What makes a slug SEO-friendly?",
-
-    answer:
-      "SEO-friendly slugs are usually short, lowercase and use hyphens between words.",
-  },
-
-  {
-    question: "Why use a slug generator?",
-
-    answer:
-      "A slug generator helps quickly create clean URLs for blog posts, landing pages and websites.",
-  },
-];
-
 export default function SlugGeneratorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function SlugGeneratorPage() {
 
 
       href="/slug-generator"
-      faqs={faqs}
     >
       <SlugGeneratorClient />
     </ToolPageLayout>

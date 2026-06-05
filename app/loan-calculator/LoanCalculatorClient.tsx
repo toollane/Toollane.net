@@ -2,174 +2,271 @@
 
 import { useMemo, useState } from "react";
 
-import NumberInput from "@/components/NumberInput";
+import ToolErrorBox from "@/components/ToolErrorBox";
+import ToolInfoBox from "@/components/ToolInfoBox";
+import ToolResultBox from "@/components/ToolResultBox";
 
-const currencies = [
-  { label: "USD ($)", symbol: "$" },
-  { label: "EUR (€)", symbol: "€" },
-  { label: "GBP (£)", symbol: "£" },
-  { label: "CAD ($)", symbol: "$" },
-  { label: "AUD ($)", symbol: "$" },
-];
+function formatCurrency(value: number) {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 2,
+  }).format(value);
+}
 
 export default function LoanCalculatorClient() {
-  const [currency, setCurrency] = useState(currencies[0]);
-  const [loanAmount, setLoanAmount] = useState("");
-  const [annualRate, setAnnualRate] = useState("");
-  const [years, setYears] = useState("");
+  const [loanAmount, setLoanAmount] = useState(25000);
+  const [annualRate, setAnnualRate] = useState(7.5);
+  const [loanYears, setLoanYears] = useState(5);
+  const [extraMonthlyPayment, setExtraMonthlyPayment] = useState(0);
+  const [error, setError] = useState("");
 
   const result = useMemo(() => {
-    const principal = parseFloat(loanAmount);
-    const rate = parseFloat(annualRate);
-    const time = parseFloat(years);
-
     if (
-      isNaN(principal) ||
-      isNaN(rate) ||
-      isNaN(time) ||
-      principal <= 0 ||
-      rate < 0 ||
-      time <= 0
+      loanAmount <= 0 ||
+      annualRate < 0 ||
+      loanYears <= 0 ||
+      extraMonthlyPayment < 0
     ) {
-      return {
-        monthlyPayment: "",
-        totalPayment: "",
-        totalInterest: "",
-      };
+      return null;
     }
 
-    const months = time * 12;
-    const monthlyRate = rate / 100 / 12;
+    const monthlyRate = annualRate / 100 / 12;
+    const totalMonths = loanYears * 12;
 
-    let monthlyPayment = 0;
+    const baseMonthlyPayment =
+      monthlyRate === 0
+        ? loanAmount / totalMonths
+        : (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) /
+          (Math.pow(1 + monthlyRate, totalMonths) - 1);
 
-    if (monthlyRate === 0) {
-      monthlyPayment = principal / months;
-    } else {
-      monthlyPayment =
-        (principal *
-          monthlyRate *
-          Math.pow(1 + monthlyRate, months)) /
-        (Math.pow(1 + monthlyRate, months) - 1);
+    const monthlyPayment = baseMonthlyPayment + extraMonthlyPayment;
+
+    let balance = loanAmount;
+    let months = 0;
+    let totalPaid = 0;
+
+    while (balance > 0 && months < 1200) {
+      const interest = balance * monthlyRate;
+      const principal = Math.min(monthlyPayment - interest, balance);
+
+      if (principal <= 0) {
+        return null;
+      }
+
+      balance -= principal;
+      totalPaid += principal + interest;
+      months += 1;
     }
 
-    const totalPayment = monthlyPayment * months;
-    const totalInterest = totalPayment - principal;
+    const totalInterest = totalPaid - loanAmount;
 
     return {
-      monthlyPayment: monthlyPayment.toFixed(2),
-      totalPayment: totalPayment.toFixed(2),
-      totalInterest: totalInterest.toFixed(2),
+      baseMonthlyPayment,
+      monthlyPayment,
+      payoffMonths: months,
+      totalPaid,
+      totalInterest,
     };
-  }, [loanAmount, annualRate, years]);
+  }, [loanAmount, annualRate, loanYears, extraMonthlyPayment]);
+
+  function validateInputs() {
+    if (loanAmount <= 0) {
+      setError("Loan amount must be greater than zero.");
+      return false;
+    }
+
+    if (annualRate < 0) {
+      setError("Interest rate cannot be negative.");
+      return false;
+    }
+
+    if (loanYears <= 0) {
+      setError("Loan term must be greater than zero.");
+      return false;
+    }
+
+    if (extraMonthlyPayment < 0) {
+      setError("Extra monthly payment cannot be negative.");
+      return false;
+    }
+
+    setError("");
+    return true;
+  }
+
+  function resetExample() {
+    setLoanAmount(25000);
+    setAnnualRate(7.5);
+    setLoanYears(5);
+    setExtraMonthlyPayment(0);
+    setError("");
+  }
 
   return (
     <div className="grid gap-8">
-      <div className="space-y-3">
-        <h2 className="text-2xl font-bold">
-          Calculate Loan Payments
+      <div>
+        <h2 className="text-2xl font-black tracking-tight text-black">
+          Calculate loan payments
         </h2>
 
-        <p className="text-black/60 leading-7">
-          Estimate monthly loan payments, total repayment and total interest
-          based on loan amount, interest rate and repayment term.
+        <p className="mt-3 text-sm leading-7 text-black/60 sm:text-base">
+          Estimate monthly loan payments, total interest and payoff time for
+          personal loans, auto loans and other fixed-rate loans.
         </p>
       </div>
 
-      <div>
-        <label className="block mb-2 font-medium">
-          Currency
-        </label>
+      <div className="grid gap-5">
+        <div className="grid gap-4 sm:grid-cols-2">
+          <NumberInput
+            label="Loan amount"
+            value={loanAmount}
+            onChange={setLoanAmount}
+            onBlur={validateInputs}
+          />
 
-        <select
-          value={currency.label}
-          onChange={(e) => {
-            const selected = currencies.find(
-              (item) => item.label === e.target.value
-            );
+          <NumberInput
+            label="Annual interest rate %"
+            value={annualRate}
+            onChange={setAnnualRate}
+            onBlur={validateInputs}
+          />
 
-            if (selected) {
-              setCurrency(selected);
-            }
-          }}
-          className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
+          <NumberInput
+            label="Loan term years"
+            value={loanYears}
+            onChange={setLoanYears}
+            onBlur={validateInputs}
+          />
+
+          <NumberInput
+            label="Extra monthly payment"
+            value={extraMonthlyPayment}
+            onChange={setExtraMonthlyPayment}
+            onBlur={validateInputs}
+          />
+        </div>
+
+        {error && <ToolErrorBox message={error} />}
+
+        <button
+          type="button"
+          onClick={resetExample}
+          className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:bg-black/5 sm:w-fit"
         >
-          {currencies.map((item) => (
-            <option key={item.label} value={item.label}>
-              {item.label}
-            </option>
-          ))}
-        </select>
+          Reset example
+        </button>
       </div>
 
-      <div className="grid gap-6">
-        <NumberInput
-          label="Loan Amount"
-          value={loanAmount}
-          onChange={setLoanAmount}
-          placeholder="25000"
-        />
+      {result ? (
+        <ToolResultBox title="Loan estimate">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <ResultCard
+              label="Monthly payment"
+              value={formatCurrency(result.monthlyPayment)}
+              highlight
+            />
 
-        <NumberInput
-          label="Annual Interest Rate (%)"
-          value={annualRate}
-          onChange={setAnnualRate}
-          placeholder="6.5"
-          hint="You can enter decimal interest rates with a dot or comma, for example 6.5 or 6,5."
-        />
+            <ResultCard
+              label="Base payment"
+              value={formatCurrency(result.baseMonthlyPayment)}
+            />
 
-        <NumberInput
-          label="Loan Term (Years)"
-          value={years}
-          onChange={setYears}
-          placeholder="5"
-          hint="You can enter full or partial years, for example 2.5 years."
-        />
+            <ResultCard
+              label="Total interest"
+              value={formatCurrency(result.totalInterest)}
+            />
+
+            <ResultCard
+              label="Total paid"
+              value={formatCurrency(result.totalPaid)}
+            />
+
+            <ResultCard
+              label="Payoff time"
+              value={`${result.payoffMonths} months`}
+            />
+          </div>
+
+          <div className="mt-5 rounded-2xl border border-black/10 bg-white p-5 text-sm leading-7 text-black/65">
+            Estimated monthly payment:{" "}
+            <strong className="text-black">
+              {formatCurrency(result.monthlyPayment)}
+            </strong>
+            . Total estimated interest:{" "}
+            <strong className="text-black">
+              {formatCurrency(result.totalInterest)}
+            </strong>
+            .
+          </div>
+        </ToolResultBox>
+      ) : (
+        <ToolInfoBox>
+          Enter valid loan details. If your extra payment is too low to cover
+          monthly interest, the loan cannot be paid off.
+        </ToolInfoBox>
+      )}
+
+      <ToolInfoBox>
+        This calculator provides estimates only. Actual loan payments may vary
+        based on lender fees, taxes, insurance and loan terms.
+      </ToolInfoBox>
+    </div>
+  );
+}
+
+function NumberInput({
+  label,
+  value,
+  onChange,
+  onBlur,
+}: {
+  label: string;
+  value: number;
+  onChange: (value: number) => void;
+  onBlur: () => void;
+}) {
+  return (
+    <label className="block">
+      <span className="text-sm font-bold text-black">{label}</span>
+
+      <input
+        type="number"
+        value={value}
+        onChange={(event) => onChange(Number(event.target.value))}
+        onBlur={onBlur}
+        className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
+      />
+    </label>
+  );
+}
+
+function ResultCard({
+  label,
+  value,
+  highlight = false,
+}: {
+  label: string;
+  value: string;
+  highlight?: boolean;
+}) {
+  return (
+    <div
+      className={`rounded-2xl border p-5 ${
+        highlight
+          ? "border-black bg-black text-white"
+          : "border-black/10 bg-white text-black"
+      }`}
+    >
+      <div
+        className={`text-xs font-bold uppercase tracking-wide ${
+          highlight ? "text-white/50" : "text-black/40"
+        }`}
+      >
+        {label}
       </div>
 
-      <div className="grid md:grid-cols-3 gap-4">
-        <div className="bg-white border border-black/10 rounded-3xl p-6">
-          <div className="text-sm text-black/50 mb-2">
-            Monthly Payment
-          </div>
-
-          <div className="text-3xl font-bold">
-            {currency.symbol}{result.monthlyPayment || "0"}
-          </div>
-        </div>
-
-        <div className="bg-white border border-black/10 rounded-3xl p-6">
-          <div className="text-sm text-black/50 mb-2">
-            Total Payment
-          </div>
-
-          <div className="text-3xl font-bold">
-            {currency.symbol}{result.totalPayment || "0"}
-          </div>
-        </div>
-
-        <div className="bg-white border border-black/10 rounded-3xl p-6">
-          <div className="text-sm text-black/50 mb-2">
-            Total Interest
-          </div>
-
-          <div className="text-3xl font-bold">
-            {currency.symbol}{result.totalInterest || "0"}
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-white/60 border border-black/10 rounded-3xl p-6">
-        <h3 className="font-semibold mb-3">
-          How loan payments are calculated
-        </h3>
-
-        <p className="text-black/60 leading-7">
-          The calculator estimates the fixed monthly payment needed to repay a
-          loan over the selected term. The result depends on the loan amount,
-          interest rate and repayment duration.
-        </p>
-      </div>
+      <div className="mt-2 text-xl font-black">{value}</div>
     </div>
   );
 }

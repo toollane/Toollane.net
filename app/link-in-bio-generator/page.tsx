@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Create mobile link hub pages instantly with Toollane's free online link in bio generator.",
 };
 
-const faqs = [
-  {
-    question:
-      "What does a link in bio generator do?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Who uses link in bio pages?",
-
-    answer:
-      "Creators, influencers, freelancers and businesses use them for Instagram and TikTok profiles.",
-  },
-
-  {
-    question:
-      "Can I add multiple links?",
-
-    answer:
-
-  },
-];
-
 export default function LinkInBioGeneratorPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function LinkInBioGeneratorPage() {
 
 
       href="/link-in-bio-generator"
-      faqs={faqs}
     >
       <LinkInBioGeneratorClient />
     </ToolPageLayout>

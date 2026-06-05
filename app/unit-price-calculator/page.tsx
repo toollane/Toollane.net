@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Calculate price per unit and compare value instantly with Toollane's free online unit price calculator.",
 };
 
-const faqs = [
-  {
-    question: "How do you calculate unit price?",
-
-    answer:
-
-  },
-
-  {
-    question: "Why use a unit price calculator?",
-
-    answer:
-
-  },
-
-  {
-    question: "Can I compare different package sizes?",
-
-    answer:
-
-  },
-];
-
 export default function UnitPriceCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function UnitPriceCalculatorPage() {
 
 
       href="/unit-price-calculator"
-      faqs={faqs}
     >
       <UnitPriceCalculatorClient />
     </ToolPageLayout>

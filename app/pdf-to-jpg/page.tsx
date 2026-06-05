@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Convert PDF pages to JPG images instantly with Toollane's free online PDF to JPG converter.",
 };
 
-const faqs = [
-  {
-    question: "What does a PDF to JPG converter do?",
-
-    answer:
-
-  },
-
-  {
-    question: "Are my PDF files uploaded?",
-
-    answer:
-
-  },
-
-  {
-    question: "Can I convert multiple PDF pages?",
-
-    answer:
-
-  },
-];
-
 export default function PdfToJpgPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function PdfToJpgPage() {
 
 
       href="/pdf-to-jpg"
-      faqs={faqs}
     >
       <PdfToJpgClient />
     </ToolPageLayout>

@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Minify HTML instantly with Toollane's free online HTML minifier.",
 };
 
-const faqs = [
-  {
-    question:
-      "What does an HTML minifier do?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Why minify HTML?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Who uses HTML minifiers?",
-
-    answer:
-      "Developers, SEO specialists and website owners use HTML minifiers to optimize websites.",
-  },
-];
-
 export default function HtmlMinifierPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function HtmlMinifierPage() {
 
 
       href="/html-minifier"
-      faqs={faqs}
     >
       <HtmlMinifierClient />
     </ToolPageLayout>

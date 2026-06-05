@@ -4,84 +4,124 @@ import { useMemo, useState } from "react";
 
 import { marked } from "marked";
 
-export default function MarkdownToHtmlClient() {
-  const [markdown, setMarkdown] =
-    useState("# Hello Toollane\n\nWrite **Markdown** here.");
+import ToolInfoBox from "@/components/ToolInfoBox";
+import ToolResultBox from "@/components/ToolResultBox";
 
-  const html = useMemo(() => {
-    return marked.parse(markdown) as string;
+export default function MarkdownToHtmlClient() {
+  const [markdown, setMarkdown] = useState(`# Example Markdown
+
+Convert **Markdown** to HTML.
+
+- Fast
+- Clean
+- Browser-based
+
+[Example link](https://example.com)
+`);
+
+  const result = useMemo(() => {
+    const html = marked.parse(markdown) as string;
+    const words = markdown.match(/\b[\w'-]+\b/g) || [];
+
+    return {
+      html,
+      markdownCharacters: markdown.length,
+      htmlCharacters: html.length,
+      words: words.length,
+      lines: markdown.split("\n").length,
+    };
   }, [markdown]);
 
-  const copyHtml = async () => {
-    await navigator.clipboard.writeText(html);
-  };
+  async function copyHtml() {
+    await navigator.clipboard.writeText(result.html);
+  }
 
-  const downloadHtml = () => {
-    const blob = new Blob([html], {
-      type: "text/html",
-    });
+  function resetExample() {
+    setMarkdown(`# Example Markdown
 
-    const url = URL.createObjectURL(blob);
+Convert **Markdown** to HTML.
 
-    const link = document.createElement("a");
+- Fast
+- Clean
+- Browser-based
 
-    link.href = url;
-    link.download = "converted.html";
-    link.click();
-
-    URL.revokeObjectURL(url);
-  };
+[Example link](https://example.com)
+`);
+  }
 
   return (
     <div className="grid gap-8">
-      <div className="space-y-3">
-        <h2 className="text-2xl font-bold">
-          Markdown to HTML
+      <div>
+        <h2 className="text-2xl font-black tracking-tight text-black">
+          Convert Markdown to HTML
         </h2>
 
-        <p className="text-black/60 leading-7">
-          Convert Markdown text into
-          clean HTML instantly in your
-          browser.
+        <p className="mt-3 text-sm leading-7 text-black/60 sm:text-base">
+          Convert Markdown into clean HTML and preview the rendered output
+          instantly in your browser.
         </p>
       </div>
 
-      <textarea
-        value={markdown}
-        onChange={(event) =>
-          setMarkdown(event.target.value)
-        }
-        rows={10}
-        className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white font-mono text-sm"
-      />
+      <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid gap-4">
+          <div className="text-sm font-bold text-black">Markdown input</div>
 
-      <div className="grid gap-3 sm:grid-cols-2">
-        <button
-          onClick={copyHtml}
-          disabled={!html}
-          className="bg-black text-white rounded-2xl px-6 py-4 font-semibold disabled:opacity-50"
-        >
+          <textarea
+            value={markdown}
+            onChange={(event) => setMarkdown(event.target.value)}
+            className="min-h-[420px] w-full resize-y rounded-[2rem] border border-black/10 bg-white px-5 py-4 font-mono text-sm leading-7 text-black outline-none transition focus:border-black"
+            placeholder="Write or paste Markdown here..."
+          />
+        </div>
+
+        <div className="grid gap-4">
+          <div className="text-sm font-bold text-black">HTML output</div>
+
+          <textarea
+            readOnly
+            value={result.html}
+            className="min-h-[420px] w-full resize-y rounded-[2rem] border border-black/10 bg-white px-5 py-4 font-mono text-sm leading-7 text-black outline-none"
+          />
+        </div>
+      </div>
+
+      <ToolResultBox title="Conversion stats">
+        <div className="grid gap-4 sm:grid-cols-2">
+          <ResultCard label="Markdown characters" value={result.markdownCharacters.toLocaleString()} />
+          <ResultCard label="HTML characters" value={result.htmlCharacters.toLocaleString()} />
+          <ResultCard label="Words" value={result.words.toLocaleString()} />
+          <ResultCard label="Lines" value={result.lines.toLocaleString()} />
+        </div>
+      </ToolResultBox>
+
+      <div className="flex flex-col gap-3 sm:flex-row">
+        <button type="button" onClick={copyHtml} className="rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90">
           Copy HTML
         </button>
 
-        <button
-          onClick={downloadHtml}
-          disabled={!html}
-          className="bg-black text-white rounded-2xl px-6 py-4 font-semibold disabled:opacity-50"
-        >
-          Download HTML
+        <button type="button" onClick={resetExample} className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:bg-black/5">
+          Reset example
         </button>
       </div>
 
-      <div className="bg-white border border-black/10 rounded-3xl p-6 overflow-x-auto">
-        <div className="font-semibold mb-3">
-          HTML Output
-        </div>
+      <ToolInfoBox>
+        Install the required package before using this component:
+        <br />
+        <br />
+        <code>npm install marked</code>
+      </ToolInfoBox>
+    </div>
+  );
+}
 
-        <pre className="text-sm whitespace-pre-wrap break-words text-black/70">
-          {html}
-        </pre>
+function ResultCard({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-2xl border border-black/10 bg-white p-5">
+      <div className="text-xs font-bold uppercase tracking-wide text-black/40">
+        {label}
       </div>
+
+      <div className="mt-2 text-xl font-black text-black">{value}</div>
     </div>
   );
 }

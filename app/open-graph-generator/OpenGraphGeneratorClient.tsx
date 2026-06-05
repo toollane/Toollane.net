@@ -2,109 +2,168 @@
 
 import { useMemo, useState } from "react";
 
+import ToolResultBox from "@/components/ToolResultBox";
+
 export default function OpenGraphGeneratorClient() {
-  const [title, setTitle] =
-    useState("");
+  const [title, setTitle] = useState(
+    "Example Website"
+  );
 
-  const [description, setDescription] =
-    useState("");
+  const [description, setDescription] = useState(
+    "Example website description for social sharing."
+  );
 
-  const [image, setImage] =
-    useState("");
+  const [url, setUrl] = useState(
+    "https://example.com"
+  );
 
-  const [url, setUrl] =
-    useState("");
+  const [image, setImage] = useState(
+    "https://example.com/og-image.jpg"
+  );
 
-  const output = useMemo(() => {
+  const [siteName, setSiteName] = useState(
+    "Example"
+  );
+
+  const result = useMemo(() => {
     return `<meta property="og:title" content="${title}" />
 <meta property="og:description" content="${description}" />
-<meta property="og:image" content="${image}" />
 <meta property="og:url" content="${url}" />
+<meta property="og:image" content="${image}" />
+<meta property="og:site_name" content="${siteName}" />
 <meta property="og:type" content="website" />`;
-  }, [
-    title,
-    description,
-    image,
-    url,
-  ]);
+  }, [title, description, url, image, siteName]);
 
-  const copyOutput = async () => {
-    await navigator.clipboard.writeText(
-      output
+  async function copyResult() {
+    await navigator.clipboard.writeText(result);
+  }
+
+  function resetExample() {
+    setTitle("Example Website");
+
+    setDescription(
+      "Example website description for social sharing."
     );
-  };
+
+    setUrl("https://example.com");
+
+    setImage(
+      "https://example.com/og-image.jpg"
+    );
+
+    setSiteName("Example");
+  }
 
   return (
     <div className="grid gap-8">
-      <div className="space-y-3">
-        <h2 className="text-2xl font-bold">
-          Open Graph Generator
+      <div>
+        <h2 className="text-2xl font-black tracking-tight text-black">
+          Generate Open Graph meta tags
         </h2>
 
-        <p className="text-black/60 leading-7">
-          Generate Open Graph meta
-          tags instantly for websites
-          and social sharing.
+        <p className="mt-3 text-sm leading-7 text-black/60 sm:text-base">
+          Create Open Graph tags for Facebook, LinkedIn, X/Twitter previews and
+          social sharing optimization.
         </p>
       </div>
 
-      <input
-        value={title}
-        onChange={(event) =>
-          setTitle(
-            event.target.value
-          )
-        }
-        placeholder="Page Title"
-        className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
-      />
+      <div className="grid gap-4">
+        <Input label="Page title" value={title} onChange={setTitle} />
 
-      <textarea
-        value={description}
-        onChange={(event) =>
-          setDescription(
-            event.target.value
-          )
-        }
-        placeholder="Meta Description"
-        rows={4}
-        className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
-      />
+        <Textarea
+          label="Description"
+          value={description}
+          onChange={setDescription}
+        />
 
-      <input
-        value={image}
-        onChange={(event) =>
-          setImage(
-            event.target.value
-          )
-        }
-        placeholder="Image URL"
-        className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
-      />
+        <Input label="Page URL" value={url} onChange={setUrl} />
 
-      <input
-        value={url}
-        onChange={(event) =>
-          setUrl(
-            event.target.value
-          )
-        }
-        placeholder="Website URL"
-        className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
-      />
+        <Input label="Image URL" value={image} onChange={setImage} />
 
-      <div className="bg-white border border-black/10 rounded-3xl p-6">
-        <pre className="whitespace-pre-wrap break-words text-sm font-mono">
-          {output}
-        </pre>
+        <Input
+          label="Site name"
+          value={siteName}
+          onChange={setSiteName}
+        />
       </div>
 
-      <button
-        onClick={copyOutput}
-        className="bg-black text-white rounded-2xl px-6 py-4 font-semibold"
-      >
-        Copy Meta Tags
-      </button>
+      <ToolResultBox title="Generated Open Graph tags">
+        <textarea
+          readOnly
+          value={result}
+          className="min-h-[260px] w-full resize-y rounded-[2rem] border border-black/10 bg-white px-5 py-4 font-mono text-sm text-black outline-none"
+        />
+      </ToolResultBox>
+
+      <div className="flex gap-3">
+        <button
+          type="button"
+          onClick={copyResult}
+          className="rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90"
+        >
+          Copy tags
+        </button>
+
+        <button
+          type="button"
+          onClick={resetExample}
+          className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:bg-black/5"
+        >
+          Reset
+        </button>
+      </div>
     </div>
+  );
+}
+
+function Input({
+  label,
+  value,
+  onChange,
+}: {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+}) {
+  return (
+    <label className="block">
+      <span className="text-sm font-bold text-black">
+        {label}
+      </span>
+
+      <input
+        value={value}
+        onChange={(event) =>
+          onChange(event.target.value)
+        }
+        className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
+      />
+    </label>
+  );
+}
+
+function Textarea({
+  label,
+  value,
+  onChange,
+}: {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+}) {
+  return (
+    <label className="block">
+      <span className="text-sm font-bold text-black">
+        {label}
+      </span>
+
+      <textarea
+        value={value}
+        onChange={(event) =>
+          onChange(event.target.value)
+        }
+        className="mt-3 min-h-[140px] w-full resize-y rounded-[2rem] border border-black/10 bg-white px-5 py-4 text-sm text-black outline-none transition focus:border-black"
+      />
+    </label>
   );
 }

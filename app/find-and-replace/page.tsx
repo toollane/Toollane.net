@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Find and replace text instantly with Toollane's free online find and replace tool.",
 };
 
-const faqs = [
-  {
-    question: "What does a find and replace tool do?",
-
-    answer:
-
-  },
-
-  {
-    question: "Who can use this tool?",
-
-    answer:
-      "Writers, students, office workers and developers can use it to clean or edit text quickly.",
-  },
-
-  {
-    question: "Does this tool change my text automatically?",
-
-    answer:
-
-  },
-];
-
 export default function FindAndReplacePage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function FindAndReplacePage() {
 
 
       href="/find-and-replace"
-      faqs={faqs}
     >
       <FindAndReplaceClient />
     </ToolPageLayout>

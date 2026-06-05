@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Calculate influencer engagement rate instantly with Toollane's free online engagement rate calculator.",
 };
 
-const faqs = [
-  {
-    question: "How do you calculate engagement rate?",
-
-    answer:
-
-  },
-
-  {
-    question: "What counts as engagement?",
-
-    answer:
-      "Engagement can include likes, comments, shares and other audience interactions.",
-  },
-
-  {
-    question: "Why use an engagement rate calculator?",
-
-    answer:
-      "It helps creators, marketers and brands evaluate audience interaction and influencer performance.",
-  },
-];
-
 export default function InfluencerEngagementRateCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function InfluencerEngagementRateCalculatorPage() {
 
 
       href="/influencer-engagement-rate-calculator"
-      faqs={faqs}
     >
       <InfluencerEngagementRateCalculatorClient />
     </ToolPageLayout>

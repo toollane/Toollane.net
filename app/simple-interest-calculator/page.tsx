@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Calculate simple interest and total amount instantly with Toollane's free online simple interest calculator.",
 };
 
-const faqs = [
-  {
-    question: "How do you calculate simple interest?",
-
-    answer:
-
-  },
-
-  {
-    question: "What is the difference between simple and compound interest?",
-
-    answer:
-      "Simple interest is calculated only on the original amount, while compound interest also earns interest on previous interest.",
-  },
-
-  {
-    question: "Can I use different currencies?",
-
-    answer:
-      "Yes. You can choose common currencies such as USD, EUR, GBP, CAD and AUD.",
-  },
-];
-
 export default function SimpleInterestCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function SimpleInterestCalculatorPage() {
 
 
       href="/simple-interest-calculator"
-      faqs={faqs}
     >
       <SimpleInterestCalculatorClient />
     </ToolPageLayout>

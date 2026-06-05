@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Calculate sales tax and final price instantly with Toollane's free online sales tax calculator.",
 };
 
-const faqs = [
-  {
-    question: "How do you calculate sales tax?",
-
-    answer:
-
-  },
-
-  {
-    question: "How do you calculate the total price with tax?",
-
-    answer:
-
-  },
-
-  {
-    question: "Can I use a custom sales tax rate?",
-
-    answer:
-
-  },
-];
-
 export default function SalesTaxCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function SalesTaxCalculatorPage() {
 
 
       href="/sales-tax-calculator"
-      faqs={faqs}
     >
       <SalesTaxCalculatorClient />
     </ToolPageLayout>

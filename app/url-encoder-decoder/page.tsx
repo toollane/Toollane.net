@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Encode and decode URLs instantly with Toollane's free online URL encoder decoder.",
 };
 
-const faqs = [
-  {
-    question: "What is URL encoding?",
-
-    answer:
-
-  },
-
-  {
-    question: "Can I decode URL encoded text?",
-
-    answer:
-
-  },
-
-  {
-    question: "Why use a URL encoder decoder?",
-
-    answer:
-      "It helps developers, marketers and analysts quickly prepare or read URLs, query strings and tracking links.",
-  },
-];
-
 export default function UrlEncoderDecoderPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function UrlEncoderDecoderPage() {
 
 
       href="/url-encoder-decoder"
-      faqs={faqs}
     >
       <UrlEncoderDecoderClient />
     </ToolPageLayout>

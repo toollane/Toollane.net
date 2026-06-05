@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Generate business and startup name ideas instantly with Toollane's free online business name generator.",
 };
 
-const faqs = [
-  {
-    question:
-      "What does a business name generator do?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Who uses business name generators?",
-
-    answer:
-      "Entrepreneurs, creators, agencies and startups use them to brainstorm brand names.",
-  },
-
-  {
-    question:
-      "Can I use my own keyword?",
-
-    answer:
-
-  },
-];
-
 export default function BusinessNameGeneratorPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function BusinessNameGeneratorPage() {
 
 
       href="/business-name-generator"
-      faqs={faqs}
     >
       <BusinessNameGeneratorClient />
     </ToolPageLayout>

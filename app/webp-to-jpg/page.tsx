@@ -10,24 +10,6 @@ export const metadata: Metadata = {
     "Convert WEBP images to JPG instantly with Toollane's free online WEBP to JPG converter.",
 };
 
-const faqs = [
-  {
-    question: "How does a WEBP to JPG converter work?",
-    answer:
-
-  },
-  {
-    question: "Are my images uploaded?",
-    answer:
-
-  },
-  {
-    question: "Why convert WEBP to JPG?",
-    answer:
-      "JPG is widely supported by apps, websites, forms and older systems.",
-  },
-];
-
 export default function WebpToJpgPage() {
   return (
     <ToolPageLayout
@@ -36,7 +18,6 @@ export default function WebpToJpgPage() {
 
 
       href="/webp-to-jpg"
-      faqs={faqs}
     >
       <WebpToJpgClient />
     </ToolPageLayout>

@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Calculate creator project rates, usage fees and total pricing with Toollane's free online creator rate calculator.",
 };
 
-const faqs = [
-  {
-    question: "How do you calculate creator rates?",
-
-    answer:
-
-  },
-
-  {
-    question: "What are usage rights fees?",
-
-    answer:
-      "Usage rights fees are additional charges for brands to use creator content in paid ads, campaigns or long-term marketing.",
-  },
-
-  {
-    question: "Are creator rates fixed?",
-
-    answer:
-      "No. Creator pricing can vary by audience, niche, content format, usage rights, deliverables and negotiation.",
-  },
-];
-
 export default function CreatorRateCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function CreatorRateCalculatorPage() {
 
 
       href="/creator-rate-calculator"
-      faqs={faqs}
     >
       <CreatorRateCalculatorClient />
     </ToolPageLayout>

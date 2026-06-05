@@ -2,106 +2,126 @@
 
 import { useMemo, useState } from "react";
 
-const maleNames = [
+import ToolResultBox from "@/components/ToolResultBox";
 
-
-
-
-
-
-
-
-
-
+const FIRST_NAMES = [
+  "Alex",
+  "Emma",
+  "Liam",
+  "Sophia",
+  "Noah",
+  "Mia",
+  "Lucas",
+  "Olivia",
+  "Ethan",
+  "Ava",
 ];
 
-const femaleNames = [
-
-
-
-
-
-
-
-
-
-
-];
-
-const lastNames = [
-
-
-
-
-
-
-
-
-
-
+const LAST_NAMES = [
+  "Smith",
+  "Johnson",
+  "Brown",
+  "Taylor",
+  "Miller",
+  "Wilson",
+  "Moore",
+  "Clark",
+  "Lewis",
+  "Walker",
 ];
 
 export default function RandomNameGeneratorClient() {
-  const [type, setType] = useState("mixed");
-  const [refreshKey, setRefreshKey] = useState(0);
+  const [count, setCount] = useState(10);
 
   const names = useMemo(() => {
-    const firstNames =
-      type === "male"
-        ? maleNames
-        : type === "female"
-          ? femaleNames
-          : [...maleNames, ...femaleNames];
-
-    return Array.from({ length: 10 }, (_, index) => {
+    return Array.from({ length: count }, () => {
       const first =
-        firstNames[(index + refreshKey) % firstNames.length];
+        FIRST_NAMES[
+          Math.floor(Math.random() * FIRST_NAMES.length)
+        ];
 
       const last =
-        lastNames[(index * 2 + refreshKey) % lastNames.length];
+        LAST_NAMES[
+          Math.floor(Math.random() * LAST_NAMES.length)
+        ];
 
       return `${first} ${last}`;
     });
-  }, [type, refreshKey]);
+  }, [count]);
+
+  async function copyAll() {
+    await navigator.clipboard.writeText(
+      names.join("\n")
+    );
+  }
+
+  function regenerate() {
+    setCount((value) => value);
+  }
+
+  function resetExample() {
+    setCount(10);
+  }
 
   return (
     <div className="grid gap-8">
-      <div className="space-y-3">
-        <h2 className="text-2xl font-bold">
-          Random Name Generator
+      <div>
+        <h2 className="text-2xl font-black tracking-tight text-black">
+          Generate random names
         </h2>
 
-        <p className="text-black/60 leading-7">
-          Generate random male, female or mixed full names for writing, testing, games and creative projects.
+        <p className="mt-3 text-sm leading-7 text-black/60 sm:text-base">
+          Generate random names for testing, placeholders, games, apps and user
+          profile mockups.
         </p>
       </div>
 
-      <select
-        value={type}
-        onChange={(event) => setType(event.target.value)}
-        className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
-      >
-        <option value="mixed">Mixed Names</option>
-        <option value="male">Male Names</option>
-        <option value="female">Female Names</option>
-      </select>
+      <label className="block">
+        <span className="text-sm font-bold text-black">
+          Number of names
+        </span>
 
-      <button
-        onClick={() => setRefreshKey((value) => value + 1)}
-        className="bg-black text-white rounded-2xl px-6 py-4 font-semibold"
-      >
-        Generate Names
-      </button>
+        <input
+          type="number"
+          min="1"
+          max="100"
+          value={count}
+          onChange={(event) =>
+            setCount(Number(event.target.value))
+          }
+          className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
+        />
+      </label>
 
-      <div className="grid gap-3">
-        {names.map((name) => (
-          <div
-            key={name}
-            className="bg-white border border-black/10 rounded-2xl px-5 py-4 font-semibold"
-          >
-            {name}
-          </div>
-        ))}
+      <ToolResultBox title="Generated names">
+        <div className="grid gap-3">
+          {names.map((name, index) => (
+            <div
+              key={`${name}-${index}`}
+              className="rounded-2xl border border-black/10 bg-white px-5 py-4 text-black"
+            >
+              {name}
+            </div>
+          ))}
+        </div>
+      </ToolResultBox>
+
+      <div className="flex gap-3">
+        <button
+          type="button"
+          onClick={copyAll}
+          className="rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90"
+        >
+          Copy names
+        </button>
+
+        <button
+          type="button"
+          onClick={resetExample}
+          className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:bg-black/5"
+        >
+          Reset
+        </button>
       </div>
     </div>
   );

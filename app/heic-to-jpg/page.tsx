@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Convert HEIC images to JPG instantly with Toollane's free online HEIC to JPG converter.",
 };
 
-const faqs = [
-  {
-    question:
-      "What is a HEIC file?",
-
-    answer:
-      "HEIC is Apple's image format used by iPhones and iPads for photos.",
-  },
-
-  {
-    question:
-      "Why convert HEIC to JPG?",
-
-    answer:
-      "JPG files are more widely supported by websites, apps, forms and email providers.",
-  },
-
-  {
-    question:
-      "Are my HEIC files uploaded?",
-
-    answer:
-
-  },
-];
-
 export default function HeicToJpgPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function HeicToJpgPage() {
 
 
       href="/heic-to-jpg"
-      faqs={faqs}
     >
       <HeicToJpgClient />
     </ToolPageLayout>

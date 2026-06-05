@@ -1,150 +1,320 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
+
+import ToolErrorBox from "@/components/ToolErrorBox";
+import ToolInfoBox from "@/components/ToolInfoBox";
+import ToolResultBox from "@/components/ToolResultBox";
+
+const FONT_OPTIONS = [
+  "Pacifico",
+  "Caveat",
+  "Dancing Script",
+  "Great Vibes",
+  "Satisfy",
+  "Allura",
+  "Sacramento",
+];
 
 export default function SignatureGeneratorClient() {
-  const canvasRef =
-    useRef<HTMLCanvasElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  const [drawing, setDrawing] =
-    useState(false);
+  const [name, setName] = useState("Alex Johnson");
+  const [fontFamily, setFontFamily] = useState("Pacifico");
+  const [fontSize, setFontSize] = useState(84);
+  const [textColor, setTextColor] = useState("#000000");
+  const [backgroundColor, setBackgroundColor] = useState("#ffffff");
+  const [transparentBackground, setTransparentBackground] = useState(true);
+  const [padding, setPadding] = useState(40);
+  const [lineWidth, setLineWidth] = useState(2);
+  const [downloadUrl, setDownloadUrl] = useState("");
+  const [error, setError] = useState("");
 
-  const startDrawing = (
-    event: React.MouseEvent<HTMLCanvasElement>
-  ) => {
-    const canvas =
-      canvasRef.current;
+  const previewWidth = useMemo(() => {
+    return Math.max(480, name.length * (fontSize * 0.8));
+  }, [fontSize, name]);
+
+  function generateSignature() {
+    if (!name.trim()) {
+      setError("Please enter a signature name.");
+      return;
+    }
+
+    const canvas = canvasRef.current;
 
     if (!canvas) return;
 
-    const ctx =
-      canvas.getContext("2d");
+    const context = canvas.getContext("2d");
 
-    if (!ctx) return;
+    if (!context) return;
 
-    ctx.beginPath();
+    const width = previewWidth + padding * 2;
+    const height = fontSize * 2 + padding * 2;
 
-    ctx.moveTo(
-      event.nativeEvent.offsetX,
-      event.nativeEvent.offsetY
+    canvas.width = width;
+    canvas.height = height;
+
+    if (!transparentBackground) {
+      context.fillStyle = backgroundColor;
+      context.fillRect(0, 0, width, height);
+    } else {
+      context.clearRect(0, 0, width, height);
+    }
+
+    context.font = `400 ${fontSize}px "${fontFamily}", cursive`;
+    context.fillStyle = textColor;
+    context.lineWidth = lineWidth;
+    context.lineJoin = "round";
+    context.lineCap = "round";
+
+    context.fillText(name, padding, fontSize + padding);
+
+    canvas.toBlob(
+      (blob) => {
+        if (!blob) {
+          setError("Could not generate signature.");
+          return;
+        }
+
+        const url = URL.createObjectURL(blob);
+
+        setDownloadUrl(url);
+        setError("");
+      },
+      "image/png",
+      1
     );
+  }
 
-    setDrawing(true);
-  };
+  function downloadSignature() {
+    if (!downloadUrl) return;
 
-  const draw = (
-    event: React.MouseEvent<HTMLCanvasElement>
-  ) => {
-    if (!drawing) return;
+    const link = document.createElement("a");
 
-    const canvas =
-      canvasRef.current;
-
-    if (!canvas) return;
-
-    const ctx =
-      canvas.getContext("2d");
-
-    if (!ctx) return;
-
-    ctx.lineWidth = 2;
-    ctx.lineCap = "round";
-
-    ctx.lineTo(
-      event.nativeEvent.offsetX,
-      event.nativeEvent.offsetY
-    );
-
-    ctx.stroke();
-  };
-
-  const stopDrawing = () => {
-    setDrawing(false);
-  };
-
-  const clearCanvas = () => {
-    const canvas =
-      canvasRef.current;
-
-    if (!canvas) return;
-
-    const ctx =
-      canvas.getContext("2d");
-
-    if (!ctx) return;
-
-    ctx.clearRect(
-      0,
-      0,
-      canvas.width,
-      canvas.height
-    );
-  };
-
-  const downloadSignature = () => {
-    const canvas =
-      canvasRef.current;
-
-    if (!canvas) return;
-
-    const link =
-      document.createElement("a");
-
-    link.download =
-      "signature.png";
-
-    link.href =
-      canvas.toDataURL();
+    link.href = downloadUrl;
+    link.download = "signature.png";
 
     link.click();
-  };
+  }
+
+  async function copyImage() {
+    if (!downloadUrl) return;
+
+    const response = await fetch(downloadUrl);
+    const blob = await response.blob();
+
+    await navigator.clipboard.write([
+      new ClipboardItem({
+        [blob.type]: blob,
+      }),
+    ]);
+  }
+
+  function resetTool() {
+    setName("Alex Johnson");
+    setFontFamily("Pacifico");
+    setFontSize(84);
+    setTextColor("#000000");
+    setBackgroundColor("#ffffff");
+    setTransparentBackground(true);
+    setPadding(40);
+    setLineWidth(2);
+    setDownloadUrl("");
+    setError("");
+  }
 
   return (
     <div className="grid gap-8">
-      <div className="space-y-3">
-        <h2 className="text-2xl font-bold">
+      <div>
+        <h1 className="text-3xl font-black tracking-tight text-black sm:text-4xl">
           Signature Generator
-        </h2>
+        </h1>
 
-        <p className="text-black/60 leading-7">
-          Draw and download digital
-          signatures instantly for
-          documents and contracts.
+        <p className="mt-4 text-sm leading-7 text-black/60 sm:text-base">
+          Create professional handwritten signatures for documents, contracts,
+          branding, email signatures and online forms.
         </p>
       </div>
 
-      <div className="bg-white border border-black/10 rounded-3xl p-4 overflow-hidden">
-        <canvas
-          ref={canvasRef}
-          width={900}
-          height={300}
-          onMouseDown={
-            startDrawing
-          }
-          onMouseMove={draw}
-          onMouseUp={stopDrawing}
-          onMouseLeave={
-            stopDrawing
-          }
-          className="w-full bg-white rounded-2xl border border-dashed border-black/20 touch-none"
+      {error && <ToolErrorBox message={error} />}
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        <Input label="Signature name" value={name} onChange={setName} />
+
+        <label className="block">
+          <span className="text-sm font-bold text-black">Signature font</span>
+
+          <select
+            value={fontFamily}
+            onChange={(event) => setFontFamily(event.target.value)}
+            className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none"
+          >
+            {FONT_OPTIONS.map((font) => (
+              <option key={font}>{font}</option>
+            ))}
+          </select>
+        </label>
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <label className="block">
+          <span className="text-sm font-bold text-black">
+            Font size: {fontSize}px
+          </span>
+
+          <input
+            type="range"
+            min="32"
+            max="160"
+            step="2"
+            value={fontSize}
+            onChange={(event) => setFontSize(Number(event.target.value))}
+            className="mt-5 w-full"
+          />
+        </label>
+
+        <label className="block">
+          <span className="text-sm font-bold text-black">
+            Padding: {padding}px
+          </span>
+
+          <input
+            type="range"
+            min="0"
+            max="120"
+            step="2"
+            value={padding}
+            onChange={(event) => setPadding(Number(event.target.value))}
+            className="mt-5 w-full"
+          />
+        </label>
+
+        <label className="block">
+          <span className="text-sm font-bold text-black">Text color</span>
+
+          <input
+            type="color"
+            value={textColor}
+            onChange={(event) => setTextColor(event.target.value)}
+            className="mt-3 h-[56px] w-full rounded-2xl border border-black/10"
+          />
+        </label>
+
+        <label className="block">
+          <span className="text-sm font-bold text-black">Background</span>
+
+          <input
+            type="color"
+            value={backgroundColor}
+            onChange={(event) => setBackgroundColor(event.target.value)}
+            className="mt-3 h-[56px] w-full rounded-2xl border border-black/10"
+          />
+        </label>
+      </div>
+
+      <label className="flex items-center justify-between gap-4 rounded-2xl border border-black/10 bg-[#fff8df] px-5 py-4">
+        <span className="text-sm font-bold text-black">
+          Transparent background
+        </span>
+
+        <input
+          type="checkbox"
+          checked={transparentBackground}
+          onChange={(event) => setTransparentBackground(event.target.checked)}
+          className="h-5 w-5 accent-black"
         />
-      </div>
+      </label>
 
-      <div className="flex flex-wrap gap-4">
+      <ToolResultBox title="Signature preview">
+        <div
+          className="overflow-auto rounded-[2rem] border border-black/10 bg-white p-8"
+          style={{
+            backgroundImage:
+              "linear-gradient(45deg,#f3f4f6 25%,transparent 25%,transparent 75%,#f3f4f6 75%,#f3f4f6),linear-gradient(45deg,#f3f4f6 25%,transparent 25%,transparent 75%,#f3f4f6 75%,#f3f4f6)",
+            backgroundPosition: "0 0,12px 12px",
+            backgroundSize: "24px 24px",
+          }}
+        >
+          <div
+            style={{
+              fontFamily,
+              fontSize,
+              color: textColor,
+              background: transparentBackground ? "transparent" : backgroundColor,
+              padding,
+              display: "inline-block",
+              borderRadius: 24,
+            }}
+          >
+            {name}
+          </div>
+        </div>
+      </ToolResultBox>
+
+      <canvas ref={canvasRef} className="hidden" />
+
+      <div className="flex flex-col gap-3 sm:flex-row">
         <button
+          type="button"
+          onClick={generateSignature}
+          className="rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white"
+        >
+          Generate Signature
+        </button>
+
+        <button
+          type="button"
           onClick={downloadSignature}
-          className="bg-black text-white rounded-2xl px-6 py-4 font-semibold"
+          disabled={!downloadUrl}
+          className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black disabled:opacity-50"
         >
-          Download Signature
+          Download PNG
         </button>
 
         <button
-          onClick={clearCanvas}
-          className="bg-white border border-black/10 rounded-2xl px-6 py-4 font-semibold"
+          type="button"
+          onClick={copyImage}
+          disabled={!downloadUrl}
+          className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black disabled:opacity-50"
         >
-          Clear
+          Copy Image
+        </button>
+
+        <button
+          type="button"
+          onClick={resetTool}
+          className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black"
+        >
+          Reset
         </button>
       </div>
+
+      <ToolInfoBox>
+        Generated signatures are ideal for digital documents, email footers,
+        PDF contracts, branding assets and online approvals.
+      </ToolInfoBox>
     </div>
+  );
+}
+
+function Input({
+  label,
+  value,
+  onChange,
+}: {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+}) {
+  return (
+    <label className="block">
+      <span className="text-sm font-bold text-black">{label}</span>
+
+      <input
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
+        className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none"
+      />
+    </label>
   );
 }

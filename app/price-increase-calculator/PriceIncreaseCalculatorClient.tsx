@@ -2,121 +2,177 @@
 
 import { useMemo, useState } from "react";
 
-import NumberInput from "@/components/NumberInput";
+import ToolErrorBox from "@/components/ToolErrorBox";
+import ToolInfoBox from "@/components/ToolInfoBox";
+import ToolResultBox from "@/components/ToolResultBox";
 
-const currencies = [
-  { label: "USD ($)", symbol: "$" },
-  { label: "EUR (€)", symbol: "€" },
-  { label: "GBP (£)", symbol: "£" },
-  { label: "CAD ($)", symbol: "$" },
-  { label: "AUD ($)", symbol: "$" },
-];
+type CurrencyCode = "USD" | "EUR" | "GBP" | "CAD" | "AUD" | "CHF" | "JPY";
+
+function formatCurrency(value: number, currency: CurrencyCode) {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency,
+    maximumFractionDigits: currency === "JPY" ? 0 : 2,
+  }).format(value);
+}
+
+function formatPercent(value: number) {
+  return `${value.toFixed(2)}%`;
+}
 
 export default function PriceIncreaseCalculatorClient() {
-  const [currency, setCurrency] = useState(currencies[0]);
-  const [originalPrice, setOriginalPrice] = useState("");
-  const [increasePercent, setIncreasePercent] = useState("");
+  const [currency, setCurrency] = useState<CurrencyCode>("USD");
+  const [currentPrice, setCurrentPrice] = useState(49);
+  const [increasePercent, setIncreasePercent] = useState(15);
+  const [unitsSold, setUnitsSold] = useState(1000);
+  const [costPerUnit, setCostPerUnit] = useState(22);
+  const [demandDropPercent, setDemandDropPercent] = useState(5);
+  const [error, setError] = useState("");
 
   const result = useMemo(() => {
-    const price = parseFloat(originalPrice);
-    const percent = parseFloat(increasePercent);
-
     if (
-      isNaN(price) ||
-      isNaN(percent) ||
-      price < 0
+      currentPrice < 0 ||
+      increasePercent < 0 ||
+      unitsSold < 0 ||
+      costPerUnit < 0 ||
+      demandDropPercent < 0 ||
+      demandDropPercent > 100
     ) {
-      return {
-        increaseAmount: "",
-        newPrice: "",
-      };
+      return null;
     }
 
-    const increaseAmount = price * (percent / 100);
-    const newPrice = price + increaseAmount;
+    const newPrice = currentPrice * (1 + increasePercent / 100);
+    const priceDifference = newPrice - currentPrice;
+    const adjustedUnits = unitsSold * (1 - demandDropPercent / 100);
+
+    const oldRevenue = currentPrice * unitsSold;
+    const newRevenue = newPrice * adjustedUnits;
+    const revenueChange = newRevenue - oldRevenue;
+
+    const oldProfit = (currentPrice - costPerUnit) * unitsSold;
+    const newProfit = (newPrice - costPerUnit) * adjustedUnits;
+    const profitChange = newProfit - oldProfit;
 
     return {
-      increaseAmount: increaseAmount.toFixed(2),
-      newPrice: newPrice.toFixed(2),
+      newPrice,
+      priceDifference,
+      adjustedUnits,
+      oldRevenue,
+      newRevenue,
+      revenueChange,
+      oldProfit,
+      newProfit,
+      profitChange,
+      effectiveRevenueChange: oldRevenue > 0 ? (revenueChange / oldRevenue) * 100 : 0,
+      effectiveProfitChange: oldProfit !== 0 ? (profitChange / oldProfit) * 100 : 0,
     };
-  }, [originalPrice, increasePercent]);
+  }, [currentPrice, increasePercent, unitsSold, costPerUnit, demandDropPercent]);
+
+  function validateInputs() {
+    if (currentPrice < 0 || increasePercent < 0 || unitsSold < 0 || costPerUnit < 0) {
+      setError("Values cannot be negative.");
+      return false;
+    }
+
+    if (demandDropPercent < 0 || demandDropPercent > 100) {
+      setError("Demand drop must be between 0 and 100.");
+      return false;
+    }
+
+    setError("");
+    return true;
+  }
+
+  function resetExample() {
+    setCurrency("USD");
+    setCurrentPrice(49);
+    setIncreasePercent(15);
+    setUnitsSold(1000);
+    setCostPerUnit(22);
+    setDemandDropPercent(5);
+    setError("");
+  }
 
   return (
     <div className="grid gap-8">
-      <div className="space-y-3">
-        <h2 className="text-2xl font-bold">
-          Calculate Price Increase
+      <div>
+        <h2 className="text-2xl font-black tracking-tight text-black">
+          Calculate price increase impact
         </h2>
 
-        <p className="text-black/60 leading-7">
-          Calculate a new price after applying a percentage increase.
+        <p className="mt-3 text-sm leading-7 text-black/60 sm:text-base">
+          Estimate the effect of a price increase on revenue, profit and demand.
         </p>
       </div>
 
-      <div>
-        <label className="block mb-2 font-medium">
-          Currency
-        </label>
+      <div className="grid gap-5">
+        <CurrencySelect currency={currency} setCurrency={setCurrency} />
 
-        <select
-          value={currency.label}
-          onChange={(e) => {
-            const selected = currencies.find(
-              (item) => item.label === e.target.value
-            );
-
-            if (selected) {
-              setCurrency(selected);
-            }
-          }}
-          className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
-        >
-          {currencies.map((item) => (
-            <option key={item.label} value={item.label}>
-              {item.label}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div className="grid gap-6">
-        <NumberInput
-          label="Original Price"
-          value={originalPrice}
-          onChange={setOriginalPrice}
-          placeholder="100"
-        />
-
-        <NumberInput
-          label="Increase (%)"
-          value={increasePercent}
-          onChange={setIncreasePercent}
-          placeholder="10"
-          hint="You can enter decimal percentages with a dot or comma, for example 7.5 or 7,5."
-        />
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-4">
-        <div className="bg-white border border-black/10 rounded-3xl p-6">
-          <div className="text-sm text-black/50 mb-2">
-            Increase Amount
-          </div>
-
-          <div className="text-3xl font-bold">
-            {currency.symbol}{result.increaseAmount || "0"}
-          </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <NumberInput label="Current price" value={currentPrice} onChange={setCurrentPrice} onBlur={validateInputs} />
+          <NumberInput label="Price increase %" value={increasePercent} onChange={setIncreasePercent} onBlur={validateInputs} />
+          <NumberInput label="Units sold before increase" value={unitsSold} onChange={setUnitsSold} onBlur={validateInputs} />
+          <NumberInput label="Cost per unit" value={costPerUnit} onChange={setCostPerUnit} onBlur={validateInputs} />
+          <NumberInput label="Expected demand drop %" value={demandDropPercent} onChange={setDemandDropPercent} onBlur={validateInputs} />
         </div>
 
-        <div className="bg-white border border-black/10 rounded-3xl p-6">
-          <div className="text-sm text-black/50 mb-2">
-            New Price
-          </div>
+        {error && <ToolErrorBox message={error} />}
 
-          <div className="text-3xl font-bold">
-            {currency.symbol}{result.newPrice || "0"}
-          </div>
-        </div>
+        <button type="button" onClick={resetExample} className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:bg-black/5 sm:w-fit">
+          Reset example
+        </button>
       </div>
+
+      {result ? (
+        <ToolResultBox title="Price increase result">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <ResultCard label="New price" value={formatCurrency(result.newPrice, currency)} highlight />
+            <ResultCard label="Price increase amount" value={formatCurrency(result.priceDifference, currency)} />
+            <ResultCard label="Adjusted units sold" value={Math.round(result.adjustedUnits).toLocaleString()} />
+            <ResultCard label="Old revenue" value={formatCurrency(result.oldRevenue, currency)} />
+            <ResultCard label="New revenue" value={formatCurrency(result.newRevenue, currency)} />
+            <ResultCard label="Revenue change" value={formatCurrency(result.revenueChange, currency)} />
+            <ResultCard label="Revenue change %" value={formatPercent(result.effectiveRevenueChange)} />
+            <ResultCard label="Old profit" value={formatCurrency(result.oldProfit, currency)} />
+            <ResultCard label="New profit" value={formatCurrency(result.newProfit, currency)} />
+            <ResultCard label="Profit change" value={formatCurrency(result.profitChange, currency)} />
+            <ResultCard label="Profit change %" value={formatPercent(result.effectiveProfitChange)} />
+          </div>
+        </ToolResultBox>
+      ) : (
+        <ToolInfoBox>
+          Enter valid values to calculate the impact of a price increase.
+        </ToolInfoBox>
+      )}
+    </div>
+  );
+}
+
+function CurrencySelect({ currency, setCurrency }: { currency: CurrencyCode; setCurrency: (currency: CurrencyCode) => void }) {
+  return (
+    <label className="block">
+      <span className="text-sm font-bold text-black">Currency</span>
+      <select value={currency} onChange={(event) => setCurrency(event.target.value as CurrencyCode)} className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black">
+        <option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option><option value="CAD">CAD</option><option value="AUD">AUD</option><option value="CHF">CHF</option><option value="JPY">JPY</option>
+      </select>
+    </label>
+  );
+}
+
+function NumberInput({ label, value, onChange, onBlur }: { label: string; value: number; onChange: (value: number) => void; onBlur: () => void }) {
+  return (
+    <label className="block">
+      <span className="text-sm font-bold text-black">{label}</span>
+      <input type="number" value={value} onChange={(event) => onChange(Number(event.target.value))} onBlur={onBlur} className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black" />
+    </label>
+  );
+}
+
+function ResultCard({ label, value, highlight = false }: { label: string; value: string; highlight?: boolean }) {
+  return (
+    <div className={`rounded-2xl border p-5 ${highlight ? "border-black bg-black text-white" : "border-black/10 bg-white text-black"}`}>
+      <div className={`text-xs font-bold uppercase tracking-wide ${highlight ? "text-white/50" : "text-black/40"}`}>{label}</div>
+      <div className="mt-2 text-xl font-black">{value}</div>
     </div>
   );
 }

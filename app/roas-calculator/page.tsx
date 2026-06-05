@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Calculate return on ad spend instantly with Toollane's free online ROAS calculator.",
 };
 
-const faqs = [
-  {
-    question: "What is ROAS?",
-
-    answer:
-
-  },
-
-  {
-    question: "How do you calculate ROAS?",
-
-    answer:
-
-  },
-
-  {
-    question: "Why use a ROAS calculator?",
-
-    answer:
-
-  },
-];
-
 export default function RoasCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function RoasCalculatorPage() {
 
 
       href="/roas-calculator"
-      faqs={faqs}
     >
       <RoasCalculatorClient />
     </ToolPageLayout>

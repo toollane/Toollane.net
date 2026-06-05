@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Compress PDF files instantly with Toollane's free online PDF compressor.",
 };
 
-const faqs = [
-  {
-    question: "What does a PDF compressor do?",
-
-    answer:
-      "A PDF compressor reduces the file size of a PDF document so it is easier to upload, send, or store.",
-  },
-
-  {
-    question: "Are my PDF files uploaded?",
-
-    answer:
-
-  },
-
-  {
-    question: "Is this PDF compressor free?",
-
-    answer:
-
-  },
-];
-
 export default function PdfCompressorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function PdfCompressorPage() {
 
 
       href="/pdf-compressor"
-      faqs={faqs}
     >
       <PdfCompressorClient />
     </ToolPageLayout>

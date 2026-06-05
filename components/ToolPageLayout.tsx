@@ -7,75 +7,157 @@ import FAQSchema from "@/components/FAQSchema";
 import RelatedTools from "@/components/RelatedTools";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import ToolSchema from "@/components/ToolSchema";
+import ToolContentSection from "@/components/ToolContentSection";
+import AdSenseBlock from "@/components/AdSenseBlock";
 
 type FAQ = {
   question: string;
   answer: string;
 };
 
-type Props = {
-  title: string;
+type Tool = {
+  category: string;
+  categorySlug: string;
+  name: string;
+  shortName?: string;
   description: string;
+  seoTitle?: string;
+  seoDescription?: string;
   href: string;
+  icon: string;
+  popular?: boolean;
+  keywords?: string[];
+  faqs?: FAQ[];
+};
+
+type Props = {
+  tool?: Tool;
+  title?: string;
+  description?: string;
+  href?: string;
   faqs?: FAQ[];
   children: ReactNode;
 };
 
 export default function ToolPageLayout({
+  tool,
   title,
   description,
   href,
   faqs,
   children,
 }: Props) {
-  const tool = tools.find((item) => item.href === href);
+  const resolvedHref = tool?.href || href || "";
+  const matchedTool =
+    tool || tools.find((item) => item.href === resolvedHref);
 
-  const categoryName = tool?.category || "Tools";
-  const categorySlug = tool?.categorySlug || "tools";
-  const pageFaqs = faqs?.length ? faqs : tool?.faqs || [];
+  if (!matchedTool && !title) {
+    throw new Error(
+      "ToolPageLayout requires either a tool object or title, description and href props."
+    );
+  }
+
+  const pageTitle = matchedTool?.name || title || "Tool";
+  const pageDescription =
+    matchedTool?.description || description || "Use this free online tool.";
+  const pageHref = matchedTool?.href || resolvedHref;
+
+  const categoryName = matchedTool?.category || "Tools";
+  const categorySlug = matchedTool?.categorySlug || "tools";
+  const pageFaqs = faqs?.length ? faqs : matchedTool?.faqs || [];
 
   return (
     <>
-      <FAQSchema faqs={pageFaqs} />
+      {pageFaqs.length > 0 && <FAQSchema faqs={pageFaqs} />}
 
       <BreadcrumbSchema
         categoryName={categoryName}
         categorySlug={categorySlug}
-        toolName={title}
-        toolHref={href}
+        toolName={pageTitle}
+        toolHref={pageHref}
+      />
+
+      <ToolSchema
+        name={pageTitle}
+        description={pageDescription}
+        url={`https://toollane.net${pageHref}`}
       />
 
       <main className="min-h-screen bg-[#fff8df] text-[#171717]">
         <section className="relative overflow-hidden border-b border-black/10">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_#ffe680,_transparent_35%),radial-gradient(circle_at_top_right,_#ffd6e7,_transparent_30%)]" />
 
-          <div className="relative mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+          <div className="relative mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-20">
             <Breadcrumbs
               categoryName={categoryName}
               categorySlug={categorySlug}
-              toolName={title}
+              toolName={pageTitle}
             />
 
-            <div className="mb-6 inline-flex items-center rounded-full border border-black/10 bg-white/70 px-4 py-2 text-sm font-medium shadow-sm backdrop-blur">
-              ⚡ Free online tool · Instant results
+            <div className="mt-6 inline-flex items-center rounded-full border border-black/10 bg-white/75 px-4 py-2 text-xs font-bold uppercase tracking-wide text-black/70 shadow-sm backdrop-blur sm:text-sm">
+              ⚡ Free · Fast · Mobile-Friendly
             </div>
 
-            <h1 className="max-w-3xl text-4xl font-black tracking-tight text-black sm:text-5xl lg:text-6xl">
-              {title}
+            <h1 className="mt-6 max-w-4xl text-4xl font-black tracking-tight text-black sm:text-5xl lg:text-6xl">
+              {pageTitle}
             </h1>
 
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-black/60 sm:text-xl">
-              {description}
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-black/65 sm:text-xl">
+              {pageDescription}
             </p>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              <span className="rounded-full border border-black/10 bg-white/70 px-3 py-1 text-xs font-semibold text-black/60">
+                No signup required
+              </span>
+              <span className="rounded-full border border-black/10 bg-white/70 px-3 py-1 text-xs font-semibold text-black/60">
+                Works on mobile
+              </span>
+              <span className="rounded-full border border-black/10 bg-white/70 px-3 py-1 text-xs font-semibold text-black/60">
+                Instant results
+              </span>
+            </div>
           </div>
         </section>
 
-        <section className="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-          <div className="rounded-[2rem] border border-black/10 bg-white/80 p-5 shadow-sm backdrop-blur sm:p-7 lg:p-9">
+        <section className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+          <div className="rounded-[2rem] border border-black/10 bg-white/90 p-4 shadow-sm backdrop-blur sm:p-6 lg:p-8">
             {children}
           </div>
 
-          <RelatedTools currentHref={href} categorySlug={categorySlug} />
+          <div className="mt-10 rounded-[2rem] border border-black/10 bg-white/70 p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-black tracking-tight text-black">
+              How to use the {pageTitle}
+            </h2>
+
+            <ol className="mt-5 space-y-3 text-sm leading-7 text-black/65 sm:text-base">
+              <li>
+                <strong className="text-black">1.</strong> Enter your values or
+                information into the tool above.
+              </li>
+              <li>
+                <strong className="text-black">2.</strong> Review the instant
+                result directly on the page.
+              </li>
+              <li>
+                <strong className="text-black">3.</strong> Copy, download or use
+                the result for your work, project or daily task.
+              </li>
+            </ol>
+          </div>
+
+          <ToolContentSection
+          title={pageTitle}
+          description={pageDescription}
+          />
+
+          <RelatedTools
+          currentHref={pageHref}
+          categorySlug={categorySlug}
+          />
+
+          <AdSenseBlock slot="1234567890" />
 
           {pageFaqs.length > 0 && (
             <div className="mt-14">

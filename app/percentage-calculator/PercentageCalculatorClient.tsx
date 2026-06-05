@@ -1,370 +1,233 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
+
+import ToolErrorBox from "@/components/ToolErrorBox";
+import ToolInfoBox from "@/components/ToolInfoBox";
+import ToolResultBox from "@/components/ToolResultBox";
+
+type Mode =
+  | "percent-of"
+  | "what-percent"
+  | "increase-decrease"
+  | "percentage-change";
+
+function formatNumber(value: number) {
+  return new Intl.NumberFormat("en-US", {
+    maximumFractionDigits: 4,
+  }).format(value);
+}
+
+function formatPercent(value: number) {
+  return `${value.toFixed(2)}%`;
+}
 
 export default function PercentageCalculatorClient() {
-  const [mode, setMode] = useState("basic");
+  const [mode, setMode] = useState<Mode>("percent-of");
+  const [valueA, setValueA] = useState(25);
+  const [valueB, setValueB] = useState(200);
+  const [error, setError] = useState("");
 
-
-
-  // BASIC PERCENTAGE
-
-  const [percentage, setPercentage] =
-    useState("");
-
-  const [number, setNumber] =
-    useState("");
-
-  const [basicResult, setBasicResult] =
-    useState("");
-
-
-
-  // INCREASE
-
-  const [increaseFrom, setIncreaseFrom] =
-    useState("");
-
-  const [increaseTo, setIncreaseTo] =
-    useState("");
-
-  const [increaseResult, setIncreaseResult] =
-    useState("");
-
-
-
-  // DECREASE
-
-  const [decreaseFrom, setDecreaseFrom] =
-    useState("");
-
-  const [decreaseTo, setDecreaseTo] =
-    useState("");
-
-  const [decreaseResult, setDecreaseResult] =
-    useState("");
-
-
-
-  function calculateBasic(
-    percent: string,
-    value: string
-  ) {
-    setPercentage(percent);
-    setNumber(value);
-
-    const percentNumber =
-      parseFloat(percent);
-
-    const valueNumber =
-      parseFloat(value);
-
-    if (
-      isNaN(percentNumber) ||
-      isNaN(valueNumber)
-    ) {
-      setBasicResult("");
-      return;
+  const result = useMemo(() => {
+    if (!Number.isFinite(valueA) || !Number.isFinite(valueB)) {
+      return null;
     }
 
-    const calculated =
-      (percentNumber / 100) *
-      valueNumber;
+    if (mode === "percent-of") {
+      return {
+        main: (valueA / 100) * valueB,
+        label: `${valueA}% of ${valueB}`,
+        explanation: `${valueA}% of ${valueB} equals ${(valueA / 100) * valueB}.`,
+      };
+    }
 
-    setBasicResult(calculated.toFixed(2));
+    if (mode === "what-percent") {
+      if (valueB === 0) return null;
+
+      return {
+        main: (valueA / valueB) * 100,
+        label: `${valueA} as a percentage of ${valueB}`,
+        explanation: `${valueA} is ${((valueA / valueB) * 100).toFixed(2)}% of ${valueB}.`,
+      };
+    }
+
+    if (mode === "increase-decrease") {
+      const increased = valueB * (1 + valueA / 100);
+      const decreased = valueB * (1 - valueA / 100);
+
+      return {
+        main: increased,
+        secondary: decreased,
+        label: `${valueB} increased or decreased by ${valueA}%`,
+        explanation: `${valueB} increased by ${valueA}% is ${increased}. Decreased by ${valueA}% is ${decreased}.`,
+      };
+    }
+
+    if (valueA === 0) return null;
+
+    const change = valueB - valueA;
+
+    return {
+      main: (change / valueA) * 100,
+      secondary: change,
+      label: `Percentage change from ${valueA} to ${valueB}`,
+      explanation: `The change from ${valueA} to ${valueB} is ${change}, or ${((change / valueA) * 100).toFixed(2)}%.`,
+    };
+  }, [mode, valueA, valueB]);
+
+  function validateInputs() {
+    if (!Number.isFinite(valueA) || !Number.isFinite(valueB)) {
+      setError("Please enter valid numbers.");
+      return false;
+    }
+
+    if ((mode === "what-percent" && valueB === 0) || (mode === "percentage-change" && valueA === 0)) {
+      setError("This calculation cannot divide by zero.");
+      return false;
+    }
+
+    setError("");
+    return true;
   }
 
-
-
-  function calculateIncrease(
-    from: string,
-    to: string
-  ) {
-    setIncreaseFrom(from);
-    setIncreaseTo(to);
-
-    const fromNumber = parseFloat(from);
-    const toNumber = parseFloat(to);
-
-    if (
-      isNaN(fromNumber) ||
-      isNaN(toNumber)
-    ) {
-      setIncreaseResult("");
-      return;
-    }
-
-    const calculated =
-      ((toNumber - fromNumber) /
-        fromNumber) *
-      100;
-
-    setIncreaseResult(
-      calculated.toFixed(2)
-    );
-  }
-
-
-
-  function calculateDecrease(
-    from: string,
-    to: string
-  ) {
-    setDecreaseFrom(from);
-    setDecreaseTo(to);
-
-    const fromNumber = parseFloat(from);
-    const toNumber = parseFloat(to);
-
-    if (
-      isNaN(fromNumber) ||
-      isNaN(toNumber)
-    ) {
-      setDecreaseResult("");
-      return;
-    }
-
-    const calculated =
-      ((fromNumber - toNumber) /
-        fromNumber) *
-      100;
-
-    setDecreaseResult(
-      calculated.toFixed(2)
-    );
+  function resetExample() {
+    setMode("percent-of");
+    setValueA(25);
+    setValueB(200);
+    setError("");
   }
 
   return (
-    <div className="border rounded-2xl p-8 shadow-sm">
+    <div className="grid gap-8">
+      <div>
+        <h2 className="text-2xl font-black tracking-tight text-black">
+          Calculate percentages
+        </h2>
 
-      {/* TABS */}
-
-      <div className="flex flex-wrap gap-3 mb-8">
-
-        <button
-          onClick={() =>
-            setMode("basic")
-          }
-          className={`px-4 py-2 rounded-xl border ${
-            mode === "basic"
-              ? "bg-black text-white"
-              : ""
-          }`}
-        >
-          Basic %
-        </button>
-
-        <button
-          onClick={() =>
-            setMode("increase")
-          }
-          className={`px-4 py-2 rounded-xl border ${
-            mode === "increase"
-              ? "bg-black text-white"
-              : ""
-          }`}
-        >
-          Increase %
-        </button>
-
-        <button
-          onClick={() =>
-            setMode("decrease")
-          }
-          className={`px-4 py-2 rounded-xl border ${
-            mode === "decrease"
-              ? "bg-black text-white"
-              : ""
-          }`}
-        >
-          Decrease %
-        </button>
-
+        <p className="mt-3 text-sm leading-7 text-black/60 sm:text-base">
+          Calculate percentages, percentage of a number, percentage change,
+          increases and decreases.
+        </p>
       </div>
 
+      <div className="grid gap-5">
+        <label className="block">
+          <span className="text-sm font-bold text-black">Calculation type</span>
 
+          <select
+            value={mode}
+            onChange={(event) => {
+              setMode(event.target.value as Mode);
+              setError("");
+            }}
+            className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
+          >
+            <option value="percent-of">What is A% of B?</option>
+            <option value="what-percent">A is what percent of B?</option>
+            <option value="increase-decrease">Increase / decrease B by A%</option>
+            <option value="percentage-change">Percentage change from A to B</option>
+          </select>
+        </label>
 
-      {/* BASIC */}
-
-      {mode === "basic" && (
-        <div className="grid gap-6">
-
-          <div>
-            <label className="block mb-2 font-medium">
-              Percentage
-            </label>
-
-            <input
-              type="number"
-              value={percentage}
-              onChange={(e) =>
-                calculateBasic(
-                  e.target.value,
-                  number
-                )
-              }
-              placeholder="Enter percentage"
-              className="w-full border rounded-xl px-4 py-3"
-            />
-          </div>
-
-          <div>
-            <label className="block mb-2 font-medium">
-              Number
-            </label>
-
-            <input
-              type="number"
-              value={number}
-              onChange={(e) =>
-                calculateBasic(
-                  percentage,
-                  e.target.value
-                )
-              }
-              placeholder="Enter number"
-              className="w-full border rounded-xl px-4 py-3"
-            />
-          </div>
-
-          <div>
-            <label className="block mb-2 font-medium">
-              Result
-            </label>
-
-            <input
-              type="text"
-              value={basicResult}
-              readOnly
-              className="w-full border rounded-xl px-4 py-3 bg-gray-100"
-            />
-          </div>
-
+        <div className="grid gap-4 sm:grid-cols-2">
+          <NumberInput label={mode === "percent-of" || mode === "increase-decrease" ? "Percentage A" : "Value A"} value={valueA} onChange={setValueA} onBlur={validateInputs} />
+          <NumberInput label="Value B" value={valueB} onChange={setValueB} onBlur={validateInputs} />
         </div>
+
+        {error && <ToolErrorBox message={error} />}
+
+        <button
+          type="button"
+          onClick={resetExample}
+          className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:bg-black/5 sm:w-fit"
+        >
+          Reset example
+        </button>
+      </div>
+
+      {result ? (
+        <ToolResultBox title="Percentage result">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <ResultCard
+              label={result.label}
+              value={
+                mode === "what-percent" || mode === "percentage-change"
+                  ? formatPercent(result.main)
+                  : formatNumber(result.main)
+              }
+              highlight
+            />
+
+            {typeof result.secondary === "number" && (
+              <ResultCard
+                label={mode === "increase-decrease" ? "Decreased result" : "Absolute change"}
+                value={formatNumber(result.secondary)}
+              />
+            )}
+          </div>
+
+          <div className="mt-5 rounded-2xl border border-black/10 bg-white p-5 text-sm leading-7 text-black/65">
+            {result.explanation}
+          </div>
+        </ToolResultBox>
+      ) : (
+        <ToolInfoBox>
+          Enter valid values to calculate percentages. Avoid zero when it would
+          require division by zero.
+        </ToolInfoBox>
       )}
+    </div>
+  );
+}
 
+function NumberInput({
+  label,
+  value,
+  onChange,
+  onBlur,
+}: {
+  label: string;
+  value: number;
+  onChange: (value: number) => void;
+  onBlur: () => void;
+}) {
+  return (
+    <label className="block">
+      <span className="text-sm font-bold text-black">{label}</span>
 
+      <input
+        type="number"
+        value={value}
+        onChange={(event) => onChange(Number(event.target.value))}
+        onBlur={onBlur}
+        className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
+      />
+    </label>
+  );
+}
 
-      {/* INCREASE */}
+function ResultCard({
+  label,
+  value,
+  highlight = false,
+}: {
+  label: string;
+  value: string;
+  highlight?: boolean;
+}) {
+  return (
+    <div
+      className={`rounded-2xl border p-5 ${
+        highlight
+          ? "border-black bg-black text-white"
+          : "border-black/10 bg-white text-black"
+      }`}
+    >
+      <div className={`text-xs font-bold uppercase tracking-wide ${highlight ? "text-white/50" : "text-black/40"}`}>
+        {label}
+      </div>
 
-      {mode === "increase" && (
-        <div className="grid gap-6">
-
-          <div>
-            <label className="block mb-2 font-medium">
-              From
-            </label>
-
-            <input
-              type="number"
-              value={increaseFrom}
-              onChange={(e) =>
-                calculateIncrease(
-                  e.target.value,
-                  increaseTo
-                )
-              }
-              placeholder="Starting value"
-              className="w-full border rounded-xl px-4 py-3"
-            />
-          </div>
-
-          <div>
-            <label className="block mb-2 font-medium">
-              To
-            </label>
-
-            <input
-              type="number"
-              value={increaseTo}
-              onChange={(e) =>
-                calculateIncrease(
-                  increaseFrom,
-                  e.target.value
-                )
-              }
-              placeholder="Ending value"
-              className="w-full border rounded-xl px-4 py-3"
-            />
-          </div>
-
-          <div>
-            <label className="block mb-2 font-medium">
-              Increase %
-            </label>
-
-            <input
-              type="text"
-              value={increaseResult}
-              readOnly
-              className="w-full border rounded-xl px-4 py-3 bg-gray-100"
-            />
-          </div>
-
-        </div>
-      )}
-
-
-
-      {/* DECREASE */}
-
-      {mode === "decrease" && (
-        <div className="grid gap-6">
-
-          <div>
-            <label className="block mb-2 font-medium">
-              From
-            </label>
-
-            <input
-              type="number"
-              value={decreaseFrom}
-              onChange={(e) =>
-                calculateDecrease(
-                  e.target.value,
-                  decreaseTo
-                )
-              }
-              placeholder="Starting value"
-              className="w-full border rounded-xl px-4 py-3"
-            />
-          </div>
-
-          <div>
-            <label className="block mb-2 font-medium">
-              To
-            </label>
-
-            <input
-              type="number"
-              value={decreaseTo}
-              onChange={(e) =>
-                calculateDecrease(
-                  decreaseFrom,
-                  e.target.value
-                )
-              }
-              placeholder="Ending value"
-              className="w-full border rounded-xl px-4 py-3"
-            />
-          </div>
-
-          <div>
-            <label className="block mb-2 font-medium">
-              Decrease %
-            </label>
-
-            <input
-              type="text"
-              value={decreaseResult}
-              readOnly
-              className="w-full border rounded-xl px-4 py-3 bg-gray-100"
-            />
-          </div>
-
-        </div>
-      )}
-
+      <div className="mt-2 text-xl font-black">{value}</div>
     </div>
   );
 }

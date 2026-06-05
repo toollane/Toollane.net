@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Clean CSV data instantly with Toollane's free online CSV cleaner.",
 };
 
-const faqs = [
-  {
-    question: "What does a CSV cleaner do?",
-
-    answer:
-      "A CSV cleaner helps remove extra spaces, empty lines and formatting issues from CSV data.",
-  },
-
-  {
-    question: "Can I use comma or semicolon CSV data?",
-
-    answer:
-
-  },
-
-  {
-    question: "Who uses CSV cleaners?",
-
-    answer:
-      "Office workers, analysts, students and developers use CSV cleaners to prepare data for spreadsheets and apps.",
-  },
-];
-
 export default function CsvCleanerPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function CsvCleanerPage() {
 
 
       href="/csv-cleaner"
-      faqs={faqs}
     >
       <CsvCleanerClient />
     </ToolPageLayout>

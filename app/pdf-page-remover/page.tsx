@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Remove PDF pages instantly with Toollane's free online PDF page remover.",
 };
 
-const faqs = [
-  {
-    question:
-      "What does a PDF page remover do?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Can I remove multiple pages?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Are my PDF files uploaded?",
-
-    answer:
-
-  },
-];
-
 export default function PdfPageRemoverPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function PdfPageRemoverPage() {
 
 
       href="/pdf-page-remover"
-      faqs={faqs}
     >
       <PdfPageRemoverClient />
     </ToolPageLayout>

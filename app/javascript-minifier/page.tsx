@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Minify JavaScript instantly with Toollane's free online JavaScript minifier.",
 };
 
-const faqs = [
-  {
-    question:
-      "What does a JavaScript minifier do?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Why minify JavaScript?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Who uses JavaScript minifiers?",
-
-    answer:
-
-  },
-];
-
 export default function JavascriptMinifierPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function JavascriptMinifierPage() {
 
 
       href="/javascript-minifier"
-      faqs={faqs}
     >
       <JavascriptMinifierClient />
     </ToolPageLayout>

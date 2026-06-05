@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Calculate profit margin and markup instantly with Toollane's free online calculator.",
 };
 
-const faqs = [
-  {
-    question:
-      "What is profit margin?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "What is markup?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Why are margin and markup different?",
-
-    answer:
-
-  },
-];
-
 export default function MarginMarkupCalculatorPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function MarginMarkupCalculatorPage() {
 
 
       href="/margin-markup-calculator"
-      faqs={faqs}
     >
       <MarginMarkupCalculatorClient />
     </ToolPageLayout>

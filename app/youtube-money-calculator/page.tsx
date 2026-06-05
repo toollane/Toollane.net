@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Estimate YouTube earnings instantly with Toollane's free online YouTube money calculator.",
 };
 
-const faqs = [
-  {
-    question:
-      "How does a YouTube money calculator work?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "What is YouTube CPM?",
-
-    answer:
-      "CPM means cost per thousand views and represents advertising revenue per 1,000 monetized views.",
-  },
-
-  {
-    question:
-      "Can I estimate earnings for viral videos?",
-
-    answer:
-
-  },
-];
-
 export default function YoutubeMoneyCalculatorPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function YoutubeMoneyCalculatorPage() {
 
 
       href="/youtube-money-calculator"
-      faqs={faqs}
     >
       <YoutubeMoneyCalculatorClient />
     </ToolPageLayout>

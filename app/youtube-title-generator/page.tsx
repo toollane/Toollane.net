@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Generate YouTube video title ideas instantly with Toollane's free online YouTube title generator.",
 };
 
-const faqs = [
-  {
-    question: "What does a YouTube title generator do?",
-
-    answer:
-
-  },
-
-  {
-    question: "Can I use this for YouTube Shorts?",
-
-    answer:
-      "Yes. You can use the generated title ideas for regular YouTube videos, Shorts and creator content.",
-  },
-
-  {
-    question: "Why are YouTube titles important?",
-
-    answer:
-
-  },
-];
-
 export default function YoutubeTitleGeneratorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function YoutubeTitleGeneratorPage() {
 
 
       href="/youtube-title-generator"
-      faqs={faqs}
     >
       <YoutubeTitleGeneratorClient />
     </ToolPageLayout>

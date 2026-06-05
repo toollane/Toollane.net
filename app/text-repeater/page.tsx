@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Repeat text multiple times instantly with Toollane's free online text repeater.",
 };
 
-const faqs = [
-  {
-    question: "What does a text repeater do?",
-
-    answer:
-
-  },
-
-  {
-    question: "Why use a text repeater?",
-
-    answer:
-      "It can help with formatting, testing, message drafts and repeated text tasks.",
-  },
-
-  {
-    question: "Can I choose how many times text repeats?",
-
-    answer:
-
-  },
-];
-
 export default function TextRepeaterPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function TextRepeaterPage() {
 
 
       href="/text-repeater"
-      faqs={faqs}
     >
       <TextRepeaterClient />
     </ToolPageLayout>

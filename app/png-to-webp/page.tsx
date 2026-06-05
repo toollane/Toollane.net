@@ -10,24 +10,6 @@ export const metadata: Metadata = {
     "Convert PNG images to WEBP instantly with Toollane's free online PNG to WEBP converter.",
 };
 
-const faqs = [
-  {
-    question: "How does a PNG to WEBP converter work?",
-    answer:
-
-  },
-  {
-    question: "Are my images uploaded?",
-    answer:
-
-  },
-  {
-    question: "Why convert PNG to WEBP?",
-    answer:
-
-  },
-];
-
 export default function PngToWebpPage() {
   return (
     <ToolPageLayout
@@ -36,7 +18,6 @@ export default function PngToWebpPage() {
 
 
       href="/png-to-webp"
-      faqs={faqs}
     >
       <PngToWebpClient />
     </ToolPageLayout>

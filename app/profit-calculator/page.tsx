@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Calculate profit and profit margin instantly with Toollane's free online profit calculator.",
 };
 
-const faqs = [
-  {
-    question: "How do you calculate profit?",
-
-    answer:
-
-  },
-
-  {
-    question: "How do you calculate profit margin?",
-
-    answer:
-
-  },
-
-  {
-    question: "Why use a profit calculator?",
-
-    answer:
-
-  },
-];
-
 export default function ProfitCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function ProfitCalculatorPage() {
 
 
       href="/profit-calculator"
-      faqs={faqs}
     >
       <ProfitCalculatorClient />
     </ToolPageLayout>

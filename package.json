@@ -14,7 +14,9 @@
     "html5-qrcode": "^2.3.8",
     "jsbarcode": "^3.12.3",
     "jspdf": "^4.2.1",
+    "jsqr": "^1.4.0",
     "jszip": "^3.10.1",
+    "lucide-react": "^1.17.0",
     "marked": "^18.0.4",
     "next": "16.2.6",
     "pdf-lib": "^1.17.1",
@@ -22,6 +24,7 @@
     "qrcode": "^1.5.4",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "react-qr-code": "^2.0.21",
     "turndown": "^7.2.4"
   },
   "devDependencies": {

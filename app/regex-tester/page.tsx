@@ -12,32 +12,6 @@ export const metadata: Metadata = {
     "Test regular expressions instantly with Toollane's free online regex tester.",
 };
 
-const faqs = [
-  {
-    question:
-      "What does a regex tester do?",
-
-    answer:
-
-  },
-
-  {
-    question:
-      "Who uses regex testers?",
-
-    answer:
-      "Developers, analysts and programmers use regex testers for validation and pattern matching.",
-  },
-
-  {
-    question:
-      "Can I test live regex patterns?",
-
-    answer:
-
-  },
-];
-
 export default function RegexTesterPage() {
   return (
     <ToolPageLayout
@@ -46,7 +20,6 @@ export default function RegexTesterPage() {
 
 
       href="/regex-tester"
-      faqs={faqs}
     >
       <RegexTesterClient />
     </ToolPageLayout>

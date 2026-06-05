@@ -11,29 +11,6 @@ export const metadata: Metadata = {
     "Calculate GPA instantly with Toollane's free online GPA calculator.",
 };
 
-const faqs = [
-  {
-    question: "How do you calculate GPA?",
-
-    answer:
-
-  },
-
-  {
-    question: "What are grade points?",
-
-    answer:
-      "Grade points are the numeric values assigned to grades, often multiplied by course credit hours.",
-  },
-
-  {
-    question: "Who uses a GPA calculator?",
-
-    answer:
-
-  },
-];
-
 export default function GpaCalculatorPage() {
   return (
     <ToolPageLayout
@@ -42,7 +19,6 @@ export default function GpaCalculatorPage() {
 
 
       href="/gpa-calculator"
-      faqs={faqs}
     >
       <GpaCalculatorClient />
     </ToolPageLayout>
