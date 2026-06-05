@@ -1,6 +1,8 @@
 import { MetadataRoute } from "next";
 
 import { categories, tools } from "@/data/tools";
+import { babyNames } from "@/data/baby-names";
+import { babyNamePages } from "@/data/baby-names/pages";
 
 const baseUrl = "https://toollane.net";
 
@@ -21,18 +23,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const babyNamePages = [
-    "girl",
-    "boy",
-    "unisex",
-    "german",
-    "vintage",
-    "rare",
-  ].map((type) => ({
-    url: `${baseUrl}/baby-names/${type}`,
+  const babyNameLandingPages = babyNamePages.map((page) => ({
+    url: `${baseUrl}/baby-names/${page.slug}`,
     lastModified: now,
     changeFrequency: "weekly" as const,
     priority: 0.8,
+  }));
+
+  const babyNameDetailPages = babyNames.map((name) => ({
+    url: `${baseUrl}/baby-name/${name.id}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
   }));
 
   return [
@@ -73,7 +75,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
 
-    ...babyNamePages,
+    ...babyNameLandingPages,
+    ...babyNameDetailPages,
     ...categoryPages,
     ...toolPages,
   ];

@@ -3,73 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { babyNames, type BabyName } from "@/data/baby-names";
+import { babyNamePages, getBabyNamePage } from "@/data/baby-names/pages";
 
 const baseUrl = "https://toollane.net";
-
-const pages = {
-  girl: {
-    title: "Girl Names",
-    description:
-      "Explore beautiful girl names by origin, meaning, style and popularity.",
-    seoTitle: "Girl Names - Beautiful Baby Girl Names | Toollane",
-    seoDescription:
-      "Explore beautiful baby girl names by origin, meaning, style and popularity. Find classic, modern, rare, vintage and elegant girl names.",
-    filter: (name: BabyName) => name.gender === "girl",
-  },
-  boy: {
-    title: "Boy Names",
-    description:
-      "Explore strong boy names by origin, meaning, style and popularity.",
-    seoTitle: "Boy Names - Strong Baby Boy Names | Toollane",
-    seoDescription:
-      "Explore baby boy names by origin, meaning, style and popularity. Find classic, modern, rare, strong and international boy names.",
-    filter: (name: BabyName) => name.gender === "boy",
-  },
-  unisex: {
-    title: "Unisex Names",
-    description:
-      "Explore gender-neutral and unisex baby names by origin, meaning, style and popularity.",
-    seoTitle: "Unisex Baby Names - Gender Neutral Names | Toollane",
-    seoDescription:
-      "Explore unisex baby names and gender-neutral names by origin, meaning, style and popularity. Find modern, rare and international name ideas.",
-    filter: (name: BabyName) => name.gender === "unisex",
-  },
-  german: {
-    title: "German Baby Names",
-    description:
-      "Explore German baby names for boys, girls and unisex name ideas with meanings, origins and styles.",
-    seoTitle: "German Baby Names - Boy, Girl & Unisex Names | Toollane",
-    seoDescription:
-      "Explore German baby names for boys, girls and unisex name ideas. Find classic, vintage, modern and meaningful German names.",
-    filter: (name: BabyName) => name.origins.includes("German"),
-  },
-  vintage: {
-    title: "Vintage Baby Names",
-    description:
-      "Explore vintage baby names with classic charm, timeless style and meaningful origins.",
-    seoTitle: "Vintage Baby Names - Classic Old Fashioned Names | Toollane",
-    seoDescription:
-      "Explore vintage baby names with classic charm, old fashioned style, meanings and origins for boys, girls and unisex names.",
-    filter: (name: BabyName) =>
-      name.styles.includes("Vintage") ||
-      name.styles.includes("Old Fashioned") ||
-      name.tags.includes("vintage"),
-  },
-  rare: {
-    title: "Rare Baby Names",
-    description:
-      "Explore rare and uncommon baby names with distinctive meanings, origins and styles.",
-    seoTitle: "Rare Baby Names - Unique & Uncommon Names | Toollane",
-    seoDescription:
-      "Explore rare baby names and uncommon name ideas for boys, girls and unisex names with meanings, origins and styles.",
-    filter: (name: BabyName) =>
-      name.popularity < 50 ||
-      name.styles.includes("Rare") ||
-      name.tags.includes("rare"),
-  },
-} as const;
-
-type PageType = keyof typeof pages;
 
 type Props = {
   params: Promise<{
@@ -78,26 +14,22 @@ type Props = {
 };
 
 export function generateStaticParams() {
-  return Object.keys(pages).map((type) => ({
-    type,
+  return babyNamePages.map((page) => ({
+    type: page.slug,
   }));
-}
-
-function isPageType(value: string): value is PageType {
-  return value in pages;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { type } = await params;
+  const page = getBabyNamePage(type);
 
-  if (!isPageType(type)) {
+  if (!page) {
     return {
       title: "Baby Names Not Found",
     };
   }
 
-  const page = pages[type];
-  const url = `${baseUrl}/baby-names/${type}`;
+  const url = `${baseUrl}/baby-names/${page.slug}`;
   const ogImage = `${baseUrl}/og-image.png`;
 
   return {
@@ -132,12 +64,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BabyNamesPage({ params }: Props) {
   const { type } = await params;
+  const page = getBabyNamePage(type);
 
-  if (!isPageType(type)) {
+  if (!page) {
     notFound();
   }
-
-  const page = pages[type];
 
   const names = babyNames
     .filter(page.filter)
@@ -308,20 +239,20 @@ export default async function BabyNamesPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
         <h2 className="text-3xl font-black tracking-tight">
           Explore more baby names
         </h2>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {Object.entries(pages).map(([key, item]) => (
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {babyNamePages.map((item) => (
             <Link
-              key={key}
-              href={`/baby-names/${key}`}
+              key={item.slug}
+              href={`/baby-names/${item.slug}`}
               className="rounded-[2rem] border border-black/10 bg-white/80 p-6 shadow-sm transition hover:-translate-y-1 hover:border-black/20 hover:shadow-md"
             >
               <h3 className="text-xl font-black">{item.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-black/60">
+              <p className="mt-3 line-clamp-3 text-sm leading-6 text-black/60">
                 {item.description}
               </p>
             </Link>
