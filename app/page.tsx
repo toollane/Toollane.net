@@ -5,7 +5,7 @@ import HomeToolSearch from "@/components/HomeToolSearch";
 import { categories, tools } from "@/data/tools";
 
 export const metadata: Metadata = {
-  title: "Toollane - Free Online Tools for SEO, PDFs, Images, Business & More",
+  title: "Free Online Tools for SEO, PDF & Business | Toollane",
   description:
     "Use fast, free and mobile-friendly online tools for SEO, PDFs, images, calculators, business, creators, developers and everyday work.",
   alternates: {
@@ -85,8 +85,7 @@ export default function HomePage() {
           </div>
 
           <h1 className="mt-6 max-w-4xl text-4xl font-black tracking-tight sm:text-6xl lg:text-7xl">
-            Free Online Tools
-            <span className="block">Built for Speed</span>
+           Free Online Tools for SEO, PDF, Business and Productivity
           </h1>
 
           <p className="mt-8 max-w-2xl text-lg leading-8 text-black/65 sm:text-xl">
