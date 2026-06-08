@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import BabyNameSchema from "@/components/BabyNameSchema";
 
 import { babyNames, getBabyNameById, type BabyName } from "@/data/baby-names";
+import { babyNamePages } from "@/data/baby-names/pages";
 
 const baseUrl = "https://toollane.net";
 
@@ -71,6 +73,10 @@ export default async function BabyNamePage({ params }: Props) {
     notFound();
   }
 
+  const relatedLandingPages = babyNamePages
+    .filter((page) => page.filter(name))
+    .slice(0, 8);
+
   const similarNames = babyNames
     .filter((item) => item.id !== name.id)
     .filter(
@@ -88,7 +94,19 @@ export default async function BabyNamePage({ params }: Props) {
     )
     .slice(0, 9);
 
-  return (
+return (
+  <>
+    <BabyNameSchema
+      name={name.name}
+      meaning={name.meaning}
+      gender={name.gender}
+      origins={name.origins}
+      styles={name.styles}
+      url={`${baseUrl}/baby-name/${name.id}`}
+    />
+
+    <main className="min-h-screen bg-[#fff8df] text-black">
+
     <main className="min-h-screen bg-[#fff8df] text-black">
       <section className="relative overflow-hidden border-b border-black/10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_#ffe680,_transparent_35%),radial-gradient(circle_at_top_right,_#ffd6e7,_transparent_30%)]" />
@@ -132,7 +150,7 @@ export default async function BabyNamePage({ params }: Props) {
 
             <Link
               href={`/baby-names/${name.gender}`}
-              className="rounded-2xl border border-black/10 bg-white/80 px-6 py-4 text-sm font-bold text-black transition hover:border-black"
+              className="rounded-2xl border border-black/10 bg-white/80 px-6 py-4 text-sm font-bold capitalize text-black transition hover:border-black"
             >
               Browse {name.gender} names
             </Link>
@@ -159,33 +177,63 @@ export default async function BabyNamePage({ params }: Props) {
         )}
       </section>
 
-      <section className="border-y border-black/10 bg-white/40">
-        <div className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
-          <div className="rounded-[2.5rem] border border-black/10 bg-white/75 p-8 shadow-sm backdrop-blur sm:p-12">
-            <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
-              About the name {name.name}
-            </h2>
+      {!!relatedLandingPages.length && (
+        <section className="border-y border-black/10 bg-white/40">
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+            <div className="mb-8">
+              <h2 className="text-3xl font-black tracking-tight">
+                Name lists related to {name.name}
+              </h2>
 
-            <div className="mt-8 space-y-6 leading-8 text-black/65">
-              <p>
-                {name.name} is a {name.gender} name with origins connected to{" "}
-                {name.origins.join(", ")}. Its meaning is commonly listed as{" "}
-                <strong className="text-black">{name.meaning}</strong>.
-              </p>
-
-              <p>
-                The name is often associated with styles such as{" "}
-                {name.styles.join(", ")}. This makes it useful for parents who
-                are looking for names with a specific sound, background or
-                character.
-              </p>
-
-              <p>
-                When choosing {name.name}, consider how it sounds with the family
-                name, whether the meaning feels right and whether similar names
-                or variants might also fit your preference.
+              <p className="mt-3 max-w-2xl text-black/60">
+                Explore baby name lists that match the gender, origin and style
+                of {name.name}.
               </p>
             </div>
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {relatedLandingPages.map((page) => (
+                <Link
+                  key={page.slug}
+                  href={`/baby-names/${page.slug}`}
+                  className="rounded-[2rem] border border-black/10 bg-white/80 p-6 shadow-sm transition hover:-translate-y-1 hover:border-black/20 hover:shadow-md"
+                >
+                  <h3 className="text-xl font-black">{page.title}</h3>
+
+                  <p className="mt-3 line-clamp-3 text-sm leading-6 text-black/60">
+                    {page.description}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+        <div className="rounded-[2.5rem] border border-black/10 bg-white/75 p-8 shadow-sm backdrop-blur sm:p-12">
+          <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
+            About the name {name.name}
+          </h2>
+
+          <div className="mt-8 space-y-6 leading-8 text-black/65">
+            <p>
+              {name.name} is a {name.gender} name with origins connected to{" "}
+              {name.origins.join(", ")}. Its meaning is commonly listed as{" "}
+              <strong className="text-black">{name.meaning}</strong>.
+            </p>
+
+            <p>
+              The name is often associated with styles such as{" "}
+              {name.styles.join(", ")}. This makes it useful for parents who are
+              looking for names with a specific sound, background or character.
+            </p>
+
+            <p>
+              When choosing {name.name}, consider how it sounds with the family
+              name, whether the meaning feels right and whether similar names or
+              variants might also fit your preference.
+            </p>
           </div>
         </div>
       </section>
@@ -235,24 +283,9 @@ export default async function BabyNamePage({ params }: Props) {
           </div>
         </section>
       )}
-
-      <section className="border-y border-black/10 bg-white/40">
-        <div className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
-          <h2 className="text-3xl font-black tracking-tight">
-            Explore more baby name lists
-          </h2>
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-3">
-            <LinkCard href="/baby-names/girl" title="Girl Names" />
-            <LinkCard href="/baby-names/boy" title="Boy Names" />
-            <LinkCard href="/baby-names/unisex" title="Unisex Names" />
-            <LinkCard href="/baby-names/rare" title="Rare Baby Names" />
-            <LinkCard href="/baby-names/vintage" title="Vintage Baby Names" />
-            <LinkCard href="/baby-names/elegant" title="Elegant Baby Names" />
-          </div>
-        </div>
-      </section>
     </main>
+    </main>
+</>
   );
 }
 
@@ -285,16 +318,5 @@ function DetailBox({ title, items }: { title: string; items: string[] }) {
         ))}
       </div>
     </div>
-  );
-}
-
-function LinkCard({ href, title }: { href: string; title: string }) {
-  return (
-    <Link
-      href={href}
-      className="rounded-[2rem] border border-black/10 bg-white/80 p-6 text-center text-sm font-black shadow-sm transition hover:-translate-y-1 hover:border-black/20 hover:shadow-md"
-    >
-      {title}
-    </Link>
   );
 }

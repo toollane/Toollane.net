@@ -21,9 +21,7 @@ function countSyllables(word: string) {
 }
 
 export default function WordCounterClient() {
-  const [text, setText] = useState(
-    "Paste your text here to count words, characters, sentences, paragraphs and estimate reading time."
-  );
+  const [text, setText] = useState("");
 
   const result = useMemo(() => {
     const trimmed = text.trim();
@@ -74,11 +72,11 @@ export default function WordCounterClient() {
     setText("");
   }
 
-  function loadExample() {
-    setText(
-      "Paste your text here to count words, characters, sentences, paragraphs and estimate reading time."
-    );
-  }
+function loadExample() {
+  setText(
+    "Artificial intelligence is transforming the way people work, learn and communicate. Businesses use AI to automate repetitive tasks, improve decision making and create better customer experiences. As technology continues to evolve, understanding AI becomes increasingly important."
+  );
+}
 
   return (
     <div className="grid gap-8">
@@ -97,7 +95,7 @@ export default function WordCounterClient() {
         value={text}
         onChange={(event) => setText(event.target.value)}
         className="min-h-[260px] w-full resize-y rounded-[2rem] border border-black/10 bg-white px-5 py-4 text-sm leading-7 text-black outline-none transition focus:border-black"
-        placeholder="Paste or type your text here..."
+        placeholder="Paste or type your text here to count words, characters, sentences, paragraphs, reading time and readability..."
       />
 
       <div className="flex flex-col gap-3 sm:flex-row">

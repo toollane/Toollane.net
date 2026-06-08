@@ -1,25 +1,18 @@
 import type { Metadata } from "next";
 
 import ToolPageLayout from "@/components/ToolPageLayout";
+import { getToolByHref } from "@/data/tools";
+import { getToolMetadata } from "@/lib/metadata";
 
 import WordCounterClient from "./WordCounterClient";
 
-export const metadata: Metadata = {
-  title: "Word Counter | Toollane",
+const tool = getToolByHref("/word-counter");
 
-  description:
-    "Count words, characters and sentences instantly with Toollane's free online word counter.",
-};
+export const metadata: Metadata = getToolMetadata("/word-counter");
 
 export default function WordCounterPage() {
   return (
-    <ToolPageLayout
-      title="Word Counter"
-      description="Count words, characters and sentences instantly online."
-
-
-      href="/word-counter"
-    >
+    <ToolPageLayout tool={tool}>
       <WordCounterClient />
     </ToolPageLayout>
   );

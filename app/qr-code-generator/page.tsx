@@ -1,26 +1,18 @@
 import type { Metadata } from "next";
 
 import ToolPageLayout from "@/components/ToolPageLayout";
+import { getToolByHref } from "@/data/tools";
+import { getToolMetadata } from "@/lib/metadata";
 
 import QrCodeGeneratorClient from "./QrCodeGeneratorClient";
 
-export const metadata: Metadata = {
-  title:
-    "QR Code Generator | Toollane",
+const tool = getToolByHref("/qr-code-generator");
 
-  description:
-    "Generate QR codes instantly with Toollane's free online QR code generator.",
-};
+export const metadata: Metadata = getToolMetadata("/qr-code-generator");
 
 export default function QrCodeGeneratorPage() {
   return (
-    <ToolPageLayout
-      title="QR Code Generator"
-      description="Generate QR codes instantly online."
-
-
-      href="/qr-code-generator"
-    >
+    <ToolPageLayout tool={tool}>
       <QrCodeGeneratorClient />
     </ToolPageLayout>
   );
