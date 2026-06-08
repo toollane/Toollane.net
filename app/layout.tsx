@@ -20,6 +20,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
 
+other: {
+  "google-adsense-account": "ca-pub-6697657323751063",
+},
+
 icons: {
   icon: "/favicon.ico",
   apple: "/apple-touch-icon.png",
