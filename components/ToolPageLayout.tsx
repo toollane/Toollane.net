@@ -150,6 +150,7 @@ export default function ToolPageLayout({
           <ToolContentSection
           title={pageTitle}
           description={pageDescription}
+          category={categoryName}
           />
 
           <RelatedTools

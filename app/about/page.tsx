@@ -1,3 +1,14 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Toollane | Free Online Tools",
+  description:
+    "Learn more about Toollane, a fast and privacy-friendly online tools platform for creators, developers, marketers, businesses and everyday users.",
+  alternates: {
+    canonical: "/about",
+  },
+};
+
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-[#fff8df] text-[#171717]">
@@ -10,18 +21,33 @@ export default function AboutPage() {
           <div className="mt-8 space-y-6 text-black/70 leading-8">
             <p>
               Toollane is a growing collection of fast, modern and free online
-              tools designed for productivity, SEO, PDFs, developers, business
-              and everyday tasks.
+              tools for creators, developers, marketers, businesses and everyday
+              users.
             </p>
 
             <p>
-              Our mission is to create useful browser-based tools with clean UX,
-              strong performance and privacy-friendly functionality.
+              The goal of Toollane is simple: make common digital tasks easier.
+              Whether you need to convert files, format text, calculate business
+              metrics, generate ideas or prepare content, Toollane aims to offer
+              simple tools that work quickly in the browser.
             </p>
 
             <p>
-              Many tools work directly in your browser without uploading your
-              files or personal data.
+              Many Toollane tools are designed to run directly on your device.
+              This helps keep the experience fast and privacy-friendly because
+              files and inputs often do not need to be uploaded to a server.
+            </p>
+
+            <p>
+              Toollane is operated by Nicklas Wolf from Germany. The platform is
+              actively developed and improved with a focus on usability,
+              performance, mobile-friendly design and clear navigation.
+            </p>
+
+            <p>
+              For questions, feedback or legal information, please visit the
+              Contact, Privacy Policy, Terms and Imprint pages linked in the
+              footer.
             </p>
           </div>
         </div>
