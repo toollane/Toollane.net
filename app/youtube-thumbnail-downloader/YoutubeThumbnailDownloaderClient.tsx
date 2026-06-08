@@ -2,32 +2,29 @@
 
 import { useMemo, useState } from "react";
 
+function extractYoutubeVideoId(input: string): string | null {
+  try {
+    const parsedUrl = new URL(input);
+
+    if (parsedUrl.hostname.includes("youtu.be")) {
+      return parsedUrl.pathname.replace("/", "") || null;
+    }
+
+    if (parsedUrl.hostname.includes("youtube.com")) {
+      return parsedUrl.searchParams.get("v");
+    }
+
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 export default function YoutubeThumbnailDownloaderClient() {
-  const [url, setUrl] =
-    useState("");
+  const [url, setUrl] = useState("");
 
   const videoId = useMemo(() => {
-    try {
-      const parsedUrl =
-        new URL(url);
-
-      if (
-        parsedUrl.hostname.includes(
-
-        )
-      ) {
-        return parsedUrl.pathname.replace(
-
-          ""
-        );
-      }
-
-      return parsedUrl.searchParams.get(
-
-      );
-    } catch {
-      return null;
-    }
+    return extractYoutubeVideoId(url);
   }, [url]);
 
   const thumbnailUrl = videoId
@@ -42,16 +39,13 @@ export default function YoutubeThumbnailDownloaderClient() {
         </h2>
 
         <p className="text-black/60 leading-7">
-          Download YouTube thumbnails
-          instantly in high quality.
+          Download YouTube thumbnails instantly in high quality.
         </p>
       </div>
 
       <input
         value={url}
-        onChange={(event) =>
-          setUrl(event.target.value)
-        }
+        onChange={(event) => setUrl(event.target.value)}
         placeholder="Paste YouTube URL"
         className="w-full border border-black/10 rounded-2xl px-4 py-4 bg-white"
       />
