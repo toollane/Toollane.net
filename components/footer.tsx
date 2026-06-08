@@ -44,13 +44,15 @@ export default function Footer() {
 
               <div>
                 <div className="text-2xl font-black">Toollane</div>
-                <div className="text-sm text-white/60">Fast online tools</div>
+                <div className="text-sm text-white/60"> Free online tools by Toollane </div>
               </div>
             </Link>
 
             <p className="mt-6 max-w-md text-sm leading-7 text-white/65">
               Fast, free and mobile-friendly online tools for SEO, PDFs,
               images, business, creators, developers and everyday work.
+              Toollane is operated from Germany and built with a focus on
+              speed, usability and privacy-friendly workflows.
             </p>
           </div>
 
