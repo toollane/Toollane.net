@@ -155,33 +155,60 @@ export default async function CategoryPage({ params }: Props) {
       </section>
 
       <section className="border-y border-black/10 bg-white/40">
-        <div className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
-          <div className="rounded-[2.5rem] border border-black/10 bg-white/75 p-8 shadow-sm backdrop-blur sm:p-12">
-            <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
-              Free {category.name} for everyday work
-            </h2>
+  <div className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+    <div className="rounded-[2.5rem] border border-black/10 bg-white/75 p-8 shadow-sm backdrop-blur sm:p-12">
+      <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
+        Free {category.name} for everyday work
+      </h2>
 
-            <div className="mt-8 space-y-6 text-black/65 leading-8">
-              <p>
-                Toollane&apos;s {category.name.toLowerCase()} are designed to
-                be fast, simple and useful on desktop and mobile. You can use
-                them directly in your browser without complicated setup.
-              </p>
+      <div className="mt-8 space-y-6 text-black/65 leading-8">
+        <p>
+          Toollane&apos;s {category.name.toLowerCase()} are designed to help
+          users complete practical online tasks faster. This category includes{" "}
+          {categoryTools.length} tools that are built for speed, simplicity and
+          mobile-friendly use.
+        </p>
 
-              <p>
-                This category includes practical tools for common online tasks,
-                productivity workflows, creators, business users, students,
-                developers and everyday work.
-              </p>
+        <p>
+          Whether you are working on personal projects, business tasks,
+          content creation, development, documents, images, SEO or everyday
+          productivity, these tools are made to be easy to access directly in
+          your browser.
+        </p>
 
-              <p>
-                Toollane focuses on speed, clean layouts and mobile usability so
-                you can complete tasks quickly without unnecessary friction.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+        <p>
+          Each tool in this category is designed with a clean interface,
+          straightforward inputs and fast results. Toollane avoids unnecessary
+          complexity so you can focus on completing the task instead of learning
+          complicated software.
+        </p>
+
+        <h3 className="pt-4 text-2xl font-black text-black">
+          What you can do with {category.name}
+        </h3>
+
+        <ul className="list-disc space-y-2 pl-6">
+          <li>Complete common online tasks faster</li>
+          <li>Use tools directly on desktop, tablet or mobile</li>
+          <li>Access free tools without creating an account</li>
+          <li>Find related tools in the same category</li>
+          <li>Save time on repetitive digital workflows</li>
+        </ul>
+
+        <h3 className="pt-4 text-2xl font-black text-black">
+          Why use Toollane&apos;s {category.name.toLowerCase()}?
+        </h3>
+
+        <p>
+          Toollane focuses on useful tools, fast loading pages and clear
+          navigation. The goal is to make online tools easier to find and easier
+          to use, whether you need one quick result or several tools for a
+          larger workflow.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <h2 className="text-3xl font-black tracking-tight">

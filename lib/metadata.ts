@@ -3,6 +3,14 @@ import type { Metadata } from "next";
 import { tools } from "@/data/tools";
 import { siteConfig } from "@/app/seo";
 
+function buildToolTitle(name: string) {
+  return `Free ${name} Online | Toollane`;
+}
+
+function buildToolDescription(name: string, description: string) {
+  return `${description} Use Toollane's free ${name.toLowerCase()} online with no signup required.`;
+}
+
 export function getToolMetadata(href: string): Metadata {
   const tool = tools.find((item) => item.href === href);
 
@@ -10,15 +18,15 @@ export function getToolMetadata(href: string): Metadata {
     throw new Error(`Tool metadata not found for href: ${href}`);
   }
 
-  const title = tool.seoTitle || `${tool.name} | Toollane`;
-  const description = tool.seoDescription || tool.description;
+  const title = tool.seoTitle || buildToolTitle(tool.name);
+  const description =
+    tool.seoDescription || buildToolDescription(tool.name, tool.description);
   const url = `${siteConfig.url}${tool.href}`;
   const ogImage = `${siteConfig.url}/og-image.png`;
 
   return {
     title,
     description,
-
     keywords: tool.keywords,
 
     alternates: {
