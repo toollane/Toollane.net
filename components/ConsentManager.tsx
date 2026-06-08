@@ -27,30 +27,29 @@ export default function ConsentManager() {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [consent, setConsent] = useState<ConsentState>(defaultConsent);
 
- useEffect(() => {
-  const saved = localStorage.getItem(STORAGE_KEY);
-
-  if (!saved) {
-    applyConsent(defaultConsent);
-    setVisible(true);
-    return;
-  }
-
-  try {
-    const parsed = JSON.parse(saved) as ConsentState;
-    setConsent(parsed);
-    applyConsent(parsed);
-  } catch {
-    applyConsent(defaultConsent);
-    setVisible(true);
-  }
-
+useEffect(() => {
   function openSettings() {
     setVisible(true);
     setSettingsOpen(true);
   }
 
   window.addEventListener("toollane-open-consent-settings", openSettings);
+
+  const saved = localStorage.getItem(STORAGE_KEY);
+
+  if (!saved) {
+    applyConsent(defaultConsent);
+    setVisible(true);
+  } else {
+    try {
+      const parsed = JSON.parse(saved) as ConsentState;
+      setConsent(parsed);
+      applyConsent(parsed);
+    } catch {
+      applyConsent(defaultConsent);
+      setVisible(true);
+    }
+  }
 
   return () => {
     window.removeEventListener("toollane-open-consent-settings", openSettings);
