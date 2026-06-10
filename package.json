@@ -12,7 +12,8 @@
     "audit:baby-names": "tsx scripts/audit-baby-names.ts",
     "enrich:baby-names": "tsx scripts/enrich-baby-name-similar.ts",
     "process:baby-names": "npm run merge:baby-names && npm run enrich:baby-names && npm run validate:baby-names && npm run build",
-    "import:ssa-baby-names": "tsx scripts/import-ssa-baby-names.ts"
+    "import:ssa-baby-names": "tsx scripts/import-ssa-baby-names.ts",
+    "export:baby-name-candidates": "tsx scripts/export-baby-name-candidates.ts"
   },
   "dependencies": {
     "@imgly/background-removal": "^1.7.0",
