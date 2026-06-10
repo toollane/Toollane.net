@@ -1,41 +1,39 @@
 [
   {
-    "id": "noah",
-    "name": "Noah",
+    "id": "adrian",
+    "name": "Adrian",
     "gender": "boy",
     "origins": [
-      "Hebrew"
+      "Latin"
     ],
     "countries": [
+      "DE",
       "US",
-      "GB",
-      "DE"
+      "ES"
     ],
     "styles": [
-      "Biblical",
-      "Popular",
-      "Modern"
+      "Classic",
+      "Modern",
+      "International"
     ],
-    "meaning": "rest, comfort",
-    "popularity": 98,
-    "syllables": 2,
-    "variants": [
-      "Noa"
-    ],
+    "meaning": "from Hadria",
+    "popularity": 75,
+    "syllables": 3,
+    "variants": [],
     "similar": [
-      "Liam",
-      "Oliver",
-      "Jackson"
+      "Julian",
+      "Dominic",
+      "Luca"
     ],
     "tags": [
-      "biblical",
-      "popular",
-      "soft"
+      "classic",
+      "international",
+      "modern"
     ]
   },
   {
-    "id": "liam",
-    "name": "Liam",
+    "id": "aiden",
+    "name": "Aiden",
     "gender": "boy",
     "origins": [
       "Irish"
@@ -46,34 +44,101 @@
       "IE"
     ],
     "styles": [
-      "Short",
-      "Popular",
-      "Modern"
+      "Irish",
+      "Modern",
+      "Popular"
     ],
-    "meaning": "resolute protection",
-    "popularity": 97,
+    "meaning": "little fire",
+    "popularity": 76,
     "syllables": 2,
     "variants": [
-      "William"
+      "Aidan"
     ],
     "similar": [
-      "Oliver",
-      "Elijah",
-      "Noah"
+      "Declan",
+      "Finn",
+      "Liam"
     ],
     "tags": [
-      "short",
-      "popular",
-      "strong"
+      "irish",
+      "modern",
+      "fire"
     ]
   },
   {
-    "id": "oliver",
-    "name": "Oliver",
+    "id": "albert",
+    "name": "Albert",
     "gender": "boy",
     "origins": [
-      "Latin",
-      "French"
+      "German"
+    ],
+    "countries": [
+      "DE",
+      "GB",
+      "FR"
+    ],
+    "styles": [
+      "Royal",
+      "Classic",
+      "Vintage"
+    ],
+    "meaning": "noble and bright",
+    "popularity": 55,
+    "syllables": 2,
+    "variants": [
+      "Albie"
+    ],
+    "similar": [
+      "August",
+      "Henry",
+      "Louis"
+    ],
+    "tags": [
+      "royal",
+      "vintage",
+      "classic"
+    ]
+  },
+  {
+    "id": "alessandro",
+    "name": "Alessandro",
+    "gender": "boy",
+    "origins": [
+      "Greek",
+      "Italian"
+    ],
+    "countries": [
+      "IT",
+      "CH"
+    ],
+    "styles": [
+      "Italian",
+      "Elegant",
+      "Strong"
+    ],
+    "meaning": "defender of mankind",
+    "popularity": 69,
+    "syllables": 4,
+    "variants": [
+      "Sandro"
+    ],
+    "similar": [
+      "Giovanni",
+      "Alessia",
+      "Lorenzo"
+    ],
+    "tags": [
+      "italian",
+      "strong",
+      "elegant"
+    ]
+  },
+  {
+    "id": "alexander",
+    "name": "Alexander",
+    "gender": "boy",
+    "origins": [
+      "Greek"
     ],
     "countries": [
       "US",
@@ -82,128 +147,388 @@
     ],
     "styles": [
       "Classic",
-      "Popular",
-      "Elegant"
+      "Royal",
+      "Strong"
     ],
-    "meaning": "olive tree",
-    "popularity": 96,
-    "syllables": 3,
+    "meaning": "defender of mankind",
+    "popularity": 86,
+    "syllables": 4,
     "variants": [
-      "Ollie"
+      "Alex",
+      "Xander"
     ],
     "similar": [
-      "Elijah",
-      "James",
-      "Liam"
+      "William",
+      "Alexandra",
+      "Maximilian"
     ],
     "tags": [
+      "royal",
       "classic",
-      "popular",
-      "nature"
+      "strong"
     ]
   },
   {
-    "id": "elijah",
-    "name": "Elijah",
+    "id": "angus",
+    "name": "Angus",
+    "gender": "boy",
+    "origins": [
+      "Scottish"
+    ],
+    "countries": [
+      "GB",
+      "US"
+    ],
+    "styles": [
+      "Scottish",
+      "Vintage",
+      "Strong"
+    ],
+    "meaning": "one strength",
+    "popularity": 51,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Callum",
+      "Ewan",
+      "Gavin"
+    ],
+    "tags": [
+      "scottish",
+      "strong",
+      "vintage"
+    ]
+  },
+  {
+    "id": "anton",
+    "name": "Anton",
+    "gender": "boy",
+    "origins": [
+      "Latin",
+      "German"
+    ],
+    "countries": [
+      "DE",
+      "SE",
+      "RU"
+    ],
+    "styles": [
+      "Classic",
+      "Vintage",
+      "Strong"
+    ],
+    "meaning": "priceless",
+    "popularity": 69,
+    "syllables": 2,
+    "variants": [
+      "Anthony"
+    ],
+    "similar": [
+      "Emil",
+      "August",
+      "Max"
+    ],
+    "tags": [
+      "vintage",
+      "strong",
+      "classic"
+    ]
+  },
+  {
+    "id": "apollo",
+    "name": "Apollo",
+    "gender": "boy",
+    "origins": [
+      "Greek"
+    ],
+    "countries": [
+      "US",
+      "GR"
+    ],
+    "styles": [
+      "Mythological",
+      "Strong",
+      "Rare"
+    ],
+    "meaning": "Greek god of light and music",
+    "popularity": 55,
+    "syllables": 3,
+    "variants": [],
+    "similar": [
+      "Perseus",
+      "Orion",
+      "Evander"
+    ],
+    "tags": [
+      "mythological",
+      "strong",
+      "rare"
+    ]
+  },
+  {
+    "id": "ares",
+    "name": "Ares",
+    "gender": "boy",
+    "origins": [
+      "Greek"
+    ],
+    "countries": [
+      "GR",
+      "US"
+    ],
+    "styles": [
+      "Mythological",
+      "Short",
+      "Strong"
+    ],
+    "meaning": "Greek god of war",
+    "popularity": 46,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Perseus",
+      "Apollo",
+      "Hector"
+    ],
+    "tags": [
+      "mythological",
+      "short",
+      "strong"
+    ]
+  },
+  {
+    "id": "arthur",
+    "name": "Arthur",
+    "gender": "boy",
+    "origins": [
+      "Celtic",
+      "English"
+    ],
+    "countries": [
+      "GB",
+      "FR",
+      "DE"
+    ],
+    "styles": [
+      "Royal",
+      "Vintage",
+      "Classic"
+    ],
+    "meaning": "bear, noble strength",
+    "popularity": 83,
+    "syllables": 2,
+    "variants": [
+      "Art",
+      "Artie"
+    ],
+    "similar": [
+      "Henry",
+      "Albert",
+      "William"
+    ],
+    "tags": [
+      "royal",
+      "vintage",
+      "strong"
+    ]
+  },
+  {
+    "id": "arvid",
+    "name": "Arvid",
+    "gender": "boy",
+    "origins": [
+      "Nordic"
+    ],
+    "countries": [
+      "SE",
+      "NO",
+      "DE"
+    ],
+    "styles": [
+      "Nordic",
+      "Strong",
+      "Rare"
+    ],
+    "meaning": "eagle tree",
+    "popularity": 48,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Stellan",
+      "Henrik",
+      "Magnus"
+    ],
+    "tags": [
+      "nordic",
+      "strong",
+      "rare"
+    ]
+  },
+  {
+    "id": "asher",
+    "name": "Asher",
     "gender": "boy",
     "origins": [
       "Hebrew"
     ],
     "countries": [
       "US",
-      "GB"
+      "GB",
+      "IL"
     ],
     "styles": [
       "Biblical",
-      "Popular",
+      "Modern",
       "Strong"
     ],
-    "meaning": "my God is Yahweh",
-    "popularity": 94,
-    "syllables": 3,
+    "meaning": "happy, blessed",
+    "popularity": 79,
+    "syllables": 2,
     "variants": [
-      "Eli"
+      "Ash"
     ],
     "similar": [
-      "James",
-      "William",
-      "Oliver"
+      "Caleb",
+      "Jonah",
+      "Jude"
     ],
     "tags": [
       "biblical",
-      "popular",
-      "strong"
+      "modern",
+      "positive"
     ]
   },
   {
-    "id": "james",
-    "name": "James",
+    "id": "atlas",
+    "name": "Atlas",
     "gender": "boy",
     "origins": [
-      "Hebrew",
-      "English"
+      "Greek"
     ],
     "countries": [
       "US",
-      "GB",
-      "IE"
+      "GB"
     ],
     "styles": [
-      "Classic",
-      "Royal",
-      "Popular"
+      "Mythological",
+      "Strong",
+      "Modern"
     ],
-    "meaning": "supplanter",
-    "popularity": 94,
-    "syllables": 1,
-    "variants": [
-      "Jamie"
-    ],
+    "meaning": "bearer of the heavens",
+    "popularity": 67,
+    "syllables": 2,
+    "variants": [],
     "similar": [
-      "William",
-      "Benjamin",
-      "Elijah"
+      "Phoenix",
+      "Hector",
+      "Orion"
     ],
     "tags": [
-      "classic",
+      "mythological",
+      "strong",
+      "modern"
+    ]
+  },
+  {
+    "id": "august",
+    "name": "August",
+    "gender": "boy",
+    "origins": [
+      "Latin",
+      "German"
+    ],
+    "countries": [
+      "DE",
+      "US",
+      "SE"
+    ],
+    "styles": [
+      "Vintage",
+      "Royal",
+      "Classic"
+    ],
+    "meaning": "great, magnificent",
+    "popularity": 62,
+    "syllables": 2,
+    "variants": [
+      "Augustus"
+    ],
+    "similar": [
+      "Henry",
+      "Albert",
+      "Anton"
+    ],
+    "tags": [
       "royal",
+      "vintage",
+      "classic"
+    ]
+  },
+  {
+    "id": "axel",
+    "name": "Axel",
+    "gender": "boy",
+    "origins": [
+      "Hebrew",
+      "Nordic"
+    ],
+    "countries": [
+      "SE",
+      "DK",
+      "DE"
+    ],
+    "styles": [
+      "Nordic",
+      "Strong",
+      "Short"
+    ],
+    "meaning": "father of peace",
+    "popularity": 67,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Magnus",
+      "Henrik",
+      "Ivar"
+    ],
+    "tags": [
+      "nordic",
+      "strong",
       "short"
     ]
   },
   {
-    "id": "william",
-    "name": "William",
+    "id": "benedict",
+    "name": "Benedict",
     "gender": "boy",
     "origins": [
-      "German",
-      "English"
+      "Latin"
     ],
     "countries": [
-      "US",
       "GB",
-      "DE"
+      "DE",
+      "US"
     ],
     "styles": [
       "Classic",
-      "Royal",
-      "Strong"
+      "Old Money",
+      "Elegant"
     ],
-    "meaning": "resolute protector",
-    "popularity": 93,
+    "meaning": "blessed",
+    "popularity": 52,
     "syllables": 3,
     "variants": [
-      "Will",
-      "Liam"
+      "Ben"
     ],
     "similar": [
-      "Benjamin",
-      "Lucas",
-      "James"
+      "Julian",
+      "Sebastian",
+      "Marius"
     ],
     "tags": [
+      "old money",
       "classic",
-      "royal",
-      "strong"
+      "elegant"
     ]
   },
   {
@@ -231,9 +556,9 @@
       "Benny"
     ],
     "similar": [
-      "Lucas",
-      "Henry",
-      "William"
+      "Samuel",
+      "Jacob",
+      "Tobias"
     ],
     "tags": [
       "biblical",
@@ -242,39 +567,1162 @@
     ]
   },
   {
-    "id": "lucas",
-    "name": "Lucas",
+    "id": "caleb",
+    "name": "Caleb",
     "gender": "boy",
     "origins": [
-      "Greek",
+      "Hebrew"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Biblical",
+      "Modern",
+      "Strong"
+    ],
+    "meaning": "devotion, whole heart",
+    "popularity": 77,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Asher",
+      "Jonah",
+      "Ethan"
+    ],
+    "tags": [
+      "biblical",
+      "modern",
+      "strong"
+    ]
+  },
+  {
+    "id": "callum",
+    "name": "Callum",
+    "gender": "boy",
+    "origins": [
+      "Scottish",
       "Latin"
+    ],
+    "countries": [
+      "GB",
+      "US"
+    ],
+    "styles": [
+      "Scottish",
+      "Classic",
+      "Strong"
+    ],
+    "meaning": "dove",
+    "popularity": 62,
+    "syllables": 2,
+    "variants": [
+      "Calum"
+    ],
+    "similar": [
+      "Gavin",
+      "Ewan",
+      "Angus"
+    ],
+    "tags": [
+      "scottish",
+      "classic",
+      "strong"
+    ]
+  },
+  {
+    "id": "caspar",
+    "name": "Caspar",
+    "gender": "boy",
+    "origins": [
+      "Persian"
+    ],
+    "countries": [
+      "DE",
+      "NL",
+      "GB"
+    ],
+    "styles": [
+      "Vintage",
+      "Rare",
+      "Classic"
+    ],
+    "meaning": "treasurer",
+    "popularity": 50,
+    "syllables": 2,
+    "variants": [
+      "Casper"
+    ],
+    "similar": [
+      "Albert",
+      "Rupert",
+      "Joseph"
+    ],
+    "tags": [
+      "rare",
+      "vintage",
+      "classic"
+    ]
+  },
+  {
+    "id": "cian",
+    "name": "Cian",
+    "gender": "boy",
+    "origins": [
+      "Irish"
+    ],
+    "countries": [
+      "IE",
+      "GB"
+    ],
+    "styles": [
+      "Irish",
+      "Short",
+      "Rare"
+    ],
+    "meaning": "ancient",
+    "popularity": 54,
+    "syllables": 1,
+    "variants": [
+      "Kian"
+    ],
+    "similar": [
+      "Finnian",
+      "Maeve",
+      "Kieran"
+    ],
+    "tags": [
+      "irish",
+      "short",
+      "rare"
+    ]
+  },
+  {
+    "id": "cyrus",
+    "name": "Cyrus",
+    "gender": "boy",
+    "origins": [
+      "Persian"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Rare",
+      "Strong",
+      "Ancient"
+    ],
+    "meaning": "sun, throne",
+    "popularity": 57,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Darius",
+      "Stellan",
+      "Kaius"
+    ],
+    "tags": [
+      "ancient",
+      "rare",
+      "strong"
+    ]
+  },
+  {
+    "id": "daniel",
+    "name": "Daniel",
+    "gender": "boy",
+    "origins": [
+      "Hebrew"
     ],
     "countries": [
       "US",
       "DE",
-      "BR"
+      "ES"
+    ],
+    "styles": [
+      "Biblical",
+      "Classic",
+      "International"
+    ],
+    "meaning": "God is my judge",
+    "popularity": 80,
+    "syllables": 3,
+    "variants": [
+      "Dan"
+    ],
+    "similar": [
+      "Tobias",
+      "Maria",
+      "Gabriel"
+    ],
+    "tags": [
+      "biblical",
+      "classic",
+      "international"
+    ]
+  },
+  {
+    "id": "darius",
+    "name": "Darius",
+    "gender": "boy",
+    "origins": [
+      "Persian"
+    ],
+    "countries": [
+      "US",
+      "DE"
+    ],
+    "styles": [
+      "Ancient",
+      "Strong",
+      "Classic"
+    ],
+    "meaning": "possessing goodness",
+    "popularity": 55,
+    "syllables": 3,
+    "variants": [],
+    "similar": [
+      "Cyrus",
+      "Dominic",
+      "Harrison"
+    ],
+    "tags": [
+      "ancient",
+      "strong",
+      "classic"
+    ]
+  },
+  {
+    "id": "david",
+    "name": "David",
+    "gender": "boy",
+    "origins": [
+      "Hebrew"
+    ],
+    "countries": [
+      "US",
+      "DE",
+      "IL"
+    ],
+    "styles": [
+      "Biblical",
+      "Classic",
+      "Strong"
+    ],
+    "meaning": "beloved",
+    "popularity": 76,
+    "syllables": 2,
+    "variants": [
+      "Dave"
+    ],
+    "similar": [
+      "Isaac",
+      "Gabriel",
+      "Joseph"
+    ],
+    "tags": [
+      "biblical",
+      "classic",
+      "strong"
+    ]
+  },
+  {
+    "id": "declan",
+    "name": "Declan",
+    "gender": "boy",
+    "origins": [
+      "Irish"
+    ],
+    "countries": [
+      "IE",
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Irish",
+      "Strong",
+      "Modern"
+    ],
+    "meaning": "man of prayer",
+    "popularity": 68,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Ronan",
+      "Aiden",
+      "Kieran"
+    ],
+    "tags": [
+      "irish",
+      "modern",
+      "strong"
+    ]
+  },
+  {
+    "id": "diego",
+    "name": "Diego",
+    "gender": "boy",
+    "origins": [
+      "Spanish"
+    ],
+    "countries": [
+      "ES",
+      "MX",
+      "US"
+    ],
+    "styles": [
+      "Spanish",
+      "Modern",
+      "Strong"
+    ],
+    "meaning": "supplanter, teacher",
+    "popularity": 75,
+    "syllables": 3,
+    "variants": [],
+    "similar": [
+      "Mateo",
+      "Santiago",
+      "Ximena"
+    ],
+    "tags": [
+      "spanish",
+      "modern",
+      "strong"
+    ]
+  },
+  {
+    "id": "dominic",
+    "name": "Dominic",
+    "gender": "boy",
+    "origins": [
+      "Latin"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "DE"
+    ],
+    "styles": [
+      "Classic",
+      "Strong",
+      "International"
+    ],
+    "meaning": "belonging to the Lord",
+    "popularity": 67,
+    "syllables": 3,
+    "variants": [
+      "Dom"
+    ],
+    "similar": [
+      "Victor",
+      "Julian",
+      "Adrian"
+    ],
+    "tags": [
+      "classic",
+      "strong",
+      "international"
+    ]
+  },
+  {
+    "id": "dylan",
+    "name": "Dylan",
+    "gender": "boy",
+    "origins": [
+      "Welsh"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Welsh",
+      "Nature",
+      "Modern"
+    ],
+    "meaning": "son of the sea",
+    "popularity": 72,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Owen",
+      "Rowan",
+      "Reese"
+    ],
+    "tags": [
+      "sea",
+      "modern",
+      "welsh"
+    ]
+  },
+  {
+    "id": "edmund",
+    "name": "Edmund",
+    "gender": "boy",
+    "origins": [
+      "English"
+    ],
+    "countries": [
+      "GB",
+      "US"
+    ],
+    "styles": [
+      "Old Money",
+      "Vintage",
+      "Classic"
+    ],
+    "meaning": "fortunate protector",
+    "popularity": 48,
+    "syllables": 2,
+    "variants": [
+      "Eddie"
+    ],
+    "similar": [
+      "Rupert",
+      "Percival",
+      "Frederick"
+    ],
+    "tags": [
+      "old money",
+      "vintage",
+      "classic"
+    ]
+  },
+  {
+    "id": "elias",
+    "name": "Elias",
+    "gender": "boy",
+    "origins": [
+      "Hebrew",
+      "Greek"
+    ],
+    "countries": [
+      "DE",
+      "SE",
+      "US"
+    ],
+    "styles": [
+      "Biblical",
+      "International",
+      "Elegant"
+    ],
+    "meaning": "my God is Yahweh",
+    "popularity": 82,
+    "syllables": 3,
+    "variants": [],
+    "similar": [
+      "Rafael",
+      "Tobias",
+      "Daniel"
+    ],
+    "tags": [
+      "biblical",
+      "international",
+      "elegant"
+    ]
+  },
+  {
+    "id": "elijah",
+    "name": "Elijah",
+    "gender": "boy",
+    "origins": [
+      "Hebrew"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Biblical",
+      "Popular",
+      "Strong"
+    ],
+    "meaning": "my God is Yahweh",
+    "popularity": 94,
+    "syllables": 3,
+    "variants": [
+      "Eli"
+    ],
+    "similar": [
+      "Ethan",
+      "Benjamin",
+      "Samuel"
+    ],
+    "tags": [
+      "biblical",
+      "popular",
+      "strong"
+    ]
+  },
+  {
+    "id": "emil",
+    "name": "Emil",
+    "gender": "boy",
+    "origins": [
+      "Latin",
+      "German"
+    ],
+    "countries": [
+      "DE",
+      "DK",
+      "SE"
+    ],
+    "styles": [
+      "Vintage",
+      "Short",
+      "Classic"
+    ],
+    "meaning": "rival, eager",
+    "popularity": 71,
+    "syllables": 2,
+    "variants": [
+      "Emile"
+    ],
+    "similar": [
+      "Anton",
+      "August",
+      "Max"
+    ],
+    "tags": [
+      "short",
+      "vintage",
+      "classic"
+    ]
+  },
+  {
+    "id": "emilio",
+    "name": "Emilio",
+    "gender": "boy",
+    "origins": [
+      "Latin",
+      "Spanish"
+    ],
+    "countries": [
+      "ES",
+      "IT",
+      "US"
+    ],
+    "styles": [
+      "Spanish",
+      "Elegant",
+      "Classic"
+    ],
+    "meaning": "rival, eager",
+    "popularity": 68,
+    "syllables": 4,
+    "variants": [
+      "Emil"
+    ],
+    "similar": [
+      "Natalia",
+      "Lorenzo",
+      "Santiago"
+    ],
+    "tags": [
+      "spanish",
+      "elegant",
+      "classic"
+    ]
+  },
+  {
+    "id": "enzo",
+    "name": "Enzo",
+    "gender": "boy",
+    "origins": [
+      "Italian",
+      "German"
+    ],
+    "countries": [
+      "IT",
+      "FR",
+      "DE"
+    ],
+    "styles": [
+      "Short",
+      "Modern",
+      "Italian"
+    ],
+    "meaning": "ruler of the home",
+    "popularity": 76,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Nico",
+      "Theo",
+      "Milo"
+    ],
+    "tags": [
+      "short",
+      "italian",
+      "modern"
+    ]
+  },
+  {
+    "id": "ethan",
+    "name": "Ethan",
+    "gender": "boy",
+    "origins": [
+      "Hebrew"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Biblical",
+      "Strong",
+      "Popular"
+    ],
+    "meaning": "strong, firm",
+    "popularity": 85,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Elijah",
+      "Levi",
+      "Jacob"
+    ],
+    "tags": [
+      "biblical",
+      "strong",
+      "popular"
+    ]
+  },
+  {
+    "id": "evander",
+    "name": "Evander",
+    "gender": "boy",
+    "origins": [
+      "Greek"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Mythological",
+      "Rare",
+      "Elegant"
+    ],
+    "meaning": "good man",
+    "popularity": 48,
+    "syllables": 3,
+    "variants": [
+      "Evan"
+    ],
+    "similar": [
+      "Perseus",
+      "Apollo",
+      "Thalia"
+    ],
+    "tags": [
+      "mythological",
+      "rare",
+      "elegant"
+    ]
+  },
+  {
+    "id": "everett",
+    "name": "Everett",
+    "gender": "boy",
+    "origins": [
+      "English",
+      "German"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Vintage",
+      "Strong",
+      "Modern"
+    ],
+    "meaning": "brave as a wild boar",
+    "popularity": 67,
+    "syllables": 3,
+    "variants": [],
+    "similar": [
+      "Wyatt",
+      "Jackson",
+      "William"
+    ],
+    "tags": [
+      "vintage",
+      "strong",
+      "modern"
+    ]
+  },
+  {
+    "id": "ewan",
+    "name": "Ewan",
+    "gender": "boy",
+    "origins": [
+      "Scottish",
+      "Hebrew"
+    ],
+    "countries": [
+      "GB",
+      "US"
+    ],
+    "styles": [
+      "Scottish",
+      "Classic",
+      "Short"
+    ],
+    "meaning": "God is gracious",
+    "popularity": 56,
+    "syllables": 2,
+    "variants": [
+      "Euan"
+    ],
+    "similar": [
+      "Callum",
+      "Jamie",
+      "Gavin"
+    ],
+    "tags": [
+      "scottish",
+      "classic",
+      "short"
+    ]
+  },
+  {
+    "id": "ezra",
+    "name": "Ezra",
+    "gender": "boy",
+    "origins": [
+      "Hebrew"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "IL"
+    ],
+    "styles": [
+      "Biblical",
+      "Rare",
+      "Short"
+    ],
+    "meaning": "help, helper",
+    "popularity": 66,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Levi",
+      "Jude",
+      "Asher"
+    ],
+    "tags": [
+      "biblical",
+      "short",
+      "rare"
+    ]
+  },
+  {
+    "id": "felix",
+    "name": "Felix",
+    "gender": "boy",
+    "origins": [
+      "Latin"
+    ],
+    "countries": [
+      "DE",
+      "GB",
+      "US"
     ],
     "styles": [
       "Classic",
       "Popular",
-      "International"
+      "Bright"
     ],
-    "meaning": "man from Lucania",
-    "popularity": 90,
+    "meaning": "happy, fortunate",
+    "popularity": 80,
     "syllables": 2,
-    "variants": [
-      "Lukas",
-      "Luke"
-    ],
+    "variants": [],
     "similar": [
-      "Henry",
-      "Theodore",
-      "Benjamin"
+      "Lucas",
+      "Oliver",
+      "Sebastian"
     ],
     "tags": [
-      "international",
+      "happy",
       "classic",
-      "popular"
+      "international"
+    ]
+  },
+  {
+    "id": "ferdinand",
+    "name": "Ferdinand",
+    "gender": "boy",
+    "origins": [
+      "German"
+    ],
+    "countries": [
+      "DE",
+      "ES",
+      "AT"
+    ],
+    "styles": [
+      "Royal",
+      "Vintage",
+      "Strong"
+    ],
+    "meaning": "bold voyager",
+    "popularity": 48,
+    "syllables": 3,
+    "variants": [
+      "Ferdi"
+    ],
+    "similar": [
+      "Leopold",
+      "Friedrich",
+      "Maximilian"
+    ],
+    "tags": [
+      "royal",
+      "vintage",
+      "strong"
+    ]
+  },
+  {
+    "id": "finn",
+    "name": "Finn",
+    "gender": "boy",
+    "origins": [
+      "Irish",
+      "Nordic"
+    ],
+    "countries": [
+      "DE",
+      "US",
+      "IE"
+    ],
+    "styles": [
+      "Short",
+      "Modern",
+      "Popular"
+    ],
+    "meaning": "fair, white",
+    "popularity": 86,
+    "syllables": 1,
+    "variants": [
+      "Fionn"
+    ],
+    "similar": [
+      "Liam",
+      "Aiden",
+      "Theo"
+    ],
+    "tags": [
+      "short",
+      "modern",
+      "celtic"
+    ]
+  },
+  {
+    "id": "finnian",
+    "name": "Finnian",
+    "gender": "boy",
+    "origins": [
+      "Irish"
+    ],
+    "countries": [
+      "IE",
+      "US"
+    ],
+    "styles": [
+      "Irish",
+      "Rare",
+      "Classic"
+    ],
+    "meaning": "fair",
+    "popularity": 48,
+    "syllables": 3,
+    "variants": [
+      "Finian",
+      "Finn"
+    ],
+    "similar": [
+      "Kieran",
+      "Cian",
+      "Linus"
+    ],
+    "tags": [
+      "irish",
+      "rare",
+      "classic"
+    ]
+  },
+  {
+    "id": "frederick",
+    "name": "Frederick",
+    "gender": "boy",
+    "origins": [
+      "German",
+      "English"
+    ],
+    "countries": [
+      "GB",
+      "US",
+      "DE"
+    ],
+    "styles": [
+      "Royal",
+      "Old Money",
+      "Classic"
+    ],
+    "meaning": "peaceful ruler",
+    "popularity": 58,
+    "syllables": 3,
+    "variants": [
+      "Fred",
+      "Freddie"
+    ],
+    "similar": [
+      "William",
+      "Henry",
+      "Harrison"
+    ],
+    "tags": [
+      "old money",
+      "royal",
+      "classic"
+    ]
+  },
+  {
+    "id": "friedrich",
+    "name": "Friedrich",
+    "gender": "boy",
+    "origins": [
+      "German"
+    ],
+    "countries": [
+      "DE",
+      "AT"
+    ],
+    "styles": [
+      "Royal",
+      "Old Fashioned",
+      "Strong"
+    ],
+    "meaning": "peaceful ruler",
+    "popularity": 46,
+    "syllables": 2,
+    "variants": [
+      "Fritz"
+    ],
+    "similar": [
+      "Otto",
+      "Ferdinand",
+      "Leopold"
+    ],
+    "tags": [
+      "royal",
+      "old fashioned",
+      "strong"
+    ]
+  },
+  {
+    "id": "gabriel",
+    "name": "Gabriel",
+    "gender": "boy",
+    "origins": [
+      "Hebrew"
+    ],
+    "countries": [
+      "US",
+      "FR",
+      "DE"
+    ],
+    "styles": [
+      "Biblical",
+      "Classic",
+      "Elegant"
+    ],
+    "meaning": "God is my strength",
+    "popularity": 81,
+    "syllables": 3,
+    "variants": [
+      "Gabe"
+    ],
+    "similar": [
+      "David",
+      "Daniel",
+      "Samuel"
+    ],
+    "tags": [
+      "biblical",
+      "classic",
+      "strong"
+    ]
+  },
+  {
+    "id": "gavin",
+    "name": "Gavin",
+    "gender": "boy",
+    "origins": [
+      "Welsh",
+      "Scottish"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Classic",
+      "Strong",
+      "Modern"
+    ],
+    "meaning": "white hawk",
+    "popularity": 59,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Callum",
+      "Hector",
+      "Kieran"
+    ],
+    "tags": [
+      "bird",
+      "classic",
+      "strong"
+    ]
+  },
+  {
+    "id": "giovanni",
+    "name": "Giovanni",
+    "gender": "boy",
+    "origins": [
+      "Hebrew",
+      "Italian"
+    ],
+    "countries": [
+      "IT",
+      "US"
+    ],
+    "styles": [
+      "Italian",
+      "Classic",
+      "Elegant"
+    ],
+    "meaning": "God is gracious",
+    "popularity": 67,
+    "syllables": 4,
+    "variants": [
+      "Gio"
+    ],
+    "similar": [
+      "Lorenzo",
+      "Matteo",
+      "Alessandro"
+    ],
+    "tags": [
+      "italian",
+      "classic",
+      "elegant"
+    ]
+  },
+  {
+    "id": "harrison",
+    "name": "Harrison",
+    "gender": "boy",
+    "origins": [
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Old Money",
+      "Classic",
+      "Strong"
+    ],
+    "meaning": "son of Harry",
+    "popularity": 62,
+    "syllables": 3,
+    "variants": [
+      "Harry"
+    ],
+    "similar": [
+      "Frederick",
+      "William",
+      "Edmund"
+    ],
+    "tags": [
+      "old money",
+      "classic",
+      "strong"
+    ]
+  },
+  {
+    "id": "hector",
+    "name": "Hector",
+    "gender": "boy",
+    "origins": [
+      "Greek"
+    ],
+    "countries": [
+      "ES",
+      "GB",
+      "US"
+    ],
+    "styles": [
+      "Mythological",
+      "Classic",
+      "Strong"
+    ],
+    "meaning": "holding fast",
+    "popularity": 58,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Atlas",
+      "Orion",
+      "Ares"
+    ],
+    "tags": [
+      "mythological",
+      "classic",
+      "strong"
+    ]
+  },
+  {
+    "id": "henrik",
+    "name": "Henrik",
+    "gender": "boy",
+    "origins": [
+      "German",
+      "Nordic"
+    ],
+    "countries": [
+      "SE",
+      "NO",
+      "DE"
+    ],
+    "styles": [
+      "Nordic",
+      "Classic",
+      "Strong"
+    ],
+    "meaning": "estate ruler",
+    "popularity": 60,
+    "syllables": 2,
+    "variants": [
+      "Henri"
+    ],
+    "similar": [
+      "Ingrid",
+      "Astrid",
+      "Magnus"
+    ],
+    "tags": [
+      "nordic",
+      "classic",
+      "strong"
     ]
   },
   {
@@ -303,9 +1751,9 @@
       "Harry"
     ],
     "similar": [
-      "Theodore",
-      "Theo",
-      "Lucas"
+      "August",
+      "William",
+      "Albert"
     ],
     "tags": [
       "royal",
@@ -314,11 +1762,142 @@
     ]
   },
   {
-    "id": "theodore",
-    "name": "Theodore",
+    "id": "hugo",
+    "name": "Hugo",
     "gender": "boy",
     "origins": [
-      "Greek"
+      "German",
+      "Spanish"
+    ],
+    "countries": [
+      "ES",
+      "FR",
+      "DE"
+    ],
+    "styles": [
+      "Short",
+      "Classic",
+      "Strong"
+    ],
+    "meaning": "mind, intellect",
+    "popularity": 79,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Max",
+      "Theo",
+      "Emil"
+    ],
+    "tags": [
+      "short",
+      "classic",
+      "strong"
+    ]
+  },
+  {
+    "id": "isaac",
+    "name": "Isaac",
+    "gender": "boy",
+    "origins": [
+      "Hebrew"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Biblical",
+      "Classic",
+      "Strong"
+    ],
+    "meaning": "laughter",
+    "popularity": 78,
+    "syllables": 2,
+    "variants": [
+      "Ike"
+    ],
+    "similar": [
+      "David",
+      "Jacob",
+      "Joseph"
+    ],
+    "tags": [
+      "biblical",
+      "classic",
+      "warm"
+    ]
+  },
+  {
+    "id": "ivar",
+    "name": "Ivar",
+    "gender": "boy",
+    "origins": [
+      "Nordic"
+    ],
+    "countries": [
+      "NO",
+      "SE",
+      "DK"
+    ],
+    "styles": [
+      "Nordic",
+      "Strong",
+      "Vintage"
+    ],
+    "meaning": "yew warrior",
+    "popularity": 52,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Sigrid",
+      "Arvid",
+      "Henrik"
+    ],
+    "tags": [
+      "nordic",
+      "strong",
+      "vintage"
+    ]
+  },
+  {
+    "id": "jackson",
+    "name": "Jackson",
+    "gender": "boy",
+    "origins": [
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Modern",
+      "Popular",
+      "Strong"
+    ],
+    "meaning": "son of Jack",
+    "popularity": 80,
+    "syllables": 2,
+    "variants": [
+      "Jaxon"
+    ],
+    "similar": [
+      "Wyatt",
+      "Mason",
+      "Logan"
+    ],
+    "tags": [
+      "modern",
+      "popular",
+      "strong"
+    ]
+  },
+  {
+    "id": "jacob",
+    "name": "Jacob",
+    "gender": "boy",
+    "origins": [
+      "Hebrew"
     ],
     "countries": [
       "US",
@@ -326,62 +1905,389 @@
       "DE"
     ],
     "styles": [
+      "Biblical",
       "Classic",
-      "Vintage",
       "Popular"
     ],
-    "meaning": "gift of God",
-    "popularity": 88,
-    "syllables": 3,
+    "meaning": "supplanter",
+    "popularity": 80,
+    "syllables": 2,
     "variants": [
-      "Theo",
-      "Teddy"
+      "Jake"
     ],
     "similar": [
-      "Theo",
-      "Leo",
-      "Henry"
+      "Samuel",
+      "Benjamin",
+      "Hannah"
     ],
     "tags": [
+      "biblical",
       "classic",
-      "vintage",
       "popular"
     ]
   },
   {
-    "id": "theo",
-    "name": "Theo",
+    "id": "james",
+    "name": "James",
     "gender": "boy",
     "origins": [
-      "Greek",
-      "German"
+      "Hebrew",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "IE"
+    ],
+    "styles": [
+      "Classic",
+      "Royal",
+      "Popular"
+    ],
+    "meaning": "supplanter",
+    "popularity": 94,
+    "syllables": 1,
+    "variants": [
+      "Jamie"
+    ],
+    "similar": [
+      "Henry",
+      "William",
+      "Frederick"
+    ],
+    "tags": [
+      "classic",
+      "royal",
+      "short"
+    ]
+  },
+  {
+    "id": "jasper",
+    "name": "Jasper",
+    "gender": "boy",
+    "origins": [
+      "Persian"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "DE"
+    ],
+    "styles": [
+      "Vintage",
+      "Elegant",
+      "Popular"
+    ],
+    "meaning": "treasurer",
+    "popularity": 74,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Theodore",
+      "Sebastian",
+      "Matteo"
+    ],
+    "tags": [
+      "vintage",
+      "elegant",
+      "popular"
+    ]
+  },
+  {
+    "id": "jonah",
+    "name": "Jonah",
+    "gender": "boy",
+    "origins": [
+      "Hebrew"
+    ],
+    "countries": [
+      "US",
+      "DE",
+      "GB"
+    ],
+    "styles": [
+      "Biblical",
+      "Soft",
+      "Modern"
+    ],
+    "meaning": "dove",
+    "popularity": 76,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Noah",
+      "Caleb",
+      "Asher"
+    ],
+    "tags": [
+      "biblical",
+      "soft",
+      "modern"
+    ]
+  },
+  {
+    "id": "joseph",
+    "name": "Joseph",
+    "gender": "boy",
+    "origins": [
+      "Hebrew"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "DE"
+    ],
+    "styles": [
+      "Biblical",
+      "Classic",
+      "Vintage"
+    ],
+    "meaning": "God will add",
+    "popularity": 74,
+    "syllables": 2,
+    "variants": [
+      "Joe"
+    ],
+    "similar": [
+      "Jacob",
+      "David",
+      "Isaac"
+    ],
+    "tags": [
+      "biblical",
+      "classic",
+      "vintage"
+    ]
+  },
+  {
+    "id": "jude",
+    "name": "Jude",
+    "gender": "boy",
+    "origins": [
+      "Hebrew",
+      "Latin"
+    ],
+    "countries": [
+      "GB",
+      "US"
+    ],
+    "styles": [
+      "Biblical",
+      "Short",
+      "Modern"
+    ],
+    "meaning": "praised",
+    "popularity": 68,
+    "syllables": 1,
+    "variants": [],
+    "similar": [
+      "Ezra",
+      "Paul",
+      "Jonah"
+    ],
+    "tags": [
+      "short",
+      "biblical",
+      "modern"
+    ]
+  },
+  {
+    "id": "julian",
+    "name": "Julian",
+    "gender": "boy",
+    "origins": [
+      "Latin"
     ],
     "countries": [
       "DE",
       "US",
-      "GB",
-      "FR"
+      "GB"
     ],
     "styles": [
-      "Short",
       "Classic",
-      "Modern"
+      "Elegant",
+      "International"
     ],
-    "meaning": "gift of God",
-    "popularity": 88,
-    "syllables": 2,
+    "meaning": "youthful",
+    "popularity": 77,
+    "syllables": 3,
     "variants": [
-      "Theodor",
-      "Theodore"
+      "Jules"
     ],
     "similar": [
-      "Leo",
-      "Leon",
-      "Theodore"
+      "Marius",
+      "Dominic",
+      "Benedict"
     ],
     "tags": [
+      "classic",
+      "elegant",
+      "international"
+    ]
+  },
+  {
+    "id": "kaius",
+    "name": "Kaius",
+    "gender": "boy",
+    "origins": [
+      "Latin"
+    ],
+    "countries": [
+      "US",
+      "DE"
+    ],
+    "styles": [
+      "Rare",
+      "Modern",
+      "Ancient"
+    ],
+    "meaning": "rejoice",
+    "popularity": 44,
+    "syllables": 2,
+    "variants": [
+      "Caius"
+    ],
+    "similar": [
+      "Cyrus",
+      "Soren",
+      "Roman"
+    ],
+    "tags": [
+      "rare",
+      "ancient",
+      "modern"
+    ]
+  },
+  {
+    "id": "karl",
+    "name": "Karl",
+    "gender": "boy",
+    "origins": [
+      "German"
+    ],
+    "countries": [
+      "DE",
+      "SE",
+      "NO"
+    ],
+    "styles": [
+      "Classic",
+      "Royal",
+      "Strong"
+    ],
+    "meaning": "free man",
+    "popularity": 58,
+    "syllables": 1,
+    "variants": [
+      "Carl"
+    ],
+    "similar": [
+      "August",
+      "William",
+      "Maximilian"
+    ],
+    "tags": [
+      "royal",
+      "classic",
+      "short"
+    ]
+  },
+  {
+    "id": "kieran",
+    "name": "Kieran",
+    "gender": "boy",
+    "origins": [
+      "Irish"
+    ],
+    "countries": [
+      "IE",
+      "GB",
+      "US"
+    ],
+    "styles": [
+      "Irish",
+      "Classic",
+      "Strong"
+    ],
+    "meaning": "little dark one",
+    "popularity": 60,
+    "syllables": 2,
+    "variants": [
+      "Ciaran"
+    ],
+    "similar": [
+      "Ronan",
+      "Declan",
+      "Finnian"
+    ],
+    "tags": [
+      "irish",
+      "classic",
+      "strong"
+    ]
+  },
+  {
+    "id": "lars",
+    "name": "Lars",
+    "gender": "boy",
+    "origins": [
+      "Latin",
+      "Nordic"
+    ],
+    "countries": [
+      "SE",
+      "NO",
+      "DE"
+    ],
+    "styles": [
+      "Nordic",
+      "Short",
+      "Classic"
+    ],
+    "meaning": "crowned with laurel",
+    "popularity": 57,
+    "syllables": 1,
+    "variants": [],
+    "similar": [
+      "Nils",
+      "Leif",
+      "Henrik"
+    ],
+    "tags": [
+      "nordic",
       "short",
-      "modern",
+      "classic"
+    ]
+  },
+  {
+    "id": "leif",
+    "name": "Leif",
+    "gender": "boy",
+    "origins": [
+      "Nordic"
+    ],
+    "countries": [
+      "NO",
+      "SE",
+      "US"
+    ],
+    "styles": [
+      "Nordic",
+      "Short",
+      "Classic"
+    ],
+    "meaning": "heir, descendant",
+    "popularity": 55,
+    "syllables": 1,
+    "variants": [],
+    "similar": [
+      "Nils",
+      "Lars",
+      "Henrik"
+    ],
+    "tags": [
+      "nordic",
+      "short",
       "classic"
     ]
   },
@@ -410,9 +2316,9 @@
       "Leon"
     ],
     "similar": [
-      "Leon",
-      "Arthur",
-      "Theo"
+      "Max",
+      "Milo",
+      "Leon"
     ],
     "tags": [
       "short",
@@ -445,9 +2351,9 @@
       "Leo"
     ],
     "similar": [
-      "Arthur",
-      "Oscar",
-      "Leo"
+      "Theo",
+      "Leo",
+      "Hugo"
     ],
     "tags": [
       "short",
@@ -456,79 +2362,8 @@
     ]
   },
   {
-    "id": "arthur",
-    "name": "Arthur",
-    "gender": "boy",
-    "origins": [
-      "Celtic",
-      "English"
-    ],
-    "countries": [
-      "GB",
-      "FR",
-      "DE"
-    ],
-    "styles": [
-      "Royal",
-      "Vintage",
-      "Classic"
-    ],
-    "meaning": "bear, noble strength",
-    "popularity": 83,
-    "syllables": 2,
-    "variants": [
-      "Art",
-      "Artie"
-    ],
-    "similar": [
-      "Oscar",
-      "Otto",
-      "Leon"
-    ],
-    "tags": [
-      "royal",
-      "vintage",
-      "strong"
-    ]
-  },
-  {
-    "id": "oscar",
-    "name": "Oscar",
-    "gender": "boy",
-    "origins": [
-      "Irish",
-      "Nordic"
-    ],
-    "countries": [
-      "GB",
-      "DE",
-      "SE"
-    ],
-    "styles": [
-      "Classic",
-      "Vintage",
-      "Strong"
-    ],
-    "meaning": "deer friend, divine spear",
-    "popularity": 82,
-    "syllables": 2,
-    "variants": [
-      "Oskar"
-    ],
-    "similar": [
-      "Otto",
-      "Finn",
-      "Arthur"
-    ],
-    "tags": [
-      "classic",
-      "vintage",
-      "strong"
-    ]
-  },
-  {
-    "id": "otto",
-    "name": "Otto",
+    "id": "leopold",
+    "name": "Leopold",
     "gender": "boy",
     "origins": [
       "German"
@@ -538,58 +2373,225 @@
       "AT"
     ],
     "styles": [
+      "Royal",
       "Vintage",
-      "Strong",
-      "Old Fashioned"
+      "Strong"
     ],
-    "meaning": "wealth, fortune",
-    "popularity": 53,
-    "syllables": 2,
-    "variants": [],
+    "meaning": "brave people",
+    "popularity": 52,
+    "syllables": 3,
+    "variants": [
+      "Leo"
+    ],
     "similar": [
-      "Finn",
-      "Luca",
-      "Oscar"
+      "Ferdinand",
+      "Friedrich",
+      "Maximilian"
     ],
     "tags": [
-      "old fashioned",
-      "short",
-      "royal"
+      "royal",
+      "vintage",
+      "strong"
     ]
   },
   {
-    "id": "finn",
-    "name": "Finn",
+    "id": "levi",
+    "name": "Levi",
     "gender": "boy",
     "origins": [
-      "Irish",
-      "Nordic"
+      "Hebrew"
     ],
     "countries": [
-      "DE",
       "US",
+      "GB",
+      "IL"
+    ],
+    "styles": [
+      "Biblical",
+      "Short",
+      "Popular"
+    ],
+    "meaning": "joined, attached",
+    "popularity": 84,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Ezra",
+      "Ethan",
+      "Jacob"
+    ],
+    "tags": [
+      "biblical",
+      "short",
+      "popular"
+    ]
+  },
+  {
+    "id": "liam",
+    "name": "Liam",
+    "gender": "boy",
+    "origins": [
+      "Irish"
+    ],
+    "countries": [
+      "US",
+      "GB",
       "IE"
     ],
     "styles": [
       "Short",
-      "Modern",
-      "Popular"
+      "Popular",
+      "Modern"
     ],
-    "meaning": "fair, white",
-    "popularity": 86,
-    "syllables": 1,
+    "meaning": "resolute protection",
+    "popularity": 97,
+    "syllables": 2,
     "variants": [
-      "Fionn"
+      "William"
     ],
     "similar": [
-      "Luca",
-      "Milo",
-      "Otto"
+      "Finn",
+      "Leo",
+      "Aiden"
     ],
     "tags": [
       "short",
+      "popular",
+      "strong"
+    ]
+  },
+  {
+    "id": "linus",
+    "name": "Linus",
+    "gender": "boy",
+    "origins": [
+      "Greek"
+    ],
+    "countries": [
+      "DE",
+      "SE",
+      "US"
+    ],
+    "styles": [
+      "Classic",
+      "Soft",
+      "Rare"
+    ],
+    "meaning": "flax",
+    "popularity": 59,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Caspar",
+      "Hector",
+      "Nils"
+    ],
+    "tags": [
+      "classic",
+      "soft",
+      "rare"
+    ]
+  },
+  {
+    "id": "logan-boy",
+    "name": "Logan",
+    "gender": "boy",
+    "origins": [
+      "Scottish"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Modern",
+      "Popular",
+      "Strong"
+    ],
+    "meaning": "small hollow",
+    "popularity": 78,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Mason",
+      "Jackson",
+      "Wyatt"
+    ],
+    "tags": [
+      "scottish",
       "modern",
-      "celtic"
+      "popular"
+    ]
+  },
+  {
+    "id": "lorenzo",
+    "name": "Lorenzo",
+    "gender": "boy",
+    "origins": [
+      "Latin",
+      "Italian"
+    ],
+    "countries": [
+      "IT",
+      "ES",
+      "US"
+    ],
+    "styles": [
+      "Italian",
+      "Elegant",
+      "Classic"
+    ],
+    "meaning": "from Laurentum",
+    "popularity": 78,
+    "syllables": 3,
+    "variants": [
+      "Enzo"
+    ],
+    "similar": [
+      "Giovanni",
+      "Giulia",
+      "Marco"
+    ],
+    "tags": [
+      "italian",
+      "elegant",
+      "classic"
+    ]
+  },
+  {
+    "id": "louis",
+    "name": "Louis",
+    "gender": "boy",
+    "origins": [
+      "German",
+      "French"
+    ],
+    "countries": [
+      "FR",
+      "GB",
+      "DE"
+    ],
+    "styles": [
+      "French",
+      "Royal",
+      "Classic"
+    ],
+    "meaning": "famous warrior",
+    "popularity": 76,
+    "syllables": 2,
+    "variants": [
+      "Loui",
+      "Ludwig"
+    ],
+    "similar": [
+      "Albert",
+      "Henry",
+      "Charlotte"
+    ],
+    "tags": [
+      "french",
+      "royal",
+      "classic"
     ]
   },
   {
@@ -618,9 +2620,9 @@
       "Luka"
     ],
     "similar": [
-      "Milo",
-      "Ezra",
-      "Finn"
+      "Nico",
+      "Lucas",
+      "Adrian"
     ],
     "tags": [
       "international",
@@ -629,600 +2631,203 @@
     ]
   },
   {
-    "id": "milo",
-    "name": "Milo",
+    "id": "lucas",
+    "name": "Lucas",
     "gender": "boy",
     "origins": [
-      "German",
+      "Greek",
       "Latin"
     ],
     "countries": [
       "US",
-      "GB",
-      "DE"
+      "DE",
+      "BR"
     ],
     "styles": [
-      "Short",
-      "Modern",
-      "Vintage"
+      "Classic",
+      "Popular",
+      "International"
     ],
-    "meaning": "soldier, merciful",
-    "popularity": 80,
+    "meaning": "man from Lucania",
+    "popularity": 90,
     "syllables": 2,
     "variants": [
-      "Milos"
+      "Lukas",
+      "Luke"
     ],
     "similar": [
-      "Ezra",
-      "Levi",
-      "Luca"
+      "Sebastian",
+      "Luca",
+      "Felix"
     ],
     "tags": [
-      "short",
-      "modern",
-      "soft"
+      "international",
+      "classic",
+      "popular"
     ]
   },
   {
-    "id": "ezra",
-    "name": "Ezra",
+    "id": "magnus",
+    "name": "Magnus",
     "gender": "boy",
     "origins": [
-      "Hebrew"
+      "Latin",
+      "Nordic"
     ],
     "countries": [
-      "US",
-      "GB",
-      "IL"
+      "NO",
+      "SE",
+      "DE"
     ],
     "styles": [
-      "Biblical",
-      "Rare",
-      "Short"
+      "Nordic",
+      "Strong",
+      "Royal"
     ],
-    "meaning": "help, helper",
+    "meaning": "great",
     "popularity": 66,
     "syllables": 2,
     "variants": [],
     "similar": [
-      "Levi",
-      "Asher",
-      "Milo"
+      "Henrik",
+      "Arvid",
+      "Axel"
     ],
     "tags": [
-      "biblical",
-      "short",
-      "rare"
+      "nordic",
+      "strong",
+      "royal"
     ]
   },
   {
-    "id": "levi",
-    "name": "Levi",
+    "id": "marco",
+    "name": "Marco",
     "gender": "boy",
     "origins": [
-      "Hebrew"
+      "Latin",
+      "Italian"
     ],
     "countries": [
-      "US",
-      "GB",
-      "IL"
+      "IT",
+      "ES",
+      "DE"
     ],
     "styles": [
-      "Biblical",
-      "Short",
-      "Popular"
-    ],
-    "meaning": "joined, attached",
-    "popularity": 84,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Asher",
-      "Ethan",
-      "Ezra"
-    ],
-    "tags": [
-      "biblical",
-      "short",
-      "popular"
-    ]
-  },
-  {
-    "id": "asher",
-    "name": "Asher",
-    "gender": "boy",
-    "origins": [
-      "Hebrew"
-    ],
-    "countries": [
-      "US",
-      "GB",
-      "IL"
-    ],
-    "styles": [
-      "Biblical",
-      "Modern",
+      "Italian",
+      "Classic",
       "Strong"
     ],
-    "meaning": "happy, blessed",
-    "popularity": 79,
-    "syllables": 2,
-    "variants": [
-      "Ash"
-    ],
-    "similar": [
-      "Ethan",
-      "Samuel",
-      "Levi"
-    ],
-    "tags": [
-      "biblical",
-      "modern",
-      "positive"
-    ]
-  },
-  {
-    "id": "ethan",
-    "name": "Ethan",
-    "gender": "boy",
-    "origins": [
-      "Hebrew"
-    ],
-    "countries": [
-      "US",
-      "GB"
-    ],
-    "styles": [
-      "Biblical",
-      "Strong",
-      "Popular"
-    ],
-    "meaning": "strong, firm",
-    "popularity": 85,
+    "meaning": "warlike",
+    "popularity": 70,
     "syllables": 2,
     "variants": [],
     "similar": [
-      "Samuel",
-      "Daniel",
-      "Asher"
+      "Lorenzo",
+      "Anton",
+      "Vincent"
     ],
     "tags": [
-      "biblical",
-      "strong",
-      "popular"
-    ]
-  },
-  {
-    "id": "samuel",
-    "name": "Samuel",
-    "gender": "boy",
-    "origins": [
-      "Hebrew"
-    ],
-    "countries": [
-      "US",
-      "DE",
-      "GB"
-    ],
-    "styles": [
-      "Biblical",
-      "Classic",
-      "Popular"
-    ],
-    "meaning": "God has heard",
-    "popularity": 82,
-    "syllables": 3,
-    "variants": [
-      "Sam"
-    ],
-    "similar": [
-      "Daniel",
-      "Gabriel",
-      "Ethan"
-    ],
-    "tags": [
-      "biblical",
+      "italian",
       "classic",
-      "popular"
+      "strong"
     ]
   },
   {
-    "id": "daniel",
-    "name": "Daniel",
+    "id": "marius",
+    "name": "Marius",
     "gender": "boy",
     "origins": [
-      "Hebrew"
+      "Latin"
     ],
     "countries": [
-      "US",
       "DE",
-      "ES"
+      "FR",
+      "NO"
     ],
     "styles": [
-      "Biblical",
       "Classic",
+      "Elegant",
       "International"
     ],
-    "meaning": "God is my judge",
-    "popularity": 80,
-    "syllables": 3,
-    "variants": [
-      "Dan"
-    ],
-    "similar": [
-      "Gabriel",
-      "Isaac",
-      "Samuel"
-    ],
-    "tags": [
-      "biblical",
-      "classic",
-      "international"
-    ]
-  },
-  {
-    "id": "gabriel",
-    "name": "Gabriel",
-    "gender": "boy",
-    "origins": [
-      "Hebrew"
-    ],
-    "countries": [
-      "US",
-      "FR",
-      "DE"
-    ],
-    "styles": [
-      "Biblical",
-      "Classic",
-      "Elegant"
-    ],
-    "meaning": "God is my strength",
-    "popularity": 81,
-    "syllables": 3,
-    "variants": [
-      "Gabe"
-    ],
-    "similar": [
-      "Isaac",
-      "Jacob",
-      "Daniel"
-    ],
-    "tags": [
-      "biblical",
-      "classic",
-      "strong"
-    ]
-  },
-  {
-    "id": "isaac",
-    "name": "Isaac",
-    "gender": "boy",
-    "origins": [
-      "Hebrew"
-    ],
-    "countries": [
-      "US",
-      "GB"
-    ],
-    "styles": [
-      "Biblical",
-      "Classic",
-      "Strong"
-    ],
-    "meaning": "laughter",
-    "popularity": 78,
-    "syllables": 2,
-    "variants": [
-      "Ike"
-    ],
-    "similar": [
-      "Jacob",
-      "David",
-      "Gabriel"
-    ],
-    "tags": [
-      "biblical",
-      "classic",
-      "warm"
-    ]
-  },
-  {
-    "id": "jacob",
-    "name": "Jacob",
-    "gender": "boy",
-    "origins": [
-      "Hebrew"
-    ],
-    "countries": [
-      "US",
-      "GB",
-      "DE"
-    ],
-    "styles": [
-      "Biblical",
-      "Classic",
-      "Popular"
-    ],
-    "meaning": "supplanter",
-    "popularity": 80,
-    "syllables": 2,
-    "variants": [
-      "Jake"
-    ],
-    "similar": [
-      "David",
-      "Joseph",
-      "Isaac"
-    ],
-    "tags": [
-      "biblical",
-      "classic",
-      "popular"
-    ]
-  },
-  {
-    "id": "david",
-    "name": "David",
-    "gender": "boy",
-    "origins": [
-      "Hebrew"
-    ],
-    "countries": [
-      "US",
-      "DE",
-      "IL"
-    ],
-    "styles": [
-      "Biblical",
-      "Classic",
-      "Strong"
-    ],
-    "meaning": "beloved",
-    "popularity": 76,
-    "syllables": 2,
-    "variants": [
-      "Dave"
-    ],
-    "similar": [
-      "Joseph",
-      "Caleb",
-      "Jacob"
-    ],
-    "tags": [
-      "biblical",
-      "classic",
-      "strong"
-    ]
-  },
-  {
-    "id": "joseph",
-    "name": "Joseph",
-    "gender": "boy",
-    "origins": [
-      "Hebrew"
-    ],
-    "countries": [
-      "US",
-      "GB",
-      "DE"
-    ],
-    "styles": [
-      "Biblical",
-      "Classic",
-      "Vintage"
-    ],
-    "meaning": "God will add",
-    "popularity": 74,
-    "syllables": 2,
-    "variants": [
-      "Joe"
-    ],
-    "similar": [
-      "Caleb",
-      "Elias",
-      "David"
-    ],
-    "tags": [
-      "biblical",
-      "classic",
-      "vintage"
-    ]
-  },
-  {
-    "id": "caleb",
-    "name": "Caleb",
-    "gender": "boy",
-    "origins": [
-      "Hebrew"
-    ],
-    "countries": [
-      "US",
-      "GB"
-    ],
-    "styles": [
-      "Biblical",
-      "Modern",
-      "Strong"
-    ],
-    "meaning": "devotion, whole heart",
-    "popularity": 77,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Elias",
-      "Jonah",
-      "Joseph"
-    ],
-    "tags": [
-      "biblical",
-      "modern",
-      "strong"
-    ]
-  },
-  {
-    "id": "elias",
-    "name": "Elias",
-    "gender": "boy",
-    "origins": [
-      "Hebrew",
-      "Greek"
-    ],
-    "countries": [
-      "DE",
-      "SE",
-      "US"
-    ],
-    "styles": [
-      "Biblical",
-      "International",
-      "Elegant"
-    ],
-    "meaning": "my God is Yahweh",
-    "popularity": 82,
+    "meaning": "male, from Mars",
+    "popularity": 61,
     "syllables": 3,
     "variants": [],
     "similar": [
-      "Jonah",
-      "Jude",
-      "Caleb"
+      "Julian",
+      "Vincent",
+      "Dominic"
     ],
     "tags": [
-      "biblical",
+      "classic",
       "international",
       "elegant"
     ]
   },
   {
-    "id": "jonah",
-    "name": "Jonah",
+    "id": "mason",
+    "name": "Mason",
     "gender": "boy",
     "origins": [
-      "Hebrew"
+      "English"
     ],
     "countries": [
-      "US",
-      "DE",
-      "GB"
-    ],
-    "styles": [
-      "Biblical",
-      "Soft",
-      "Modern"
-    ],
-    "meaning": "dove",
-    "popularity": 76,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Jude",
-      "Silas",
-      "Elias"
-    ],
-    "tags": [
-      "biblical",
-      "soft",
-      "modern"
-    ]
-  },
-  {
-    "id": "jude",
-    "name": "Jude",
-    "gender": "boy",
-    "origins": [
-      "Hebrew",
-      "Latin"
-    ],
-    "countries": [
-      "GB",
-      "US"
-    ],
-    "styles": [
-      "Biblical",
-      "Short",
-      "Modern"
-    ],
-    "meaning": "praised",
-    "popularity": 68,
-    "syllables": 1,
-    "variants": [],
-    "similar": [
-      "Silas",
-      "Tobias",
-      "Jonah"
-    ],
-    "tags": [
-      "short",
-      "biblical",
-      "modern"
-    ]
-  },
-  {
-    "id": "silas",
-    "name": "Silas",
-    "gender": "boy",
-    "origins": [
-      "Latin",
-      "Greek"
-    ],
-    "countries": [
-      "US",
-      "GB",
-      "DE"
-    ],
-    "styles": [
-      "Biblical",
-      "Nature",
-      "Vintage"
-    ],
-    "meaning": "forest, wood",
-    "popularity": 72,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Tobias",
-      "Matteo",
-      "Jude"
-    ],
-    "tags": [
-      "nature",
-      "biblical",
-      "vintage"
-    ]
-  },
-  {
-    "id": "tobias",
-    "name": "Tobias",
-    "gender": "boy",
-    "origins": [
-      "Hebrew",
-      "Greek"
-    ],
-    "countries": [
-      "DE",
       "US",
       "GB"
     ],
     "styles": [
-      "Biblical",
-      "Classic",
-      "International"
+      "Modern",
+      "Popular",
+      "Strong"
     ],
-    "meaning": "God is good",
-    "popularity": 70,
+    "meaning": "stone worker",
+    "popularity": 79,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Jackson",
+      "Wyatt",
+      "Logan"
+    ],
+    "tags": [
+      "occupation",
+      "modern",
+      "popular"
+    ]
+  },
+  {
+    "id": "mateo",
+    "name": "Mateo",
+    "gender": "boy",
+    "origins": [
+      "Hebrew",
+      "Spanish"
+    ],
+    "countries": [
+      "ES",
+      "US",
+      "MX"
+    ],
+    "styles": [
+      "Spanish",
+      "Popular",
+      "Modern"
+    ],
+    "meaning": "gift of God",
+    "popularity": 86,
     "syllables": 3,
     "variants": [
-      "Toby"
+      "Matteo"
     ],
     "similar": [
-      "Matteo",
-      "Lorenzo",
-      "Silas"
+      "Diego",
+      "Santiago",
+      "Noah"
     ],
     "tags": [
-      "biblical",
-      "classic",
-      "international"
+      "spanish",
+      "popular",
+      "modern"
     ]
   },
   {
@@ -1250,9 +2855,9 @@
       "Mattia"
     ],
     "similar": [
+      "Giovanni",
       "Lorenzo",
-      "Enzo",
-      "Tobias"
+      "Gianna"
     ],
     "tags": [
       "italian",
@@ -1261,138 +2866,176 @@
     ]
   },
   {
-    "id": "lorenzo",
-    "name": "Lorenzo",
+    "id": "max",
+    "name": "Max",
     "gender": "boy",
     "origins": [
       "Latin",
-      "Italian"
+      "German"
     ],
     "countries": [
-      "IT",
-      "ES",
-      "US"
+      "DE",
+      "US",
+      "GB"
     ],
     "styles": [
-      "Italian",
-      "Elegant",
-      "Classic"
+      "Short",
+      "Classic",
+      "Strong"
     ],
-    "meaning": "from Laurentum",
-    "popularity": 78,
-    "syllables": 3,
+    "meaning": "greatest",
+    "popularity": 81,
+    "syllables": 1,
     "variants": [
-      "Enzo"
+      "Maximilian"
     ],
     "similar": [
-      "Enzo",
-      "Giovanni",
-      "Matteo"
+      "Leo",
+      "Hugo",
+      "Emil"
     ],
     "tags": [
-      "italian",
-      "elegant",
+      "short",
+      "strong",
       "classic"
     ]
   },
   {
-    "id": "enzo",
-    "name": "Enzo",
+    "id": "maximilian",
+    "name": "Maximilian",
     "gender": "boy",
     "origins": [
-      "Italian",
+      "Latin",
       "German"
     ],
     "countries": [
-      "IT",
-      "FR",
+      "DE",
+      "AT",
+      "US"
+    ],
+    "styles": [
+      "Royal",
+      "Classic",
+      "Strong"
+    ],
+    "meaning": "greatest",
+    "popularity": 70,
+    "syllables": 4,
+    "variants": [
+      "Max"
+    ],
+    "similar": [
+      "William",
+      "August",
+      "Anton"
+    ],
+    "tags": [
+      "royal",
+      "classic",
+      "strong"
+    ]
+  },
+  {
+    "id": "milo",
+    "name": "Milo",
+    "gender": "boy",
+    "origins": [
+      "German",
+      "Latin"
+    ],
+    "countries": [
+      "US",
+      "GB",
       "DE"
     ],
     "styles": [
       "Short",
       "Modern",
-      "Italian"
+      "Vintage"
     ],
-    "meaning": "ruler of the home",
-    "popularity": 76,
+    "meaning": "soldier, merciful",
+    "popularity": 80,
     "syllables": 2,
-    "variants": [],
+    "variants": [
+      "Milos"
+    ],
     "similar": [
-      "Giovanni",
-      "Marco",
-      "Lorenzo"
+      "Theo",
+      "Emil",
+      "Leo"
     ],
     "tags": [
       "short",
-      "italian",
-      "modern"
+      "modern",
+      "soft"
     ]
   },
   {
-    "id": "giovanni",
-    "name": "Giovanni",
+    "id": "montgomery",
+    "name": "Montgomery",
     "gender": "boy",
     "origins": [
-      "Hebrew",
-      "Italian"
+      "French",
+      "English"
     ],
     "countries": [
-      "IT",
+      "GB",
       "US"
     ],
     "styles": [
-      "Italian",
-      "Classic",
+      "Old Money",
+      "Rare",
       "Elegant"
     ],
-    "meaning": "God is gracious",
-    "popularity": 67,
+    "meaning": "man power, mountain",
+    "popularity": 38,
     "syllables": 4,
     "variants": [
-      "Gio"
+      "Monty"
     ],
     "similar": [
-      "Marco",
-      "Nico",
-      "Enzo"
+      "Percival",
+      "Cordelia",
+      "Arabella"
     ],
     "tags": [
-      "italian",
-      "classic",
+      "old money",
+      "rare",
       "elegant"
     ]
   },
   {
-    "id": "marco",
-    "name": "Marco",
+    "id": "nicholas",
+    "name": "Nicholas",
     "gender": "boy",
     "origins": [
-      "Latin",
-      "Italian"
+      "Greek"
     ],
     "countries": [
-      "IT",
-      "ES",
-      "DE"
+      "US",
+      "GB"
     ],
     "styles": [
-      "Italian",
       "Classic",
-      "Strong"
+      "Strong",
+      "International"
     ],
-    "meaning": "warlike",
+    "meaning": "victory of the people",
     "popularity": 70,
-    "syllables": 2,
-    "variants": [],
+    "syllables": 3,
+    "variants": [
+      "Nick",
+      "Nicolas"
+    ],
     "similar": [
-      "Nico",
-      "Alessandro",
-      "Giovanni"
+      "Tobias",
+      "Dominic",
+      "Lucas"
     ],
     "tags": [
-      "italian",
       "classic",
-      "strong"
+      "victory",
+      "international"
     ]
   },
   {
@@ -1421,9 +3064,9 @@
       "Nicolas"
     ],
     "similar": [
-      "Alessandro",
-      "Rafael",
-      "Marco"
+      "Lia",
+      "Luca",
+      "Enzo"
     ],
     "tags": [
       "short",
@@ -1432,37 +3075,367 @@
     ]
   },
   {
-    "id": "alessandro",
-    "name": "Alessandro",
+    "id": "nils",
+    "name": "Nils",
     "gender": "boy",
     "origins": [
       "Greek",
-      "Italian"
+      "Nordic"
     ],
     "countries": [
-      "IT",
-      "CH"
+      "SE",
+      "NO",
+      "DE"
     ],
     "styles": [
-      "Italian",
-      "Elegant",
-      "Strong"
+      "Nordic",
+      "Short",
+      "Classic"
     ],
-    "meaning": "defender of mankind",
-    "popularity": 69,
-    "syllables": 4,
-    "variants": [
-      "Sandro"
-    ],
+    "meaning": "victory of the people",
+    "popularity": 56,
+    "syllables": 1,
+    "variants": [],
     "similar": [
-      "Rafael",
-      "Mateo",
-      "Nico"
+      "Lars",
+      "Leif",
+      "Henrik"
     ],
     "tags": [
-      "italian",
+      "nordic",
+      "short",
+      "classic"
+    ]
+  },
+  {
+    "id": "noah",
+    "name": "Noah",
+    "gender": "boy",
+    "origins": [
+      "Hebrew"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "DE"
+    ],
+    "styles": [
+      "Biblical",
+      "Popular",
+      "Modern"
+    ],
+    "meaning": "rest, comfort",
+    "popularity": 98,
+    "syllables": 2,
+    "variants": [
+      "Noa"
+    ],
+    "similar": [
+      "Jacob",
+      "Jonah",
+      "Benjamin"
+    ],
+    "tags": [
+      "biblical",
+      "popular",
+      "soft"
+    ]
+  },
+  {
+    "id": "oliver",
+    "name": "Oliver",
+    "gender": "boy",
+    "origins": [
+      "Latin",
+      "French"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "DE"
+    ],
+    "styles": [
+      "Classic",
+      "Popular",
+      "Elegant"
+    ],
+    "meaning": "olive tree",
+    "popularity": 96,
+    "syllables": 3,
+    "variants": [
+      "Ollie"
+    ],
+    "similar": [
+      "Sebastian",
+      "Lucas",
+      "Emily"
+    ],
+    "tags": [
+      "classic",
+      "popular",
+      "nature"
+    ]
+  },
+  {
+    "id": "orion",
+    "name": "Orion",
+    "gender": "boy",
+    "origins": [
+      "Greek"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Mythological",
+      "Celestial",
+      "Strong"
+    ],
+    "meaning": "hunter, constellation",
+    "popularity": 60,
+    "syllables": 3,
+    "variants": [],
+    "similar": [
+      "Hector",
+      "Apollo",
+      "Atlas"
+    ],
+    "tags": [
+      "celestial",
+      "mythological",
+      "strong"
+    ]
+  },
+  {
+    "id": "oscar",
+    "name": "Oscar",
+    "gender": "boy",
+    "origins": [
+      "Irish",
+      "Nordic"
+    ],
+    "countries": [
+      "GB",
+      "DE",
+      "SE"
+    ],
+    "styles": [
+      "Classic",
+      "Vintage",
+      "Strong"
+    ],
+    "meaning": "deer friend, divine spear",
+    "popularity": 82,
+    "syllables": 2,
+    "variants": [
+      "Oskar"
+    ],
+    "similar": [
+      "Oskar",
+      "Anton",
+      "Henrik"
+    ],
+    "tags": [
+      "classic",
+      "vintage",
+      "strong"
+    ]
+  },
+  {
+    "id": "oskar",
+    "name": "Oskar",
+    "gender": "boy",
+    "origins": [
+      "Irish",
+      "Nordic"
+    ],
+    "countries": [
+      "DE",
+      "SE",
+      "PL"
+    ],
+    "styles": [
+      "Vintage",
+      "Classic",
+      "Strong"
+    ],
+    "meaning": "deer friend, divine spear",
+    "popularity": 73,
+    "syllables": 2,
+    "variants": [
+      "Oscar"
+    ],
+    "similar": [
+      "Oscar",
+      "Anton",
+      "Henrik"
+    ],
+    "tags": [
+      "vintage",
       "strong",
-      "elegant"
+      "classic"
+    ]
+  },
+  {
+    "id": "otto",
+    "name": "Otto",
+    "gender": "boy",
+    "origins": [
+      "German"
+    ],
+    "countries": [
+      "DE",
+      "AT"
+    ],
+    "styles": [
+      "Vintage",
+      "Strong",
+      "Old Fashioned"
+    ],
+    "meaning": "wealth, fortune",
+    "popularity": 53,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Friedrich",
+      "Leopold",
+      "Ferdinand"
+    ],
+    "tags": [
+      "old fashioned",
+      "short",
+      "royal"
+    ]
+  },
+  {
+    "id": "owen",
+    "name": "Owen",
+    "gender": "boy",
+    "origins": [
+      "Welsh"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Welsh",
+      "Classic",
+      "Popular"
+    ],
+    "meaning": "young warrior, well-born",
+    "popularity": 78,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Jacob",
+      "Samuel",
+      "Dylan"
+    ],
+    "tags": [
+      "welsh",
+      "classic",
+      "popular"
+    ]
+  },
+  {
+    "id": "paul",
+    "name": "Paul",
+    "gender": "boy",
+    "origins": [
+      "Latin"
+    ],
+    "countries": [
+      "DE",
+      "FR",
+      "US"
+    ],
+    "styles": [
+      "Classic",
+      "Short",
+      "Biblical"
+    ],
+    "meaning": "small, humble",
+    "popularity": 74,
+    "syllables": 1,
+    "variants": [],
+    "similar": [
+      "Max",
+      "Eva",
+      "Jude"
+    ],
+    "tags": [
+      "short",
+      "classic",
+      "biblical"
+    ]
+  },
+  {
+    "id": "percival",
+    "name": "Percival",
+    "gender": "boy",
+    "origins": [
+      "French",
+      "English"
+    ],
+    "countries": [
+      "GB",
+      "US"
+    ],
+    "styles": [
+      "Old Money",
+      "Rare",
+      "Vintage"
+    ],
+    "meaning": "pierce the valley",
+    "popularity": 40,
+    "syllables": 3,
+    "variants": [
+      "Percy"
+    ],
+    "similar": [
+      "Montgomery",
+      "Edmund",
+      "Clementine"
+    ],
+    "tags": [
+      "old money",
+      "rare",
+      "vintage"
+    ]
+  },
+  {
+    "id": "perseus",
+    "name": "Perseus",
+    "gender": "boy",
+    "origins": [
+      "Greek"
+    ],
+    "countries": [
+      "GR",
+      "US"
+    ],
+    "styles": [
+      "Mythological",
+      "Rare",
+      "Strong"
+    ],
+    "meaning": "destroyer",
+    "popularity": 42,
+    "syllables": 3,
+    "variants": [
+      "Percy"
+    ],
+    "similar": [
+      "Apollo",
+      "Ares",
+      "Evander"
+    ],
+    "tags": [
+      "mythological",
+      "rare",
+      "strong"
     ]
   },
   {
@@ -1490,9 +3463,9 @@
       "Raphael"
     ],
     "similar": [
-      "Mateo",
-      "Santiago",
-      "Alessandro"
+      "Elias",
+      "Daniel",
+      "Tobias"
     ],
     "tags": [
       "biblical",
@@ -1501,38 +3474,198 @@
     ]
   },
   {
-    "id": "mateo",
-    "name": "Mateo",
+    "id": "rhys",
+    "name": "Rhys",
     "gender": "boy",
     "origins": [
-      "Hebrew",
-      "Spanish"
+      "Welsh"
     ],
     "countries": [
-      "ES",
-      "US",
-      "MX"
+      "GB",
+      "US"
     ],
     "styles": [
-      "Spanish",
-      "Popular",
-      "Modern"
+      "Welsh",
+      "Short",
+      "Strong"
     ],
-    "meaning": "gift of God",
-    "popularity": 86,
-    "syllables": 3,
+    "meaning": "enthusiasm",
+    "popularity": 58,
+    "syllables": 1,
     "variants": [
-      "Matteo"
+      "Reese"
     ],
     "similar": [
-      "Santiago",
-      "Diego",
-      "Rafael"
+      "Max",
+      "Reese",
+      "Gavin"
     ],
     "tags": [
-      "spanish",
-      "popular",
+      "welsh",
+      "short",
+      "strong"
+    ]
+  },
+  {
+    "id": "roman",
+    "name": "Roman",
+    "gender": "boy",
+    "origins": [
+      "Latin"
+    ],
+    "countries": [
+      "US",
+      "DE",
+      "PL"
+    ],
+    "styles": [
+      "Classic",
+      "Strong",
+      "Modern"
+    ],
+    "meaning": "citizen of Rome",
+    "popularity": 73,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Vincent",
+      "Victor",
+      "Adrian"
+    ],
+    "tags": [
+      "roman",
+      "strong",
       "modern"
+    ]
+  },
+  {
+    "id": "ronan",
+    "name": "Ronan",
+    "gender": "boy",
+    "origins": [
+      "Irish"
+    ],
+    "countries": [
+      "IE",
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Irish",
+      "Nature",
+      "Strong"
+    ],
+    "meaning": "little seal",
+    "popularity": 63,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Kieran",
+      "Declan",
+      "Rowan"
+    ],
+    "tags": [
+      "irish",
+      "nature",
+      "strong"
+    ]
+  },
+  {
+    "id": "rowan-boy",
+    "name": "Rowan",
+    "gender": "boy",
+    "origins": [
+      "Irish",
+      "Scottish"
+    ],
+    "countries": [
+      "IE",
+      "GB",
+      "US"
+    ],
+    "styles": [
+      "Nature",
+      "Unisex",
+      "Modern"
+    ],
+    "meaning": "rowan tree, little red one",
+    "popularity": 70,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Declan",
+      "Aiden",
+      "Ronan"
+    ],
+    "tags": [
+      "tree",
+      "nature",
+      "modern"
+    ]
+  },
+  {
+    "id": "rupert",
+    "name": "Rupert",
+    "gender": "boy",
+    "origins": [
+      "German"
+    ],
+    "countries": [
+      "GB",
+      "DE"
+    ],
+    "styles": [
+      "Old Money",
+      "Vintage",
+      "Classic"
+    ],
+    "meaning": "bright fame",
+    "popularity": 43,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Edmund",
+      "Albert",
+      "Frederick"
+    ],
+    "tags": [
+      "old money",
+      "vintage",
+      "classic"
+    ]
+  },
+  {
+    "id": "samuel",
+    "name": "Samuel",
+    "gender": "boy",
+    "origins": [
+      "Hebrew"
+    ],
+    "countries": [
+      "US",
+      "DE",
+      "GB"
+    ],
+    "styles": [
+      "Biblical",
+      "Classic",
+      "Popular"
+    ],
+    "meaning": "God has heard",
+    "popularity": 82,
+    "syllables": 3,
+    "variants": [
+      "Sam"
+    ],
+    "similar": [
+      "Benjamin",
+      "Jacob",
+      "Tobias"
+    ],
+    "tags": [
+      "biblical",
+      "classic",
+      "popular"
     ]
   },
   {
@@ -1571,180 +3704,12 @@
     ]
   },
   {
-    "id": "diego",
-    "name": "Diego",
+    "id": "sebastian",
+    "name": "Sebastian",
     "gender": "boy",
     "origins": [
-      "Spanish"
-    ],
-    "countries": [
-      "ES",
-      "MX",
-      "US"
-    ],
-    "styles": [
-      "Spanish",
-      "Modern",
-      "Strong"
-    ],
-    "meaning": "supplanter, teacher",
-    "popularity": 75,
-    "syllables": 3,
-    "variants": [],
-    "similar": [
-      "Emilio",
-      "Hugo",
-      "Santiago"
-    ],
-    "tags": [
-      "spanish",
-      "modern",
-      "strong"
-    ]
-  },
-  {
-    "id": "emilio",
-    "name": "Emilio",
-    "gender": "boy",
-    "origins": [
-      "Latin",
-      "Spanish"
-    ],
-    "countries": [
-      "ES",
-      "IT",
-      "US"
-    ],
-    "styles": [
-      "Spanish",
-      "Elegant",
-      "Classic"
-    ],
-    "meaning": "rival, eager",
-    "popularity": 68,
-    "syllables": 4,
-    "variants": [
-      "Emil"
-    ],
-    "similar": [
-      "Hugo",
-      "Louis",
-      "Diego"
-    ],
-    "tags": [
-      "spanish",
-      "elegant",
-      "classic"
-    ]
-  },
-  {
-    "id": "hugo",
-    "name": "Hugo",
-    "gender": "boy",
-    "origins": [
-      "German",
-      "Spanish"
-    ],
-    "countries": [
-      "ES",
-      "FR",
-      "DE"
-    ],
-    "styles": [
-      "Short",
-      "Classic",
-      "Strong"
-    ],
-    "meaning": "mind, intellect",
-    "popularity": 79,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Louis",
-      "Felix",
-      "Emilio"
-    ],
-    "tags": [
-      "short",
-      "classic",
-      "strong"
-    ]
-  },
-  {
-    "id": "louis",
-    "name": "Louis",
-    "gender": "boy",
-    "origins": [
-      "German",
-      "French"
-    ],
-    "countries": [
-      "FR",
-      "GB",
-      "DE"
-    ],
-    "styles": [
-      "French",
-      "Royal",
-      "Classic"
-    ],
-    "meaning": "famous warrior",
-    "popularity": 76,
-    "syllables": 2,
-    "variants": [
-      "Loui",
-      "Ludwig"
-    ],
-    "similar": [
-      "Felix",
-      "Max",
-      "Hugo"
-    ],
-    "tags": [
-      "french",
-      "royal",
-      "classic"
-    ]
-  },
-  {
-    "id": "felix",
-    "name": "Felix",
-    "gender": "boy",
-    "origins": [
+      "Greek",
       "Latin"
-    ],
-    "countries": [
-      "DE",
-      "GB",
-      "US"
-    ],
-    "styles": [
-      "Classic",
-      "Popular",
-      "Bright"
-    ],
-    "meaning": "happy, fortunate",
-    "popularity": 80,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Max",
-      "Maximilian",
-      "Louis"
-    ],
-    "tags": [
-      "happy",
-      "classic",
-      "international"
-    ]
-  },
-  {
-    "id": "max",
-    "name": "Max",
-    "gender": "boy",
-    "origins": [
-      "Latin",
-      "German"
     ],
     "countries": [
       "DE",
@@ -1752,500 +3717,58 @@
       "GB"
     ],
     "styles": [
-      "Short",
       "Classic",
-      "Strong"
+      "Elegant",
+      "Popular"
     ],
-    "meaning": "greatest",
-    "popularity": 81,
-    "syllables": 1,
-    "variants": [
-      "Maximilian"
-    ],
-    "similar": [
-      "Maximilian",
-      "Emil",
-      "Felix"
-    ],
-    "tags": [
-      "short",
-      "strong",
-      "classic"
-    ]
-  },
-  {
-    "id": "maximilian",
-    "name": "Maximilian",
-    "gender": "boy",
-    "origins": [
-      "Latin",
-      "German"
-    ],
-    "countries": [
-      "DE",
-      "AT",
-      "US"
-    ],
-    "styles": [
-      "Royal",
-      "Classic",
-      "Strong"
-    ],
-    "meaning": "greatest",
-    "popularity": 70,
+    "meaning": "venerable",
+    "popularity": 82,
     "syllables": 4,
     "variants": [
-      "Max"
+      "Seb"
     ],
     "similar": [
-      "Emil",
-      "Oskar",
-      "Max"
+      "Oliver",
+      "Lucas",
+      "Julian"
     ],
     "tags": [
-      "royal",
       "classic",
-      "strong"
+      "elegant",
+      "popular"
     ]
   },
   {
-    "id": "emil",
-    "name": "Emil",
+    "id": "silas",
+    "name": "Silas",
     "gender": "boy",
     "origins": [
       "Latin",
-      "German"
+      "Greek"
     ],
     "countries": [
-      "DE",
-      "DK",
-      "SE"
-    ],
-    "styles": [
-      "Vintage",
-      "Short",
-      "Classic"
-    ],
-    "meaning": "rival, eager",
-    "popularity": 71,
-    "syllables": 2,
-    "variants": [
-      "Emile"
-    ],
-    "similar": [
-      "Oskar",
-      "Anton",
-      "Maximilian"
-    ],
-    "tags": [
-      "short",
-      "vintage",
-      "classic"
-    ]
-  },
-  {
-    "id": "oskar",
-    "name": "Oskar",
-    "gender": "boy",
-    "origins": [
-      "Irish",
-      "Nordic"
-    ],
-    "countries": [
-      "DE",
-      "SE",
-      "PL"
-    ],
-    "styles": [
-      "Vintage",
-      "Classic",
-      "Strong"
-    ],
-    "meaning": "deer friend, divine spear",
-    "popularity": 73,
-    "syllables": 2,
-    "variants": [
-      "Oscar"
-    ],
-    "similar": [
-      "Anton",
-      "Paul",
-      "Emil"
-    ],
-    "tags": [
-      "vintage",
-      "strong",
-      "classic"
-    ]
-  },
-  {
-    "id": "anton",
-    "name": "Anton",
-    "gender": "boy",
-    "origins": [
-      "Latin",
-      "German"
-    ],
-    "countries": [
-      "DE",
-      "SE",
-      "RU"
-    ],
-    "styles": [
-      "Classic",
-      "Vintage",
-      "Strong"
-    ],
-    "meaning": "priceless",
-    "popularity": 69,
-    "syllables": 2,
-    "variants": [
-      "Anthony"
-    ],
-    "similar": [
-      "Paul",
-      "Karl",
-      "Oskar"
-    ],
-    "tags": [
-      "vintage",
-      "strong",
-      "classic"
-    ]
-  },
-  {
-    "id": "paul",
-    "name": "Paul",
-    "gender": "boy",
-    "origins": [
-      "Latin"
-    ],
-    "countries": [
-      "DE",
-      "FR",
-      "US"
-    ],
-    "styles": [
-      "Classic",
-      "Short",
-      "Biblical"
-    ],
-    "meaning": "small, humble",
-    "popularity": 74,
-    "syllables": 1,
-    "variants": [],
-    "similar": [
-      "Karl",
-      "Friedrich",
-      "Anton"
-    ],
-    "tags": [
-      "short",
-      "classic",
-      "biblical"
-    ]
-  },
-  {
-    "id": "karl",
-    "name": "Karl",
-    "gender": "boy",
-    "origins": [
-      "German"
-    ],
-    "countries": [
-      "DE",
-      "SE",
-      "NO"
-    ],
-    "styles": [
-      "Classic",
-      "Royal",
-      "Strong"
-    ],
-    "meaning": "free man",
-    "popularity": 58,
-    "syllables": 1,
-    "variants": [
-      "Carl"
-    ],
-    "similar": [
-      "Friedrich",
-      "Albert",
-      "Paul"
-    ],
-    "tags": [
-      "royal",
-      "classic",
-      "short"
-    ]
-  },
-  {
-    "id": "friedrich",
-    "name": "Friedrich",
-    "gender": "boy",
-    "origins": [
-      "German"
-    ],
-    "countries": [
-      "DE",
-      "AT"
-    ],
-    "styles": [
-      "Royal",
-      "Old Fashioned",
-      "Strong"
-    ],
-    "meaning": "peaceful ruler",
-    "popularity": 46,
-    "syllables": 2,
-    "variants": [
-      "Fritz"
-    ],
-    "similar": [
-      "Albert",
-      "August",
-      "Karl"
-    ],
-    "tags": [
-      "royal",
-      "old fashioned",
-      "strong"
-    ]
-  },
-  {
-    "id": "albert",
-    "name": "Albert",
-    "gender": "boy",
-    "origins": [
-      "German"
-    ],
-    "countries": [
-      "DE",
+      "US",
       "GB",
-      "FR"
+      "DE"
     ],
     "styles": [
-      "Royal",
-      "Classic",
+      "Biblical",
+      "Nature",
       "Vintage"
     ],
-    "meaning": "noble and bright",
-    "popularity": 55,
-    "syllables": 2,
-    "variants": [
-      "Albie"
-    ],
-    "similar": [
-      "August",
-      "Caspar",
-      "Friedrich"
-    ],
-    "tags": [
-      "royal",
-      "vintage",
-      "classic"
-    ]
-  },
-  {
-    "id": "august",
-    "name": "August",
-    "gender": "boy",
-    "origins": [
-      "Latin",
-      "German"
-    ],
-    "countries": [
-      "DE",
-      "US",
-      "SE"
-    ],
-    "styles": [
-      "Vintage",
-      "Royal",
-      "Classic"
-    ],
-    "meaning": "great, magnificent",
-    "popularity": 62,
-    "syllables": 2,
-    "variants": [
-      "Augustus"
-    ],
-    "similar": [
-      "Caspar",
-      "Ferdinand",
-      "Albert"
-    ],
-    "tags": [
-      "royal",
-      "vintage",
-      "classic"
-    ]
-  },
-  {
-    "id": "caspar",
-    "name": "Caspar",
-    "gender": "boy",
-    "origins": [
-      "Persian"
-    ],
-    "countries": [
-      "DE",
-      "NL",
-      "GB"
-    ],
-    "styles": [
-      "Vintage",
-      "Rare",
-      "Classic"
-    ],
-    "meaning": "treasurer",
-    "popularity": 50,
-    "syllables": 2,
-    "variants": [
-      "Casper"
-    ],
-    "similar": [
-      "Ferdinand",
-      "Leopold",
-      "August"
-    ],
-    "tags": [
-      "rare",
-      "vintage",
-      "classic"
-    ]
-  },
-  {
-    "id": "ferdinand",
-    "name": "Ferdinand",
-    "gender": "boy",
-    "origins": [
-      "German"
-    ],
-    "countries": [
-      "DE",
-      "ES",
-      "AT"
-    ],
-    "styles": [
-      "Royal",
-      "Vintage",
-      "Strong"
-    ],
-    "meaning": "bold voyager",
-    "popularity": 48,
-    "syllables": 3,
-    "variants": [
-      "Ferdi"
-    ],
-    "similar": [
-      "Leopold",
-      "Magnus",
-      "Caspar"
-    ],
-    "tags": [
-      "royal",
-      "vintage",
-      "strong"
-    ]
-  },
-  {
-    "id": "leopold",
-    "name": "Leopold",
-    "gender": "boy",
-    "origins": [
-      "German"
-    ],
-    "countries": [
-      "DE",
-      "AT"
-    ],
-    "styles": [
-      "Royal",
-      "Vintage",
-      "Strong"
-    ],
-    "meaning": "brave people",
-    "popularity": 52,
-    "syllables": 3,
-    "variants": [
-      "Leo"
-    ],
-    "similar": [
-      "Magnus",
-      "Axel",
-      "Ferdinand"
-    ],
-    "tags": [
-      "royal",
-      "vintage",
-      "strong"
-    ]
-  },
-  {
-    "id": "magnus",
-    "name": "Magnus",
-    "gender": "boy",
-    "origins": [
-      "Latin",
-      "Nordic"
-    ],
-    "countries": [
-      "NO",
-      "SE",
-      "DE"
-    ],
-    "styles": [
-      "Nordic",
-      "Strong",
-      "Royal"
-    ],
-    "meaning": "great",
-    "popularity": 66,
+    "meaning": "forest, wood",
+    "popularity": 72,
     "syllables": 2,
     "variants": [],
     "similar": [
-      "Axel",
-      "Soren",
-      "Leopold"
+      "Joseph",
+      "Tobias",
+      "Olive"
     ],
     "tags": [
-      "nordic",
-      "strong",
-      "royal"
-    ]
-  },
-  {
-    "id": "axel",
-    "name": "Axel",
-    "gender": "boy",
-    "origins": [
-      "Hebrew",
-      "Nordic"
-    ],
-    "countries": [
-      "SE",
-      "DK",
-      "DE"
-    ],
-    "styles": [
-      "Nordic",
-      "Strong",
-      "Short"
-    ],
-    "meaning": "father of peace",
-    "popularity": 67,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Soren",
-      "Stellan",
-      "Magnus"
-    ],
-    "tags": [
-      "nordic",
-      "strong",
-      "short"
+      "nature",
+      "biblical",
+      "vintage"
     ]
   },
   {
@@ -2274,8 +3797,8 @@
     ],
     "similar": [
       "Stellan",
-      "Arvid",
-      "Axel"
+      "Vincent",
+      "Arvid"
     ],
     "tags": [
       "nordic",
@@ -2306,672 +3829,54 @@
     "similar": [
       "Arvid",
       "Ivar",
-      "Soren"
-    ],
-    "tags": [
-      "nordic",
-      "rare",
-      "strong"
-    ]
-  },
-  {
-    "id": "arvid",
-    "name": "Arvid",
-    "gender": "boy",
-    "origins": [
-      "Nordic"
-    ],
-    "countries": [
-      "SE",
-      "NO",
-      "DE"
-    ],
-    "styles": [
-      "Nordic",
-      "Strong",
-      "Rare"
-    ],
-    "meaning": "eagle tree",
-    "popularity": 48,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Ivar",
-      "Leif",
-      "Stellan"
-    ],
-    "tags": [
-      "nordic",
-      "strong",
-      "rare"
-    ]
-  },
-  {
-    "id": "ivar",
-    "name": "Ivar",
-    "gender": "boy",
-    "origins": [
-      "Nordic"
-    ],
-    "countries": [
-      "NO",
-      "SE",
-      "DK"
-    ],
-    "styles": [
-      "Nordic",
-      "Strong",
-      "Vintage"
-    ],
-    "meaning": "yew warrior",
-    "popularity": 52,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Leif",
-      "Lars",
-      "Arvid"
-    ],
-    "tags": [
-      "nordic",
-      "strong",
-      "vintage"
-    ]
-  },
-  {
-    "id": "leif",
-    "name": "Leif",
-    "gender": "boy",
-    "origins": [
-      "Nordic"
-    ],
-    "countries": [
-      "NO",
-      "SE",
-      "US"
-    ],
-    "styles": [
-      "Nordic",
-      "Short",
-      "Classic"
-    ],
-    "meaning": "heir, descendant",
-    "popularity": 55,
-    "syllables": 1,
-    "variants": [],
-    "similar": [
-      "Lars",
-      "Nils",
-      "Ivar"
-    ],
-    "tags": [
-      "nordic",
-      "short",
-      "classic"
-    ]
-  },
-  {
-    "id": "lars",
-    "name": "Lars",
-    "gender": "boy",
-    "origins": [
-      "Latin",
-      "Nordic"
-    ],
-    "countries": [
-      "SE",
-      "NO",
-      "DE"
-    ],
-    "styles": [
-      "Nordic",
-      "Short",
-      "Classic"
-    ],
-    "meaning": "crowned with laurel",
-    "popularity": 57,
-    "syllables": 1,
-    "variants": [],
-    "similar": [
-      "Nils",
-      "Henrik",
-      "Leif"
-    ],
-    "tags": [
-      "nordic",
-      "short",
-      "classic"
-    ]
-  },
-  {
-    "id": "nils",
-    "name": "Nils",
-    "gender": "boy",
-    "origins": [
-      "Greek",
-      "Nordic"
-    ],
-    "countries": [
-      "SE",
-      "NO",
-      "DE"
-    ],
-    "styles": [
-      "Nordic",
-      "Short",
-      "Classic"
-    ],
-    "meaning": "victory of the people",
-    "popularity": 56,
-    "syllables": 1,
-    "variants": [],
-    "similar": [
-      "Henrik",
-      "Aiden",
-      "Lars"
-    ],
-    "tags": [
-      "nordic",
-      "short",
-      "classic"
-    ]
-  },
-  {
-    "id": "henrik",
-    "name": "Henrik",
-    "gender": "boy",
-    "origins": [
-      "German",
-      "Nordic"
-    ],
-    "countries": [
-      "SE",
-      "NO",
-      "DE"
-    ],
-    "styles": [
-      "Nordic",
-      "Classic",
-      "Strong"
-    ],
-    "meaning": "estate ruler",
-    "popularity": 60,
-    "syllables": 2,
-    "variants": [
-      "Henri"
-    ],
-    "similar": [
-      "Aiden",
-      "Cian",
-      "Nils"
-    ],
-    "tags": [
-      "nordic",
-      "classic",
-      "strong"
-    ]
-  },
-  {
-    "id": "aiden",
-    "name": "Aiden",
-    "gender": "boy",
-    "origins": [
-      "Irish"
-    ],
-    "countries": [
-      "US",
-      "GB",
-      "IE"
-    ],
-    "styles": [
-      "Irish",
-      "Modern",
-      "Popular"
-    ],
-    "meaning": "little fire",
-    "popularity": 76,
-    "syllables": 2,
-    "variants": [
-      "Aidan"
-    ],
-    "similar": [
-      "Cian",
-      "Declan",
       "Henrik"
     ],
     "tags": [
-      "irish",
-      "modern",
-      "fire"
-    ]
-  },
-  {
-    "id": "cian",
-    "name": "Cian",
-    "gender": "boy",
-    "origins": [
-      "Irish"
-    ],
-    "countries": [
-      "IE",
-      "GB"
-    ],
-    "styles": [
-      "Irish",
-      "Short",
-      "Rare"
-    ],
-    "meaning": "ancient",
-    "popularity": 54,
-    "syllables": 1,
-    "variants": [
-      "Kian"
-    ],
-    "similar": [
-      "Declan",
-      "Finnian",
-      "Aiden"
-    ],
-    "tags": [
-      "irish",
-      "short",
-      "rare"
-    ]
-  },
-  {
-    "id": "declan",
-    "name": "Declan",
-    "gender": "boy",
-    "origins": [
-      "Irish"
-    ],
-    "countries": [
-      "IE",
-      "US",
-      "GB"
-    ],
-    "styles": [
-      "Irish",
-      "Strong",
-      "Modern"
-    ],
-    "meaning": "man of prayer",
-    "popularity": 68,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Finnian",
-      "Kieran",
-      "Cian"
-    ],
-    "tags": [
-      "irish",
-      "modern",
+      "nordic",
+      "rare",
       "strong"
     ]
   },
   {
-    "id": "finnian",
-    "name": "Finnian",
+    "id": "theo",
+    "name": "Theo",
     "gender": "boy",
     "origins": [
-      "Irish"
+      "Greek",
+      "German"
     ],
     "countries": [
-      "IE",
-      "US"
+      "DE",
+      "US",
+      "GB",
+      "FR"
     ],
     "styles": [
-      "Irish",
-      "Rare",
-      "Classic"
+      "Short",
+      "Classic",
+      "Modern"
     ],
-    "meaning": "fair",
-    "popularity": 48,
-    "syllables": 3,
+    "meaning": "gift of God",
+    "popularity": 88,
+    "syllables": 2,
     "variants": [
-      "Finian",
-      "Finn"
+      "Theodor",
+      "Theodore"
     ],
     "similar": [
-      "Kieran",
-      "Ronan",
-      "Declan"
+      "Milo",
+      "Max",
+      "Leon"
     ],
     "tags": [
-      "irish",
-      "rare",
+      "short",
+      "modern",
       "classic"
     ]
   },
   {
-    "id": "kieran",
-    "name": "Kieran",
-    "gender": "boy",
-    "origins": [
-      "Irish"
-    ],
-    "countries": [
-      "IE",
-      "GB",
-      "US"
-    ],
-    "styles": [
-      "Irish",
-      "Classic",
-      "Strong"
-    ],
-    "meaning": "little dark one",
-    "popularity": 60,
-    "syllables": 2,
-    "variants": [
-      "Ciaran"
-    ],
-    "similar": [
-      "Ronan",
-      "Rowan",
-      "Finnian"
-    ],
-    "tags": [
-      "irish",
-      "classic",
-      "strong"
-    ]
-  },
-  {
-    "id": "ronan",
-    "name": "Ronan",
-    "gender": "boy",
-    "origins": [
-      "Irish"
-    ],
-    "countries": [
-      "IE",
-      "US",
-      "GB"
-    ],
-    "styles": [
-      "Irish",
-      "Nature",
-      "Strong"
-    ],
-    "meaning": "little seal",
-    "popularity": 63,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Rowan",
-      "Callum",
-      "Kieran"
-    ],
-    "tags": [
-      "irish",
-      "nature",
-      "strong"
-    ]
-  },
-  {
-    "id": "rowan-boy",
-    "name": "Rowan",
-    "gender": "boy",
-    "origins": [
-      "Irish",
-      "Scottish"
-    ],
-    "countries": [
-      "IE",
-      "GB",
-      "US"
-    ],
-    "styles": [
-      "Nature",
-      "Unisex",
-      "Modern"
-    ],
-    "meaning": "rowan tree, little red one",
-    "popularity": 70,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Callum",
-      "Ewan",
-      "Ronan"
-    ],
-    "tags": [
-      "tree",
-      "nature",
-      "modern"
-    ]
-  },
-  {
-    "id": "callum",
-    "name": "Callum",
-    "gender": "boy",
-    "origins": [
-      "Scottish",
-      "Latin"
-    ],
-    "countries": [
-      "GB",
-      "US"
-    ],
-    "styles": [
-      "Scottish",
-      "Classic",
-      "Strong"
-    ],
-    "meaning": "dove",
-    "popularity": 62,
-    "syllables": 2,
-    "variants": [
-      "Calum"
-    ],
-    "similar": [
-      "Ewan",
-      "Angus",
-      "Rowan"
-    ],
-    "tags": [
-      "scottish",
-      "classic",
-      "strong"
-    ]
-  },
-  {
-    "id": "ewan",
-    "name": "Ewan",
-    "gender": "boy",
-    "origins": [
-      "Scottish",
-      "Hebrew"
-    ],
-    "countries": [
-      "GB",
-      "US"
-    ],
-    "styles": [
-      "Scottish",
-      "Classic",
-      "Short"
-    ],
-    "meaning": "God is gracious",
-    "popularity": 56,
-    "syllables": 2,
-    "variants": [
-      "Euan"
-    ],
-    "similar": [
-      "Angus",
-      "Rhys",
-      "Callum"
-    ],
-    "tags": [
-      "scottish",
-      "classic",
-      "short"
-    ]
-  },
-  {
-    "id": "angus",
-    "name": "Angus",
-    "gender": "boy",
-    "origins": [
-      "Scottish"
-    ],
-    "countries": [
-      "GB",
-      "US"
-    ],
-    "styles": [
-      "Scottish",
-      "Vintage",
-      "Strong"
-    ],
-    "meaning": "one strength",
-    "popularity": 51,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Rhys",
-      "Dylan",
-      "Ewan"
-    ],
-    "tags": [
-      "scottish",
-      "strong",
-      "vintage"
-    ]
-  },
-  {
-    "id": "rhys",
-    "name": "Rhys",
-    "gender": "boy",
-    "origins": [
-      "Welsh"
-    ],
-    "countries": [
-      "GB",
-      "US"
-    ],
-    "styles": [
-      "Welsh",
-      "Short",
-      "Strong"
-    ],
-    "meaning": "enthusiasm",
-    "popularity": 58,
-    "syllables": 1,
-    "variants": [
-      "Reese"
-    ],
-    "similar": [
-      "Dylan",
-      "Owen",
-      "Angus"
-    ],
-    "tags": [
-      "welsh",
-      "short",
-      "strong"
-    ]
-  },
-  {
-    "id": "dylan",
-    "name": "Dylan",
-    "gender": "boy",
-    "origins": [
-      "Welsh"
-    ],
-    "countries": [
-      "US",
-      "GB"
-    ],
-    "styles": [
-      "Welsh",
-      "Nature",
-      "Modern"
-    ],
-    "meaning": "son of the sea",
-    "popularity": 72,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Owen",
-      "Gavin",
-      "Rhys"
-    ],
-    "tags": [
-      "sea",
-      "modern",
-      "welsh"
-    ]
-  },
-  {
-    "id": "owen",
-    "name": "Owen",
-    "gender": "boy",
-    "origins": [
-      "Welsh"
-    ],
-    "countries": [
-      "US",
-      "GB"
-    ],
-    "styles": [
-      "Welsh",
-      "Classic",
-      "Popular"
-    ],
-    "meaning": "young warrior, well-born",
-    "popularity": 78,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Gavin",
-      "Alexander",
-      "Dylan"
-    ],
-    "tags": [
-      "welsh",
-      "classic",
-      "popular"
-    ]
-  },
-  {
-    "id": "gavin",
-    "name": "Gavin",
-    "gender": "boy",
-    "origins": [
-      "Welsh",
-      "Scottish"
-    ],
-    "countries": [
-      "US",
-      "GB"
-    ],
-    "styles": [
-      "Classic",
-      "Strong",
-      "Modern"
-    ],
-    "meaning": "white hawk",
-    "popularity": 59,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Alexander",
-      "Nicholas",
-      "Owen"
-    ],
-    "tags": [
-      "bird",
-      "classic",
-      "strong"
-    ]
-  },
-  {
-    "id": "alexander",
-    "name": "Alexander",
+    "id": "theodore",
+    "name": "Theodore",
     "gender": "boy",
     "origins": [
       "Greek"
@@ -2983,194 +3888,92 @@
     ],
     "styles": [
       "Classic",
-      "Royal",
-      "Strong"
+      "Vintage",
+      "Popular"
     ],
-    "meaning": "defender of mankind",
-    "popularity": 86,
-    "syllables": 4,
+    "meaning": "gift of God",
+    "popularity": 88,
+    "syllables": 3,
     "variants": [
-      "Alex",
-      "Xander"
+      "Theo",
+      "Teddy"
     ],
     "similar": [
-      "Nicholas",
       "Sebastian",
+      "Lucas",
+      "Benjamin"
+    ],
+    "tags": [
+      "classic",
+      "vintage",
+      "popular"
+    ]
+  },
+  {
+    "id": "tobias",
+    "name": "Tobias",
+    "gender": "boy",
+    "origins": [
+      "Hebrew",
+      "Greek"
+    ],
+    "countries": [
+      "DE",
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Biblical",
+      "Classic",
+      "International"
+    ],
+    "meaning": "God is good",
+    "popularity": 70,
+    "syllables": 3,
+    "variants": [
+      "Toby"
+    ],
+    "similar": [
+      "Daniel",
+      "Elias",
+      "Samuel"
+    ],
+    "tags": [
+      "biblical",
+      "classic",
+      "international"
+    ]
+  },
+  {
+    "id": "tristan",
+    "name": "Tristan",
+    "gender": "boy",
+    "origins": [
+      "Celtic"
+    ],
+    "countries": [
+      "GB",
+      "FR",
+      "US"
+    ],
+    "styles": [
+      "Romantic",
+      "Classic",
+      "Strong"
+    ],
+    "meaning": "sorrowful, tumult",
+    "popularity": 62,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Callum",
+      "Kieran",
       "Gavin"
     ],
     "tags": [
-      "royal",
+      "romantic",
       "classic",
       "strong"
-    ]
-  },
-  {
-    "id": "nicholas",
-    "name": "Nicholas",
-    "gender": "boy",
-    "origins": [
-      "Greek"
-    ],
-    "countries": [
-      "US",
-      "GB"
-    ],
-    "styles": [
-      "Classic",
-      "Strong",
-      "International"
-    ],
-    "meaning": "victory of the people",
-    "popularity": 70,
-    "syllables": 3,
-    "variants": [
-      "Nick",
-      "Nicolas"
-    ],
-    "similar": [
-      "Sebastian",
-      "Julian",
-      "Alexander"
-    ],
-    "tags": [
-      "classic",
-      "victory",
-      "international"
-    ]
-  },
-  {
-    "id": "sebastian",
-    "name": "Sebastian",
-    "gender": "boy",
-    "origins": [
-      "Greek",
-      "Latin"
-    ],
-    "countries": [
-      "DE",
-      "US",
-      "GB"
-    ],
-    "styles": [
-      "Classic",
-      "Elegant",
-      "Popular"
-    ],
-    "meaning": "venerable",
-    "popularity": 82,
-    "syllables": 4,
-    "variants": [
-      "Seb"
-    ],
-    "similar": [
-      "Julian",
-      "Adrian",
-      "Nicholas"
-    ],
-    "tags": [
-      "classic",
-      "elegant",
-      "popular"
-    ]
-  },
-  {
-    "id": "julian",
-    "name": "Julian",
-    "gender": "boy",
-    "origins": [
-      "Latin"
-    ],
-    "countries": [
-      "DE",
-      "US",
-      "GB"
-    ],
-    "styles": [
-      "Classic",
-      "Elegant",
-      "International"
-    ],
-    "meaning": "youthful",
-    "popularity": 77,
-    "syllables": 3,
-    "variants": [
-      "Jules"
-    ],
-    "similar": [
-      "Adrian",
-      "Dominic",
-      "Sebastian"
-    ],
-    "tags": [
-      "classic",
-      "elegant",
-      "international"
-    ]
-  },
-  {
-    "id": "adrian",
-    "name": "Adrian",
-    "gender": "boy",
-    "origins": [
-      "Latin"
-    ],
-    "countries": [
-      "DE",
-      "US",
-      "ES"
-    ],
-    "styles": [
-      "Classic",
-      "Modern",
-      "International"
-    ],
-    "meaning": "from Hadria",
-    "popularity": 75,
-    "syllables": 3,
-    "variants": [],
-    "similar": [
-      "Dominic",
-      "Victor",
-      "Julian"
-    ],
-    "tags": [
-      "classic",
-      "international",
-      "modern"
-    ]
-  },
-  {
-    "id": "dominic",
-    "name": "Dominic",
-    "gender": "boy",
-    "origins": [
-      "Latin"
-    ],
-    "countries": [
-      "US",
-      "GB",
-      "DE"
-    ],
-    "styles": [
-      "Classic",
-      "Strong",
-      "International"
-    ],
-    "meaning": "belonging to the Lord",
-    "popularity": 67,
-    "syllables": 3,
-    "variants": [
-      "Dom"
-    ],
-    "similar": [
-      "Victor",
-      "Vincent",
-      "Adrian"
-    ],
-    "tags": [
-      "classic",
-      "strong",
-      "international"
     ]
   },
   {
@@ -3197,9 +4000,9 @@
       "Viktor"
     ],
     "similar": [
+      "Dominic",
       "Vincent",
-      "Roman",
-      "Dominic"
+      "Callum"
     ],
     "tags": [
       "victory",
@@ -3231,9 +4034,9 @@
       "Vince"
     ],
     "similar": [
-      "Roman",
-      "Atlas",
-      "Victor"
+      "Victor",
+      "Dominic",
+      "Anton"
     ],
     "tags": [
       "classic",
@@ -3242,747 +4045,39 @@
     ]
   },
   {
-    "id": "roman",
-    "name": "Roman",
-    "gender": "boy",
-    "origins": [
-      "Latin"
-    ],
-    "countries": [
-      "US",
-      "DE",
-      "PL"
-    ],
-    "styles": [
-      "Classic",
-      "Strong",
-      "Modern"
-    ],
-    "meaning": "citizen of Rome",
-    "popularity": 73,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Atlas",
-      "Orion",
-      "Vincent"
-    ],
-    "tags": [
-      "roman",
-      "strong",
-      "modern"
-    ]
-  },
-  {
-    "id": "atlas",
-    "name": "Atlas",
-    "gender": "boy",
-    "origins": [
-      "Greek"
-    ],
-    "countries": [
-      "US",
-      "GB"
-    ],
-    "styles": [
-      "Mythological",
-      "Strong",
-      "Modern"
-    ],
-    "meaning": "bearer of the heavens",
-    "popularity": 67,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Orion",
-      "Apollo",
-      "Roman"
-    ],
-    "tags": [
-      "mythological",
-      "strong",
-      "modern"
-    ]
-  },
-  {
-    "id": "orion",
-    "name": "Orion",
-    "gender": "boy",
-    "origins": [
-      "Greek"
-    ],
-    "countries": [
-      "US",
-      "GB"
-    ],
-    "styles": [
-      "Mythological",
-      "Celestial",
-      "Strong"
-    ],
-    "meaning": "hunter, constellation",
-    "popularity": 60,
-    "syllables": 3,
-    "variants": [],
-    "similar": [
-      "Apollo",
-      "Ares",
-      "Atlas"
-    ],
-    "tags": [
-      "celestial",
-      "mythological",
-      "strong"
-    ]
-  },
-  {
-    "id": "apollo",
-    "name": "Apollo",
-    "gender": "boy",
-    "origins": [
-      "Greek"
-    ],
-    "countries": [
-      "US",
-      "GR"
-    ],
-    "styles": [
-      "Mythological",
-      "Strong",
-      "Rare"
-    ],
-    "meaning": "Greek god of light and music",
-    "popularity": 55,
-    "syllables": 3,
-    "variants": [],
-    "similar": [
-      "Ares",
-      "Evander",
-      "Orion"
-    ],
-    "tags": [
-      "mythological",
-      "strong",
-      "rare"
-    ]
-  },
-  {
-    "id": "ares",
-    "name": "Ares",
-    "gender": "boy",
-    "origins": [
-      "Greek"
-    ],
-    "countries": [
-      "GR",
-      "US"
-    ],
-    "styles": [
-      "Mythological",
-      "Short",
-      "Strong"
-    ],
-    "meaning": "Greek god of war",
-    "popularity": 46,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Evander",
-      "Hector",
-      "Apollo"
-    ],
-    "tags": [
-      "mythological",
-      "short",
-      "strong"
-    ]
-  },
-  {
-    "id": "evander",
-    "name": "Evander",
-    "gender": "boy",
-    "origins": [
-      "Greek"
-    ],
-    "countries": [
-      "US",
-      "GB"
-    ],
-    "styles": [
-      "Mythological",
-      "Rare",
-      "Elegant"
-    ],
-    "meaning": "good man",
-    "popularity": 48,
-    "syllables": 3,
-    "variants": [
-      "Evan"
-    ],
-    "similar": [
-      "Hector",
-      "Perseus",
-      "Ares"
-    ],
-    "tags": [
-      "mythological",
-      "rare",
-      "elegant"
-    ]
-  },
-  {
-    "id": "hector",
-    "name": "Hector",
-    "gender": "boy",
-    "origins": [
-      "Greek"
-    ],
-    "countries": [
-      "ES",
-      "GB",
-      "US"
-    ],
-    "styles": [
-      "Mythological",
-      "Classic",
-      "Strong"
-    ],
-    "meaning": "holding fast",
-    "popularity": 58,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Perseus",
-      "Linus",
-      "Evander"
-    ],
-    "tags": [
-      "mythological",
-      "classic",
-      "strong"
-    ]
-  },
-  {
-    "id": "perseus",
-    "name": "Perseus",
-    "gender": "boy",
-    "origins": [
-      "Greek"
-    ],
-    "countries": [
-      "GR",
-      "US"
-    ],
-    "styles": [
-      "Mythological",
-      "Rare",
-      "Strong"
-    ],
-    "meaning": "destroyer",
-    "popularity": 42,
-    "syllables": 3,
-    "variants": [
-      "Percy"
-    ],
-    "similar": [
-      "Linus",
-      "Marius",
-      "Hector"
-    ],
-    "tags": [
-      "mythological",
-      "rare",
-      "strong"
-    ]
-  },
-  {
-    "id": "linus",
-    "name": "Linus",
-    "gender": "boy",
-    "origins": [
-      "Greek"
-    ],
-    "countries": [
-      "DE",
-      "SE",
-      "US"
-    ],
-    "styles": [
-      "Classic",
-      "Soft",
-      "Rare"
-    ],
-    "meaning": "flax",
-    "popularity": 59,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Marius",
-      "Cyrus",
-      "Perseus"
-    ],
-    "tags": [
-      "classic",
-      "soft",
-      "rare"
-    ]
-  },
-  {
-    "id": "marius",
-    "name": "Marius",
-    "gender": "boy",
-    "origins": [
-      "Latin"
-    ],
-    "countries": [
-      "DE",
-      "FR",
-      "NO"
-    ],
-    "styles": [
-      "Classic",
-      "Elegant",
-      "International"
-    ],
-    "meaning": "male, from Mars",
-    "popularity": 61,
-    "syllables": 3,
-    "variants": [],
-    "similar": [
-      "Cyrus",
-      "Darius",
-      "Linus"
-    ],
-    "tags": [
-      "classic",
-      "international",
-      "elegant"
-    ]
-  },
-  {
-    "id": "cyrus",
-    "name": "Cyrus",
-    "gender": "boy",
-    "origins": [
-      "Persian"
-    ],
-    "countries": [
-      "US",
-      "GB"
-    ],
-    "styles": [
-      "Rare",
-      "Strong",
-      "Ancient"
-    ],
-    "meaning": "sun, throne",
-    "popularity": 57,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Darius",
-      "Kaius",
-      "Marius"
-    ],
-    "tags": [
-      "ancient",
-      "rare",
-      "strong"
-    ]
-  },
-  {
-    "id": "darius",
-    "name": "Darius",
-    "gender": "boy",
-    "origins": [
-      "Persian"
-    ],
-    "countries": [
-      "US",
-      "DE"
-    ],
-    "styles": [
-      "Ancient",
-      "Strong",
-      "Classic"
-    ],
-    "meaning": "possessing goodness",
-    "popularity": 55,
-    "syllables": 3,
-    "variants": [],
-    "similar": [
-      "Kaius",
-      "Benedict",
-      "Cyrus"
-    ],
-    "tags": [
-      "ancient",
-      "strong",
-      "classic"
-    ]
-  },
-  {
-    "id": "kaius",
-    "name": "Kaius",
-    "gender": "boy",
-    "origins": [
-      "Latin"
-    ],
-    "countries": [
-      "US",
-      "DE"
-    ],
-    "styles": [
-      "Rare",
-      "Modern",
-      "Ancient"
-    ],
-    "meaning": "rejoice",
-    "popularity": 44,
-    "syllables": 2,
-    "variants": [
-      "Caius"
-    ],
-    "similar": [
-      "Benedict",
-      "Frederick",
-      "Darius"
-    ],
-    "tags": [
-      "rare",
-      "ancient",
-      "modern"
-    ]
-  },
-  {
-    "id": "benedict",
-    "name": "Benedict",
-    "gender": "boy",
-    "origins": [
-      "Latin"
-    ],
-    "countries": [
-      "GB",
-      "DE",
-      "US"
-    ],
-    "styles": [
-      "Classic",
-      "Old Money",
-      "Elegant"
-    ],
-    "meaning": "blessed",
-    "popularity": 52,
-    "syllables": 3,
-    "variants": [
-      "Ben"
-    ],
-    "similar": [
-      "Frederick",
-      "Edmund",
-      "Kaius"
-    ],
-    "tags": [
-      "old money",
-      "classic",
-      "elegant"
-    ]
-  },
-  {
-    "id": "frederick",
-    "name": "Frederick",
+    "id": "william",
+    "name": "William",
     "gender": "boy",
     "origins": [
       "German",
       "English"
     ],
     "countries": [
-      "GB",
       "US",
+      "GB",
       "DE"
     ],
     "styles": [
+      "Classic",
       "Royal",
-      "Old Money",
-      "Classic"
+      "Strong"
     ],
-    "meaning": "peaceful ruler",
-    "popularity": 58,
+    "meaning": "resolute protector",
+    "popularity": 93,
     "syllables": 3,
     "variants": [
-      "Fred",
-      "Freddie"
+      "Will",
+      "Liam"
     ],
     "similar": [
-      "Edmund",
-      "Harrison",
-      "Benedict"
+      "Henry",
+      "Frederick",
+      "Maximilian"
     ],
     "tags": [
-      "old money",
+      "classic",
       "royal",
-      "classic"
-    ]
-  },
-  {
-    "id": "edmund",
-    "name": "Edmund",
-    "gender": "boy",
-    "origins": [
-      "English"
-    ],
-    "countries": [
-      "GB",
-      "US"
-    ],
-    "styles": [
-      "Old Money",
-      "Vintage",
-      "Classic"
-    ],
-    "meaning": "fortunate protector",
-    "popularity": 48,
-    "syllables": 2,
-    "variants": [
-      "Eddie"
-    ],
-    "similar": [
-      "Harrison",
-      "Montgomery",
-      "Frederick"
-    ],
-    "tags": [
-      "old money",
-      "vintage",
-      "classic"
-    ]
-  },
-  {
-    "id": "harrison",
-    "name": "Harrison",
-    "gender": "boy",
-    "origins": [
-      "English"
-    ],
-    "countries": [
-      "US",
-      "GB"
-    ],
-    "styles": [
-      "Old Money",
-      "Classic",
-      "Strong"
-    ],
-    "meaning": "son of Harry",
-    "popularity": 62,
-    "syllables": 3,
-    "variants": [
-      "Harry"
-    ],
-    "similar": [
-      "Montgomery",
-      "Percival",
-      "Edmund"
-    ],
-    "tags": [
-      "old money",
-      "classic",
       "strong"
-    ]
-  },
-  {
-    "id": "montgomery",
-    "name": "Montgomery",
-    "gender": "boy",
-    "origins": [
-      "French",
-      "English"
-    ],
-    "countries": [
-      "GB",
-      "US"
-    ],
-    "styles": [
-      "Old Money",
-      "Rare",
-      "Elegant"
-    ],
-    "meaning": "man power, mountain",
-    "popularity": 38,
-    "syllables": 4,
-    "variants": [
-      "Monty"
-    ],
-    "similar": [
-      "Percival",
-      "Rupert",
-      "Harrison"
-    ],
-    "tags": [
-      "old money",
-      "rare",
-      "elegant"
-    ]
-  },
-  {
-    "id": "percival",
-    "name": "Percival",
-    "gender": "boy",
-    "origins": [
-      "French",
-      "English"
-    ],
-    "countries": [
-      "GB",
-      "US"
-    ],
-    "styles": [
-      "Old Money",
-      "Rare",
-      "Vintage"
-    ],
-    "meaning": "pierce the valley",
-    "popularity": 40,
-    "syllables": 3,
-    "variants": [
-      "Percy"
-    ],
-    "similar": [
-      "Rupert",
-      "Tristan",
-      "Montgomery"
-    ],
-    "tags": [
-      "old money",
-      "rare",
-      "vintage"
-    ]
-  },
-  {
-    "id": "rupert",
-    "name": "Rupert",
-    "gender": "boy",
-    "origins": [
-      "German"
-    ],
-    "countries": [
-      "GB",
-      "DE"
-    ],
-    "styles": [
-      "Old Money",
-      "Vintage",
-      "Classic"
-    ],
-    "meaning": "bright fame",
-    "popularity": 43,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Tristan",
-      "Jasper",
-      "Percival"
-    ],
-    "tags": [
-      "old money",
-      "vintage",
-      "classic"
-    ]
-  },
-  {
-    "id": "tristan",
-    "name": "Tristan",
-    "gender": "boy",
-    "origins": [
-      "Celtic"
-    ],
-    "countries": [
-      "GB",
-      "FR",
-      "US"
-    ],
-    "styles": [
-      "Romantic",
-      "Classic",
-      "Strong"
-    ],
-    "meaning": "sorrowful, tumult",
-    "popularity": 62,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Jasper",
-      "Everett",
-      "Rupert"
-    ],
-    "tags": [
-      "romantic",
-      "classic",
-      "strong"
-    ]
-  },
-  {
-    "id": "jasper",
-    "name": "Jasper",
-    "gender": "boy",
-    "origins": [
-      "Persian"
-    ],
-    "countries": [
-      "US",
-      "GB",
-      "DE"
-    ],
-    "styles": [
-      "Vintage",
-      "Elegant",
-      "Popular"
-    ],
-    "meaning": "treasurer",
-    "popularity": 74,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Everett",
-      "Wyatt",
-      "Tristan"
-    ],
-    "tags": [
-      "vintage",
-      "elegant",
-      "popular"
-    ]
-  },
-  {
-    "id": "everett",
-    "name": "Everett",
-    "gender": "boy",
-    "origins": [
-      "English",
-      "German"
-    ],
-    "countries": [
-      "US",
-      "GB"
-    ],
-    "styles": [
-      "Vintage",
-      "Strong",
-      "Modern"
-    ],
-    "meaning": "brave as a wild boar",
-    "popularity": 67,
-    "syllables": 3,
-    "variants": [],
-    "similar": [
-      "Wyatt",
-      "Mason",
-      "Jasper"
-    ],
-    "tags": [
-      "vintage",
-      "strong",
-      "modern"
     ]
   },
   {
@@ -4006,109 +4101,14 @@
     "syllables": 2,
     "variants": [],
     "similar": [
+      "Jackson",
       "Mason",
-      "Logan",
-      "Everett"
+      "Logan"
     ],
     "tags": [
       "strong",
       "modern",
       "popular"
-    ]
-  },
-  {
-    "id": "mason",
-    "name": "Mason",
-    "gender": "boy",
-    "origins": [
-      "English"
-    ],
-    "countries": [
-      "US",
-      "GB"
-    ],
-    "styles": [
-      "Modern",
-      "Popular",
-      "Strong"
-    ],
-    "meaning": "stone worker",
-    "popularity": 79,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Logan",
-      "Jackson",
-      "Wyatt"
-    ],
-    "tags": [
-      "occupation",
-      "modern",
-      "popular"
-    ]
-  },
-  {
-    "id": "logan-boy",
-    "name": "Logan",
-    "gender": "boy",
-    "origins": [
-      "Scottish"
-    ],
-    "countries": [
-      "US",
-      "GB"
-    ],
-    "styles": [
-      "Modern",
-      "Popular",
-      "Strong"
-    ],
-    "meaning": "small hollow",
-    "popularity": 78,
-    "syllables": 2,
-    "variants": [],
-    "similar": [
-      "Jackson",
-      "Noah",
-      "Mason"
-    ],
-    "tags": [
-      "scottish",
-      "modern",
-      "popular"
-    ]
-  },
-  {
-    "id": "jackson",
-    "name": "Jackson",
-    "gender": "boy",
-    "origins": [
-      "English"
-    ],
-    "countries": [
-      "US",
-      "GB"
-    ],
-    "styles": [
-      "Modern",
-      "Popular",
-      "Strong"
-    ],
-    "meaning": "son of Jack",
-    "popularity": 80,
-    "syllables": 2,
-    "variants": [
-      "Jaxon"
-    ],
-    "similar": [
-      "Noah",
-      "Liam",
-      "Logan"
-    ],
-    "tags": [
-      "modern",
-      "popular",
-      "strong"
     ]
   }
 ]

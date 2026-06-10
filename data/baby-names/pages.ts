@@ -235,6 +235,43 @@ export const babyNamePages: BabyNamePage[] = [
   },
 ];
 
+const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+
+alphabet.forEach((letter) => {
+  babyNamePages.push(
+    {
+      slug: `girl-names-starting-with-${letter}`,
+      title: `Girl Names Starting With ${letter.toUpperCase()}`,
+      description: `Browse girl names starting with the letter ${letter.toUpperCase()} including meanings, origins and popularity.`,
+      seoTitle: `Girl Names Starting With ${letter.toUpperCase()} | Toollane`,
+      seoDescription: `Discover girl names beginning with ${letter.toUpperCase()} including classic, modern and unique baby name ideas.`,
+      filter: (name) =>
+        name.gender === "girl" &&
+        name.name.toLowerCase().startsWith(letter),
+    },
+    {
+      slug: `boy-names-starting-with-${letter}`,
+      title: `Boy Names Starting With ${letter.toUpperCase()}`,
+      description: `Browse boy names starting with the letter ${letter.toUpperCase()} including meanings, origins and popularity.`,
+      seoTitle: `Boy Names Starting With ${letter.toUpperCase()} | Toollane`,
+      seoDescription: `Discover boy names beginning with ${letter.toUpperCase()} including classic, modern and unique baby name ideas.`,
+      filter: (name) =>
+        name.gender === "boy" &&
+        name.name.toLowerCase().startsWith(letter),
+    },
+    {
+      slug: `unisex-names-starting-with-${letter}`,
+      title: `Unisex Names Starting With ${letter.toUpperCase()}`,
+      description: `Browse unisex names starting with the letter ${letter.toUpperCase()} including meanings, origins and popularity.`,
+      seoTitle: `Unisex Names Starting With ${letter.toUpperCase()} | Toollane`,
+      seoDescription: `Discover gender-neutral names beginning with ${letter.toUpperCase()} including modern and unique name ideas.`,
+      filter: (name) =>
+        name.gender === "unisex" &&
+        name.name.toLowerCase().startsWith(letter),
+    }
+  );
+});
+
 export function getBabyNamePage(slug: string) {
   return babyNamePages.find((page) => page.slug === slug);
 }

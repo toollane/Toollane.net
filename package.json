@@ -6,7 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "validate:baby-names": "tsx scripts/validate-baby-names.ts",
+    "merge:baby-names": "tsx scripts/merge-baby-names.ts",
+    "audit:baby-names": "tsx scripts/audit-baby-names.ts",
+    "enrich:baby-names": "tsx scripts/enrich-baby-name-similar.ts",
+    "process:baby-names": "npm run merge:baby-names && npm run enrich:baby-names && npm run validate:baby-names && npm run build",
+    "import:ssa-baby-names": "tsx scripts/import-ssa-baby-names.ts"
   },
   "dependencies": {
     "@imgly/background-removal": "^1.7.0",

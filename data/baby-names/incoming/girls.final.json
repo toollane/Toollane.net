@@ -1,0 +1,2707 @@
+[
+  {
+    "id": "evelyn",
+    "name": "Evelyn",
+    "gender": "girl",
+    "origins": [
+      "English",
+      "German"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "DE"
+    ],
+    "styles": [
+      "Classic",
+      "Elegant",
+      "Vintage"
+    ],
+    "meaning": "desired, wished for, or hazelnut",
+    "popularity": 90,
+    "syllables": 3,
+    "variants": [
+      "Eve",
+      "Evie"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "elegant",
+      "vintage"
+    ]
+  },
+  {
+    "id": "camila",
+    "name": "Camila",
+    "gender": "girl",
+    "origins": [
+      "Latin",
+      "Spanish"
+    ],
+    "countries": [
+      "US",
+      "ES",
+      "BR"
+    ],
+    "styles": [
+      "Elegant",
+      "International",
+      "Popular"
+    ],
+    "meaning": "young ceremonial attendant",
+    "popularity": 86,
+    "syllables": 3,
+    "variants": [
+      "Camilla"
+    ],
+    "similar": [],
+    "tags": [
+      "elegant",
+      "international",
+      "spanish"
+    ]
+  },
+  {
+    "id": "ellie",
+    "name": "Ellie",
+    "gender": "girl",
+    "origins": [
+      "Greek",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "DE"
+    ],
+    "styles": [
+      "Short",
+      "Modern",
+      "Friendly"
+    ],
+    "meaning": "bright, shining one",
+    "popularity": 84,
+    "syllables": 2,
+    "variants": [
+      "Elle",
+      "Ella"
+    ],
+    "similar": [],
+    "tags": [
+      "short",
+      "modern",
+      "friendly"
+    ]
+  },
+  {
+    "id": "lucy",
+    "name": "Lucy",
+    "gender": "girl",
+    "origins": [
+      "Latin",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "DE"
+    ],
+    "styles": [
+      "Classic",
+      "Bright",
+      "Short"
+    ],
+    "meaning": "light",
+    "popularity": 84,
+    "syllables": 2,
+    "variants": [
+      "Lucie",
+      "Lucia"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "bright",
+      "short"
+    ]
+  },
+  {
+    "id": "isla",
+    "name": "Isla",
+    "gender": "girl",
+    "origins": [
+      "Scottish",
+      "Spanish"
+    ],
+    "countries": [
+      "GB",
+      "US",
+      "ES"
+    ],
+    "styles": [
+      "Elegant",
+      "Modern",
+      "Nature"
+    ],
+    "meaning": "island",
+    "popularity": 86,
+    "syllables": 2,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "elegant",
+      "modern",
+      "nature"
+    ]
+  },
+  {
+    "id": "gianna",
+    "name": "Gianna",
+    "gender": "girl",
+    "origins": [
+      "Hebrew",
+      "Italian"
+    ],
+    "countries": [
+      "US",
+      "IT"
+    ],
+    "styles": [
+      "Italian",
+      "Elegant",
+      "Modern"
+    ],
+    "meaning": "God is gracious",
+    "popularity": 82,
+    "syllables": 3,
+    "variants": [
+      "Gia",
+      "Giovanna"
+    ],
+    "similar": [],
+    "tags": [
+      "italian",
+      "elegant",
+      "modern"
+    ]
+  },
+  {
+    "id": "emily",
+    "name": "Emily",
+    "gender": "girl",
+    "origins": [
+      "Latin",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "DE"
+    ],
+    "styles": [
+      "Classic",
+      "Popular",
+      "Elegant"
+    ],
+    "meaning": "rival, eager",
+    "popularity": 88,
+    "syllables": 3,
+    "variants": [
+      "Emilie",
+      "Emmy"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "popular",
+      "elegant"
+    ]
+  },
+  {
+    "id": "layla",
+    "name": "Layla",
+    "gender": "girl",
+    "origins": [
+      "Arabic"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "AE"
+    ],
+    "styles": [
+      "Modern",
+      "Elegant",
+      "Popular"
+    ],
+    "meaning": "night, dark beauty",
+    "popularity": 86,
+    "syllables": 2,
+    "variants": [
+      "Leila",
+      "Laila"
+    ],
+    "similar": [],
+    "tags": [
+      "modern",
+      "elegant",
+      "popular"
+    ]
+  },
+  {
+    "id": "madison",
+    "name": "Madison",
+    "gender": "girl",
+    "origins": [
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Modern",
+      "Surname",
+      "Popular"
+    ],
+    "meaning": "son of Maud",
+    "popularity": 82,
+    "syllables": 3,
+    "variants": [
+      "Maddie"
+    ],
+    "similar": [],
+    "tags": [
+      "modern",
+      "surname",
+      "popular"
+    ]
+  },
+  {
+    "id": "eloise",
+    "name": "Eloise",
+    "gender": "girl",
+    "origins": [
+      "German",
+      "French"
+    ],
+    "countries": [
+      "FR",
+      "GB",
+      "US"
+    ],
+    "styles": [
+      "French",
+      "Elegant",
+      "Vintage"
+    ],
+    "meaning": "healthy, wide, famous warrior",
+    "popularity": 78,
+    "syllables": 3,
+    "variants": [
+      "Éloïse"
+    ],
+    "similar": [],
+    "tags": [
+      "french",
+      "elegant",
+      "vintage"
+    ]
+  },
+  {
+    "id": "sadie",
+    "name": "Sadie",
+    "gender": "girl",
+    "origins": [
+      "Hebrew",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Vintage",
+      "Friendly",
+      "Classic"
+    ],
+    "meaning": "princess",
+    "popularity": 80,
+    "syllables": 2,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "vintage",
+      "friendly",
+      "classic"
+    ]
+  },
+  {
+    "id": "delilah",
+    "name": "Delilah",
+    "gender": "girl",
+    "origins": [
+      "Hebrew"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Biblical",
+      "Elegant",
+      "Modern"
+    ],
+    "meaning": "delicate, languishing",
+    "popularity": 80,
+    "syllables": 3,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "biblical",
+      "elegant",
+      "modern"
+    ]
+  },
+  {
+    "id": "lillian",
+    "name": "Lillian",
+    "gender": "girl",
+    "origins": [
+      "Latin",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Classic",
+      "Elegant",
+      "Vintage"
+    ],
+    "meaning": "lily flower",
+    "popularity": 82,
+    "syllables": 3,
+    "variants": [
+      "Lily",
+      "Lilia"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "elegant",
+      "flower"
+    ]
+  },
+  {
+    "id": "leah",
+    "name": "Leah",
+    "gender": "girl",
+    "origins": [
+      "Hebrew"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "DE"
+    ],
+    "styles": [
+      "Biblical",
+      "Classic",
+      "Short"
+    ],
+    "meaning": "weary, meadow",
+    "popularity": 84,
+    "syllables": 2,
+    "variants": [
+      "Lea"
+    ],
+    "similar": [],
+    "tags": [
+      "biblical",
+      "classic",
+      "short"
+    ]
+  },
+  {
+    "id": "adeline",
+    "name": "Adeline",
+    "gender": "girl",
+    "origins": [
+      "German",
+      "French"
+    ],
+    "countries": [
+      "US",
+      "FR",
+      "GB"
+    ],
+    "styles": [
+      "Vintage",
+      "Elegant",
+      "Classic"
+    ],
+    "meaning": "noble",
+    "popularity": 78,
+    "syllables": 3,
+    "variants": [
+      "Ada",
+      "Addie"
+    ],
+    "similar": [],
+    "tags": [
+      "vintage",
+      "elegant",
+      "classic"
+    ]
+  },
+  {
+    "id": "claire",
+    "name": "Claire",
+    "gender": "girl",
+    "origins": [
+      "Latin",
+      "French"
+    ],
+    "countries": [
+      "US",
+      "FR",
+      "GB"
+    ],
+    "styles": [
+      "Classic",
+      "Elegant",
+      "Short"
+    ],
+    "meaning": "clear, bright",
+    "popularity": 78,
+    "syllables": 1,
+    "variants": [
+      "Clare"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "elegant",
+      "clear"
+    ]
+  },
+  {
+    "id": "zoey",
+    "name": "Zoey",
+    "gender": "girl",
+    "origins": [
+      "Greek"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Modern",
+      "Bright",
+      "Popular"
+    ],
+    "meaning": "life",
+    "popularity": 78,
+    "syllables": 2,
+    "variants": [
+      "Zoe"
+    ],
+    "similar": [],
+    "tags": [
+      "modern",
+      "bright",
+      "popular"
+    ]
+  },
+  {
+    "id": "vivian",
+    "name": "Vivian",
+    "gender": "girl",
+    "origins": [
+      "Latin"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "FR"
+    ],
+    "styles": [
+      "Classic",
+      "Elegant",
+      "Vintage"
+    ],
+    "meaning": "alive, lively",
+    "popularity": 76,
+    "syllables": 3,
+    "variants": [
+      "Vivienne"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "elegant",
+      "vintage"
+    ]
+  },
+  {
+    "id": "maeve",
+    "name": "Maeve",
+    "gender": "girl",
+    "origins": [
+      "Irish"
+    ],
+    "countries": [
+      "IE",
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Irish",
+      "Short",
+      "Elegant"
+    ],
+    "meaning": "she who intoxicates",
+    "popularity": 76,
+    "syllables": 1,
+    "variants": [
+      "Maebh"
+    ],
+    "similar": [],
+    "tags": [
+      "irish",
+      "short",
+      "elegant"
+    ]
+  },
+  {
+    "id": "ayla",
+    "name": "Ayla",
+    "gender": "girl",
+    "origins": [
+      "Hebrew",
+      "Turkish"
+    ],
+    "countries": [
+      "US",
+      "TR",
+      "GB"
+    ],
+    "styles": [
+      "Modern",
+      "Elegant",
+      "Nature"
+    ],
+    "meaning": "oak tree, halo of light",
+    "popularity": 78,
+    "syllables": 2,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "modern",
+      "elegant",
+      "nature"
+    ]
+  },
+  {
+    "id": "melody",
+    "name": "Melody",
+    "gender": "girl",
+    "origins": [
+      "Greek",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Musical",
+      "Modern",
+      "Elegant"
+    ],
+    "meaning": "song, tune",
+    "popularity": 74,
+    "syllables": 3,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "musical",
+      "modern",
+      "elegant"
+    ]
+  },
+  {
+    "id": "lyla",
+    "name": "Lyla",
+    "gender": "girl",
+    "origins": [
+      "Arabic",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Modern",
+      "Elegant",
+      "Soft"
+    ],
+    "meaning": "night",
+    "popularity": 76,
+    "syllables": 2,
+    "variants": [
+      "Lila",
+      "Leila"
+    ],
+    "similar": [],
+    "tags": [
+      "modern",
+      "elegant",
+      "soft"
+    ]
+  },
+  {
+    "id": "madeline",
+    "name": "Madeline",
+    "gender": "girl",
+    "origins": [
+      "Hebrew",
+      "French"
+    ],
+    "countries": [
+      "US",
+      "FR",
+      "GB"
+    ],
+    "styles": [
+      "Classic",
+      "Elegant",
+      "Vintage"
+    ],
+    "meaning": "woman from Magdala",
+    "popularity": 76,
+    "syllables": 3,
+    "variants": [
+      "Madeleine",
+      "Maddie"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "elegant",
+      "vintage"
+    ]
+  },
+  {
+    "id": "josie",
+    "name": "Josie",
+    "gender": "girl",
+    "origins": [
+      "Hebrew",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Vintage",
+      "Friendly",
+      "Classic"
+    ],
+    "meaning": "God will add",
+    "popularity": 72,
+    "syllables": 2,
+    "variants": [
+      "Josephine"
+    ],
+    "similar": [],
+    "tags": [
+      "vintage",
+      "friendly",
+      "classic"
+    ]
+  },
+  {
+    "id": "audrey",
+    "name": "Audrey",
+    "gender": "girl",
+    "origins": [
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "FR"
+    ],
+    "styles": [
+      "Classic",
+      "Elegant",
+      "Vintage"
+    ],
+    "meaning": "noble strength",
+    "popularity": 78,
+    "syllables": 2,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "classic",
+      "elegant",
+      "vintage"
+    ]
+  },
+  {
+    "id": "maria",
+    "name": "Maria",
+    "gender": "girl",
+    "origins": [
+      "Hebrew",
+      "Latin"
+    ],
+    "countries": [
+      "ES",
+      "IT",
+      "DE",
+      "US"
+    ],
+    "styles": [
+      "Classic",
+      "International",
+      "Biblical"
+    ],
+    "meaning": "beloved, wished-for child",
+    "popularity": 82,
+    "syllables": 3,
+    "variants": [
+      "Marie",
+      "Mary"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "international",
+      "biblical"
+    ]
+  },
+  {
+    "id": "natalie",
+    "name": "Natalie",
+    "gender": "girl",
+    "origins": [
+      "Latin",
+      "French"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "FR"
+    ],
+    "styles": [
+      "Classic",
+      "Elegant",
+      "International"
+    ],
+    "meaning": "birth of the Lord",
+    "popularity": 76,
+    "syllables": 3,
+    "variants": [
+      "Natalia"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "elegant",
+      "international"
+    ]
+  },
+  {
+    "id": "lydia",
+    "name": "Lydia",
+    "gender": "girl",
+    "origins": [
+      "Greek"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "DE"
+    ],
+    "styles": [
+      "Classic",
+      "Biblical",
+      "Elegant"
+    ],
+    "meaning": "woman from Lydia",
+    "popularity": 74,
+    "syllables": 3,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "classic",
+      "biblical",
+      "elegant"
+    ]
+  },
+  {
+    "id": "caroline",
+    "name": "Caroline",
+    "gender": "girl",
+    "origins": [
+      "German",
+      "French"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "FR"
+    ],
+    "styles": [
+      "Classic",
+      "Elegant",
+      "Royal"
+    ],
+    "meaning": "free woman",
+    "popularity": 76,
+    "syllables": 3,
+    "variants": [
+      "Carolyn",
+      "Caro"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "elegant",
+      "royal"
+    ]
+  },
+  {
+    "id": "amara",
+    "name": "Amara",
+    "gender": "girl",
+    "origins": [
+      "Latin",
+      "Arabic"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Modern",
+      "Elegant",
+      "International"
+    ],
+    "meaning": "grace, eternal, beloved",
+    "popularity": 72,
+    "syllables": 3,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "modern",
+      "elegant",
+      "international"
+    ]
+  },
+  {
+    "id": "georgia",
+    "name": "Georgia",
+    "gender": "girl",
+    "origins": [
+      "Greek",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Classic",
+      "Vintage",
+      "Place"
+    ],
+    "meaning": "farmer, earth worker",
+    "popularity": 74,
+    "syllables": 2,
+    "variants": [
+      "Georgina"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "vintage",
+      "place"
+    ]
+  },
+  {
+    "id": "juniper",
+    "name": "Juniper",
+    "gender": "girl",
+    "origins": [
+      "Latin",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Nature",
+      "Modern",
+      "Rare"
+    ],
+    "meaning": "juniper tree",
+    "popularity": 70,
+    "syllables": 3,
+    "variants": [
+      "June"
+    ],
+    "similar": [],
+    "tags": [
+      "nature",
+      "modern",
+      "tree"
+    ]
+  },
+  {
+    "id": "aaliyah",
+    "name": "Aaliyah",
+    "gender": "girl",
+    "origins": [
+      "Arabic",
+      "Hebrew"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Modern",
+      "Elegant",
+      "Popular"
+    ],
+    "meaning": "exalted, rising",
+    "popularity": 78,
+    "syllables": 3,
+    "variants": [
+      "Aliyah"
+    ],
+    "similar": [],
+    "tags": [
+      "modern",
+      "elegant",
+      "popular"
+    ]
+  },
+  {
+    "id": "gabriella",
+    "name": "Gabriella",
+    "gender": "girl",
+    "origins": [
+      "Hebrew",
+      "Italian"
+    ],
+    "countries": [
+      "US",
+      "IT",
+      "ES"
+    ],
+    "styles": [
+      "Elegant",
+      "Biblical",
+      "International"
+    ],
+    "meaning": "God is my strength",
+    "popularity": 78,
+    "syllables": 4,
+    "variants": [
+      "Gabrielle",
+      "Gabi"
+    ],
+    "similar": [],
+    "tags": [
+      "elegant",
+      "biblical",
+      "international"
+    ]
+  },
+  {
+    "id": "anna",
+    "name": "Anna",
+    "gender": "girl",
+    "origins": [
+      "Hebrew",
+      "Latin"
+    ],
+    "countries": [
+      "DE",
+      "US",
+      "GB",
+      "IT"
+    ],
+    "styles": [
+      "Classic",
+      "Biblical",
+      "Short"
+    ],
+    "meaning": "grace",
+    "popularity": 82,
+    "syllables": 2,
+    "variants": [
+      "Anne",
+      "Ana"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "biblical",
+      "short"
+    ]
+  },
+  {
+    "id": "margaret",
+    "name": "Margaret",
+    "gender": "girl",
+    "origins": [
+      "Greek",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Classic",
+      "Royal",
+      "Vintage"
+    ],
+    "meaning": "pearl",
+    "popularity": 70,
+    "syllables": 3,
+    "variants": [
+      "Maggie",
+      "Margot"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "royal",
+      "vintage"
+    ]
+  },
+  {
+    "id": "cora",
+    "name": "Cora",
+    "gender": "girl",
+    "origins": [
+      "Greek"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Classic",
+      "Vintage",
+      "Short"
+    ],
+    "meaning": "maiden, heart",
+    "popularity": 74,
+    "syllables": 2,
+    "variants": [
+      "Kora"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "vintage",
+      "short"
+    ]
+  },
+  {
+    "id": "eliza",
+    "name": "Eliza",
+    "gender": "girl",
+    "origins": [
+      "Hebrew",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Classic",
+      "Vintage",
+      "Elegant"
+    ],
+    "meaning": "pledged to God",
+    "popularity": 74,
+    "syllables": 3,
+    "variants": [
+      "Elizabeth"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "vintage",
+      "elegant"
+    ]
+  },
+  {
+    "id": "elsie",
+    "name": "Elsie",
+    "gender": "girl",
+    "origins": [
+      "Hebrew",
+      "Scottish"
+    ],
+    "countries": [
+      "GB",
+      "US"
+    ],
+    "styles": [
+      "Vintage",
+      "Friendly",
+      "Classic"
+    ],
+    "meaning": "pledged to God",
+    "popularity": 72,
+    "syllables": 2,
+    "variants": [
+      "Elspeth",
+      "Elsa"
+    ],
+    "similar": [],
+    "tags": [
+      "vintage",
+      "friendly",
+      "classic"
+    ]
+  },
+  {
+    "id": "magnolia",
+    "name": "Magnolia",
+    "gender": "girl",
+    "origins": [
+      "Latin",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Nature",
+      "Elegant",
+      "Vintage"
+    ],
+    "meaning": "magnolia flower",
+    "popularity": 66,
+    "syllables": 4,
+    "variants": [
+      "Maggie",
+      "Nola"
+    ],
+    "similar": [],
+    "tags": [
+      "nature",
+      "elegant",
+      "flower"
+    ]
+  },
+  {
+    "id": "mary",
+    "name": "Mary",
+    "gender": "girl",
+    "origins": [
+      "Hebrew"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "DE"
+    ],
+    "styles": [
+      "Biblical",
+      "Classic",
+      "Vintage"
+    ],
+    "meaning": "beloved, wished-for child",
+    "popularity": 78,
+    "syllables": 2,
+    "variants": [
+      "Marie",
+      "Maria"
+    ],
+    "similar": [],
+    "tags": [
+      "biblical",
+      "classic",
+      "timeless"
+    ]
+  },
+  {
+    "id": "valerie",
+    "name": "Valerie",
+    "gender": "girl",
+    "origins": [
+      "Latin",
+      "French"
+    ],
+    "countries": [
+      "US",
+      "FR",
+      "DE"
+    ],
+    "styles": [
+      "Classic",
+      "Elegant",
+      "International"
+    ],
+    "meaning": "strong, healthy",
+    "popularity": 70,
+    "syllables": 3,
+    "variants": [
+      "Valeria"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "elegant",
+      "strong"
+    ]
+  },
+  {
+    "id": "alina",
+    "name": "Alina",
+    "gender": "girl",
+    "origins": [
+      "Greek",
+      "Slavic"
+    ],
+    "countries": [
+      "DE",
+      "PL",
+      "US"
+    ],
+    "styles": [
+      "International",
+      "Elegant",
+      "Modern"
+    ],
+    "meaning": "bright, beautiful",
+    "popularity": 74,
+    "syllables": 3,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "international",
+      "elegant",
+      "modern"
+    ]
+  },
+  {
+    "id": "julia",
+    "name": "Julia",
+    "gender": "girl",
+    "origins": [
+      "Latin"
+    ],
+    "countries": [
+      "DE",
+      "US",
+      "IT",
+      "ES"
+    ],
+    "styles": [
+      "Classic",
+      "Elegant",
+      "International"
+    ],
+    "meaning": "youthful",
+    "popularity": 78,
+    "syllables": 3,
+    "variants": [
+      "Julie",
+      "Giulia"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "elegant",
+      "international"
+    ]
+  },
+  {
+    "id": "amira",
+    "name": "Amira",
+    "gender": "girl",
+    "origins": [
+      "Arabic",
+      "Hebrew"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "AE"
+    ],
+    "styles": [
+      "Elegant",
+      "International",
+      "Royal"
+    ],
+    "meaning": "princess, treetop",
+    "popularity": 70,
+    "syllables": 3,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "elegant",
+      "international",
+      "royal"
+    ]
+  },
+  {
+    "id": "savannah",
+    "name": "Savannah",
+    "gender": "girl",
+    "origins": [
+      "Spanish",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Nature",
+      "Modern",
+      "Place"
+    ],
+    "meaning": "open plain",
+    "popularity": 74,
+    "syllables": 3,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "nature",
+      "modern",
+      "place"
+    ]
+  },
+  {
+    "id": "bella",
+    "name": "Bella",
+    "gender": "girl",
+    "origins": [
+      "Italian",
+      "Latin"
+    ],
+    "countries": [
+      "US",
+      "IT",
+      "GB"
+    ],
+    "styles": [
+      "Elegant",
+      "Modern",
+      "Short"
+    ],
+    "meaning": "beautiful",
+    "popularity": 76,
+    "syllables": 2,
+    "variants": [
+      "Isabella"
+    ],
+    "similar": [],
+    "tags": [
+      "elegant",
+      "modern",
+      "short"
+    ]
+  },
+  {
+    "id": "alana",
+    "name": "Alana",
+    "gender": "girl",
+    "origins": [
+      "Irish",
+      "Hawaiian"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "IE"
+    ],
+    "styles": [
+      "Modern",
+      "Elegant",
+      "International"
+    ],
+    "meaning": "precious child, awakening",
+    "popularity": 70,
+    "syllables": 3,
+    "variants": [
+      "Alanna"
+    ],
+    "similar": [],
+    "tags": [
+      "modern",
+      "elegant",
+      "international"
+    ]
+  },
+  {
+    "id": "sloane",
+    "name": "Sloane",
+    "gender": "girl",
+    "origins": [
+      "Irish"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "IE"
+    ],
+    "styles": [
+      "Surname",
+      "Modern",
+      "Elegant"
+    ],
+    "meaning": "raider, warrior",
+    "popularity": 68,
+    "syllables": 1,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "surname",
+      "modern",
+      "elegant"
+    ]
+  },
+  {
+    "id": "melanie",
+    "name": "Melanie",
+    "gender": "girl",
+    "origins": [
+      "Greek",
+      "French"
+    ],
+    "countries": [
+      "US",
+      "FR",
+      "DE"
+    ],
+    "styles": [
+      "Classic",
+      "Elegant",
+      "International"
+    ],
+    "meaning": "dark, black",
+    "popularity": 70,
+    "syllables": 3,
+    "variants": [
+      "Melania"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "elegant",
+      "international"
+    ]
+  },
+  {
+    "id": "natalia",
+    "name": "Natalia",
+    "gender": "girl",
+    "origins": [
+      "Latin",
+      "Spanish"
+    ],
+    "countries": [
+      "ES",
+      "IT",
+      "US"
+    ],
+    "styles": [
+      "Elegant",
+      "International",
+      "Classic"
+    ],
+    "meaning": "birth of the Lord",
+    "popularity": 74,
+    "syllables": 4,
+    "variants": [
+      "Natalie"
+    ],
+    "similar": [],
+    "tags": [
+      "elegant",
+      "international",
+      "classic"
+    ]
+  },
+  {
+    "id": "aubrey",
+    "name": "Aubrey",
+    "gender": "girl",
+    "origins": [
+      "German",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Modern",
+      "Elegant",
+      "Surname"
+    ],
+    "meaning": "ruler of elves",
+    "popularity": 72,
+    "syllables": 2,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "modern",
+      "elegant",
+      "surname"
+    ]
+  },
+  {
+    "id": "evangeline",
+    "name": "Evangeline",
+    "gender": "girl",
+    "origins": [
+      "Greek",
+      "French"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "FR"
+    ],
+    "styles": [
+      "Elegant",
+      "Biblical",
+      "Vintage"
+    ],
+    "meaning": "bearer of good news",
+    "popularity": 68,
+    "syllables": 4,
+    "variants": [
+      "Eva",
+      "Eve"
+    ],
+    "similar": [],
+    "tags": [
+      "elegant",
+      "biblical",
+      "vintage"
+    ]
+  },
+  {
+    "id": "june",
+    "name": "June",
+    "gender": "girl",
+    "origins": [
+      "Latin",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Vintage",
+      "Short",
+      "Seasonal"
+    ],
+    "meaning": "June month, young",
+    "popularity": 68,
+    "syllables": 1,
+    "variants": [
+      "Junie"
+    ],
+    "similar": [],
+    "tags": [
+      "vintage",
+      "short",
+      "season"
+    ]
+  },
+  {
+    "id": "samantha",
+    "name": "Samantha",
+    "gender": "girl",
+    "origins": [
+      "Hebrew",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Classic",
+      "Friendly",
+      "Popular"
+    ],
+    "meaning": "God has heard",
+    "popularity": 74,
+    "syllables": 3,
+    "variants": [
+      "Sam",
+      "Sammy"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "friendly",
+      "popular"
+    ]
+  },
+  {
+    "id": "ember",
+    "name": "Ember",
+    "gender": "girl",
+    "origins": [
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Nature",
+      "Modern",
+      "Bright"
+    ],
+    "meaning": "glowing coal",
+    "popularity": 66,
+    "syllables": 2,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "nature",
+      "modern",
+      "fire"
+    ]
+  },
+  {
+    "id": "piper",
+    "name": "Piper",
+    "gender": "girl",
+    "origins": [
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Musical",
+      "Modern",
+      "Surname"
+    ],
+    "meaning": "pipe player",
+    "popularity": 70,
+    "syllables": 2,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "musical",
+      "modern",
+      "surname"
+    ]
+  },
+  {
+    "id": "arya",
+    "name": "Arya",
+    "gender": "girl",
+    "origins": [
+      "Sanskrit",
+      "Persian"
+    ],
+    "countries": [
+      "US",
+      "IN",
+      "IR"
+    ],
+    "styles": [
+      "Modern",
+      "Strong",
+      "International"
+    ],
+    "meaning": "noble, honorable",
+    "popularity": 72,
+    "syllables": 3,
+    "variants": [
+      "Aria"
+    ],
+    "similar": [],
+    "tags": [
+      "modern",
+      "strong",
+      "international"
+    ]
+  },
+  {
+    "id": "blair",
+    "name": "Blair",
+    "gender": "girl",
+    "origins": [
+      "Scottish"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Surname",
+      "Short",
+      "Modern"
+    ],
+    "meaning": "plain, field",
+    "popularity": 60,
+    "syllables": 1,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "surname",
+      "short",
+      "modern"
+    ]
+  },
+  {
+    "id": "gemma",
+    "name": "Gemma",
+    "gender": "girl",
+    "origins": [
+      "Italian",
+      "Latin"
+    ],
+    "countries": [
+      "IT",
+      "GB",
+      "US"
+    ],
+    "styles": [
+      "Elegant",
+      "Gemstone",
+      "Classic"
+    ],
+    "meaning": "gem, precious stone",
+    "popularity": 68,
+    "syllables": 2,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "elegant",
+      "gemstone",
+      "classic"
+    ]
+  },
+  {
+    "id": "rosalie",
+    "name": "Rosalie",
+    "gender": "girl",
+    "origins": [
+      "Latin",
+      "French"
+    ],
+    "countries": [
+      "FR",
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Elegant",
+      "Vintage",
+      "Nature"
+    ],
+    "meaning": "rose garden",
+    "popularity": 66,
+    "syllables": 3,
+    "variants": [
+      "Rose",
+      "Rosalia"
+    ],
+    "similar": [],
+    "tags": [
+      "elegant",
+      "vintage",
+      "flower"
+    ]
+  },
+  {
+    "id": "vivienne",
+    "name": "Vivienne",
+    "gender": "girl",
+    "origins": [
+      "Latin",
+      "French"
+    ],
+    "countries": [
+      "FR",
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "French",
+      "Elegant",
+      "Classic"
+    ],
+    "meaning": "alive, lively",
+    "popularity": 66,
+    "syllables": 3,
+    "variants": [
+      "Vivian"
+    ],
+    "similar": [],
+    "tags": [
+      "french",
+      "elegant",
+      "classic"
+    ]
+  },
+  {
+    "id": "ruth",
+    "name": "Ruth",
+    "gender": "girl",
+    "origins": [
+      "Hebrew"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "DE"
+    ],
+    "styles": [
+      "Biblical",
+      "Classic",
+      "Short"
+    ],
+    "meaning": "friend, companion",
+    "popularity": 68,
+    "syllables": 1,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "biblical",
+      "classic",
+      "short"
+    ]
+  },
+  {
+    "id": "ariella",
+    "name": "Ariella",
+    "gender": "girl",
+    "origins": [
+      "Hebrew"
+    ],
+    "countries": [
+      "US",
+      "IL",
+      "GB"
+    ],
+    "styles": [
+      "Elegant",
+      "Biblical",
+      "Modern"
+    ],
+    "meaning": "lion of God",
+    "popularity": 66,
+    "syllables": 4,
+    "variants": [
+      "Ariel"
+    ],
+    "similar": [],
+    "tags": [
+      "elegant",
+      "biblical",
+      "modern"
+    ]
+  },
+  {
+    "id": "isabel",
+    "name": "Isabel",
+    "gender": "girl",
+    "origins": [
+      "Hebrew",
+      "Spanish"
+    ],
+    "countries": [
+      "ES",
+      "GB",
+      "US"
+    ],
+    "styles": [
+      "Classic",
+      "Elegant",
+      "International"
+    ],
+    "meaning": "pledged to God",
+    "popularity": 70,
+    "syllables": 3,
+    "variants": [
+      "Isabelle",
+      "Isabella"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "elegant",
+      "international"
+    ]
+  },
+  {
+    "id": "lilah",
+    "name": "Lilah",
+    "gender": "girl",
+    "origins": [
+      "Arabic",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Modern",
+      "Elegant",
+      "Soft"
+    ],
+    "meaning": "night",
+    "popularity": 68,
+    "syllables": 2,
+    "variants": [
+      "Lila"
+    ],
+    "similar": [],
+    "tags": [
+      "modern",
+      "elegant",
+      "soft"
+    ]
+  },
+  {
+    "id": "amaya",
+    "name": "Amaya",
+    "gender": "girl",
+    "origins": [
+      "Japanese",
+      "Spanish"
+    ],
+    "countries": [
+      "US",
+      "ES",
+      "JP"
+    ],
+    "styles": [
+      "Modern",
+      "International",
+      "Elegant"
+    ],
+    "meaning": "night rain, high place",
+    "popularity": 68,
+    "syllables": 3,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "modern",
+      "international",
+      "elegant"
+    ]
+  },
+  {
+    "id": "annie",
+    "name": "Annie",
+    "gender": "girl",
+    "origins": [
+      "Hebrew",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Classic",
+      "Friendly",
+      "Vintage"
+    ],
+    "meaning": "grace",
+    "popularity": 68,
+    "syllables": 2,
+    "variants": [
+      "Anne",
+      "Anna"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "friendly",
+      "vintage"
+    ]
+  },
+  {
+    "id": "ximena",
+    "name": "Ximena",
+    "gender": "girl",
+    "origins": [
+      "Hebrew",
+      "Spanish"
+    ],
+    "countries": [
+      "ES",
+      "MX",
+      "US"
+    ],
+    "styles": [
+      "Spanish",
+      "Strong",
+      "International"
+    ],
+    "meaning": "listener, hearkening",
+    "popularity": 70,
+    "syllables": 3,
+    "variants": [
+      "Jimena"
+    ],
+    "similar": [],
+    "tags": [
+      "spanish",
+      "strong",
+      "international"
+    ]
+  },
+  {
+    "id": "katherine",
+    "name": "Katherine",
+    "gender": "girl",
+    "origins": [
+      "Greek"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Classic",
+      "Royal",
+      "Elegant"
+    ],
+    "meaning": "pure",
+    "popularity": 70,
+    "syllables": 3,
+    "variants": [
+      "Kate",
+      "Kathryn"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "royal",
+      "elegant"
+    ]
+  },
+  {
+    "id": "lila",
+    "name": "Lila",
+    "gender": "girl",
+    "origins": [
+      "Arabic",
+      "Sanskrit"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "IN"
+    ],
+    "styles": [
+      "Short",
+      "Elegant",
+      "Modern"
+    ],
+    "meaning": "night, play",
+    "popularity": 72,
+    "syllables": 2,
+    "variants": [
+      "Lyla",
+      "Leila"
+    ],
+    "similar": [],
+    "tags": [
+      "short",
+      "elegant",
+      "modern"
+    ]
+  },
+  {
+    "id": "celeste",
+    "name": "Celeste",
+    "gender": "girl",
+    "origins": [
+      "Latin",
+      "French"
+    ],
+    "countries": [
+      "FR",
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Celestial",
+      "Elegant",
+      "Classic"
+    ],
+    "meaning": "heavenly",
+    "popularity": 66,
+    "syllables": 2,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "celestial",
+      "elegant",
+      "classic"
+    ]
+  },
+  {
+    "id": "haven",
+    "name": "Haven",
+    "gender": "girl",
+    "origins": [
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Modern",
+      "Peaceful",
+      "Nature"
+    ],
+    "meaning": "safe place, refuge",
+    "popularity": 64,
+    "syllables": 2,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "modern",
+      "peaceful",
+      "nature"
+    ]
+  },
+  {
+    "id": "kaia",
+    "name": "Kaia",
+    "gender": "girl",
+    "origins": [
+      "Greek",
+      "Hawaiian"
+    ],
+    "countries": [
+      "US",
+      "DE",
+      "NO"
+    ],
+    "styles": [
+      "Short",
+      "Modern",
+      "Nature"
+    ],
+    "meaning": "earth, sea",
+    "popularity": 66,
+    "syllables": 2,
+    "variants": [
+      "Kaya"
+    ],
+    "similar": [],
+    "tags": [
+      "short",
+      "modern",
+      "nature"
+    ]
+  },
+  {
+    "id": "molly",
+    "name": "Molly",
+    "gender": "girl",
+    "origins": [
+      "Hebrew",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "IE"
+    ],
+    "styles": [
+      "Classic",
+      "Friendly",
+      "Vintage"
+    ],
+    "meaning": "beloved, wished-for child",
+    "popularity": 70,
+    "syllables": 2,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "classic",
+      "friendly",
+      "vintage"
+    ]
+  },
+  {
+    "id": "olive",
+    "name": "Olive",
+    "gender": "girl",
+    "origins": [
+      "Latin",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Nature",
+      "Vintage",
+      "Classic"
+    ],
+    "meaning": "olive tree",
+    "popularity": 68,
+    "syllables": 2,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "nature",
+      "vintage",
+      "classic"
+    ]
+  },
+  {
+    "id": "sara",
+    "name": "Sara",
+    "gender": "girl",
+    "origins": [
+      "Hebrew"
+    ],
+    "countries": [
+      "ES",
+      "IT",
+      "DE",
+      "US"
+    ],
+    "styles": [
+      "Classic",
+      "Biblical",
+      "International"
+    ],
+    "meaning": "princess",
+    "popularity": 74,
+    "syllables": 2,
+    "variants": [
+      "Sarah"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "biblical",
+      "international"
+    ]
+  },
+  {
+    "id": "lia",
+    "name": "Lia",
+    "gender": "girl",
+    "origins": [
+      "Hebrew",
+      "Italian"
+    ],
+    "countries": [
+      "IT",
+      "DE",
+      "US"
+    ],
+    "styles": [
+      "Short",
+      "Modern",
+      "International"
+    ],
+    "meaning": "weary, bearer of good news",
+    "popularity": 68,
+    "syllables": 2,
+    "variants": [
+      "Leah"
+    ],
+    "similar": [],
+    "tags": [
+      "short",
+      "modern",
+      "international"
+    ]
+  },
+  {
+    "id": "mabel",
+    "name": "Mabel",
+    "gender": "girl",
+    "origins": [
+      "Latin",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Vintage",
+      "Classic",
+      "Elegant"
+    ],
+    "meaning": "lovable",
+    "popularity": 64,
+    "syllables": 2,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "vintage",
+      "classic",
+      "elegant"
+    ]
+  },
+  {
+    "id": "vera",
+    "name": "Vera",
+    "gender": "girl",
+    "origins": [
+      "Slavic",
+      "Latin"
+    ],
+    "countries": [
+      "DE",
+      "US",
+      "RU"
+    ],
+    "styles": [
+      "Classic",
+      "Short",
+      "Virtue"
+    ],
+    "meaning": "faith, truth",
+    "popularity": 68,
+    "syllables": 2,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "classic",
+      "short",
+      "virtue"
+    ]
+  },
+  {
+    "id": "jasmine",
+    "name": "Jasmine",
+    "gender": "girl",
+    "origins": [
+      "Persian",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "IR"
+    ],
+    "styles": [
+      "Nature",
+      "Elegant",
+      "Classic"
+    ],
+    "meaning": "jasmine flower",
+    "popularity": 70,
+    "syllables": 2,
+    "variants": [
+      "Yasmin"
+    ],
+    "similar": [],
+    "tags": [
+      "nature",
+      "elegant",
+      "flower"
+    ]
+  },
+  {
+    "id": "zara",
+    "name": "Zara",
+    "gender": "girl",
+    "origins": [
+      "Arabic",
+      "Hebrew"
+    ],
+    "countries": [
+      "GB",
+      "US",
+      "DE"
+    ],
+    "styles": [
+      "Short",
+      "Modern",
+      "Elegant"
+    ],
+    "meaning": "radiance, blooming flower",
+    "popularity": 68,
+    "syllables": 2,
+    "variants": [
+      "Zahra"
+    ],
+    "similar": [],
+    "tags": [
+      "short",
+      "modern",
+      "elegant"
+    ]
+  },
+  {
+    "id": "dahlia",
+    "name": "Dahlia",
+    "gender": "girl",
+    "origins": [
+      "Latin",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "SE"
+    ],
+    "styles": [
+      "Nature",
+      "Elegant",
+      "Vintage"
+    ],
+    "meaning": "dahlia flower",
+    "popularity": 62,
+    "syllables": 3,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "nature",
+      "elegant",
+      "flower"
+    ]
+  },
+  {
+    "id": "selah",
+    "name": "Selah",
+    "gender": "girl",
+    "origins": [
+      "Hebrew"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Biblical",
+      "Elegant",
+      "Peaceful"
+    ],
+    "meaning": "pause, reflection",
+    "popularity": 64,
+    "syllables": 2,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "biblical",
+      "elegant",
+      "peaceful"
+    ]
+  },
+  {
+    "id": "jane",
+    "name": "Jane",
+    "gender": "girl",
+    "origins": [
+      "Hebrew",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Classic",
+      "Short",
+      "Elegant"
+    ],
+    "meaning": "God is gracious",
+    "popularity": 70,
+    "syllables": 1,
+    "variants": [
+      "Janet",
+      "Janie"
+    ],
+    "similar": [],
+    "tags": [
+      "classic",
+      "short",
+      "timeless"
+    ]
+  },
+  {
+    "id": "brianna",
+    "name": "Brianna",
+    "gender": "girl",
+    "origins": [
+      "Irish",
+      "Celtic"
+    ],
+    "countries": [
+      "US",
+      "IE",
+      "GB"
+    ],
+    "styles": [
+      "Modern",
+      "Strong",
+      "International"
+    ],
+    "meaning": "noble, strong",
+    "popularity": 68,
+    "syllables": 3,
+    "variants": [
+      "Briana"
+    ],
+    "similar": [],
+    "tags": [
+      "modern",
+      "strong",
+      "international"
+    ]
+  },
+  {
+    "id": "maisie",
+    "name": "Maisie",
+    "gender": "girl",
+    "origins": [
+      "Greek",
+      "Scottish"
+    ],
+    "countries": [
+      "GB",
+      "US"
+    ],
+    "styles": [
+      "Vintage",
+      "Friendly",
+      "Bright"
+    ],
+    "meaning": "pearl",
+    "popularity": 66,
+    "syllables": 2,
+    "variants": [
+      "Maisy"
+    ],
+    "similar": [],
+    "tags": [
+      "vintage",
+      "friendly",
+      "bright"
+    ]
+  },
+  {
+    "id": "arianna",
+    "name": "Arianna",
+    "gender": "girl",
+    "origins": [
+      "Greek",
+      "Italian"
+    ],
+    "countries": [
+      "US",
+      "IT"
+    ],
+    "styles": [
+      "Elegant",
+      "Modern",
+      "International"
+    ],
+    "meaning": "most holy",
+    "popularity": 70,
+    "syllables": 4,
+    "variants": [
+      "Ariana"
+    ],
+    "similar": [],
+    "tags": [
+      "elegant",
+      "modern",
+      "international"
+    ]
+  },
+  {
+    "id": "andrea",
+    "name": "Andrea",
+    "gender": "girl",
+    "origins": [
+      "Greek",
+      "Italian"
+    ],
+    "countries": [
+      "US",
+      "IT",
+      "ES"
+    ],
+    "styles": [
+      "Classic",
+      "International",
+      "Strong"
+    ],
+    "meaning": "strong, brave",
+    "popularity": 68,
+    "syllables": 3,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "classic",
+      "international",
+      "strong"
+    ]
+  },
+  {
+    "id": "nyla",
+    "name": "Nyla",
+    "gender": "girl",
+    "origins": [
+      "Arabic",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Modern",
+      "Short",
+      "Elegant"
+    ],
+    "meaning": "winner, achiever",
+    "popularity": 64,
+    "syllables": 2,
+    "variants": [],
+    "similar": [],
+    "tags": [
+      "modern",
+      "short",
+      "elegant"
+    ]
+  }
+]
