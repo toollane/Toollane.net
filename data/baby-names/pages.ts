@@ -272,6 +272,112 @@ alphabet.forEach((letter) => {
   );
 });
 
+const originPages = [
+  "Arabic",
+  "Celtic",
+  "Chinese",
+  "Danish",
+  "Dutch",
+  "English",
+  "French",
+  "German",
+  "Greek",
+  "Hawaiian",
+  "Hebrew",
+  "Indian",
+  "Irish",
+  "Italian",
+  "Japanese",
+  "Korean",
+  "Latin",
+  "Native American",
+  "Nordic",
+  "Persian",
+  "Polish",
+  "Portuguese",
+  "Russian",
+  "Sanskrit",
+  "Scandinavian",
+  "Scottish",
+  "Slavic",
+  "Spanish",
+  "Turkish",
+  "Welsh",
+];
+
+function createSlug(value: string) {
+  return value.toLowerCase().replace(/\s+/g, "-");
+}
+
+originPages.forEach((origin) => {
+  const slug = createSlug(origin);
+
+  babyNamePages.push({
+    slug: `${slug}-baby-names`,
+    title: `${origin} Baby Names`,
+    description: `Browse ${origin} baby names including meanings, origins, styles and popularity.`,
+    seoTitle: `${origin} Baby Names | Toollane`,
+    seoDescription: `Discover ${origin} baby names for boys, girls and unisex name ideas. Explore meanings, origins, styles and popularity.`,
+    filter: (name) => name.origins.includes(origin),
+  });
+});
+
+const stylePages = [
+  "Adventurous",
+  "Ancient",
+  "Biblical",
+  "Bright",
+  "Celtic",
+  "Celestial",
+  "Classic",
+  "Color",
+  "Elegant",
+  "French",
+  "Friendly",
+  "Gemstone",
+  "German",
+  "International",
+  "Irish",
+  "Italian",
+  "Modern",
+  "Musical",
+  "Mythological",
+  "Nature",
+  "Nordic",
+  "Old Fashioned",
+  "Old Money",
+  "Peaceful",
+  "Place",
+  "Popular",
+  "Rare",
+  "Romantic",
+  "Royal",
+  "Scottish",
+  "Seasonal",
+  "Short",
+  "Soft",
+  "Spanish",
+  "Strong",
+  "Surname",
+  "Unisex",
+  "Vintage",
+  "Virtue",
+  "Welsh",
+];
+
+stylePages.forEach((style) => {
+  const slug = createSlug(style);
+
+  babyNamePages.push({
+    slug: `${slug}-baby-name-ideas`,
+    title: `${style} Baby Names`,
+    description: `Browse ${style.toLowerCase()} baby names including meanings, origins, styles and popularity.`,
+    seoTitle: `${style} Baby Names | Toollane`,
+    seoDescription: `Discover ${style.toLowerCase()} baby names for boys, girls and unisex name ideas. Explore meanings, origins, styles and popularity.`,
+    filter: (name) => name.styles.includes(style),
+  });
+});
+
 export function getBabyNamePage(slug: string) {
   return babyNamePages.find((page) => page.slug === slug);
 }
