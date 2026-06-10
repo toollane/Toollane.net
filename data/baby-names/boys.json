@@ -23,7 +23,7 @@
     "similar": [
       "Julian",
       "Dominic",
-      "Luca"
+      "Anthony"
     ],
     "tags": [
       "classic",
@@ -197,6 +197,40 @@
       "scottish",
       "strong",
       "vintage"
+    ]
+  },
+  {
+    "id": "anthony",
+    "name": "Anthony",
+    "gender": "boy",
+    "origins": [
+      "Latin"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "IT"
+    ],
+    "styles": [
+      "Modern",
+      "Popular",
+      "Classic",
+      "Strong"
+    ],
+    "meaning": "priceless, highly praiseworthy",
+    "popularity": 80,
+    "syllables": 3,
+    "variants": [],
+    "similar": [
+      "Charles",
+      "Thomas",
+      "Luke"
+    ],
+    "tags": [
+      "modern",
+      "popular",
+      "classic",
+      "strong"
     ]
   },
   {
@@ -389,8 +423,8 @@
     ],
     "similar": [
       "Caleb",
-      "Jonah",
-      "Jude"
+      "Josiah",
+      "Matthew"
     ],
     "tags": [
       "biblical",
@@ -421,7 +455,7 @@
     "similar": [
       "Phoenix",
       "Hector",
-      "Orion"
+      "Thomas"
     ],
     "tags": [
       "mythological",
@@ -558,11 +592,42 @@
     "similar": [
       "Samuel",
       "Jacob",
-      "Tobias"
+      "Michael"
     ],
     "tags": [
       "biblical",
       "classic",
+      "popular"
+    ]
+  },
+  {
+    "id": "bennett",
+    "name": "Bennett",
+    "gender": "boy",
+    "origins": [
+      "Latin",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "IT"
+    ],
+    "styles": [
+      "Modern",
+      "Popular"
+    ],
+    "meaning": "blessed",
+    "popularity": 85,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Miles",
+      "Carter",
+      "Cooper"
+    ],
+    "tags": [
+      "modern",
       "popular"
     ]
   },
@@ -589,7 +654,7 @@
     "similar": [
       "Asher",
       "Jonah",
-      "Ethan"
+      "Josiah"
     ],
     "tags": [
       "biblical",
@@ -632,6 +697,37 @@
     ]
   },
   {
+    "id": "carter",
+    "name": "Carter",
+    "gender": "boy",
+    "origins": [
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Modern",
+      "Popular",
+      "Surname"
+    ],
+    "meaning": "cart driver",
+    "popularity": 85,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Cooper",
+      "Grayson",
+      "Hudson"
+    ],
+    "tags": [
+      "modern",
+      "popular",
+      "surname"
+    ]
+  },
+  {
     "id": "caspar",
     "name": "Caspar",
     "gender": "boy",
@@ -666,6 +762,42 @@
     ]
   },
   {
+    "id": "charles",
+    "name": "Charles",
+    "gender": "boy",
+    "origins": [
+      "German",
+      "English"
+    ],
+    "countries": [
+      "DE",
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Modern",
+      "Popular",
+      "Classic",
+      "Strong"
+    ],
+    "meaning": "free man",
+    "popularity": 80,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Thomas",
+      "Anthony",
+      "Jackson"
+    ],
+    "tags": [
+      "modern",
+      "popular",
+      "classic",
+      "strong",
+      "german"
+    ]
+  },
+  {
     "id": "cian",
     "name": "Cian",
     "gender": "boy",
@@ -696,6 +828,37 @@
       "irish",
       "short",
       "rare"
+    ]
+  },
+  {
+    "id": "cooper",
+    "name": "Cooper",
+    "gender": "boy",
+    "origins": [
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Modern",
+      "Popular",
+      "Surname"
+    ],
+    "meaning": "barrel maker",
+    "popularity": 85,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Carter",
+      "Grayson",
+      "Hudson"
+    ],
+    "tags": [
+      "modern",
+      "popular",
+      "surname"
     ]
   },
   {
@@ -884,7 +1047,7 @@
     "similar": [
       "Mateo",
       "Santiago",
-      "Ximena"
+      "Thiago"
     ],
     "tags": [
       "spanish",
@@ -1181,8 +1344,8 @@
     "variants": [],
     "similar": [
       "Elijah",
-      "Levi",
-      "Jacob"
+      "Matthew",
+      "Levi"
     ],
     "tags": [
       "biblical",
@@ -1245,9 +1408,9 @@
     "syllables": 3,
     "variants": [],
     "similar": [
+      "Charles",
       "Wyatt",
-      "Jackson",
-      "William"
+      "Jackson"
     ],
     "tags": [
       "vintage",
@@ -1345,7 +1508,7 @@
     "similar": [
       "Lucas",
       "Oliver",
-      "Sebastian"
+      "Anthony"
     ],
     "tags": [
       "happy",
@@ -1413,8 +1576,8 @@
     ],
     "similar": [
       "Liam",
-      "Aiden",
-      "Theo"
+      "Luke",
+      "Jack"
     ],
     "tags": [
       "short",
@@ -1582,8 +1745,8 @@
     "variants": [],
     "similar": [
       "Callum",
-      "Hector",
-      "Kieran"
+      "Charles",
+      "Thomas"
     ],
     "tags": [
       "bird",
@@ -1623,6 +1786,37 @@
       "italian",
       "classic",
       "elegant"
+    ]
+  },
+  {
+    "id": "grayson",
+    "name": "Grayson",
+    "gender": "boy",
+    "origins": [
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Modern",
+      "Popular",
+      "Surname"
+    ],
+    "meaning": "son of the steward",
+    "popularity": 80,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Waylon",
+      "Weston",
+      "Carter"
+    ],
+    "tags": [
+      "modern",
+      "popular",
+      "surname"
     ]
   },
   {
@@ -1682,7 +1876,7 @@
     "similar": [
       "Atlas",
       "Orion",
-      "Ares"
+      "Thomas"
     ],
     "tags": [
       "mythological",
@@ -1762,6 +1956,37 @@
     ]
   },
   {
+    "id": "hudson",
+    "name": "Hudson",
+    "gender": "boy",
+    "origins": [
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Modern",
+      "Popular",
+      "Surname"
+    ],
+    "meaning": "son of Hugh",
+    "popularity": 90,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Carter",
+      "Cooper",
+      "Grayson"
+    ],
+    "tags": [
+      "modern",
+      "popular",
+      "surname"
+    ]
+  },
+  {
     "id": "hugo",
     "name": "Hugo",
     "gender": "boy",
@@ -1786,7 +2011,7 @@
     "similar": [
       "Max",
       "Theo",
-      "Emil"
+      "Charles"
     ],
     "tags": [
       "short",
@@ -1860,6 +2085,37 @@
     ]
   },
   {
+    "id": "jack",
+    "name": "Jack",
+    "gender": "boy",
+    "origins": [
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Modern",
+      "Popular",
+      "Short"
+    ],
+    "meaning": "God is gracious",
+    "popularity": 90,
+    "syllables": 1,
+    "variants": [],
+    "similar": [
+      "Miles",
+      "Luke",
+      "John"
+    ],
+    "tags": [
+      "modern",
+      "popular",
+      "short"
+    ]
+  },
+  {
     "id": "jackson",
     "name": "Jackson",
     "gender": "boy",
@@ -1882,9 +2138,9 @@
       "Jaxon"
     ],
     "similar": [
+      "Charles",
       "Wyatt",
-      "Mason",
-      "Logan"
+      "Mason"
     ],
     "tags": [
       "modern",
@@ -1917,8 +2173,8 @@
     ],
     "similar": [
       "Samuel",
-      "Benjamin",
-      "Hannah"
+      "Matthew",
+      "Michael"
     ],
     "tags": [
       "biblical",
@@ -1951,9 +2207,9 @@
       "Jamie"
     ],
     "similar": [
+      "John",
       "Henry",
-      "William",
-      "Frederick"
+      "William"
     ],
     "tags": [
       "classic",
@@ -1991,6 +2247,41 @@
       "vintage",
       "elegant",
       "popular"
+    ]
+  },
+  {
+    "id": "john",
+    "name": "John",
+    "gender": "boy",
+    "origins": [
+      "Hebrew",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "IL"
+    ],
+    "styles": [
+      "Modern",
+      "Popular",
+      "Biblical",
+      "Classic"
+    ],
+    "meaning": "God is gracious",
+    "popularity": 90,
+    "syllables": 1,
+    "variants": [],
+    "similar": [
+      "Michael",
+      "Matthew",
+      "Josiah"
+    ],
+    "tags": [
+      "modern",
+      "popular",
+      "biblical",
+      "classic"
     ]
   },
   {
@@ -2060,6 +2351,38 @@
     ]
   },
   {
+    "id": "josiah",
+    "name": "Josiah",
+    "gender": "boy",
+    "origins": [
+      "Hebrew"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "IL"
+    ],
+    "styles": [
+      "Modern",
+      "Popular",
+      "Biblical"
+    ],
+    "meaning": "God supports, God heals",
+    "popularity": 80,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Matthew",
+      "Michael",
+      "John"
+    ],
+    "tags": [
+      "modern",
+      "popular",
+      "biblical"
+    ]
+  },
+  {
     "id": "jude",
     "name": "Jude",
     "gender": "boy",
@@ -2081,9 +2404,9 @@
     "syllables": 1,
     "variants": [],
     "similar": [
-      "Ezra",
-      "Paul",
-      "Jonah"
+      "Luke",
+      "John",
+      "Ezra"
     ],
     "tags": [
       "short",
@@ -2317,8 +2640,8 @@
     ],
     "similar": [
       "Max",
-      "Milo",
-      "Leon"
+      "Charles",
+      "Miles"
     ],
     "tags": [
       "short",
@@ -2351,9 +2674,9 @@
       "Leo"
     ],
     "similar": [
-      "Theo",
-      "Leo",
-      "Hugo"
+      "Charles",
+      "Thomas",
+      "Theo"
     ],
     "tags": [
       "short",
@@ -2416,9 +2739,9 @@
     "syllables": 2,
     "variants": [],
     "similar": [
-      "Ezra",
-      "Ethan",
-      "Jacob"
+      "Matthew",
+      "Josiah",
+      "Michael"
     ],
     "tags": [
       "biblical",
@@ -2451,8 +2774,8 @@
     ],
     "similar": [
       "Finn",
-      "Leo",
-      "Aiden"
+      "Miles",
+      "Jack"
     ],
     "tags": [
       "short",
@@ -2514,8 +2837,8 @@
     "variants": [],
     "similar": [
       "Mason",
-      "Jackson",
-      "Wyatt"
+      "Charles",
+      "Jackson"
     ],
     "tags": [
       "scottish",
@@ -2622,7 +2945,7 @@
     "similar": [
       "Nico",
       "Lucas",
-      "Adrian"
+      "Bennett"
     ],
     "tags": [
       "international",
@@ -2656,14 +2979,50 @@
       "Luke"
     ],
     "similar": [
+      "Luke",
       "Sebastian",
-      "Luca",
-      "Felix"
+      "Luca"
     ],
     "tags": [
       "international",
       "classic",
       "popular"
+    ]
+  },
+  {
+    "id": "luke",
+    "name": "Luke",
+    "gender": "boy",
+    "origins": [
+      "Greek",
+      "Latin"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "GR",
+      "IT"
+    ],
+    "styles": [
+      "Modern",
+      "Popular",
+      "Classic",
+      "Short"
+    ],
+    "meaning": "light-giving, man from Lucania",
+    "popularity": 85,
+    "syllables": 1,
+    "variants": [],
+    "similar": [
+      "Miles",
+      "Thomas",
+      "Theo"
+    ],
+    "tags": [
+      "modern",
+      "popular",
+      "classic",
+      "short"
     ]
   },
   {
@@ -2785,9 +3144,9 @@
     "syllables": 2,
     "variants": [],
     "similar": [
+      "Charles",
       "Jackson",
-      "Wyatt",
-      "Logan"
+      "Wyatt"
     ],
     "tags": [
       "occupation",
@@ -2820,9 +3179,9 @@
       "Matteo"
     ],
     "similar": [
+      "Thiago",
       "Diego",
-      "Santiago",
-      "Noah"
+      "Santiago"
     ],
     "tags": [
       "spanish",
@@ -2863,6 +3222,71 @@
       "italian",
       "popular",
       "elegant"
+    ]
+  },
+  {
+    "id": "matthew",
+    "name": "Matthew",
+    "gender": "boy",
+    "origins": [
+      "Hebrew"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "IL"
+    ],
+    "styles": [
+      "Modern",
+      "Popular",
+      "Biblical",
+      "Classic"
+    ],
+    "meaning": "gift of God",
+    "popularity": 85,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Michael",
+      "John",
+      "Josiah"
+    ],
+    "tags": [
+      "modern",
+      "popular",
+      "biblical",
+      "classic"
+    ]
+  },
+  {
+    "id": "maverick",
+    "name": "Maverick",
+    "gender": "boy",
+    "origins": [
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Modern",
+      "Popular",
+      "Surname"
+    ],
+    "meaning": "independent, nonconformist",
+    "popularity": 80,
+    "syllables": 3,
+    "variants": [],
+    "similar": [
+      "Grayson",
+      "Waylon",
+      "Weston"
+    ],
+    "tags": [
+      "modern",
+      "popular",
+      "surname"
     ]
   },
   {
@@ -2936,6 +3360,73 @@
     ]
   },
   {
+    "id": "michael",
+    "name": "Michael",
+    "gender": "boy",
+    "origins": [
+      "Hebrew"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "IL"
+    ],
+    "styles": [
+      "Modern",
+      "Popular",
+      "Biblical",
+      "Classic"
+    ],
+    "meaning": "who is like God?",
+    "popularity": 90,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Matthew",
+      "John",
+      "Josiah"
+    ],
+    "tags": [
+      "modern",
+      "popular",
+      "biblical",
+      "classic"
+    ]
+  },
+  {
+    "id": "miles",
+    "name": "Miles",
+    "gender": "boy",
+    "origins": [
+      "Latin",
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "IT"
+    ],
+    "styles": [
+      "Modern",
+      "Popular",
+      "Short"
+    ],
+    "meaning": "soldier, merciful",
+    "popularity": 85,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Bennett",
+      "Luke",
+      "Jack"
+    ],
+    "tags": [
+      "modern",
+      "popular",
+      "short"
+    ]
+  },
+  {
     "id": "milo",
     "name": "Milo",
     "gender": "boy",
@@ -2962,7 +3453,7 @@
     "similar": [
       "Theo",
       "Emil",
-      "Leo"
+      "Miles"
     ],
     "tags": [
       "short",
@@ -3131,9 +3622,9 @@
       "Noa"
     ],
     "similar": [
-      "Jacob",
-      "Jonah",
-      "Benjamin"
+      "Michael",
+      "Matthew",
+      "Josiah"
     ],
     "tags": [
       "biblical",
@@ -3167,8 +3658,8 @@
     ],
     "similar": [
       "Sebastian",
-      "Lucas",
-      "Emily"
+      "Anthony",
+      "Lucas"
     ],
     "tags": [
       "classic",
@@ -3329,9 +3820,9 @@
     "syllables": 2,
     "variants": [],
     "similar": [
+      "Charles",
       "Jacob",
-      "Samuel",
-      "Dylan"
+      "Matthew"
     ],
     "tags": [
       "welsh",
@@ -3528,9 +4019,9 @@
     "syllables": 2,
     "variants": [],
     "similar": [
-      "Vincent",
-      "Victor",
-      "Adrian"
+      "Anthony",
+      "Charles",
+      "Vincent"
     ],
     "tags": [
       "roman",
@@ -3660,7 +4151,7 @@
     "similar": [
       "Benjamin",
       "Jacob",
-      "Tobias"
+      "Matthew"
     ],
     "tags": [
       "biblical",
@@ -3730,7 +4221,7 @@
     "similar": [
       "Oliver",
       "Lucas",
-      "Julian"
+      "Luke"
     ],
     "tags": [
       "classic",
@@ -3864,9 +4355,9 @@
       "Theodore"
     ],
     "similar": [
-      "Milo",
-      "Max",
-      "Leon"
+      "Luke",
+      "Charles",
+      "Milo"
     ],
     "tags": [
       "short",
@@ -3901,12 +4392,80 @@
     "similar": [
       "Sebastian",
       "Lucas",
-      "Benjamin"
+      "Thomas"
     ],
     "tags": [
       "classic",
       "vintage",
       "popular"
+    ]
+  },
+  {
+    "id": "thiago",
+    "name": "Thiago",
+    "gender": "boy",
+    "origins": [
+      "Spanish",
+      "Portuguese"
+    ],
+    "countries": [
+      "ES",
+      "US",
+      "MX",
+      "PT",
+      "BR"
+    ],
+    "styles": [
+      "Modern",
+      "Popular"
+    ],
+    "meaning": "supplanter",
+    "popularity": 80,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Mateo",
+      "Diego",
+      "Charles"
+    ],
+    "tags": [
+      "modern",
+      "popular",
+      "spanish"
+    ]
+  },
+  {
+    "id": "thomas",
+    "name": "Thomas",
+    "gender": "boy",
+    "origins": [
+      "Greek"
+    ],
+    "countries": [
+      "US",
+      "GB",
+      "GR"
+    ],
+    "styles": [
+      "Modern",
+      "Popular",
+      "Classic",
+      "Strong"
+    ],
+    "meaning": "twin",
+    "popularity": 85,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Charles",
+      "Luke",
+      "Anthony"
+    ],
+    "tags": [
+      "modern",
+      "popular",
+      "classic",
+      "strong"
     ]
   },
   {
@@ -4045,6 +4604,97 @@
     ]
   },
   {
+    "id": "waylon",
+    "name": "Waylon",
+    "gender": "boy",
+    "origins": [
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Modern",
+      "Popular",
+      "Surname"
+    ],
+    "meaning": "land beside the road",
+    "popularity": 80,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Grayson",
+      "Weston",
+      "Carter"
+    ],
+    "tags": [
+      "modern",
+      "popular",
+      "surname"
+    ]
+  },
+  {
+    "id": "wesley",
+    "name": "Wesley",
+    "gender": "boy",
+    "origins": [
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Modern",
+      "Popular"
+    ],
+    "meaning": "western meadow",
+    "popularity": 80,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Charles",
+      "Grayson",
+      "Jackson"
+    ],
+    "tags": [
+      "modern",
+      "popular"
+    ]
+  },
+  {
+    "id": "weston",
+    "name": "Weston",
+    "gender": "boy",
+    "origins": [
+      "English"
+    ],
+    "countries": [
+      "US",
+      "GB"
+    ],
+    "styles": [
+      "Modern",
+      "Popular",
+      "Surname"
+    ],
+    "meaning": "western town",
+    "popularity": 80,
+    "syllables": 2,
+    "variants": [],
+    "similar": [
+      "Grayson",
+      "Waylon",
+      "Carter"
+    ],
+    "tags": [
+      "modern",
+      "popular",
+      "surname"
+    ]
+  },
+  {
     "id": "william",
     "name": "William",
     "gender": "boy",
@@ -4072,7 +4722,7 @@
     "similar": [
       "Henry",
       "Frederick",
-      "Maximilian"
+      "Charles"
     ],
     "tags": [
       "classic",
@@ -4101,9 +4751,9 @@
     "syllables": 2,
     "variants": [],
     "similar": [
+      "Charles",
       "Jackson",
-      "Mason",
-      "Logan"
+      "Mason"
     ],
     "tags": [
       "strong",

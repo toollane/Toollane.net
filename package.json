@@ -13,8 +13,13 @@
     "enrich:baby-names": "tsx scripts/enrich-baby-name-similar.ts",
     "process:baby-names": "npm run merge:baby-names && npm run enrich:baby-names && npm run validate:baby-names && npm run build",
     "import:ssa-baby-names": "tsx scripts/import-ssa-baby-names.ts",
-    "export:baby-name-candidates": "tsx scripts/export-baby-name-candidates.ts"
-  },
+    "export:baby-name-candidates": "tsx scripts/export-baby-name-candidates.ts",
+    "create:baby-name-master": "tsx scripts/create-baby-name-master.ts",
+    "sync:baby-name-json": "tsx scripts/sync-baby-name-json.ts",
+    "rebuild:baby-names": "npm run enrich:baby-names && npm run sync:baby-name-json && npm run validate:baby-names && npm run build",
+    "add:baby-name-candidates": "tsx scripts/add-baby-name-candidates-to-master.ts",
+    "clean:baby-name-master": "tsx scripts/clean-baby-name-master.ts"
+},
   "dependencies": {
     "@imgly/background-removal": "^1.7.0",
     "heic2any": "^0.0.4",

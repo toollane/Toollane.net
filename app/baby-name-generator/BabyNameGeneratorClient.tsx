@@ -131,7 +131,7 @@ export default function BabyNameGeneratorClient() {
     hasActiveFilters,
   ]);
 
-  const randomPool = hasActiveFilters ? results : BABY_NAMES;
+  const randomPool = results;
   const randomName = randomNameId
     ? BABY_NAMES.find((item) => item.id === randomNameId)
     : null;
@@ -139,16 +139,21 @@ export default function BabyNameGeneratorClient() {
   const visibleResults = results.slice(0, visibleCount);
   const hasMoreResults = results.length > visibleResults.length;
 
-  function generateRandomName() {
-    if (!randomPool.length) {
-      setError("No names are available for the current filters.");
-      return;
-    }
-
-    const randomIndex = Math.floor(Math.random() * randomPool.length);
-    setRandomNameId(randomPool[randomIndex].id);
-    setError("");
+ function generateRandomName() {
+  if (!hasActiveFilters) {
+    setError("Choose at least one filter first, then generate a random name from your results.");
+    return;
   }
+
+  if (!randomPool.length) {
+    setError("No names are available for the current filters.");
+    return;
+  }
+
+  const randomIndex = Math.floor(Math.random() * randomPool.length);
+  setRandomNameId(randomPool[randomIndex].id);
+  setError("");
+}
 
   function toggleFavorite(name: string) {
     setFavorites((current) =>

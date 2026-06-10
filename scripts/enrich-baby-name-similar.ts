@@ -1,8 +1,6 @@
 import fs from "fs";
 import path from "path";
 
-const files = ["girls", "boys", "unisex"] as const;
-
 type BabyName = {
   id: string;
   name: string;
@@ -18,19 +16,22 @@ type BabyName = {
   tags: string[];
 };
 
-function readJson(file: string): BabyName[] {
-  return JSON.parse(fs.readFileSync(file, "utf8")) as BabyName[];
-}
-
-function writeJson(file: string, data: BabyName[]) {
-  fs.writeFileSync(file, `${JSON.stringify(data, null, 2)}\n`);
-}
-
-const paths = files.map((file) =>
-  path.join("data", "baby-names", `${file}.json`)
+const masterPath = path.join(
+  "data",
+  "baby-names",
+  "database",
+  "baby-names.master.json"
 );
 
-const allNames = paths.flatMap(readJson);
+function readJson(filePath: string): BabyName[] {
+  return JSON.parse(fs.readFileSync(filePath, "utf8")) as BabyName[];
+}
+
+function writeJson(filePath: string, data: BabyName[]) {
+  fs.writeFileSync(filePath, `${JSON.stringify(data, null, 2)}\n`);
+}
+
+const allNames = readJson(masterPath);
 
 function overlap(a: string[], b: string[]) {
   return a.filter((item) => b.includes(item)).length;
@@ -58,7 +59,6 @@ function scoreName(base: BabyName, candidate: BabyName) {
 
 function getSimilar(base: BabyName) {
   const usedDisplayNames = new Set<string>([base.name.toLowerCase()]);
-
   const result: string[] = [];
 
   const candidates = allNames
@@ -87,15 +87,13 @@ function getSimilar(base: BabyName) {
   return result;
 }
 
-for (const filePath of paths) {
-  const names = readJson(filePath);
-
-  const enriched = names.map((name) => ({
+const enriched = allNames
+  .map((name) => ({
     ...name,
     similar: getSimilar(name),
-  }));
+  }))
+  .sort((a, b) => a.name.localeCompare(b.name));
 
-  writeJson(filePath, enriched);
+writeJson(masterPath, enriched);
 
-  console.log(`Updated similar names in ${filePath}`);
-}
+console.log(`Updated similar names in master database: ${enriched.length} names`);
