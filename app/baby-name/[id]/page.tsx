@@ -106,8 +106,6 @@ return (
     />
 
     <main className="min-h-screen bg-[#fff8df] text-black">
-
-    <main className="min-h-screen bg-[#fff8df] text-black">
       <section className="relative overflow-hidden border-b border-black/10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_#ffe680,_transparent_35%),radial-gradient(circle_at_top_right,_#ffd6e7,_transparent_30%)]" />
 
@@ -284,7 +282,6 @@ return (
         </section>
       )}
     </main>
-    </main>
 </>
   );
 }
@@ -302,20 +299,56 @@ function InfoCard({ title, value }: { title: string; value: string }) {
   );
 }
 
-function DetailBox({ title, items }: { title: string; items: string[] }) {
+function createBabyNameSlug(value: string) {
+  return value.toLowerCase().replace(/\s+/g, "-");
+}
+
+function DetailBox({
+  title,
+  items,
+}: {
+  title: "Origins" | "Styles" | "Variants";
+  items: string[];
+}) {
   return (
     <div className="rounded-[2rem] border border-black/10 bg-white/80 p-6 shadow-sm">
       <h2 className="text-2xl font-black tracking-tight">{title}</h2>
 
       <div className="mt-5 flex flex-wrap gap-2">
-        {items.map((item) => (
-          <span
-            key={item}
-            className="rounded-full border border-black/10 bg-[#fff8df] px-3 py-2 text-xs font-bold text-black/70"
-          >
-            {item}
-          </span>
-        ))}
+        {items.map((item) => {
+          if (title === "Origins") {
+            return (
+              <Link
+                key={item}
+                href={`/baby-names/${createBabyNameSlug(item)}-baby-names`}
+                className="rounded-full border border-black/10 bg-[#fff8df] px-3 py-2 text-xs font-bold text-black/70 transition hover:border-black hover:text-black"
+              >
+                {item}
+              </Link>
+            );
+          }
+
+          if (title === "Styles") {
+            return (
+              <Link
+                key={item}
+                href={`/baby-names/${createBabyNameSlug(item)}-baby-name-ideas`}
+                className="rounded-full border border-black/10 bg-[#fff8df] px-3 py-2 text-xs font-bold text-black/70 transition hover:border-black hover:text-black"
+              >
+                {item}
+              </Link>
+            );
+          }
+
+          return (
+            <span
+              key={item}
+              className="rounded-full border border-black/10 bg-[#fff8df] px-3 py-2 text-xs font-bold text-black/70"
+            >
+              {item}
+            </span>
+          );
+        })}
       </div>
     </div>
   );
