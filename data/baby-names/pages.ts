@@ -378,6 +378,118 @@ stylePages.forEach((style) => {
   });
 });
 
+const seoCollectionPages = [
+  {
+    slug: "popular-baby-names",
+    title: "Popular Baby Names",
+    description:
+      "Browse popular baby names for girls, boys and unisex name ideas including meanings, origins and styles.",
+    seoTitle: "Popular Baby Names | Toollane",
+    seoDescription:
+      "Discover popular baby names for girls, boys and unisex name ideas. Explore meanings, origins, styles and name inspiration.",
+    filter: (name: BabyName) => name.popularity >= 75,
+  },
+  {
+    slug: "rare-baby-names",
+    title: "Rare Baby Names",
+    description:
+      "Browse rare and uncommon baby names with meanings, origins, styles and unique name ideas.",
+    seoTitle: "Rare Baby Names | Toollane",
+    seoDescription:
+      "Find rare baby names for girls, boys and unisex name ideas. Explore uncommon names with meanings, origins and styles.",
+    filter: (name: BabyName) => name.popularity < 50,
+  },
+  {
+    slug: "short-baby-names",
+    title: "Short Baby Names",
+    description:
+      "Browse short baby names that are simple, memorable and easy to pronounce.",
+    seoTitle: "Short Baby Names | Toollane",
+    seoDescription:
+      "Discover short baby names for girls, boys and unisex name ideas. Find simple, modern and classic short names.",
+    filter: (name: BabyName) => name.name.length <= 5,
+  },
+  {
+    slug: "vintage-baby-names",
+    title: "Vintage Baby Names",
+    description:
+      "Browse vintage baby names with timeless charm, classic style and meaningful origins.",
+    seoTitle: "Vintage Baby Names | Toollane",
+    seoDescription:
+      "Find vintage baby names for girls, boys and unisex name ideas. Explore classic names with meanings and origins.",
+    filter: (name: BabyName) =>
+      name.styles.includes("Vintage") || name.tags.includes("vintage"),
+  },
+  {
+    slug: "elegant-baby-names",
+    title: "Elegant Baby Names",
+    description:
+      "Browse elegant baby names with refined style, beautiful meanings and international appeal.",
+    seoTitle: "Elegant Baby Names | Toollane",
+    seoDescription:
+      "Discover elegant baby names for girls, boys and unisex name ideas. Explore refined names with meanings and origins.",
+    filter: (name: BabyName) =>
+      name.styles.includes("Elegant") || name.tags.includes("elegant"),
+  },
+  {
+    slug: "biblical-baby-names",
+    title: "Biblical Baby Names",
+    description:
+      "Browse biblical baby names with meaningful origins, traditional roots and timeless appeal.",
+    seoTitle: "Biblical Baby Names | Toollane",
+    seoDescription:
+      "Find biblical baby names for boys, girls and unisex name ideas. Explore meanings, origins and classic name inspiration.",
+    filter: (name: BabyName) =>
+      name.styles.includes("Biblical") || name.tags.includes("biblical"),
+  },
+  {
+    slug: "nature-baby-names",
+    title: "Nature Baby Names",
+    description:
+      "Browse nature-inspired baby names connected to flowers, trees, seasons, water, earth and the sky.",
+    seoTitle: "Nature Baby Names | Toollane",
+    seoDescription:
+      "Discover nature baby names for girls, boys and unisex name ideas. Explore flower names, tree names and nature-inspired meanings.",
+    filter: (name: BabyName) =>
+      name.styles.includes("Nature") || name.tags.includes("nature"),
+  },
+  {
+    slug: "strong-baby-names",
+    title: "Strong Baby Names",
+    description:
+      "Browse strong baby names with powerful meanings, confident sound and timeless character.",
+    seoTitle: "Strong Baby Names | Toollane",
+    seoDescription:
+      "Find strong baby names for girls, boys and unisex name ideas. Explore powerful names with meanings, origins and styles.",
+    filter: (name: BabyName) =>
+      name.styles.includes("Strong") || name.tags.includes("strong"),
+  },
+  {
+    slug: "royal-baby-names",
+    title: "Royal Baby Names",
+    description:
+      "Browse royal baby names with classic elegance, noble style and historic charm.",
+    seoTitle: "Royal Baby Names | Toollane",
+    seoDescription:
+      "Discover royal baby names for girls, boys and unisex name ideas. Explore noble, elegant and classic name inspiration.",
+    filter: (name: BabyName) =>
+      name.styles.includes("Royal") || name.tags.includes("royal"),
+  },
+  {
+    slug: "old-money-baby-names",
+    title: "Old Money Baby Names",
+    description:
+      "Browse old money baby names with classic, refined and timeless style.",
+    seoTitle: "Old Money Baby Names | Toollane",
+    seoDescription:
+      "Find old money baby names for girls, boys and unisex name ideas. Explore refined, classic and elegant names.",
+    filter: (name: BabyName) =>
+      name.styles.includes("Old Money") || name.tags.includes("old money"),
+  },
+];
+
+babyNamePages.push(...seoCollectionPages);
+
 export function getBabyNamePage(slug: string) {
   return babyNamePages.find((page) => page.slug === slug);
 }

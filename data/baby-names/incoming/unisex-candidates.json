@@ -1,0 +1,1752 @@
+[
+  {
+    "name": "Emery",
+    "femaleCount": 3208,
+    "maleCount": 305,
+    "totalCount": 3513,
+    "balance": 0.09507481296758105
+  },
+  {
+    "name": "Scottie",
+    "femaleCount": 2228,
+    "maleCount": 262,
+    "totalCount": 2490,
+    "balance": 0.11759425493716337
+  },
+  {
+    "name": "Remi",
+    "femaleCount": 2023,
+    "maleCount": 323,
+    "totalCount": 2346,
+    "balance": 0.15966386554621848
+  },
+  {
+    "name": "Bailey",
+    "femaleCount": 1446,
+    "maleCount": 138,
+    "totalCount": 1584,
+    "balance": 0.0954356846473029
+  },
+  {
+    "name": "Palmer",
+    "femaleCount": 1330,
+    "maleCount": 230,
+    "totalCount": 1560,
+    "balance": 0.17293233082706766
+  },
+  {
+    "name": "Aspen",
+    "femaleCount": 1179,
+    "maleCount": 256,
+    "totalCount": 1435,
+    "balance": 0.2171331636980492
+  },
+  {
+    "name": "Ariel",
+    "femaleCount": 851,
+    "maleCount": 533,
+    "totalCount": 1384,
+    "balance": 0.6263219741480611
+  },
+  {
+    "name": "Emory",
+    "femaleCount": 899,
+    "maleCount": 269,
+    "totalCount": 1168,
+    "balance": 0.2992213570634038
+  },
+  {
+    "name": "Harlow",
+    "femaleCount": 981,
+    "maleCount": 167,
+    "totalCount": 1148,
+    "balance": 0.17023445463812437
+  },
+  {
+    "name": "Murphy",
+    "femaleCount": 783,
+    "maleCount": 341,
+    "totalCount": 1124,
+    "balance": 0.4355044699872286
+  },
+  {
+    "name": "Leighton",
+    "femaleCount": 892,
+    "maleCount": 207,
+    "totalCount": 1099,
+    "balance": 0.2320627802690583
+  },
+  {
+    "name": "Kendall",
+    "femaleCount": 932,
+    "maleCount": 163,
+    "totalCount": 1095,
+    "balance": 0.17489270386266095
+  },
+  {
+    "name": "Marley",
+    "femaleCount": 950,
+    "maleCount": 131,
+    "totalCount": 1081,
+    "balance": 0.13789473684210526
+  },
+  {
+    "name": "Navy",
+    "femaleCount": 935,
+    "maleCount": 110,
+    "totalCount": 1045,
+    "balance": 0.11764705882352941
+  },
+  {
+    "name": "Reign",
+    "femaleCount": 682,
+    "maleCount": 333,
+    "totalCount": 1015,
+    "balance": 0.48826979472140764
+  },
+  {
+    "name": "Harley",
+    "femaleCount": 748,
+    "maleCount": 199,
+    "totalCount": 947,
+    "balance": 0.2660427807486631
+  },
+  {
+    "name": "Sevyn",
+    "femaleCount": 518,
+    "maleCount": 390,
+    "totalCount": 908,
+    "balance": 0.752895752895753
+  },
+  {
+    "name": "Denver",
+    "femaleCount": 326,
+    "maleCount": 578,
+    "totalCount": 904,
+    "balance": 0.5640138408304498
+  },
+  {
+    "name": "Carmen",
+    "femaleCount": 798,
+    "maleCount": 104,
+    "totalCount": 902,
+    "balance": 0.13032581453634084
+  },
+  {
+    "name": "Journey",
+    "femaleCount": 757,
+    "maleCount": 79,
+    "totalCount": 836,
+    "balance": 0.10435931307793923
+  },
+  {
+    "name": "Monroe",
+    "femaleCount": 658,
+    "maleCount": 157,
+    "totalCount": 815,
+    "balance": 0.23860182370820668
+  },
+  {
+    "name": "Campbell",
+    "femaleCount": 474,
+    "maleCount": 337,
+    "totalCount": 811,
+    "balance": 0.7109704641350211
+  },
+  {
+    "name": "Payton",
+    "femaleCount": 701,
+    "maleCount": 109,
+    "totalCount": 810,
+    "balance": 0.15549215406562053
+  },
+  {
+    "name": "Winter",
+    "femaleCount": 732,
+    "maleCount": 77,
+    "totalCount": 809,
+    "balance": 0.1051912568306011
+  },
+  {
+    "name": "Dream",
+    "femaleCount": 718,
+    "maleCount": 62,
+    "totalCount": 780,
+    "balance": 0.08635097493036212
+  },
+  {
+    "name": "Tru",
+    "femaleCount": 262,
+    "maleCount": 496,
+    "totalCount": 758,
+    "balance": 0.5282258064516129
+  },
+  {
+    "name": "Quincy",
+    "femaleCount": 335,
+    "maleCount": 422,
+    "totalCount": 757,
+    "balance": 0.7938388625592417
+  },
+  {
+    "name": "Amiri",
+    "femaleCount": 266,
+    "maleCount": 472,
+    "totalCount": 738,
+    "balance": 0.5635593220338984
+  },
+  {
+    "name": "Gianni",
+    "femaleCount": 164,
+    "maleCount": 571,
+    "totalCount": 735,
+    "balance": 0.287215411558669
+  },
+  {
+    "name": "Halo",
+    "femaleCount": 477,
+    "maleCount": 253,
+    "totalCount": 730,
+    "balance": 0.5303983228511531
+  },
+  {
+    "name": "Jream",
+    "femaleCount": 578,
+    "maleCount": 147,
+    "totalCount": 725,
+    "balance": 0.25432525951557095
+  },
+  {
+    "name": "Bellamy",
+    "femaleCount": 341,
+    "maleCount": 374,
+    "totalCount": 715,
+    "balance": 0.9117647058823529
+  },
+  {
+    "name": "Camryn",
+    "femaleCount": 644,
+    "maleCount": 63,
+    "totalCount": 707,
+    "balance": 0.09782608695652174
+  },
+  {
+    "name": "Saige",
+    "femaleCount": 640,
+    "maleCount": 59,
+    "totalCount": 699,
+    "balance": 0.0921875
+  },
+  {
+    "name": "Holland",
+    "femaleCount": 550,
+    "maleCount": 136,
+    "totalCount": 686,
+    "balance": 0.24727272727272728
+  },
+  {
+    "name": "Kamryn",
+    "femaleCount": 544,
+    "maleCount": 134,
+    "totalCount": 678,
+    "balance": 0.24632352941176472
+  },
+  {
+    "name": "Legacy",
+    "femaleCount": 429,
+    "maleCount": 244,
+    "totalCount": 673,
+    "balance": 0.5687645687645687
+  },
+  {
+    "name": "Akari",
+    "femaleCount": 104,
+    "maleCount": 554,
+    "totalCount": 658,
+    "balance": 0.18772563176895307
+  },
+  {
+    "name": "Chosen",
+    "femaleCount": 101,
+    "maleCount": 540,
+    "totalCount": 641,
+    "balance": 0.18703703703703703
+  },
+  {
+    "name": "Oaklee",
+    "femaleCount": 565,
+    "maleCount": 75,
+    "totalCount": 640,
+    "balance": 0.13274336283185842
+  },
+  {
+    "name": "Chandler",
+    "femaleCount": 296,
+    "maleCount": 342,
+    "totalCount": 638,
+    "balance": 0.8654970760233918
+  },
+  {
+    "name": "Devin",
+    "femaleCount": 86,
+    "maleCount": 548,
+    "totalCount": 634,
+    "balance": 0.15693430656934307
+  },
+  {
+    "name": "Ozzy",
+    "femaleCount": 70,
+    "maleCount": 548,
+    "totalCount": 618,
+    "balance": 0.12773722627737227
+  },
+  {
+    "name": "Cassidy",
+    "femaleCount": 558,
+    "maleCount": 51,
+    "totalCount": 609,
+    "balance": 0.0913978494623656
+  },
+  {
+    "name": "Porter",
+    "femaleCount": 68,
+    "maleCount": 531,
+    "totalCount": 599,
+    "balance": 0.128060263653484
+  },
+  {
+    "name": "Lyric",
+    "femaleCount": 451,
+    "maleCount": 132,
+    "totalCount": 583,
+    "balance": 0.2926829268292683
+  },
+  {
+    "name": "Memphis",
+    "femaleCount": 143,
+    "maleCount": 437,
+    "totalCount": 580,
+    "balance": 0.32723112128146453
+  },
+  {
+    "name": "Sol",
+    "femaleCount": 389,
+    "maleCount": 184,
+    "totalCount": 573,
+    "balance": 0.4730077120822622
+  },
+  {
+    "name": "Madden",
+    "femaleCount": 168,
+    "maleCount": 402,
+    "totalCount": 570,
+    "balance": 0.417910447761194
+  },
+  {
+    "name": "Layne",
+    "femaleCount": 156,
+    "maleCount": 414,
+    "totalCount": 570,
+    "balance": 0.37681159420289856
+  },
+  {
+    "name": "Rocky",
+    "femaleCount": 43,
+    "maleCount": 520,
+    "totalCount": 563,
+    "balance": 0.08269230769230769
+  },
+  {
+    "name": "Karsyn",
+    "femaleCount": 390,
+    "maleCount": 168,
+    "totalCount": 558,
+    "balance": 0.4307692307692308
+  },
+  {
+    "name": "Paris",
+    "femaleCount": 497,
+    "maleCount": 60,
+    "totalCount": 557,
+    "balance": 0.12072434607645875
+  },
+  {
+    "name": "Rhodes",
+    "femaleCount": 46,
+    "maleCount": 511,
+    "totalCount": 557,
+    "balance": 0.09001956947162426
+  },
+  {
+    "name": "Imani",
+    "femaleCount": 512,
+    "maleCount": 41,
+    "totalCount": 553,
+    "balance": 0.080078125
+  },
+  {
+    "name": "Amani",
+    "femaleCount": 419,
+    "maleCount": 107,
+    "totalCount": 526,
+    "balance": 0.2553699284009546
+  },
+  {
+    "name": "Ira",
+    "femaleCount": 222,
+    "maleCount": 301,
+    "totalCount": 523,
+    "balance": 0.7375415282392026
+  },
+  {
+    "name": "Merritt",
+    "femaleCount": 401,
+    "maleCount": 117,
+    "totalCount": 518,
+    "balance": 0.29177057356608477
+  },
+  {
+    "name": "Colby",
+    "femaleCount": 60,
+    "maleCount": 455,
+    "totalCount": 515,
+    "balance": 0.13186813186813187
+  },
+  {
+    "name": "Whitley",
+    "femaleCount": 420,
+    "maleCount": 88,
+    "totalCount": 508,
+    "balance": 0.20952380952380953
+  },
+  {
+    "name": "Landry",
+    "femaleCount": 279,
+    "maleCount": 229,
+    "totalCount": 508,
+    "balance": 0.8207885304659498
+  },
+  {
+    "name": "Boston",
+    "femaleCount": 54,
+    "maleCount": 451,
+    "totalCount": 505,
+    "balance": 0.1197339246119734
+  },
+  {
+    "name": "Aries",
+    "femaleCount": 86,
+    "maleCount": 417,
+    "totalCount": 503,
+    "balance": 0.20623501199040767
+  },
+  {
+    "name": "Keegan",
+    "femaleCount": 48,
+    "maleCount": 449,
+    "totalCount": 497,
+    "balance": 0.10690423162583519
+  },
+  {
+    "name": "Sincere",
+    "femaleCount": 44,
+    "maleCount": 445,
+    "totalCount": 489,
+    "balance": 0.09887640449438202
+  },
+  {
+    "name": "Shelby",
+    "femaleCount": 444,
+    "maleCount": 41,
+    "totalCount": 485,
+    "balance": 0.09234234234234234
+  },
+  {
+    "name": "Finnley",
+    "femaleCount": 141,
+    "maleCount": 340,
+    "totalCount": 481,
+    "balance": 0.4147058823529412
+  },
+  {
+    "name": "Rowyn",
+    "femaleCount": 407,
+    "maleCount": 73,
+    "totalCount": 480,
+    "balance": 0.17936117936117937
+  },
+  {
+    "name": "Noor",
+    "femaleCount": 435,
+    "maleCount": 43,
+    "totalCount": 478,
+    "balance": 0.09885057471264368
+  },
+  {
+    "name": "Hollis",
+    "femaleCount": 206,
+    "maleCount": 266,
+    "totalCount": 472,
+    "balance": 0.7744360902255639
+  },
+  {
+    "name": "Layton",
+    "femaleCount": 90,
+    "maleCount": 377,
+    "totalCount": 467,
+    "balance": 0.23872679045092837
+  },
+  {
+    "name": "Sasha",
+    "femaleCount": 414,
+    "maleCount": 47,
+    "totalCount": 461,
+    "balance": 0.11352657004830918
+  },
+  {
+    "name": "Jessie",
+    "femaleCount": 330,
+    "maleCount": 126,
+    "totalCount": 456,
+    "balance": 0.38181818181818183
+  },
+  {
+    "name": "Jaime",
+    "femaleCount": 35,
+    "maleCount": 420,
+    "totalCount": 455,
+    "balance": 0.08333333333333333
+  },
+  {
+    "name": "Tommy",
+    "femaleCount": 35,
+    "maleCount": 420,
+    "totalCount": 455,
+    "balance": 0.08333333333333333
+  },
+  {
+    "name": "Joan",
+    "femaleCount": 222,
+    "maleCount": 232,
+    "totalCount": 454,
+    "balance": 0.9568965517241379
+  },
+  {
+    "name": "Wylder",
+    "femaleCount": 41,
+    "maleCount": 407,
+    "totalCount": 448,
+    "balance": 0.10073710073710074
+  },
+  {
+    "name": "Taytum",
+    "femaleCount": 377,
+    "maleCount": 68,
+    "totalCount": 445,
+    "balance": 0.18037135278514588
+  },
+  {
+    "name": "Charley",
+    "femaleCount": 356,
+    "maleCount": 87,
+    "totalCount": 443,
+    "balance": 0.2443820224719101
+  },
+  {
+    "name": "Azari",
+    "femaleCount": 354,
+    "maleCount": 81,
+    "totalCount": 435,
+    "balance": 0.2288135593220339
+  },
+  {
+    "name": "Yael",
+    "femaleCount": 127,
+    "maleCount": 304,
+    "totalCount": 431,
+    "balance": 0.41776315789473684
+  },
+  {
+    "name": "Bryer",
+    "femaleCount": 49,
+    "maleCount": 382,
+    "totalCount": 431,
+    "balance": 0.12827225130890052
+  },
+  {
+    "name": "Leslie",
+    "femaleCount": 393,
+    "maleCount": 32,
+    "totalCount": 425,
+    "balance": 0.08142493638676845
+  },
+  {
+    "name": "Amaris",
+    "femaleCount": 360,
+    "maleCount": 65,
+    "totalCount": 425,
+    "balance": 0.18055555555555555
+  },
+  {
+    "name": "Joey",
+    "femaleCount": 146,
+    "maleCount": 274,
+    "totalCount": 420,
+    "balance": 0.5328467153284672
+  },
+  {
+    "name": "Keaton",
+    "femaleCount": 86,
+    "maleCount": 333,
+    "totalCount": 419,
+    "balance": 0.25825825825825827
+  },
+  {
+    "name": "Indy",
+    "femaleCount": 353,
+    "maleCount": 58,
+    "totalCount": 411,
+    "balance": 0.1643059490084986
+  },
+  {
+    "name": "Everest",
+    "femaleCount": 92,
+    "maleCount": 315,
+    "totalCount": 407,
+    "balance": 0.2920634920634921
+  },
+  {
+    "name": "Kelly",
+    "femaleCount": 319,
+    "maleCount": 84,
+    "totalCount": 403,
+    "balance": 0.26332288401253917
+  },
+  {
+    "name": "Kit",
+    "femaleCount": 208,
+    "maleCount": 195,
+    "totalCount": 403,
+    "balance": 0.9375
+  },
+  {
+    "name": "Emerald",
+    "femaleCount": 367,
+    "maleCount": 32,
+    "totalCount": 399,
+    "balance": 0.08719346049046321
+  },
+  {
+    "name": "Ripley",
+    "femaleCount": 243,
+    "maleCount": 156,
+    "totalCount": 399,
+    "balance": 0.6419753086419753
+  },
+  {
+    "name": "Braylen",
+    "femaleCount": 30,
+    "maleCount": 366,
+    "totalCount": 396,
+    "balance": 0.08196721311475409
+  },
+  {
+    "name": "Kacey",
+    "femaleCount": 211,
+    "maleCount": 182,
+    "totalCount": 393,
+    "balance": 0.8625592417061612
+  },
+  {
+    "name": "Huxley",
+    "femaleCount": 36,
+    "maleCount": 357,
+    "totalCount": 393,
+    "balance": 0.10084033613445378
+  },
+  {
+    "name": "Adley",
+    "femaleCount": 339,
+    "maleCount": 51,
+    "totalCount": 390,
+    "balance": 0.1504424778761062
+  },
+  {
+    "name": "Rudy",
+    "femaleCount": 33,
+    "maleCount": 354,
+    "totalCount": 387,
+    "balance": 0.09322033898305085
+  },
+  {
+    "name": "Sloan",
+    "femaleCount": 324,
+    "maleCount": 62,
+    "totalCount": 386,
+    "balance": 0.19135802469135801
+  },
+  {
+    "name": "Harlem",
+    "femaleCount": 147,
+    "maleCount": 236,
+    "totalCount": 383,
+    "balance": 0.6228813559322034
+  },
+  {
+    "name": "Elisha",
+    "femaleCount": 59,
+    "maleCount": 322,
+    "totalCount": 381,
+    "balance": 0.18322981366459629
+  },
+  {
+    "name": "Jrue",
+    "femaleCount": 75,
+    "maleCount": 304,
+    "totalCount": 379,
+    "balance": 0.24671052631578946
+  },
+  {
+    "name": "Jireh",
+    "femaleCount": 107,
+    "maleCount": 271,
+    "totalCount": 378,
+    "balance": 0.3948339483394834
+  },
+  {
+    "name": "Santana",
+    "femaleCount": 92,
+    "maleCount": 285,
+    "totalCount": 377,
+    "balance": 0.32280701754385965
+  },
+  {
+    "name": "Laken",
+    "femaleCount": 256,
+    "maleCount": 120,
+    "totalCount": 376,
+    "balance": 0.46875
+  },
+  {
+    "name": "Royalty",
+    "femaleCount": 347,
+    "maleCount": 28,
+    "totalCount": 375,
+    "balance": 0.08069164265129683
+  },
+  {
+    "name": "Azaiah",
+    "femaleCount": 28,
+    "maleCount": 346,
+    "totalCount": 374,
+    "balance": 0.08092485549132948
+  },
+  {
+    "name": "Sky",
+    "femaleCount": 272,
+    "maleCount": 101,
+    "totalCount": 373,
+    "balance": 0.3713235294117647
+  },
+  {
+    "name": "Isa",
+    "femaleCount": 119,
+    "maleCount": 253,
+    "totalCount": 372,
+    "balance": 0.47035573122529645
+  },
+  {
+    "name": "Denim",
+    "femaleCount": 101,
+    "maleCount": 271,
+    "totalCount": 372,
+    "balance": 0.3726937269372694
+  },
+  {
+    "name": "Rayne",
+    "femaleCount": 293,
+    "maleCount": 75,
+    "totalCount": 368,
+    "balance": 0.25597269624573377
+  },
+  {
+    "name": "Teddy",
+    "femaleCount": 56,
+    "maleCount": 301,
+    "totalCount": 357,
+    "balance": 0.18604651162790697
+  },
+  {
+    "name": "Montana",
+    "femaleCount": 242,
+    "maleCount": 114,
+    "totalCount": 356,
+    "balance": 0.47107438016528924
+  },
+  {
+    "name": "Blaze",
+    "femaleCount": 27,
+    "maleCount": 326,
+    "totalCount": 353,
+    "balance": 0.08282208588957055
+  },
+  {
+    "name": "Toby",
+    "femaleCount": 101,
+    "maleCount": 234,
+    "totalCount": 335,
+    "balance": 0.43162393162393164
+  },
+  {
+    "name": "Berkley",
+    "femaleCount": 301,
+    "maleCount": 33,
+    "totalCount": 334,
+    "balance": 0.10963455149501661
+  },
+  {
+    "name": "Artemis",
+    "femaleCount": 246,
+    "maleCount": 86,
+    "totalCount": 332,
+    "balance": 0.34959349593495936
+  },
+  {
+    "name": "Jones",
+    "femaleCount": 26,
+    "maleCount": 306,
+    "totalCount": 332,
+    "balance": 0.08496732026143791
+  },
+  {
+    "name": "Ellison",
+    "femaleCount": 228,
+    "maleCount": 98,
+    "totalCount": 326,
+    "balance": 0.4298245614035088
+  },
+  {
+    "name": "Benny",
+    "femaleCount": 32,
+    "maleCount": 293,
+    "totalCount": 325,
+    "balance": 0.10921501706484642
+  },
+  {
+    "name": "Cadence",
+    "femaleCount": 245,
+    "maleCount": 76,
+    "totalCount": 321,
+    "balance": 0.31020408163265306
+  },
+  {
+    "name": "Henley",
+    "femaleCount": 252,
+    "maleCount": 65,
+    "totalCount": 317,
+    "balance": 0.25793650793650796
+  },
+  {
+    "name": "Ronnie",
+    "femaleCount": 113,
+    "maleCount": 204,
+    "totalCount": 317,
+    "balance": 0.553921568627451
+  },
+  {
+    "name": "Dior",
+    "femaleCount": 208,
+    "maleCount": 107,
+    "totalCount": 315,
+    "balance": 0.5144230769230769
+  },
+  {
+    "name": "Kingsley",
+    "femaleCount": 119,
+    "maleCount": 196,
+    "totalCount": 315,
+    "balance": 0.6071428571428571
+  },
+  {
+    "name": "Shea",
+    "femaleCount": 201,
+    "maleCount": 111,
+    "totalCount": 312,
+    "balance": 0.5522388059701493
+  },
+  {
+    "name": "Koah",
+    "femaleCount": 51,
+    "maleCount": 260,
+    "totalCount": 311,
+    "balance": 0.19615384615384615
+  },
+  {
+    "name": "Akira",
+    "femaleCount": 257,
+    "maleCount": 52,
+    "totalCount": 309,
+    "balance": 0.20233463035019456
+  },
+  {
+    "name": "Chozyn",
+    "femaleCount": 87,
+    "maleCount": 220,
+    "totalCount": 307,
+    "balance": 0.39545454545454545
+  },
+  {
+    "name": "Coast",
+    "femaleCount": 31,
+    "maleCount": 274,
+    "totalCount": 305,
+    "balance": 0.11313868613138686
+  },
+  {
+    "name": "Elia",
+    "femaleCount": 263,
+    "maleCount": 41,
+    "totalCount": 304,
+    "balance": 0.155893536121673
+  },
+  {
+    "name": "Jael",
+    "femaleCount": 157,
+    "maleCount": 147,
+    "totalCount": 304,
+    "balance": 0.9363057324840764
+  },
+  {
+    "name": "Jesiah",
+    "femaleCount": 26,
+    "maleCount": 277,
+    "totalCount": 303,
+    "balance": 0.09386281588447654
+  },
+  {
+    "name": "Ever",
+    "femaleCount": 131,
+    "maleCount": 169,
+    "totalCount": 300,
+    "balance": 0.7751479289940828
+  },
+  {
+    "name": "Ren",
+    "femaleCount": 85,
+    "maleCount": 213,
+    "totalCount": 298,
+    "balance": 0.39906103286384975
+  },
+  {
+    "name": "Kylen",
+    "femaleCount": 23,
+    "maleCount": 272,
+    "totalCount": 295,
+    "balance": 0.08455882352941177
+  },
+  {
+    "name": "Jovi",
+    "femaleCount": 241,
+    "maleCount": 53,
+    "totalCount": 294,
+    "balance": 0.21991701244813278
+  },
+  {
+    "name": "Dillon",
+    "femaleCount": 41,
+    "maleCount": 253,
+    "totalCount": 294,
+    "balance": 0.16205533596837945
+  },
+  {
+    "name": "Shai",
+    "femaleCount": 78,
+    "maleCount": 215,
+    "totalCount": 293,
+    "balance": 0.3627906976744186
+  },
+  {
+    "name": "Ezrah",
+    "femaleCount": 29,
+    "maleCount": 259,
+    "totalCount": 288,
+    "balance": 0.11196911196911197
+  },
+  {
+    "name": "Kori",
+    "femaleCount": 260,
+    "maleCount": 27,
+    "totalCount": 287,
+    "balance": 0.10384615384615385
+  },
+  {
+    "name": "Ollie",
+    "femaleCount": 80,
+    "maleCount": 207,
+    "totalCount": 287,
+    "balance": 0.3864734299516908
+  },
+  {
+    "name": "Rey",
+    "femaleCount": 24,
+    "maleCount": 262,
+    "totalCount": 286,
+    "balance": 0.0916030534351145
+  },
+  {
+    "name": "Kasey",
+    "femaleCount": 105,
+    "maleCount": 180,
+    "totalCount": 285,
+    "balance": 0.5833333333333334
+  },
+  {
+    "name": "Kairi",
+    "femaleCount": 239,
+    "maleCount": 42,
+    "totalCount": 281,
+    "balance": 0.17573221757322174
+  },
+  {
+    "name": "Bowie",
+    "femaleCount": 117,
+    "maleCount": 164,
+    "totalCount": 281,
+    "balance": 0.7134146341463414
+  },
+  {
+    "name": "Makari",
+    "femaleCount": 21,
+    "maleCount": 257,
+    "totalCount": 278,
+    "balance": 0.08171206225680934
+  },
+  {
+    "name": "Psalm",
+    "femaleCount": 82,
+    "maleCount": 194,
+    "totalCount": 276,
+    "balance": 0.422680412371134
+  },
+  {
+    "name": "Rain",
+    "femaleCount": 182,
+    "maleCount": 93,
+    "totalCount": 275,
+    "balance": 0.510989010989011
+  },
+  {
+    "name": "Krue",
+    "femaleCount": 23,
+    "maleCount": 251,
+    "totalCount": 274,
+    "balance": 0.09163346613545817
+  },
+  {
+    "name": "Cove",
+    "femaleCount": 100,
+    "maleCount": 171,
+    "totalCount": 271,
+    "balance": 0.5847953216374269
+  },
+  {
+    "name": "Novah",
+    "femaleCount": 249,
+    "maleCount": 20,
+    "totalCount": 269,
+    "balance": 0.08032128514056225
+  },
+  {
+    "name": "Dana",
+    "femaleCount": 244,
+    "maleCount": 25,
+    "totalCount": 269,
+    "balance": 0.10245901639344263
+  },
+  {
+    "name": "Jean",
+    "femaleCount": 88,
+    "maleCount": 176,
+    "totalCount": 264,
+    "balance": 0.5
+  },
+  {
+    "name": "Braelyn",
+    "femaleCount": 224,
+    "maleCount": 39,
+    "totalCount": 263,
+    "balance": 0.17410714285714285
+  },
+  {
+    "name": "Shay",
+    "femaleCount": 184,
+    "maleCount": 77,
+    "totalCount": 261,
+    "balance": 0.41847826086956524
+  },
+  {
+    "name": "Kodi",
+    "femaleCount": 171,
+    "maleCount": 89,
+    "totalCount": 260,
+    "balance": 0.52046783625731
+  },
+  {
+    "name": "Devon",
+    "femaleCount": 44,
+    "maleCount": 216,
+    "totalCount": 260,
+    "balance": 0.2037037037037037
+  },
+  {
+    "name": "Marlow",
+    "femaleCount": 199,
+    "maleCount": 60,
+    "totalCount": 259,
+    "balance": 0.3015075376884422
+  },
+  {
+    "name": "Rumi",
+    "femaleCount": 175,
+    "maleCount": 81,
+    "totalCount": 256,
+    "balance": 0.46285714285714286
+  },
+  {
+    "name": "Blaise",
+    "femaleCount": 43,
+    "maleCount": 213,
+    "totalCount": 256,
+    "balance": 0.20187793427230047
+  },
+  {
+    "name": "Dara",
+    "femaleCount": 207,
+    "maleCount": 48,
+    "totalCount": 255,
+    "balance": 0.2318840579710145
+  },
+  {
+    "name": "Jaycee",
+    "femaleCount": 201,
+    "maleCount": 54,
+    "totalCount": 255,
+    "balance": 0.26865671641791045
+  },
+  {
+    "name": "Lael",
+    "femaleCount": 99,
+    "maleCount": 156,
+    "totalCount": 255,
+    "balance": 0.6346153846153846
+  },
+  {
+    "name": "Loyal",
+    "femaleCount": 21,
+    "maleCount": 233,
+    "totalCount": 254,
+    "balance": 0.09012875536480687
+  },
+  {
+    "name": "Seven",
+    "femaleCount": 60,
+    "maleCount": 191,
+    "totalCount": 251,
+    "balance": 0.31413612565445026
+  },
+  {
+    "name": "Blaine",
+    "femaleCount": 20,
+    "maleCount": 230,
+    "totalCount": 250,
+    "balance": 0.08695652173913043
+  },
+  {
+    "name": "Jiraiya",
+    "femaleCount": 19,
+    "maleCount": 231,
+    "totalCount": 250,
+    "balance": 0.08225108225108226
+  },
+  {
+    "name": "Navi",
+    "femaleCount": 179,
+    "maleCount": 70,
+    "totalCount": 249,
+    "balance": 0.39106145251396646
+  },
+  {
+    "name": "Sailor",
+    "femaleCount": 206,
+    "maleCount": 40,
+    "totalCount": 246,
+    "balance": 0.1941747572815534
+  },
+  {
+    "name": "Kooper",
+    "femaleCount": 28,
+    "maleCount": 218,
+    "totalCount": 246,
+    "balance": 0.12844036697247707
+  },
+  {
+    "name": "Winslow",
+    "femaleCount": 199,
+    "maleCount": 44,
+    "totalCount": 243,
+    "balance": 0.22110552763819097
+  },
+  {
+    "name": "Wylie",
+    "femaleCount": 65,
+    "maleCount": 175,
+    "totalCount": 240,
+    "balance": 0.37142857142857144
+  },
+  {
+    "name": "Lux",
+    "femaleCount": 58,
+    "maleCount": 177,
+    "totalCount": 235,
+    "balance": 0.327683615819209
+  },
+  {
+    "name": "Semaj",
+    "femaleCount": 18,
+    "maleCount": 217,
+    "totalCount": 235,
+    "balance": 0.08294930875576037
+  },
+  {
+    "name": "Juno",
+    "femaleCount": 179,
+    "maleCount": 54,
+    "totalCount": 233,
+    "balance": 0.3016759776536313
+  },
+  {
+    "name": "Blessing",
+    "femaleCount": 184,
+    "maleCount": 45,
+    "totalCount": 229,
+    "balance": 0.24456521739130435
+  },
+  {
+    "name": "Jaylin",
+    "femaleCount": 117,
+    "maleCount": 111,
+    "totalCount": 228,
+    "balance": 0.9487179487179487
+  },
+  {
+    "name": "Zen",
+    "femaleCount": 43,
+    "maleCount": 185,
+    "totalCount": 228,
+    "balance": 0.23243243243243245
+  },
+  {
+    "name": "Landyn",
+    "femaleCount": 38,
+    "maleCount": 190,
+    "totalCount": 228,
+    "balance": 0.2
+  },
+  {
+    "name": "Egypt",
+    "femaleCount": 187,
+    "maleCount": 40,
+    "totalCount": 227,
+    "balance": 0.21390374331550802
+  },
+  {
+    "name": "Yuri",
+    "femaleCount": 139,
+    "maleCount": 88,
+    "totalCount": 227,
+    "balance": 0.6330935251798561
+  },
+  {
+    "name": "Nori",
+    "femaleCount": 193,
+    "maleCount": 31,
+    "totalCount": 224,
+    "balance": 0.16062176165803108
+  },
+  {
+    "name": "Aris",
+    "femaleCount": 78,
+    "maleCount": 144,
+    "totalCount": 222,
+    "balance": 0.5416666666666666
+  },
+  {
+    "name": "Wisdom",
+    "femaleCount": 61,
+    "maleCount": 160,
+    "totalCount": 221,
+    "balance": 0.38125
+  },
+  {
+    "name": "Kody",
+    "femaleCount": 19,
+    "maleCount": 202,
+    "totalCount": 221,
+    "balance": 0.09405940594059406
+  },
+  {
+    "name": "Kaycee",
+    "femaleCount": 171,
+    "maleCount": 49,
+    "totalCount": 220,
+    "balance": 0.28654970760233917
+  },
+  {
+    "name": "Carsyn",
+    "femaleCount": 159,
+    "maleCount": 61,
+    "totalCount": 220,
+    "balance": 0.3836477987421384
+  },
+  {
+    "name": "Cedar",
+    "femaleCount": 60,
+    "maleCount": 160,
+    "totalCount": 220,
+    "balance": 0.375
+  },
+  {
+    "name": "Sami",
+    "femaleCount": 27,
+    "maleCount": 193,
+    "totalCount": 220,
+    "balance": 0.13989637305699482
+  },
+  {
+    "name": "Kaydence",
+    "femaleCount": 173,
+    "maleCount": 46,
+    "totalCount": 219,
+    "balance": 0.2658959537572254
+  },
+  {
+    "name": "Storm",
+    "femaleCount": 150,
+    "maleCount": 69,
+    "totalCount": 219,
+    "balance": 0.46
+  },
+  {
+    "name": "Sekani",
+    "femaleCount": 46,
+    "maleCount": 173,
+    "totalCount": 219,
+    "balance": 0.2658959537572254
+  },
+  {
+    "name": "Perry",
+    "femaleCount": 83,
+    "maleCount": 135,
+    "totalCount": 218,
+    "balance": 0.6148148148148148
+  },
+  {
+    "name": "Devyn",
+    "femaleCount": 172,
+    "maleCount": 45,
+    "totalCount": 217,
+    "balance": 0.2616279069767442
+  },
+  {
+    "name": "Wynn",
+    "femaleCount": 120,
+    "maleCount": 95,
+    "totalCount": 215,
+    "balance": 0.7916666666666666
+  },
+  {
+    "name": "Austyn",
+    "femaleCount": 157,
+    "maleCount": 57,
+    "totalCount": 214,
+    "balance": 0.3630573248407643
+  },
+  {
+    "name": "Dayton",
+    "femaleCount": 17,
+    "maleCount": 195,
+    "totalCount": 212,
+    "balance": 0.08717948717948718
+  },
+  {
+    "name": "Lowen",
+    "femaleCount": 127,
+    "maleCount": 84,
+    "totalCount": 211,
+    "balance": 0.6614173228346457
+  },
+  {
+    "name": "Aziah",
+    "femaleCount": 46,
+    "maleCount": 164,
+    "totalCount": 210,
+    "balance": 0.2804878048780488
+  },
+  {
+    "name": "Oakland",
+    "femaleCount": 48,
+    "maleCount": 160,
+    "totalCount": 208,
+    "balance": 0.3
+  },
+  {
+    "name": "Azul",
+    "femaleCount": 169,
+    "maleCount": 38,
+    "totalCount": 207,
+    "balance": 0.22485207100591717
+  },
+  {
+    "name": "Kolby",
+    "femaleCount": 42,
+    "maleCount": 165,
+    "totalCount": 207,
+    "balance": 0.2545454545454545
+  },
+  {
+    "name": "Khai",
+    "femaleCount": 32,
+    "maleCount": 175,
+    "totalCount": 207,
+    "balance": 0.18285714285714286
+  },
+  {
+    "name": "Aven",
+    "femaleCount": 48,
+    "maleCount": 158,
+    "totalCount": 206,
+    "balance": 0.3037974683544304
+  },
+  {
+    "name": "Guadalupe",
+    "femaleCount": 180,
+    "maleCount": 24,
+    "totalCount": 204,
+    "balance": 0.13333333333333333
+  },
+  {
+    "name": "Jersey",
+    "femaleCount": 157,
+    "maleCount": 47,
+    "totalCount": 204,
+    "balance": 0.29936305732484075
+  },
+  {
+    "name": "Kadence",
+    "femaleCount": 129,
+    "maleCount": 75,
+    "totalCount": 204,
+    "balance": 0.5813953488372093
+  },
+  {
+    "name": "Marlo",
+    "femaleCount": 109,
+    "maleCount": 95,
+    "totalCount": 204,
+    "balance": 0.8715596330275229
+  },
+  {
+    "name": "Vaughn",
+    "femaleCount": 21,
+    "maleCount": 183,
+    "totalCount": 204,
+    "balance": 0.11475409836065574
+  },
+  {
+    "name": "Zephyr",
+    "femaleCount": 29,
+    "maleCount": 169,
+    "totalCount": 198,
+    "balance": 0.17159763313609466
+  },
+  {
+    "name": "Amal",
+    "femaleCount": 181,
+    "maleCount": 16,
+    "totalCount": 197,
+    "balance": 0.08839779005524862
+  },
+  {
+    "name": "Renley",
+    "femaleCount": 170,
+    "maleCount": 26,
+    "totalCount": 196,
+    "balance": 0.15294117647058825
+  },
+  {
+    "name": "Crosby",
+    "femaleCount": 34,
+    "maleCount": 162,
+    "totalCount": 196,
+    "balance": 0.20987654320987653
+  },
+  {
+    "name": "Emry",
+    "femaleCount": 152,
+    "maleCount": 43,
+    "totalCount": 195,
+    "balance": 0.28289473684210525
+  },
+  {
+    "name": "Brecken",
+    "femaleCount": 34,
+    "maleCount": 159,
+    "totalCount": 193,
+    "balance": 0.2138364779874214
+  },
+  {
+    "name": "Syncere",
+    "femaleCount": 22,
+    "maleCount": 170,
+    "totalCount": 192,
+    "balance": 0.12941176470588237
+  },
+  {
+    "name": "Ash",
+    "femaleCount": 17,
+    "maleCount": 175,
+    "totalCount": 192,
+    "balance": 0.09714285714285714
+  },
+  {
+    "name": "Merrick",
+    "femaleCount": 17,
+    "maleCount": 174,
+    "totalCount": 191,
+    "balance": 0.09770114942528736
+  },
+  {
+    "name": "Lenny",
+    "femaleCount": 61,
+    "maleCount": 128,
+    "totalCount": 189,
+    "balance": 0.4765625
+  },
+  {
+    "name": "Rian",
+    "femaleCount": 29,
+    "maleCount": 160,
+    "totalCount": 189,
+    "balance": 0.18125
+  },
+  {
+    "name": "Emrys",
+    "femaleCount": 31,
+    "maleCount": 157,
+    "totalCount": 188,
+    "balance": 0.19745222929936307
+  },
+  {
+    "name": "Wiley",
+    "femaleCount": 23,
+    "maleCount": 165,
+    "totalCount": 188,
+    "balance": 0.1393939393939394
+  },
+  {
+    "name": "Cypress",
+    "femaleCount": 74,
+    "maleCount": 110,
+    "totalCount": 184,
+    "balance": 0.6727272727272727
+  },
+  {
+    "name": "Haiden",
+    "femaleCount": 34,
+    "maleCount": 149,
+    "totalCount": 183,
+    "balance": 0.22818791946308725
+  },
+  {
+    "name": "Gentry",
+    "femaleCount": 94,
+    "maleCount": 88,
+    "totalCount": 182,
+    "balance": 0.9361702127659575
+  },
+  {
+    "name": "Callaway",
+    "femaleCount": 93,
+    "maleCount": 88,
+    "totalCount": 181,
+    "balance": 0.946236559139785
+  },
+  {
+    "name": "Laine",
+    "femaleCount": 147,
+    "maleCount": 33,
+    "totalCount": 180,
+    "balance": 0.22448979591836735
+  },
+  {
+    "name": "Iman",
+    "femaleCount": 91,
+    "maleCount": 89,
+    "totalCount": 180,
+    "balance": 0.978021978021978
+  },
+  {
+    "name": "Roan",
+    "femaleCount": 31,
+    "maleCount": 149,
+    "totalCount": 180,
+    "balance": 0.2080536912751678
+  },
+  {
+    "name": "Valor",
+    "femaleCount": 21,
+    "maleCount": 159,
+    "totalCount": 180,
+    "balance": 0.1320754716981132
+  },
+  {
+    "name": "Jordy",
+    "femaleCount": 22,
+    "maleCount": 157,
+    "totalCount": 179,
+    "balance": 0.14012738853503184
+  },
+  {
+    "name": "Georgie",
+    "femaleCount": 162,
+    "maleCount": 16,
+    "totalCount": 178,
+    "balance": 0.09876543209876543
+  },
+  {
+    "name": "Taylen",
+    "femaleCount": 40,
+    "maleCount": 138,
+    "totalCount": 178,
+    "balance": 0.2898550724637681
+  },
+  {
+    "name": "Clarke",
+    "femaleCount": 140,
+    "maleCount": 37,
+    "totalCount": 177,
+    "balance": 0.2642857142857143
+  },
+  {
+    "name": "Riot",
+    "femaleCount": 21,
+    "maleCount": 156,
+    "totalCount": 177,
+    "balance": 0.1346153846153846
+  },
+  {
+    "name": "Mazi",
+    "femaleCount": 15,
+    "maleCount": 161,
+    "totalCount": 176,
+    "balance": 0.09316770186335403
+  },
+  {
+    "name": "Emani",
+    "femaleCount": 160,
+    "maleCount": 14,
+    "totalCount": 174,
+    "balance": 0.0875
+  },
+  {
+    "name": "Hartley",
+    "femaleCount": 148,
+    "maleCount": 26,
+    "totalCount": 174,
+    "balance": 0.17567567567567569
+  },
+  {
+    "name": "Maison",
+    "femaleCount": 23,
+    "maleCount": 151,
+    "totalCount": 174,
+    "balance": 0.152317880794702
+  },
+  {
+    "name": "Cory",
+    "femaleCount": 14,
+    "maleCount": 160,
+    "totalCount": 174,
+    "balance": 0.0875
+  },
+  {
+    "name": "Divine",
+    "femaleCount": 104,
+    "maleCount": 68,
+    "totalCount": 172,
+    "balance": 0.6538461538461539
+  },
+  {
+    "name": "Ashtyn",
+    "femaleCount": 88,
+    "maleCount": 84,
+    "totalCount": 172,
+    "balance": 0.9545454545454546
+  },
+  {
+    "name": "Dominique",
+    "femaleCount": 51,
+    "maleCount": 121,
+    "totalCount": 172,
+    "balance": 0.4214876033057851
+  },
+  {
+    "name": "Shia",
+    "femaleCount": 34,
+    "maleCount": 138,
+    "totalCount": 172,
+    "balance": 0.2463768115942029
+  },
+  {
+    "name": "Shilo",
+    "femaleCount": 30,
+    "maleCount": 142,
+    "totalCount": 172,
+    "balance": 0.2112676056338028
+  },
+  {
+    "name": "Kiran",
+    "femaleCount": 17,
+    "maleCount": 155,
+    "totalCount": 172,
+    "balance": 0.10967741935483871
+  },
+  {
+    "name": "Shaya",
+    "femaleCount": 36,
+    "maleCount": 135,
+    "totalCount": 171,
+    "balance": 0.26666666666666666
+  },
+  {
+    "name": "Asiah",
+    "femaleCount": 20,
+    "maleCount": 151,
+    "totalCount": 171,
+    "balance": 0.13245033112582782
+  },
+  {
+    "name": "Amor",
+    "femaleCount": 124,
+    "maleCount": 45,
+    "totalCount": 169,
+    "balance": 0.3629032258064516
+  },
+  {
+    "name": "Townes",
+    "femaleCount": 22,
+    "maleCount": 147,
+    "totalCount": 169,
+    "balance": 0.14965986394557823
+  }
+]

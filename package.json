@@ -18,7 +18,11 @@
     "sync:baby-name-json": "tsx scripts/sync-baby-name-json.ts",
     "rebuild:baby-names": "npm run enrich:baby-names && npm run sync:baby-name-json && npm run validate:baby-names && npm run build",
     "add:baby-name-candidates": "tsx scripts/add-baby-name-candidates-to-master.ts",
-    "clean:baby-name-master": "tsx scripts/clean-baby-name-master.ts"
+    "clean:baby-name-master": "tsx scripts/clean-baby-name-master.ts",
+    "fix:baby-name-metadata": "tsx scripts/fix-baby-name-metadata.ts",
+    "export:unisex-candidates": "tsx scripts/export-unisex-candidates.ts",
+    "add:unisex-candidates": "tsx scripts/add-unisex-candidates-to-master.ts",
+    "add:girl-candidates": "tsx scripts/add-girl-candidates-to-master.ts"
 },
   "dependencies": {
     "@imgly/background-removal": "^1.7.0",

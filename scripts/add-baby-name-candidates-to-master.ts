@@ -144,7 +144,13 @@ function getStyles(name: string, origins: string[], popularity: number) {
     styles.add("Strong");
   }
 
-  return [...styles].slice(0, 4);
+  const result = [...styles];
+
+if (result.length < 2) {
+  result.push("Classic");
+}
+
+return result.slice(0, 4);
 }
 
 const allowedOriginTags = new Set([
@@ -173,7 +179,13 @@ function getTags(styles: string[], origins: string[]) {
     }
   }
 
-  return [...tags].slice(0, 5);
+const result = [...tags];
+
+if (result.length < 2) {
+  result.push("classic");
+}
+
+return result.slice(0, 5);
 }
 
 const master = JSON.parse(fs.readFileSync(masterPath, "utf8")) as BabyName[];
@@ -186,7 +198,7 @@ const existingNames = new Set(
   master.map((item) => `${item.name.toLowerCase()}-${item.gender}`)
 );
 
-const selected = candidates.slice(0, 20);
+const selected = candidates.slice(0, 400);
 
 const additions: BabyName[] = selected
   .map((candidate) => {
