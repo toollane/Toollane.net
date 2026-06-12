@@ -5,19 +5,16 @@ import ToolPageLayout from "@/components/ToolPageLayout";
 import SavingsCalculatorClient from "./SavingsCalculatorClient";
 
 export const metadata: Metadata = {
-  title: "Savings Calculator | Toollane",
-
+  title: "Savings Calculator | Interest & Future Balance | Toollane",
   description:
-    "Calculate how much you can save over time with Toollane's free online savings calculator.",
+    "Calculate savings growth, future balance, recurring contributions, interest, taxes and inflation-adjusted value online with Toollane's free savings calculator.",
 };
 
 export default function SavingsCalculatorPage() {
   return (
     <ToolPageLayout
       title="Savings Calculator"
-      description="Calculate how much you can save over time instantly online."
-
-
+      description="Calculate savings growth, future balance, recurring contributions, interest earned, taxes and inflation-adjusted value."
       href="/savings-calculator"
     >
       <SavingsCalculatorClient />
