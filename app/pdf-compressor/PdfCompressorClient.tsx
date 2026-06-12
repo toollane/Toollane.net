@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { PDFDocument } from "pdf-lib";
 
 import ToolErrorBox from "@/components/ToolErrorBox";
@@ -15,18 +15,68 @@ function formatFileSize(bytes: number) {
   return `${(bytes / 1024 / 1024).toFixed(2)} MB`;
 }
 
+function createSafeFileName(value: string) {
+  const cleaned = value
+    .trim()
+    .toLowerCase()
+    .replace(/\.pdf$/i, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
+  return `${cleaned || "compressed"}-compressed.pdf`;
+}
+
 export default function PdfCompressorClient() {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const [file, setFile] = useState<File | null>(null);
+  const [outputName, setOutputName] = useState("compressed.pdf");
   const [originalSize, setOriginalSize] = useState<number | null>(null);
   const [compressedSize, setCompressedSize] = useState<number | null>(null);
+  const [downloadUrl, setDownloadUrl] = useState("");
   const [loading, setLoading] = useState(false);
+  const [dragActive, setDragActive] = useState(false);
   const [error, setError] = useState("");
+
+  const savedBytes =
+    originalSize !== null && compressedSize !== null
+      ? originalSize - compressedSize
+      : null;
+
+  const savedPercent =
+    originalSize !== null &&
+    compressedSize !== null &&
+    originalSize > 0
+      ? Math.max(0, (savedBytes || 0) / originalSize) * 100
+      : null;
+
+  const compressionStatus = useMemo(() => {
+    if (compressedSize === null || originalSize === null) {
+      return "Not compressed yet";
+    }
+
+    if (compressedSize < originalSize) {
+      return "Reduced size";
+    }
+
+    if (compressedSize === originalSize) {
+      return "Same size";
+    }
+
+    return "Larger after optimization";
+  }, [compressedSize, originalSize]);
+
+  function revokeDownloadUrl() {
+    if (downloadUrl) {
+      URL.revokeObjectURL(downloadUrl);
+      setDownloadUrl("");
+    }
+  }
 
   function handleFiles(selectedFiles: FileList | File[]) {
     setError("");
     setCompressedSize(null);
+    revokeDownloadUrl();
 
     const selectedFile = Array.from(selectedFiles)[0];
 
@@ -45,12 +95,15 @@ export default function PdfCompressorClient() {
 
     setFile(selectedFile);
     setOriginalSize(selectedFile.size);
+    setOutputName(selectedFile.name.replace(/\.pdf$/i, "") || "compressed");
   }
 
   function clearFile() {
+    revokeDownloadUrl();
     setFile(null);
     setOriginalSize(null);
     setCompressedSize(null);
+    setOutputName("compressed.pdf");
     setError("");
 
     if (inputRef.current) {
@@ -61,6 +114,7 @@ export default function PdfCompressorClient() {
   async function compressPdf() {
     setError("");
     setCompressedSize(null);
+    revokeDownloadUrl();
 
     if (!file) {
       setError("Please select a PDF file first.");
@@ -89,21 +143,19 @@ export default function PdfCompressorClient() {
         type: "application/pdf",
       });
 
-      setCompressedSize(blob.size);
-
       const url = URL.createObjectURL(blob);
+
+      setCompressedSize(blob.size);
+      setDownloadUrl(url);
+
       const link = document.createElement("a");
 
-      const cleanName = file.name.replace(/\.pdf$/i, "");
-
       link.href = url;
-      link.download = `${cleanName}-compressed.pdf`;
+      link.download = createSafeFileName(outputName);
 
       document.body.appendChild(link);
       link.click();
       link.remove();
-
-      URL.revokeObjectURL(url);
     } catch {
       setError(
         "Something went wrong while compressing the PDF. Please make sure the file is a valid, unlocked PDF."
@@ -113,13 +165,18 @@ export default function PdfCompressorClient() {
     }
   }
 
-  const savedBytes =
-    originalSize && compressedSize ? originalSize - compressedSize : null;
+  function downloadAgain() {
+    if (!downloadUrl) return;
 
-  const savedPercent =
-    originalSize && compressedSize && originalSize > 0
-      ? Math.max(0, (savedBytes || 0) / originalSize) * 100
-      : null;
+    const link = document.createElement("a");
+
+    link.href = downloadUrl;
+    link.download = createSafeFileName(outputName);
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  }
 
   return (
     <div className="grid gap-8">
@@ -129,18 +186,43 @@ export default function PdfCompressorClient() {
         </h2>
 
         <p className="mt-3 text-sm leading-7 text-black/60 sm:text-base">
-          Upload a PDF and reduce its file size directly in your browser. This
-          tool optimizes PDF structure without uploading your file.
+          Upload a PDF and optimize its file structure directly in your browser.
+          Your file stays on your device and is not uploaded to a server.
         </p>
       </div>
 
+      <div className="grid gap-4 sm:grid-cols-3">
+        <StatCard
+          label="Selected file"
+          value={file ? "1 PDF" : "No file"}
+        />
+        <StatCard
+          label="Original size"
+          value={originalSize !== null ? formatFileSize(originalSize) : "-"}
+        />
+        <StatCard label="Privacy" value="Browser-based" />
+      </div>
+
       <div
-        onDragOver={(event) => event.preventDefault()}
+        onDragEnter={(event) => {
+          event.preventDefault();
+          setDragActive(true);
+        }}
+        onDragOver={(event) => {
+          event.preventDefault();
+          setDragActive(true);
+        }}
+        onDragLeave={() => setDragActive(false)}
         onDrop={(event) => {
           event.preventDefault();
+          setDragActive(false);
           handleFiles(event.dataTransfer.files);
         }}
-        className="rounded-[2rem] border-2 border-dashed border-black/15 bg-[#fff8df] p-6 text-center transition hover:border-black/25 sm:p-8"
+        className={`rounded-[2rem] border-2 border-dashed p-6 text-center transition sm:p-8 ${
+          dragActive
+            ? "border-black bg-white"
+            : "border-black/15 bg-[#fff8df] hover:border-black/25"
+        }`}
       >
         <input
           ref={inputRef}
@@ -163,8 +245,8 @@ export default function PdfCompressorClient() {
         </h3>
 
         <p className="mt-2 text-sm leading-6 text-black/60">
-          Select one PDF file. Your file stays in your browser and is not
-          uploaded.
+          Select one PDF file. Compression depends on how the PDF was created
+          and whether images are already compressed.
         </p>
 
         <button
@@ -175,6 +257,24 @@ export default function PdfCompressorClient() {
           Choose PDF file
         </button>
       </div>
+
+      <label className="block">
+        <span className="text-sm font-bold text-black">Output file name</span>
+
+        <input
+          type="text"
+          value={outputName}
+          onChange={(event) => {
+            revokeDownloadUrl();
+            setOutputName(event.target.value);
+          }}
+          className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
+        />
+
+        <p className="mt-2 text-xs leading-5 text-black/50">
+          The file will be saved as {createSafeFileName(outputName)}.
+        </p>
+      </label>
 
       {error && <ToolErrorBox message={error} />}
 
@@ -190,43 +290,45 @@ export default function PdfCompressorClient() {
             </div>
 
             {compressedSize !== null && originalSize !== null && (
-              <div className="grid gap-3 sm:grid-cols-3">
-                <div className="rounded-2xl border border-black/10 bg-white p-4">
-                  <div className="text-xs font-bold uppercase tracking-wide text-black/40">
-                    Original
-                  </div>
-                  <div className="mt-2 text-lg font-black text-black">
-                    {formatFileSize(originalSize)}
-                  </div>
-                </div>
+              <div className="grid gap-3 sm:grid-cols-4">
+                <ResultStat
+                  label="Original"
+                  value={formatFileSize(originalSize)}
+                />
 
-                <div className="rounded-2xl border border-black/10 bg-white p-4">
-                  <div className="text-xs font-bold uppercase tracking-wide text-black/40">
-                    Compressed
-                  </div>
-                  <div className="mt-2 text-lg font-black text-black">
-                    {formatFileSize(compressedSize)}
-                  </div>
-                </div>
+                <ResultStat
+                  label="Compressed"
+                  value={formatFileSize(compressedSize)}
+                />
 
-                <div className="rounded-2xl border border-black/10 bg-white p-4">
-                  <div className="text-xs font-bold uppercase tracking-wide text-black/40">
-                    Saved
-                  </div>
-                  <div className="mt-2 text-lg font-black text-black">
-                    {savedPercent !== null
+                <ResultStat
+                  label="Saved"
+                  value={
+                    savedPercent !== null
                       ? `${savedPercent.toFixed(1)}%`
-                      : "0%"}
-                  </div>
-                </div>
+                      : "0%"
+                  }
+                />
+
+                <ResultStat label="Status" value={compressionStatus} />
               </div>
             )}
+
+            {compressedSize !== null &&
+              originalSize !== null &&
+              compressedSize >= originalSize && (
+                <div className="rounded-2xl border border-amber-300 bg-amber-50 p-5 text-sm leading-7 text-amber-900">
+                  This PDF could not be reduced further with browser-based
+                  structure optimization. It may already be compressed or may
+                  contain images that need separate image recompression.
+                </div>
+              )}
           </div>
         </ToolResultBox>
       ) : (
         <ToolInfoBox>
-          Choose a PDF file to compress it. Compression results depend on how
-          the PDF was created and whether it already contains optimized images.
+          Choose a PDF file to compress it. This tool works best on PDFs that
+          contain unused objects or unoptimized structure.
         </ToolInfoBox>
       )}
 
@@ -240,6 +342,16 @@ export default function PdfCompressorClient() {
           {loading ? "Compressing PDF..." : "Compress PDF"}
         </button>
 
+        {downloadUrl && (
+          <button
+            type="button"
+            onClick={downloadAgain}
+            className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:bg-black/5"
+          >
+            Download again
+          </button>
+        )}
+
         <button
           type="button"
           onClick={clearFile}
@@ -251,10 +363,35 @@ export default function PdfCompressorClient() {
       </div>
 
       <ToolInfoBox>
-        Note: Browser-based PDF compression can optimize PDF structure, but it
-        may not strongly reduce files that already contain compressed images.
-        Image-heavy PDFs may need image recompression for larger reductions.
+        Browser-based PDF compression can optimize PDF structure, but it may not
+        strongly reduce image-heavy PDFs that already contain compressed images.
+        For those files, compressing images before creating the PDF can produce
+        larger savings.
       </ToolInfoBox>
+    </div>
+  );
+}
+
+function StatCard({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+      <div className="text-xs font-bold uppercase tracking-wide text-black/40">
+        {label}
+      </div>
+
+      <div className="mt-2 text-lg font-black text-black">{value}</div>
+    </div>
+  );
+}
+
+function ResultStat({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-2xl border border-black/10 bg-white p-4">
+      <div className="text-xs font-bold uppercase tracking-wide text-black/40">
+        {label}
+      </div>
+
+      <div className="mt-2 text-base font-black text-black">{value}</div>
     </div>
   );
 }

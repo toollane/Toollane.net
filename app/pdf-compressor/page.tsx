@@ -5,19 +5,16 @@ import ToolPageLayout from "@/components/ToolPageLayout";
 import PdfCompressorClient from "./PdfCompressorClient";
 
 export const metadata: Metadata = {
-  title: "PDF Compressor | Toollane",
-
+  title: "PDF Compressor | Compress PDF Files Online | Toollane",
   description:
-    "Compress PDF files instantly with Toollane's free online PDF compressor.",
+    "Compress PDF files online for free. Reduce and optimize PDF file size directly in your browser without uploading your document.",
 };
 
 export default function PdfCompressorPage() {
   return (
     <ToolPageLayout
       title="PDF Compressor"
-      description="Compress PDF files instantly online."
-
-
+      description="Compress PDF files online and optimize PDF file size directly in your browser without uploading your document."
       href="/pdf-compressor"
     >
       <PdfCompressorClient />
