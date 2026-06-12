@@ -5,19 +5,16 @@ import ToolPageLayout from "@/components/ToolPageLayout";
 import SalaryCalculatorClient from "./SalaryCalculatorClient";
 
 export const metadata: Metadata = {
-  title: "Salary Calculator | Toollane",
-
+  title: "Salary Calculator | Annual, Monthly & Hourly Pay | Toollane",
   description:
-    "Convert annual salary into monthly, weekly, daily and hourly pay with Toollane's free online salary calculator.",
+    "Convert annual salary into monthly, weekly, daily and hourly pay online. Estimate gross pay, net pay, taxes, bonus and effective hourly rate.",
 };
 
 export default function SalaryCalculatorPage() {
   return (
     <ToolPageLayout
       title="Salary Calculator"
-      description="Convert annual salary into monthly, weekly, daily and hourly pay instantly online."
-
-
+      description="Convert annual salary into monthly, biweekly, weekly, daily and hourly pay with estimated taxes, bonus and paid time off."
       href="/salary-calculator"
     >
       <SalaryCalculatorClient />
