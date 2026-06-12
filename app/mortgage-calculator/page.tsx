@@ -5,19 +5,16 @@ import ToolPageLayout from "@/components/ToolPageLayout";
 import MortgageCalculatorClient from "./MortgageCalculatorClient";
 
 export const metadata: Metadata = {
-  title: "Mortgage Calculator | Toollane",
-
+  title: "Mortgage Calculator | Monthly Payment & Interest | Toollane",
   description:
-    "Calculate mortgage payments, loan amount, total interest and total repayment with Toollane's free online mortgage calculator.",
+    "Calculate monthly mortgage payments, principal, interest, taxes, insurance, PMI, HOA fees and total repayment online with Toollane's free mortgage calculator.",
 };
 
 export default function MortgageCalculatorPage() {
   return (
     <ToolPageLayout
       title="Mortgage Calculator"
-      description="Calculate mortgage payments, loan amount and total interest instantly online."
-
-
+      description="Calculate monthly mortgage payments, loan amount, total interest, taxes, insurance, PMI and HOA fees with a detailed payment breakdown."
       href="/mortgage-calculator"
     >
       <MortgageCalculatorClient />
