@@ -5,19 +5,16 @@ import ToolPageLayout from "@/components/ToolPageLayout";
 import RetirementCalculatorClient from "./RetirementCalculatorClient";
 
 export const metadata: Metadata = {
-  title: "Retirement Calculator | Toollane",
-
+  title: "Retirement Calculator | Savings & Retirement Goal | Toollane",
   description:
-    "Estimate retirement savings, future balance, contributions and investment growth with Toollane's free online retirement calculator.",
+    "Estimate retirement savings, required nest egg, monthly contributions, retirement income and savings gap online with Toollane's free retirement calculator.",
 };
 
 export default function RetirementCalculatorPage() {
   return (
     <ToolPageLayout
       title="Retirement Calculator"
-      description="Estimate retirement savings and future investment growth instantly online."
-
-
+      description="Estimate your retirement savings, required nest egg, monthly contribution goal and retirement funding gap with a detailed planning calculator."
       href="/retirement-calculator"
     >
       <RetirementCalculatorClient />
