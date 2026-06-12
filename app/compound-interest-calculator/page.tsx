@@ -5,19 +5,16 @@ import ToolPageLayout from "@/components/ToolPageLayout";
 import CompoundInterestCalculatorClient from "./CompoundInterestCalculatorClient";
 
 export const metadata: Metadata = {
-  title: "Compound Interest Calculator | Toollane",
-
+  title: "Compound Interest Calculator | Future Value & Growth | Toollane",
   description:
-    "Calculate compound interest, future value, contributions and interest earned with Toollane's free online calculator.",
+    "Calculate compound interest, future value, recurring contributions, interest earned, taxes and inflation-adjusted growth online with Toollane.",
 };
 
 export default function CompoundInterestCalculatorPage() {
   return (
     <ToolPageLayout
       title="Compound Interest Calculator"
-      description="Calculate compound interest, future value and investment growth instantly online."
-
-
+      description="Calculate compound interest, future value, recurring contributions, compounding frequency, interest earned and inflation-adjusted growth."
       href="/compound-interest-calculator"
     >
       <CompoundInterestCalculatorClient />
