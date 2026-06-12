@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import * as pdfjsLib from "pdfjs-dist";
 
 import ToolErrorBox from "@/components/ToolErrorBox";
@@ -9,9 +9,15 @@ import ToolResultBox from "@/components/ToolResultBox";
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
 
+type ImageQuality = "small" | "high" | "maximum";
+type OutputResolution = "standard" | "high" | "very-high";
+
 type ConvertedPage = {
   page: number;
   url: string;
+  size: number;
+  width: number;
+  height: number;
 };
 
 function formatFileSize(bytes: number) {
@@ -22,21 +28,56 @@ function formatFileSize(bytes: number) {
   return `${(bytes / 1024 / 1024).toFixed(2)} MB`;
 }
 
+function getQualityValue(quality: ImageQuality) {
+  if (quality === "small") return 0.75;
+  if (quality === "maximum") return 1;
+  return 0.92;
+}
+
+function getScaleValue(resolution: OutputResolution) {
+  if (resolution === "standard") return 1;
+  if (resolution === "very-high") return 3;
+  return 2;
+}
+
+function createSafeBaseName(value: string) {
+  return (
+    value
+      .trim()
+      .toLowerCase()
+      .replace(/\.pdf$/i, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "") || "pdf-pages"
+  );
+}
+
 export default function PdfToJpgClient() {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const [file, setFile] = useState<File | null>(null);
   const [pageCount, setPageCount] = useState<number | null>(null);
-  const [quality, setQuality] = useState(0.92);
-  const [scale, setScale] = useState(2);
+  const [quality, setQuality] = useState<ImageQuality>("high");
+  const [resolution, setResolution] = useState<OutputResolution>("high");
+  const [outputName, setOutputName] = useState("pdf-pages");
   const [convertedPages, setConvertedPages] = useState<ConvertedPage[]>([]);
   const [loading, setLoading] = useState(false);
   const [reading, setReading] = useState(false);
+  const [dragActive, setDragActive] = useState(false);
   const [error, setError] = useState("");
+
+  const totalOutputSize = useMemo(
+    () => convertedPages.reduce((sum, page) => sum + page.size, 0),
+    [convertedPages]
+  );
+
+  function revokeConvertedPages() {
+    convertedPages.forEach((page) => URL.revokeObjectURL(page.url));
+    setConvertedPages([]);
+  }
 
   async function handleFiles(selectedFiles: FileList | File[]) {
     setError("");
-    setConvertedPages([]);
+    revokeConvertedPages();
     setPageCount(null);
 
     const selectedFile = Array.from(selectedFiles)[0];
@@ -51,6 +92,7 @@ export default function PdfToJpgClient() {
 
     if (!isPdf) {
       setError("Please select a valid PDF file.");
+      setFile(null);
       return;
     }
 
@@ -58,28 +100,51 @@ export default function PdfToJpgClient() {
 
     try {
       const bytes = await selectedFile.arrayBuffer();
+
       const pdf = await pdfjsLib.getDocument({
         data: bytes,
       }).promise;
 
       setFile(selectedFile);
       setPageCount(pdf.numPages);
+      setOutputName(createSafeBaseName(selectedFile.name));
+
+      if (inputRef.current) {
+        inputRef.current.value = "";
+      }
     } catch {
       setError(
-        "Could not read this PDF file. Please make sure it is a valid, unlocked PDF."
+        "Could not read this PDF file. Please make sure it is a valid, unlocked PDF document."
       );
       setFile(null);
+      setPageCount(null);
     } finally {
       setReading(false);
     }
   }
 
   function clearFile() {
-    convertedPages.forEach((page) => URL.revokeObjectURL(page.url));
+    revokeConvertedPages();
 
     setFile(null);
     setPageCount(null);
-    setConvertedPages([]);
+    setError("");
+
+    if (inputRef.current) {
+      inputRef.current.value = "";
+    }
+  }
+
+  function resetTool() {
+    revokeConvertedPages();
+
+    setFile(null);
+    setPageCount(null);
+    setQuality("high");
+    setResolution("high");
+    setOutputName("pdf-pages");
+    setLoading(false);
+    setReading(false);
     setError("");
 
     if (inputRef.current) {
@@ -89,9 +154,7 @@ export default function PdfToJpgClient() {
 
   async function convertPdfToJpg() {
     setError("");
-
-    convertedPages.forEach((page) => URL.revokeObjectURL(page.url));
-    setConvertedPages([]);
+    revokeConvertedPages();
 
     if (!file) {
       setError("Please select a PDF file first.");
@@ -102,11 +165,14 @@ export default function PdfToJpgClient() {
 
     try {
       const bytes = await file.arrayBuffer();
+
       const pdf = await pdfjsLib.getDocument({
         data: bytes,
       }).promise;
 
-      const pages: ConvertedPage[] = [];
+      const nextPages: ConvertedPage[] = [];
+      const scale = getScaleValue(resolution);
+      const jpgQuality = getQualityValue(quality);
 
       for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
         const page = await pdf.getPage(pageNumber);
@@ -123,31 +189,32 @@ export default function PdfToJpgClient() {
         canvas.height = viewport.height;
 
         await page.render({
-        canvasContext: context,
-        viewport,
-        canvas,
+          canvasContext: context,
+          viewport,
+          canvas,
         }).promise;
 
         const blob = await new Promise<Blob | null>((resolve) => {
-          canvas.toBlob(resolve, "image/jpeg", quality);
+          canvas.toBlob(resolve, "image/jpeg", jpgQuality);
         });
 
         if (!blob) {
           throw new Error("Could not create JPG image.");
         }
 
-        const url = URL.createObjectURL(blob);
-
-        pages.push({
+        nextPages.push({
           page: pageNumber,
-          url,
+          url: URL.createObjectURL(blob),
+          size: blob.size,
+          width: canvas.width,
+          height: canvas.height,
         });
       }
 
-      setConvertedPages(pages);
+      setConvertedPages(nextPages);
     } catch {
       setError(
-        "Something went wrong while converting the PDF. Please try another PDF file."
+        "Something went wrong while converting the PDF. Please try another valid, unlocked PDF file."
       );
     } finally {
       setLoading(false);
@@ -158,39 +225,55 @@ export default function PdfToJpgClient() {
     const link = document.createElement("a");
 
     link.href = page.url;
-    link.download = `page-${page.page}.jpg`;
-
+    link.download = `${createSafeBaseName(outputName)}-page-${page.page}.jpg`;
     document.body.appendChild(link);
     link.click();
     link.remove();
   }
 
   function downloadAllPages() {
-    convertedPages.forEach((page) => {
-      downloadPage(page);
-    });
+    convertedPages.forEach((page) => downloadPage(page));
   }
 
   return (
     <div className="grid gap-8">
       <div>
         <h2 className="text-2xl font-black tracking-tight text-black">
-          Convert PDF to JPG
+          Convert PDF to JPG online
         </h2>
 
         <p className="mt-3 text-sm leading-7 text-black/60 sm:text-base">
-          Upload a PDF and convert every page into a JPG image directly in your
-          browser.
+          Upload a PDF file and convert every page into a high-quality JPG image
+          directly in your browser.
         </p>
       </div>
 
+      <div className="grid gap-4 sm:grid-cols-3">
+        <StatCard label="Selected file" value={file ? "1 PDF" : "0 PDFs"} />
+        <StatCard label="Pages" value={pageCount ? String(pageCount) : "0"} />
+        <StatCard label="Privacy" value="Browser-based" />
+      </div>
+
       <div
-        onDragOver={(event) => event.preventDefault()}
+        onDragEnter={(event) => {
+          event.preventDefault();
+          setDragActive(true);
+        }}
+        onDragOver={(event) => {
+          event.preventDefault();
+          setDragActive(true);
+        }}
+        onDragLeave={() => setDragActive(false)}
         onDrop={(event) => {
           event.preventDefault();
+          setDragActive(false);
           void handleFiles(event.dataTransfer.files);
         }}
-        className="rounded-[2rem] border-2 border-dashed border-black/15 bg-[#fff8df] p-6 text-center transition hover:border-black/25 sm:p-8"
+        className={`rounded-[2rem] border-2 border-dashed p-6 text-center transition sm:p-8 ${
+          dragActive
+            ? "border-black bg-white"
+            : "border-black/15 bg-[#fff8df] hover:border-black/25"
+        }`}
       >
         <input
           ref={inputRef}
@@ -213,7 +296,8 @@ export default function PdfToJpgClient() {
         </h3>
 
         <p className="mt-2 text-sm leading-6 text-black/60">
-          Your PDF stays in your browser and is not uploaded.
+          Select one PDF file. Your document stays in your browser and is not
+          uploaded to a server.
         </p>
 
         <button
@@ -224,6 +308,26 @@ export default function PdfToJpgClient() {
           Choose PDF file
         </button>
       </div>
+
+      <label className="block">
+        <span className="text-sm font-bold text-black">Output file name</span>
+
+        <input
+          type="text"
+          value={outputName}
+          onChange={(event) => {
+            revokeConvertedPages();
+            setOutputName(event.target.value);
+          }}
+          className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
+        />
+
+        <p className="mt-2 text-xs leading-5 text-black/50">
+          Files will be saved as {createSafeBaseName(outputName)}-page-1.jpg,
+          {` `}
+          {createSafeBaseName(outputName)}-page-2.jpg and so on.
+        </p>
+      </label>
 
       {error && <ToolErrorBox message={error} />}
 
@@ -248,12 +352,15 @@ export default function PdfToJpgClient() {
 
                 <select
                   value={quality}
-                  onChange={(event) => setQuality(Number(event.target.value))}
-                  className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none focus:border-black"
+                  onChange={(event) => {
+                    revokeConvertedPages();
+                    setQuality(event.target.value as ImageQuality);
+                  }}
+                  className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
                 >
-                  <option value={0.75}>Smaller file</option>
-                  <option value={0.92}>High quality</option>
-                  <option value={1}>Maximum quality</option>
+                  <option value="small">Smaller file</option>
+                  <option value="high">High quality</option>
+                  <option value="maximum">Maximum quality</option>
                 </select>
               </label>
 
@@ -263,13 +370,16 @@ export default function PdfToJpgClient() {
                 </span>
 
                 <select
-                  value={scale}
-                  onChange={(event) => setScale(Number(event.target.value))}
-                  className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none focus:border-black"
+                  value={resolution}
+                  onChange={(event) => {
+                    revokeConvertedPages();
+                    setResolution(event.target.value as OutputResolution);
+                  }}
+                  className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
                 >
-                  <option value={1}>Standard</option>
-                  <option value={2}>High</option>
-                  <option value={3}>Very high</option>
+                  <option value="standard">Standard</option>
+                  <option value="high">High</option>
+                  <option value="very-high">Very high</option>
                 </select>
               </label>
             </div>
@@ -284,62 +394,133 @@ export default function PdfToJpgClient() {
         )
       )}
 
-      {convertedPages.length > 0 && (
-        <ToolResultBox title="Converted JPG files">
-          <div className="grid gap-4">
-            <button
-              type="button"
-              onClick={downloadAllPages}
-              className="rounded-2xl bg-black px-5 py-4 text-sm font-bold text-white transition hover:opacity-90"
-            >
-              Download all JPG files
-            </button>
+      <div className="flex flex-col gap-3 sm:flex-row">
+        <button
+          type="button"
+          onClick={convertPdfToJpg}
+          disabled={!file || loading || reading}
+          className="rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          {loading ? "Converting PDF..." : "Convert to JPG"}
+        </button>
 
-            <div className="grid gap-3 sm:grid-cols-2">
+        {convertedPages.length > 0 && (
+          <button
+            type="button"
+            onClick={downloadAllPages}
+            className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:bg-black/5"
+          >
+            Download all again
+          </button>
+        )}
+
+        <button
+          type="button"
+          onClick={clearFile}
+          disabled={!file || loading || reading}
+          className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:bg-black/5 disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          Clear file
+        </button>
+
+        <button
+          type="button"
+          onClick={resetTool}
+          disabled={loading || reading}
+          className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:bg-black/5 disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          Reset
+        </button>
+      </div>
+
+      {convertedPages.length > 0 && (
+        <>
+          <div className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm">
+            <h3 className="text-xl font-black text-black">
+              JPG images ready
+            </h3>
+
+            <p className="mt-3 text-sm leading-7 text-black/60">
+              Your PDF pages have been converted into JPG images. You can
+              download each page separately or download all pages again.
+            </p>
+
+            <div className="mt-4 grid gap-4 sm:grid-cols-3">
+              <StatCard
+                label="Converted pages"
+                value={String(convertedPages.length)}
+              />
+              <StatCard
+                label="Output size"
+                value={formatFileSize(totalOutputSize)}
+              />
+              <StatCard
+                label="Resolution"
+                value={
+                  resolution === "very-high"
+                    ? "Very high"
+                    : resolution === "high"
+                      ? "High"
+                      : "Standard"
+                }
+              />
+            </div>
+          </div>
+
+          <ToolResultBox title="Converted JPG files">
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {convertedPages.map((page) => (
                 <div
                   key={page.page}
-                  className="rounded-2xl border border-black/10 bg-white p-4"
+                  className="rounded-[2rem] border border-black/10 bg-white p-4"
                 >
                   <img
                     src={page.url}
                     alt={`PDF page ${page.page}`}
-                    className="aspect-[3/4] w-full rounded-xl border border-black/10 object-contain"
+                    className="aspect-[3/4] w-full rounded-[1.5rem] border border-black/10 object-contain"
                   />
+
+                  <div className="mt-4">
+                    <div className="text-sm font-bold text-black">
+                      Page {page.page}
+                    </div>
+
+                    <div className="mt-1 text-xs text-black/50">
+                      {page.width} × {page.height} ·{" "}
+                      {formatFileSize(page.size)}
+                    </div>
+                  </div>
 
                   <button
                     type="button"
                     onClick={() => downloadPage(page)}
-                    className="mt-3 w-full rounded-xl border border-black/10 px-4 py-3 text-sm font-bold transition hover:bg-black/5"
+                    className="mt-4 w-full rounded-xl border border-black/10 px-4 py-3 text-sm font-bold transition hover:bg-black/5"
                   >
                     Download page {page.page}
                   </button>
                 </div>
               ))}
             </div>
-          </div>
-        </ToolResultBox>
+          </ToolResultBox>
+        </>
       )}
 
-      <div className="flex flex-col gap-3 sm:flex-row">
-        <button
-          type="button"
-          onClick={convertPdfToJpg}
-          disabled={!file || loading}
-          className="rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
-        >
-          {loading ? "Converting PDF..." : "Convert to JPG"}
-        </button>
+      <ToolInfoBox>
+        All conversion happens locally in your browser. Your PDF file is not
+        uploaded to Toollane servers.
+      </ToolInfoBox>
+    </div>
+  );
+}
 
-        <button
-          type="button"
-          onClick={clearFile}
-          disabled={!file || loading}
-          className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:bg-black/5 disabled:cursor-not-allowed disabled:opacity-40"
-        >
-          Clear file
-        </button>
+function StatCard({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+      <div className="text-xs font-bold uppercase tracking-wide text-black/40">
+        {label}
       </div>
+
+      <div className="mt-2 text-lg font-black text-black">{value}</div>
     </div>
   );
 }
