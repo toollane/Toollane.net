@@ -8,8 +8,7 @@ import RoiCalculatorClient from "./RoiCalculatorClient";
 
 const tool = getToolByHref("/roi-calculator");
 
-export const metadata: Metadata =
-  getToolMetadata("/roi-calculator");
+export const metadata: Metadata = getToolMetadata("/roi-calculator");
 
 export default function RoiCalculatorPage() {
   return (
