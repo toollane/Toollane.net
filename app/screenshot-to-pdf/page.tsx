@@ -5,19 +5,16 @@ import ToolPageLayout from "@/components/ToolPageLayout";
 import ScreenshotToPdfClient from "./ScreenshotToPdfClient";
 
 export const metadata: Metadata = {
-  title: "Screenshot to PDF Converter | Toollane",
-
+  title: "Screenshot to PDF Converter | Convert Screenshots Online | Toollane",
   description:
-    "Convert screenshots to PDF instantly with Toollane's free online screenshot to PDF converter.",
+    "Convert screenshots to PDF online for free. Upload mobile or desktop screenshots, arrange the page order, adjust PDF settings and download your PDF directly in your browser.",
 };
 
 export default function ScreenshotToPdfPage() {
   return (
     <ToolPageLayout
       title="Screenshot to PDF Converter"
-      description="Convert screenshots to PDF instantly online."
-
-
+      description="Convert screenshots to PDF instantly online. Upload mobile or desktop screenshots, arrange the page order and download your PDF directly in your browser."
       href="/screenshot-to-pdf"
     >
       <ScreenshotToPdfClient />
