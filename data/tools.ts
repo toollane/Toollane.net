@@ -464,6 +464,268 @@ categorySlug:
     },
   ],
 },
+
+{
+  category:
+    "Calculators",
+
+  categorySlug:
+    "calculators",
+
+  name:
+    "LTV Calculator",
+
+  shortName:
+    "LTV",
+
+  description:
+    "Calculate customer lifetime value, LTV:CAC ratio and payback period.",
+
+  seoTitle:
+    "LTV Calculator | Customer Lifetime Value Calculator | Toollane",
+
+  seoDescription:
+    "Calculate customer lifetime value online. Estimate LTV from ARPA, gross margin and monthly churn, then compare it with CAC and payback period.",
+
+  href:
+    "/ltv-calculator",
+
+  icon:
+    "📈",
+
+  popular:
+    false,
+
+  keywords: [
+    "ltv calculator",
+    "customer lifetime value calculator",
+    "saas ltv calculator",
+    "ltv cac calculator",
+    "customer value calculator",
+  ],
+
+  faqs: [
+    {
+      question:
+        "What is LTV?",
+
+      answer:
+        "LTV, or customer lifetime value, estimates how much gross profit a customer generates over their lifetime.",
+    },
+
+    {
+      question:
+        "How do you calculate customer lifetime value?",
+
+      answer:
+        "A common SaaS formula is average monthly revenue per account multiplied by gross margin, divided by monthly churn rate.",
+    },
+
+    {
+      question:
+        "What is a good LTV:CAC ratio?",
+
+      answer:
+        "Many SaaS businesses aim for an LTV:CAC ratio of around 3:1 or higher, although the right target depends on the business model.",
+    },
+  ],
+},
+{
+  category:
+    "Calculators",
+
+  categorySlug:
+    "calculators",
+
+  name:
+    "CAC Calculator",
+
+  shortName:
+    "CAC",
+
+  description:
+    "Calculate customer acquisition cost and compare CAC with LTV.",
+
+  seoTitle:
+    "CAC Calculator | Customer Acquisition Cost Calculator | Toollane",
+
+  seoDescription:
+    "Calculate customer acquisition cost online. Estimate CAC from marketing, sales, team and tool costs, then compare CAC with LTV and payback period.",
+
+  href:
+    "/cac-calculator",
+
+  icon:
+    "🎯",
+
+  popular:
+    false,
+
+  keywords: [
+    "cac calculator",
+    "customer acquisition cost calculator",
+    "saas cac calculator",
+    "ltv cac calculator",
+    "marketing cost calculator",
+  ],
+
+  faqs: [
+    {
+      question:
+        "What is CAC?",
+
+      answer:
+        "CAC stands for customer acquisition cost. It estimates how much it costs to acquire one new paying customer.",
+    },
+
+    {
+      question:
+        "How do you calculate CAC?",
+
+      answer:
+        "CAC is calculated by dividing total acquisition costs by the number of new customers acquired in the same period.",
+    },
+
+    {
+      question:
+        "Why compare CAC with LTV?",
+
+      answer:
+        "Comparing CAC with LTV helps you understand whether customer acquisition is profitable over the customer lifetime.",
+    },
+  ],
+},
+{
+  category:
+    "Calculators",
+
+  categorySlug:
+    "calculators",
+
+  name:
+    "Churn Rate Calculator",
+
+  shortName:
+    "Churn",
+
+  description:
+    "Calculate customer churn, revenue churn, retention, NRR and GRR.",
+
+  seoTitle:
+    "Churn Rate Calculator | SaaS Churn Calculator | Toollane",
+
+  seoDescription:
+    "Calculate customer churn, revenue churn, retention, NRR, GRR and MRR growth online with Toollane's free churn rate calculator.",
+
+  href:
+    "/churn-rate-calculator",
+
+  icon:
+    "↘️",
+
+  popular:
+    false,
+
+  keywords: [
+    "churn rate calculator",
+    "customer churn calculator",
+    "revenue churn calculator",
+    "saas churn calculator",
+    "nrr calculator",
+    "grr calculator",
+  ],
+
+  faqs: [
+    {
+      question:
+        "What is churn rate?",
+
+      answer:
+        "Churn rate measures the percentage of customers or revenue lost during a specific period.",
+    },
+
+    {
+      question:
+        "How do you calculate customer churn?",
+
+      answer:
+        "Customer churn is calculated by dividing lost customers by starting customers, then multiplying by 100.",
+    },
+
+    {
+      question:
+        "What is net revenue churn?",
+
+      answer:
+        "Net revenue churn measures lost recurring revenue after subtracting expansion revenue from existing customers.",
+    },
+  ],
+},
+{
+  category:
+    "Calculators",
+
+  categorySlug:
+    "calculators",
+
+  name:
+    "Runway Calculator",
+
+  shortName:
+    "Runway",
+
+  description:
+    "Calculate startup runway, burn rate, break-even gap and cash-out date.",
+
+  seoTitle:
+    "Runway Calculator | Startup Runway & Burn Rate Calculator | Toollane",
+
+  seoDescription:
+    "Calculate startup runway online. Estimate cash runway, burn rate, break-even gap, cash-out date and 24-month cash projection.",
+
+  href:
+    "/runway-calculator",
+
+  icon:
+    "⏳",
+
+  popular:
+    false,
+
+  keywords: [
+    "runway calculator",
+    "startup runway calculator",
+    "burn rate calculator",
+    "cash runway calculator",
+    "startup burn rate calculator",
+  ],
+
+  faqs: [
+    {
+      question:
+        "What is startup runway?",
+
+      answer:
+        "Startup runway estimates how long a company can operate before running out of cash based on its current burn rate.",
+    },
+
+    {
+      question:
+        "How do you calculate runway?",
+
+      answer:
+        "Runway is commonly calculated by dividing cash balance by monthly net burn.",
+    },
+
+    {
+      question:
+        "What is burn rate?",
+
+      answer:
+        "Burn rate is the amount of cash a business spends each month after accounting for revenue.",
+    },
+  ],
+},
 {
   category:
     "Calculators",
