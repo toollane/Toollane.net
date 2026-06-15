@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 
 import ToolErrorBox from "@/components/ToolErrorBox";
 import ToolInfoBox from "@/components/ToolInfoBox";
@@ -152,6 +152,8 @@ export default function LoanCalculatorClient() {
   const [loanYears, setLoanYears] = useState("5");
   const [extraMonthlyPayment, setExtraMonthlyPayment] = useState("0");
   const [currency, setCurrency] = useState<Currency>("USD");
+  const [showFirstMonths, setShowFirstMonths] = useState(false);
+  const [showYearlySummary, setShowYearlySummary] = useState(false);
   const [error, setError] = useState("");
 
   const numericValues = useMemo(
@@ -228,6 +230,8 @@ export default function LoanCalculatorClient() {
     setLoanYears("5");
     setExtraMonthlyPayment("0");
     setCurrency("USD");
+    setShowFirstMonths(false);
+    setShowYearlySummary(false);
     setError("");
   }
 
@@ -241,6 +245,8 @@ export default function LoanCalculatorClient() {
     setAnnualRate(rate);
     setLoanYears(years);
     setExtraMonthlyPayment(extraPayment);
+    setShowFirstMonths(false);
+    setShowYearlySummary(false);
     setError("");
   }
 
@@ -449,77 +455,132 @@ export default function LoanCalculatorClient() {
             </div>
           </ToolResultBox>
 
-          <ToolResultBox title="First 12 months">
-            <div className="overflow-hidden rounded-2xl border border-black/10 bg-white">
-              <div className="grid grid-cols-5 gap-3 border-b border-black/10 bg-[#fff8df] px-4 py-3 text-xs font-black uppercase tracking-wide text-black/50">
-                <div>Month</div>
-                <div>Payment</div>
-                <div>Principal</div>
-                <div>Interest</div>
-                <div>Balance</div>
+          <div className="grid gap-4">
+            <TogglePanel
+              title="First 12 months"
+              description="Show the first monthly payments with principal, interest and remaining balance."
+              open={showFirstMonths}
+              onToggle={() => setShowFirstMonths((current) => !current)}
+            >
+              <div className="grid gap-3 sm:hidden">
+                {previewRows.map((row) => (
+                  <div
+                    key={row.month}
+                    className="rounded-2xl border border-black/10 bg-white p-4"
+                  >
+                    <div className="flex items-center justify-between gap-4">
+                      <div>
+                        <div className="text-sm font-black text-black">
+                          Month {row.month}
+                        </div>
+
+                        <div className="mt-1 text-xs text-black/50">
+                          Payment {formatCurrency(row.payment, currency)}
+                        </div>
+                      </div>
+
+                      <div className="text-right text-sm font-black text-black">
+                        {formatCurrency(row.balance, currency)}
+                      </div>
+                    </div>
+
+                    <div className="mt-4 grid grid-cols-2 gap-3 text-xs">
+                      <div className="rounded-xl bg-[#fff8df] p-3">
+                        <div className="font-bold text-black/45">Principal</div>
+                        <div className="mt-1 font-black text-black">
+                          {formatCurrency(row.principal, currency)}
+                        </div>
+                      </div>
+
+                      <div className="rounded-xl bg-[#fff8df] p-3">
+                        <div className="font-bold text-black/45">Interest</div>
+                        <div className="mt-1 font-black text-black">
+                          {formatCurrency(row.interest, currency)}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
 
-              {previewRows.map((row) => (
-                <div
-                  key={row.month}
-                  className="grid grid-cols-5 gap-3 border-b border-black/5 px-4 py-3 text-xs text-black/65 last:border-b-0"
-                >
-                  <div className="font-bold text-black">{row.month}</div>
-                  <div>{formatCurrency(row.payment, currency)}</div>
-                  <div>{formatCurrency(row.principal, currency)}</div>
-                  <div>{formatCurrency(row.interest, currency)}</div>
-                  <div>{formatCurrency(row.balance, currency)}</div>
-                </div>
-              ))}
-            </div>
-
-            <p className="mt-4 text-xs leading-5 text-black/50">
-              This preview shows the first 12 monthly payments. The full payoff
-              estimate is calculated internally using the complete loan term.
-            </p>
-          </ToolResultBox>
-
-          <ToolResultBox title="Yearly balance summary">
-            <div className="grid gap-3">
-              {yearlyRows.map((row) => (
-                <div
-                  key={row.month}
-                  className="rounded-2xl border border-black/10 bg-white p-4"
-                >
-                  <div className="flex items-center justify-between gap-4">
-                    <div>
-                      <div className="text-sm font-black text-black">
-                        Month {row.month}
-                      </div>
-
-                      <div className="mt-1 text-xs text-black/50">
-                        Remaining balance
-                      </div>
-                    </div>
-
-                    <div className="text-right text-sm font-black text-black">
-                      {formatCurrency(row.balance, currency)}
-                    </div>
+              <div className="hidden overflow-x-auto rounded-2xl border border-black/10 bg-white sm:block">
+                <div className="min-w-[720px]">
+                  <div className="grid grid-cols-5 gap-3 border-b border-black/10 bg-[#fff8df] px-4 py-3 text-xs font-black uppercase tracking-wide text-black/50">
+                    <div>Month</div>
+                    <div>Payment</div>
+                    <div>Principal</div>
+                    <div>Interest</div>
+                    <div>Balance</div>
                   </div>
 
-                  <div className="mt-3 h-3 overflow-hidden rounded-full bg-black/10">
+                  {previewRows.map((row) => (
                     <div
-                      className="h-full rounded-full bg-black"
-                      style={{
-                        width: `${Math.max(
-                          0,
-                          Math.min(
-                            100,
-                            (row.balance / numericValues.loanAmount) * 100
-                          )
-                        )}%`,
-                      }}
-                    />
-                  </div>
+                      key={row.month}
+                      className="grid grid-cols-5 gap-3 border-b border-black/5 px-4 py-3 text-xs text-black/65 last:border-b-0"
+                    >
+                      <div className="font-bold text-black">{row.month}</div>
+                      <div>{formatCurrency(row.payment, currency)}</div>
+                      <div>{formatCurrency(row.principal, currency)}</div>
+                      <div>{formatCurrency(row.interest, currency)}</div>
+                      <div>{formatCurrency(row.balance, currency)}</div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </ToolResultBox>
+              </div>
+
+              <p className="mt-4 text-xs leading-5 text-black/50">
+                This preview shows the first 12 monthly payments. The full payoff
+                estimate is calculated internally using the complete loan term.
+              </p>
+            </TogglePanel>
+
+            <TogglePanel
+              title="Yearly balance summary"
+              description="Show the estimated remaining loan balance by year."
+              open={showYearlySummary}
+              onToggle={() => setShowYearlySummary((current) => !current)}
+            >
+              <div className="grid gap-3">
+                {yearlyRows.map((row) => (
+                  <div
+                    key={row.month}
+                    className="rounded-2xl border border-black/10 bg-white p-4"
+                  >
+                    <div className="flex items-center justify-between gap-4">
+                      <div>
+                        <div className="text-sm font-black text-black">
+                          Month {row.month}
+                        </div>
+
+                        <div className="mt-1 text-xs text-black/50">
+                          Remaining balance
+                        </div>
+                      </div>
+
+                      <div className="text-right text-sm font-black text-black">
+                        {formatCurrency(row.balance, currency)}
+                      </div>
+                    </div>
+
+                    <div className="mt-3 h-3 overflow-hidden rounded-full bg-black/10">
+                      <div
+                        className="h-full rounded-full bg-black"
+                        style={{
+                          width: `${Math.max(
+                            0,
+                            Math.min(
+                              100,
+                              (row.balance / numericValues.loanAmount) * 100
+                            )
+                          )}%`,
+                        }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </TogglePanel>
+          </div>
         </>
       ) : (
         <ToolInfoBox>
@@ -637,7 +698,8 @@ function BreakdownBar({
   total: number;
   formattedValue: string;
 }) {
-  const percentage = total > 0 ? Math.max(0, Math.min(100, (value / total) * 100)) : 0;
+  const percentage =
+    total > 0 ? Math.max(0, Math.min(100, (value / total) * 100)) : 0;
 
   return (
     <div className="rounded-2xl border border-black/10 bg-white p-5">
@@ -661,6 +723,42 @@ function BreakdownBar({
           style={{ width: `${percentage}%` }}
         />
       </div>
+    </div>
+  );
+}
+
+function TogglePanel({
+  title,
+  description,
+  open,
+  onToggle,
+  children,
+}: {
+  title: string;
+  description: string;
+  open: boolean;
+  onToggle: () => void;
+  children: ReactNode;
+}) {
+  return (
+    <div className="rounded-[2rem] border border-black/10 bg-white p-5 shadow-sm">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h3 className="text-lg font-black text-black">{title}</h3>
+
+          <p className="mt-1 text-sm leading-6 text-black/60">{description}</p>
+        </div>
+
+        <button
+          type="button"
+          onClick={onToggle}
+          className="rounded-2xl border border-black/10 bg-white px-5 py-3 text-sm font-bold text-black transition hover:bg-black/5"
+        >
+          {open ? "Hide details" : "Show details"}
+        </button>
+      </div>
+
+      {open && <div className="mt-5">{children}</div>}
     </div>
   );
 }
