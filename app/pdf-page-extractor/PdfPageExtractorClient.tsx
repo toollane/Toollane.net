@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PDFDocument } from "pdf-lib";
 
 import ToolErrorBox from "@/components/ToolErrorBox";
@@ -16,17 +16,31 @@ function formatFileSize(bytes: number) {
 }
 
 function parsePageRanges(input: string, pageCount: number) {
-  const pages = new Set<number>();
+  const pages: number[] = [];
+  const seen = new Set<number>();
+
   const parts = input
     .split(",")
     .map((part) => part.trim())
     .filter(Boolean);
 
+  function addPage(page: number) {
+    if (!seen.has(page)) {
+      pages.push(page);
+      seen.add(page);
+    }
+  }
+
   for (const part of parts) {
     if (part.includes("-")) {
-      const [startRaw, endRaw] = part.split("-");
-      const start = Number(startRaw);
-      const end = Number(endRaw);
+      const rangeParts = part.split("-").map((value) => value.trim());
+
+      if (rangeParts.length !== 2) {
+        throw new Error("Invalid page range.");
+      }
+
+      const start = Number(rangeParts[0]);
+      const end = Number(rangeParts[1]);
 
       if (!Number.isInteger(start) || !Number.isInteger(end)) {
         throw new Error("Invalid page range.");
@@ -36,8 +50,8 @@ function parsePageRanges(input: string, pageCount: number) {
         throw new Error("Page range is outside the PDF page count.");
       }
 
-      for (let page = start; page <= end; page++) {
-        pages.add(page);
+      for (let page = start; page <= end; page += 1) {
+        addPage(page);
       }
     } else {
       const page = Number(part);
@@ -46,11 +60,49 @@ function parsePageRanges(input: string, pageCount: number) {
         throw new Error("Invalid page number.");
       }
 
-      pages.add(page);
+      addPage(page);
     }
   }
 
-  return Array.from(pages).sort((a, b) => a - b);
+  return pages;
+}
+
+function getOddPages(pageCount: number) {
+  return Array.from({ length: pageCount }, (_, index) => index + 1).filter(
+    (page) => page % 2 === 1
+  );
+}
+
+function getEvenPages(pageCount: number) {
+  return Array.from({ length: pageCount }, (_, index) => index + 1).filter(
+    (page) => page % 2 === 0
+  );
+}
+
+function formatPagesAsRange(pages: number[]) {
+  return pages.join(",");
+}
+
+function formatPagePreview(pages: number[]) {
+  if (!pages.length) {
+    return "No valid pages selected";
+  }
+
+  if (pages.length <= 10) {
+    return pages.join(", ");
+  }
+
+  return `${pages.slice(0, 10).join(", ")} + ${pages.length - 10} more`;
+}
+
+function createDownloadName(fileName: string, pageRange: string) {
+  const cleanName = fileName.replace(/\.pdf$/i, "");
+  const cleanRange = pageRange
+    .replace(/\s+/g, "")
+    .replace(/[^0-9,-]/g, "")
+    .slice(0, 40);
+
+  return `${cleanName}-${cleanRange || "extracted-pages"}.pdf`;
 }
 
 export default function PdfPageExtractorClient() {
@@ -60,9 +112,21 @@ export default function PdfPageExtractorClient() {
   const [pageCount, setPageCount] = useState<number | null>(null);
   const [pageRange, setPageRange] = useState("1");
   const [selectedPages, setSelectedPages] = useState<number[]>([]);
+  const [downloadUrl, setDownloadUrl] = useState("");
+  const [downloadName, setDownloadName] = useState("");
+  const [outputSize, setOutputSize] = useState<number | null>(null);
   const [loading, setLoading] = useState(false);
   const [reading, setReading] = useState(false);
+  const [dragActive, setDragActive] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    return () => {
+      if (downloadUrl) {
+        URL.revokeObjectURL(downloadUrl);
+      }
+    };
+  }, [downloadUrl]);
 
   async function loadPdf(selectedFile: File) {
     setError("");
@@ -70,6 +134,9 @@ export default function PdfPageExtractorClient() {
     setPageCount(null);
     setSelectedPages([]);
     setPageRange("1");
+    setDownloadUrl("");
+    setDownloadName("");
+    setOutputSize(null);
 
     try {
       const isPdf =
@@ -83,6 +150,7 @@ export default function PdfPageExtractorClient() {
       }
 
       const bytes = await selectedFile.arrayBuffer();
+
       const pdf = await PDFDocument.load(bytes, {
         ignoreEncryption: true,
       });
@@ -91,7 +159,8 @@ export default function PdfPageExtractorClient() {
 
       setFile(selectedFile);
       setPageCount(count);
-      setSelectedPages([1]);
+      setSelectedPages(count > 0 ? [1] : []);
+      setPageRange("1");
     } catch {
       setError(
         "Could not read this PDF file. Please make sure it is a valid, unlocked PDF."
@@ -115,6 +184,9 @@ export default function PdfPageExtractorClient() {
   function updatePageRange(value: string) {
     setPageRange(value);
     setError("");
+    setDownloadUrl("");
+    setDownloadName("");
+    setOutputSize(null);
 
     if (!pageCount) {
       setSelectedPages([]);
@@ -138,11 +210,25 @@ export default function PdfPageExtractorClient() {
     setPageCount(null);
     setSelectedPages([]);
     setPageRange("1");
+    setDownloadUrl("");
+    setDownloadName("");
+    setOutputSize(null);
     setError("");
 
     if (inputRef.current) {
       inputRef.current.value = "";
     }
+  }
+
+  function triggerDownload(url: string, name: string) {
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = name;
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
   }
 
   async function extractPages() {
@@ -170,9 +256,13 @@ export default function PdfPageExtractorClient() {
     }
 
     setLoading(true);
+    setDownloadUrl("");
+    setDownloadName("");
+    setOutputSize(null);
 
     try {
       const bytes = await file.arrayBuffer();
+
       const pdf = await PDFDocument.load(bytes, {
         ignoreEncryption: true,
       });
@@ -193,18 +283,14 @@ export default function PdfPageExtractorClient() {
         type: "application/pdf",
       });
 
-      const cleanName = file.name.replace(/\.pdf$/i, "");
       const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
+      const name = createDownloadName(file.name, pageRange);
 
-      link.href = url;
-      link.download = `${cleanName}-extracted-pages.pdf`;
+      setDownloadUrl(url);
+      setDownloadName(name);
+      setOutputSize(blob.size);
 
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-
-      URL.revokeObjectURL(url);
+      triggerDownload(url, name);
     } catch {
       setError(
         "Something went wrong while extracting pages. Please make sure the PDF is valid and try again."
@@ -222,18 +308,28 @@ export default function PdfPageExtractorClient() {
         </h2>
 
         <p className="mt-3 text-sm leading-7 text-black/60 sm:text-base">
-          Upload a PDF, enter the pages you want to keep and download a new PDF
-          with only those pages. Everything runs directly in your browser.
+          Upload a PDF, choose the pages you want to keep and download a new PDF
+          with only those selected pages. Everything runs directly in your
+          browser.
         </p>
       </div>
 
       <div
-        onDragOver={(event) => event.preventDefault()}
+        onDragOver={(event) => {
+          event.preventDefault();
+          setDragActive(true);
+        }}
+        onDragLeave={() => setDragActive(false)}
         onDrop={(event) => {
           event.preventDefault();
+          setDragActive(false);
           handleFiles(event.dataTransfer.files);
         }}
-        className="rounded-[2rem] border-2 border-dashed border-black/15 bg-[#fff8df] p-6 text-center transition hover:border-black/25 sm:p-8"
+        className={`rounded-[2rem] border-2 border-dashed p-6 text-center transition sm:p-8 ${
+          dragActive
+            ? "border-black bg-[#fff3bd]"
+            : "border-black/15 bg-[#fff8df] hover:border-black/25"
+        }`}
       >
         <input
           ref={inputRef}
@@ -262,9 +358,10 @@ export default function PdfPageExtractorClient() {
         <button
           type="button"
           onClick={() => inputRef.current?.click()}
-          className="mt-5 rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90"
+          disabled={reading || loading}
+          className="mt-5 rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
         >
-          Choose PDF file
+          {reading ? "Reading PDF..." : "Choose PDF file"}
         </button>
       </div>
 
@@ -275,73 +372,167 @@ export default function PdfPageExtractorClient() {
       )}
 
       {file && pageCount ? (
-        <ToolResultBox title="Selected PDF">
-          <div className="grid gap-5">
-            <div className="rounded-2xl border border-black/10 bg-white p-4">
-              <div className="truncate font-bold text-black">{file.name}</div>
+        <>
+          <ToolResultBox title="Selected PDF">
+            <div className="grid gap-5">
+              <div className="rounded-2xl border border-black/10 bg-white p-4">
+                <div className="truncate font-bold text-black">{file.name}</div>
 
-              <div className="mt-1 text-xs text-black/50">
-                {formatFileSize(file.size)} · {pageCount} pages
-              </div>
-            </div>
-
-            <div>
-              <label className="text-sm font-bold text-black">
-                Pages to extract
-              </label>
-
-              <input
-                value={pageRange}
-                onChange={(event) => updatePageRange(event.target.value)}
-                placeholder="Example: 1,3,5-7"
-                className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
-              />
-
-              <p className="mt-2 text-xs leading-5 text-black/50">
-                Use commas and ranges. Example: 1,3,5-7.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              <button
-                type="button"
-                onClick={() => selectPreset("1")}
-                disabled={loading}
-                className="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold disabled:opacity-40"
-              >
-                First page
-              </button>
-
-              <button
-                type="button"
-                onClick={() => selectPreset(String(pageCount))}
-                disabled={loading}
-                className="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold disabled:opacity-40"
-              >
-                Last page
-              </button>
-
-              <button
-                type="button"
-                onClick={() => selectPreset(`1-${pageCount}`)}
-                disabled={loading}
-                className="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold disabled:opacity-40"
-              >
-                All pages
-              </button>
-            </div>
-
-            <div className="rounded-2xl border border-black/10 bg-white p-4">
-              <div className="text-xs font-bold uppercase tracking-wide text-black/40">
-                Pages selected
+                <div className="mt-1 text-xs text-black/50">
+                  {formatFileSize(file.size)} · {pageCount} pages
+                </div>
               </div>
 
-              <div className="mt-2 text-lg font-black text-black">
-                {selectedPages.length || 0}
+              <div className="grid gap-4 sm:grid-cols-3">
+                <StatCard label="Total pages" value={String(pageCount)} />
+
+                <StatCard
+                  label="Selected pages"
+                  value={String(selectedPages.length)}
+                  highlight={selectedPages.length > 0}
+                />
+
+                <StatCard
+                  label="Original size"
+                  value={formatFileSize(file.size)}
+                />
+              </div>
+
+              <div>
+                <label className="text-sm font-bold text-black">
+                  Pages to extract
+                </label>
+
+                <input
+                  value={pageRange}
+                  onChange={(event) => updatePageRange(event.target.value)}
+                  placeholder="Example: 1,3,5-7"
+                  className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
+                />
+
+                <p className="mt-2 text-xs leading-5 text-black/50">
+                  Use commas and ranges. Example: 1,3,5-7. Duplicate pages are
+                  ignored.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-black/10 bg-white p-4">
+                <div className="text-xs font-bold uppercase tracking-wide text-black/40">
+                  Selection preview
+                </div>
+
+                <div className="mt-2 text-sm font-bold leading-6 text-black">
+                  {formatPagePreview(selectedPages)}
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  onClick={() => selectPreset("1")}
+                  disabled={loading}
+                  className="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold transition hover:bg-black/5 disabled:opacity-40"
+                >
+                  First page
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => selectPreset(String(pageCount))}
+                  disabled={loading}
+                  className="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold transition hover:bg-black/5 disabled:opacity-40"
+                >
+                  Last page
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => selectPreset(`1-${pageCount}`)}
+                  disabled={loading}
+                  className="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold transition hover:bg-black/5 disabled:opacity-40"
+                >
+                  All pages
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => selectPreset(formatPagesAsRange(getOddPages(pageCount)))}
+                  disabled={loading}
+                  className="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold transition hover:bg-black/5 disabled:opacity-40"
+                >
+                  Odd pages
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => selectPreset(formatPagesAsRange(getEvenPages(pageCount)))}
+                  disabled={loading || pageCount < 2}
+                  className="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold transition hover:bg-black/5 disabled:opacity-40"
+                >
+                  Even pages
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    selectPreset(
+                      `1-${Math.max(1, Math.ceil(pageCount / 2))}`
+                    )
+                  }
+                  disabled={loading}
+                  className="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold transition hover:bg-black/5 disabled:opacity-40"
+                >
+                  First half
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    selectPreset(
+                      `${Math.max(1, Math.ceil(pageCount / 2) + 1)}-${pageCount}`
+                    )
+                  }
+                  disabled={loading || pageCount < 2}
+                  className="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold transition hover:bg-black/5 disabled:opacity-40"
+                >
+                  Second half
+                </button>
               </div>
             </div>
-          </div>
-        </ToolResultBox>
+          </ToolResultBox>
+
+          {downloadUrl && outputSize !== null && (
+            <ToolResultBox title="Extracted PDF ready">
+              <div className="grid gap-4 sm:grid-cols-3">
+                <StatCard
+                  label="Output file"
+                  value={downloadName || "Extracted PDF"}
+                />
+
+                <StatCard
+                  label="Output size"
+                  value={formatFileSize(outputSize)}
+                />
+
+                <StatCard
+                  label="Pages extracted"
+                  value={String(selectedPages.length)}
+                  highlight
+                />
+              </div>
+
+              <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+                <button
+                  type="button"
+                  onClick={() => triggerDownload(downloadUrl, downloadName)}
+                  className="rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90"
+                >
+                  Download again
+                </button>
+              </div>
+            </ToolResultBox>
+          )}
+        </>
       ) : (
         !reading && (
           <ToolInfoBox>
@@ -355,7 +546,7 @@ export default function PdfPageExtractorClient() {
         <button
           type="button"
           onClick={extractPages}
-          disabled={!file || !selectedPages.length || loading}
+          disabled={!file || !selectedPages.length || loading || reading}
           className="rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
         >
           {loading ? "Extracting pages..." : "Extract pages"}
@@ -364,12 +555,47 @@ export default function PdfPageExtractorClient() {
         <button
           type="button"
           onClick={clearFile}
-          disabled={!file || loading}
+          disabled={!file || loading || reading}
           className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:bg-black/5 disabled:cursor-not-allowed disabled:opacity-40"
         >
           Clear file
         </button>
       </div>
+
+      <ToolInfoBox>
+        Your PDF is processed locally in your browser. The file is not uploaded
+        to Toollane servers.
+      </ToolInfoBox>
+    </div>
+  );
+}
+
+function StatCard({
+  label,
+  value,
+  highlight = false,
+}: {
+  label: string;
+  value: string;
+  highlight?: boolean;
+}) {
+  return (
+    <div
+      className={`rounded-2xl border p-4 ${
+        highlight
+          ? "border-black bg-black text-white"
+          : "border-black/10 bg-white text-black"
+      }`}
+    >
+      <div
+        className={`text-xs font-bold uppercase tracking-wide ${
+          highlight ? "text-white/50" : "text-black/40"
+        }`}
+      >
+        {label}
+      </div>
+
+      <div className="mt-2 truncate text-lg font-black">{value}</div>
     </div>
   );
 }
