@@ -7,14 +7,14 @@ import PdfToJpgNoSsr from "./PdfToJpgNoSsr";
 export const metadata: Metadata = {
   title: "PDF to JPG Converter | Convert PDF Pages Online | Toollane",
   description:
-    "Convert PDF pages to JPG images online for free. Upload a PDF, choose image quality and download every page as a JPG directly in your browser.",
+    "Convert PDF pages to JPG images online for free. Upload a PDF, choose pages, image quality and output resolution, then download JPG files directly in your browser.",
 };
 
 export default function PdfToJpgPage() {
   return (
     <ToolPageLayout
       title="PDF to JPG Converter"
-      description="Convert PDF pages to JPG images online. Choose image quality, output resolution and download every page as a JPG directly in your browser."
+      description="Convert PDF pages to JPG images online. Choose pages, image quality, output resolution and download JPG files directly in your browser."
       href="/pdf-to-jpg"
     >
       <PdfToJpgNoSsr />

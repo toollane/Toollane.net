@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import * as pdfjsLib from "pdfjs-dist";
 
 import ToolErrorBox from "@/components/ToolErrorBox";
@@ -31,13 +31,22 @@ function formatFileSize(bytes: number) {
 function getQualityValue(quality: ImageQuality) {
   if (quality === "small") return 0.75;
   if (quality === "maximum") return 1;
+
   return 0.92;
 }
 
 function getScaleValue(resolution: OutputResolution) {
   if (resolution === "standard") return 1;
   if (resolution === "very-high") return 3;
+
   return 2;
+}
+
+function getResolutionLabel(resolution: OutputResolution) {
+  if (resolution === "very-high") return "Very high";
+  if (resolution === "high") return "High";
+
+  return "Standard";
 }
 
 function createSafeBaseName(value: string) {
@@ -51,11 +60,93 @@ function createSafeBaseName(value: string) {
   );
 }
 
+function parsePageRanges(input: string, pageCount: number) {
+  const pages: number[] = [];
+  const seen = new Set<number>();
+
+  const parts = input
+    .split(",")
+    .map((part) => part.trim())
+    .filter(Boolean);
+
+  function addPage(page: number) {
+    if (!seen.has(page)) {
+      pages.push(page);
+      seen.add(page);
+    }
+  }
+
+  for (const part of parts) {
+    if (part.includes("-")) {
+      const rangeParts = part.split("-").map((value) => value.trim());
+
+      if (rangeParts.length !== 2) {
+        throw new Error("Invalid page range.");
+      }
+
+      const start = Number(rangeParts[0]);
+      const end = Number(rangeParts[1]);
+
+      if (!Number.isInteger(start) || !Number.isInteger(end)) {
+        throw new Error("Invalid page range.");
+      }
+
+      if (start < 1 || end > pageCount || start > end) {
+        throw new Error("Page range is outside the PDF page count.");
+      }
+
+      for (let page = start; page <= end; page += 1) {
+        addPage(page);
+      }
+    } else {
+      const page = Number(part);
+
+      if (!Number.isInteger(page) || page < 1 || page > pageCount) {
+        throw new Error("Invalid page number.");
+      }
+
+      addPage(page);
+    }
+  }
+
+  return pages;
+}
+
+function getOddPages(pageCount: number) {
+  return Array.from({ length: pageCount }, (_, index) => index + 1).filter(
+    (page) => page % 2 === 1
+  );
+}
+
+function getEvenPages(pageCount: number) {
+  return Array.from({ length: pageCount }, (_, index) => index + 1).filter(
+    (page) => page % 2 === 0
+  );
+}
+
+function formatPagesAsRange(pages: number[]) {
+  return pages.join(",");
+}
+
+function formatPagePreview(pages: number[]) {
+  if (!pages.length) {
+    return "No valid pages selected";
+  }
+
+  if (pages.length <= 10) {
+    return pages.join(", ");
+  }
+
+  return `${pages.slice(0, 10).join(", ")} + ${pages.length - 10} more`;
+}
+
 export default function PdfToJpgClient() {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const [file, setFile] = useState<File | null>(null);
   const [pageCount, setPageCount] = useState<number | null>(null);
+  const [pageRange, setPageRange] = useState("1");
+  const [selectedPages, setSelectedPages] = useState<number[]>([]);
   const [quality, setQuality] = useState<ImageQuality>("high");
   const [resolution, setResolution] = useState<OutputResolution>("high");
   const [outputName, setOutputName] = useState("pdf-pages");
@@ -63,6 +154,7 @@ export default function PdfToJpgClient() {
   const [loading, setLoading] = useState(false);
   const [reading, setReading] = useState(false);
   const [dragActive, setDragActive] = useState(false);
+  const [progressPage, setProgressPage] = useState(0);
   const [error, setError] = useState("");
 
   const totalOutputSize = useMemo(
@@ -70,15 +162,25 @@ export default function PdfToJpgClient() {
     [convertedPages]
   );
 
-  function revokeConvertedPages() {
+  const safeOutputName = createSafeBaseName(outputName);
+
+  useEffect(() => {
+    return () => {
+      convertedPages.forEach((page) => URL.revokeObjectURL(page.url));
+    };
+  }, [convertedPages]);
+
+  function clearConvertedPages() {
     convertedPages.forEach((page) => URL.revokeObjectURL(page.url));
     setConvertedPages([]);
   }
 
   async function handleFiles(selectedFiles: FileList | File[]) {
     setError("");
-    revokeConvertedPages();
+    clearConvertedPages();
     setPageCount(null);
+    setSelectedPages([]);
+    setPageRange("1");
 
     const selectedFile = Array.from(selectedFiles)[0];
 
@@ -105,8 +207,12 @@ export default function PdfToJpgClient() {
         data: bytes,
       }).promise;
 
+      const defaultRange = pdf.numPages > 1 ? `1-${pdf.numPages}` : "1";
+
       setFile(selectedFile);
       setPageCount(pdf.numPages);
+      setPageRange(defaultRange);
+      setSelectedPages(parsePageRanges(defaultRange, pdf.numPages));
       setOutputName(createSafeBaseName(selectedFile.name));
 
       if (inputRef.current) {
@@ -118,16 +224,38 @@ export default function PdfToJpgClient() {
       );
       setFile(null);
       setPageCount(null);
+      setSelectedPages([]);
     } finally {
       setReading(false);
     }
   }
 
+  function updatePageRange(value: string) {
+    setPageRange(value);
+    setError("");
+    clearConvertedPages();
+
+    if (!pageCount) {
+      setSelectedPages([]);
+      return;
+    }
+
+    try {
+      const pages = parsePageRanges(value, pageCount);
+      setSelectedPages(pages);
+    } catch {
+      setSelectedPages([]);
+    }
+  }
+
   function clearFile() {
-    revokeConvertedPages();
+    clearConvertedPages();
 
     setFile(null);
     setPageCount(null);
+    setPageRange("1");
+    setSelectedPages([]);
+    setProgressPage(0);
     setError("");
 
     if (inputRef.current) {
@@ -136,15 +264,19 @@ export default function PdfToJpgClient() {
   }
 
   function resetTool() {
-    revokeConvertedPages();
+    clearConvertedPages();
 
     setFile(null);
     setPageCount(null);
+    setPageRange("1");
+    setSelectedPages([]);
     setQuality("high");
     setResolution("high");
     setOutputName("pdf-pages");
     setLoading(false);
     setReading(false);
+    setDragActive(false);
+    setProgressPage(0);
     setError("");
 
     if (inputRef.current) {
@@ -154,14 +286,33 @@ export default function PdfToJpgClient() {
 
   async function convertPdfToJpg() {
     setError("");
-    revokeConvertedPages();
+    clearConvertedPages();
 
-    if (!file) {
+    if (!file || !pageCount) {
       setError("Please select a PDF file first.");
       return;
     }
 
+    let pagesToConvert: number[];
+
+    try {
+      pagesToConvert = parsePageRanges(pageRange, pageCount);
+    } catch {
+      setError(
+        `Please enter valid pages between 1 and ${pageCount}. Example: 1,3,5-7`
+      );
+      return;
+    }
+
+    if (!pagesToConvert.length) {
+      setError("Please select at least one page to convert.");
+      return;
+    }
+
+    const nextPages: ConvertedPage[] = [];
+
     setLoading(true);
+    setProgressPage(0);
 
     try {
       const bytes = await file.arrayBuffer();
@@ -170,11 +321,14 @@ export default function PdfToJpgClient() {
         data: bytes,
       }).promise;
 
-      const nextPages: ConvertedPage[] = [];
       const scale = getScaleValue(resolution);
       const jpgQuality = getQualityValue(quality);
 
-      for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
+      for (let index = 0; index < pagesToConvert.length; index += 1) {
+        const pageNumber = pagesToConvert[index];
+
+        setProgressPage(index + 1);
+
         const page = await pdf.getPage(pageNumber);
         const viewport = page.getViewport({ scale });
 
@@ -185,8 +339,8 @@ export default function PdfToJpgClient() {
           throw new Error("Canvas is not supported.");
         }
 
-        canvas.width = viewport.width;
-        canvas.height = viewport.height;
+        canvas.width = Math.ceil(viewport.width);
+        canvas.height = Math.ceil(viewport.height);
 
         await page.render({
           canvasContext: context,
@@ -213,11 +367,14 @@ export default function PdfToJpgClient() {
 
       setConvertedPages(nextPages);
     } catch {
+      nextPages.forEach((page) => URL.revokeObjectURL(page.url));
+
       setError(
         "Something went wrong while converting the PDF. Please try another valid, unlocked PDF file."
       );
     } finally {
       setLoading(false);
+      setProgressPage(0);
     }
   }
 
@@ -225,7 +382,8 @@ export default function PdfToJpgClient() {
     const link = document.createElement("a");
 
     link.href = page.url;
-    link.download = `${createSafeBaseName(outputName)}-page-${page.page}.jpg`;
+    link.download = `${safeOutputName}-page-${page.page}.jpg`;
+
     document.body.appendChild(link);
     link.click();
     link.remove();
@@ -243,14 +401,17 @@ export default function PdfToJpgClient() {
         </h2>
 
         <p className="mt-3 text-sm leading-7 text-black/60 sm:text-base">
-          Upload a PDF file and convert every page into a high-quality JPG image
-          directly in your browser.
+          Upload a PDF file, choose pages, quality and resolution, then convert
+          selected PDF pages into high-quality JPG images directly in your
+          browser.
         </p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-3">
         <StatCard label="Selected file" value={file ? "1 PDF" : "0 PDFs"} />
+
         <StatCard label="Pages" value={pageCount ? String(pageCount) : "0"} />
+
         <StatCard label="Privacy" value="Browser-based" />
       </div>
 
@@ -271,7 +432,7 @@ export default function PdfToJpgClient() {
         }}
         className={`rounded-[2rem] border-2 border-dashed p-6 text-center transition sm:p-8 ${
           dragActive
-            ? "border-black bg-white"
+            ? "border-black bg-[#fff3bd]"
             : "border-black/15 bg-[#fff8df] hover:border-black/25"
         }`}
       >
@@ -303,31 +464,12 @@ export default function PdfToJpgClient() {
         <button
           type="button"
           onClick={() => inputRef.current?.click()}
-          className="mt-5 rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90"
+          disabled={reading || loading}
+          className="mt-5 rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
         >
-          Choose PDF file
+          {reading ? "Reading PDF..." : "Choose PDF file"}
         </button>
       </div>
-
-      <label className="block">
-        <span className="text-sm font-bold text-black">Output file name</span>
-
-        <input
-          type="text"
-          value={outputName}
-          onChange={(event) => {
-            revokeConvertedPages();
-            setOutputName(event.target.value);
-          }}
-          className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
-        />
-
-        <p className="mt-2 text-xs leading-5 text-black/50">
-          Files will be saved as {createSafeBaseName(outputName)}-page-1.jpg,
-          {` `}
-          {createSafeBaseName(outputName)}-page-2.jpg and so on.
-        </p>
-      </label>
 
       {error && <ToolErrorBox message={error} />}
 
@@ -344,6 +486,100 @@ export default function PdfToJpgClient() {
               </div>
             </div>
 
+            <div className="grid gap-4 sm:grid-cols-3">
+              <StatCard label="Total pages" value={String(pageCount)} />
+
+              <StatCard
+                label="Selected pages"
+                value={String(selectedPages.length)}
+                highlight={selectedPages.length > 0}
+              />
+
+              <StatCard
+                label="Resolution"
+                value={getResolutionLabel(resolution)}
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-bold text-black">
+                Pages to convert
+              </label>
+
+              <input
+                value={pageRange}
+                onChange={(event) => updatePageRange(event.target.value)}
+                placeholder="Example: 1,3,5-7"
+                className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
+              />
+
+              <p className="mt-2 text-xs leading-5 text-black/50">
+                Use commas and ranges. Example: 1,3,5-7. Duplicate pages are
+                ignored.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-black/10 bg-white p-4">
+              <div className="text-xs font-bold uppercase tracking-wide text-black/40">
+                Selection preview
+              </div>
+
+              <div className="mt-2 text-sm font-bold leading-6 text-black">
+                {formatPagePreview(selectedPages)}
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={() => updatePageRange("1")}
+                disabled={loading}
+                className="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold transition hover:bg-black/5 disabled:opacity-40"
+              >
+                First page
+              </button>
+
+              <button
+                type="button"
+                onClick={() => updatePageRange(String(pageCount))}
+                disabled={loading}
+                className="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold transition hover:bg-black/5 disabled:opacity-40"
+              >
+                Last page
+              </button>
+
+              <button
+                type="button"
+                onClick={() => updatePageRange(`1-${pageCount}`)}
+                disabled={loading}
+                className="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold transition hover:bg-black/5 disabled:opacity-40"
+              >
+                All pages
+              </button>
+
+              <button
+                type="button"
+                onClick={() =>
+                  updatePageRange(formatPagesAsRange(getOddPages(pageCount)))
+                }
+                disabled={loading}
+                className="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold transition hover:bg-black/5 disabled:opacity-40"
+              >
+                Odd pages
+              </button>
+
+              <button
+                type="button"
+                onClick={() =>
+                  updatePageRange(formatPagesAsRange(getEvenPages(pageCount)))
+                }
+                disabled={loading || pageCount < 2}
+                className="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold transition hover:bg-black/5 disabled:opacity-40"
+              >
+                Even pages
+              </button>
+            </div>
+
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="block">
                 <span className="text-sm font-bold text-black">
@@ -353,7 +589,7 @@ export default function PdfToJpgClient() {
                 <select
                   value={quality}
                   onChange={(event) => {
-                    revokeConvertedPages();
+                    clearConvertedPages();
                     setQuality(event.target.value as ImageQuality);
                   }}
                   className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
@@ -372,7 +608,7 @@ export default function PdfToJpgClient() {
                 <select
                   value={resolution}
                   onChange={(event) => {
-                    revokeConvertedPages();
+                    clearConvertedPages();
                     setResolution(event.target.value as OutputResolution);
                   }}
                   className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
@@ -383,13 +619,34 @@ export default function PdfToJpgClient() {
                 </select>
               </label>
             </div>
+
+            <label className="block">
+              <span className="text-sm font-bold text-black">
+                Output file name
+              </span>
+
+              <input
+                type="text"
+                value={outputName}
+                onChange={(event) => {
+                  clearConvertedPages();
+                  setOutputName(event.target.value);
+                }}
+                className="mt-3 w-full rounded-2xl border border-black/10 bg-white px-4 py-4 text-sm outline-none transition focus:border-black"
+              />
+
+              <p className="mt-2 text-xs leading-5 text-black/50">
+                Files will be saved as {safeOutputName}-page-1.jpg,{" "}
+                {safeOutputName}-page-2.jpg and so on.
+              </p>
+            </label>
           </div>
         </ToolResultBox>
       ) : (
         !reading && (
           <ToolInfoBox>
-            Upload a PDF file to convert each page into a downloadable JPG
-            image.
+            Upload a PDF file to convert selected pages into downloadable JPG
+            images.
           </ToolInfoBox>
         )
       )}
@@ -398,10 +655,12 @@ export default function PdfToJpgClient() {
         <button
           type="button"
           onClick={convertPdfToJpg}
-          disabled={!file || loading || reading}
+          disabled={!file || !selectedPages.length || loading || reading}
           className="rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
         >
-          {loading ? "Converting PDF..." : "Convert to JPG"}
+          {loading
+            ? `Converting ${progressPage || 1} of ${selectedPages.length}...`
+            : "Convert to JPG"}
         </button>
 
         {convertedPages.length > 0 && (
@@ -441,29 +700,23 @@ export default function PdfToJpgClient() {
             </h3>
 
             <p className="mt-3 text-sm leading-7 text-black/60">
-              Your PDF pages have been converted into JPG images. You can
-              download each page separately or download all pages again.
+              Your selected PDF pages have been converted into JPG images. You
+              can download each page separately or download all pages again.
             </p>
 
             <div className="mt-4 grid gap-4 sm:grid-cols-3">
               <StatCard
                 label="Converted pages"
                 value={String(convertedPages.length)}
+                highlight
               />
+
               <StatCard
                 label="Output size"
                 value={formatFileSize(totalOutputSize)}
               />
-              <StatCard
-                label="Resolution"
-                value={
-                  resolution === "very-high"
-                    ? "Very high"
-                    : resolution === "high"
-                      ? "High"
-                      : "Standard"
-                }
-              />
+
+              <StatCard label="Resolution" value={getResolutionLabel(resolution)} />
             </div>
           </div>
 
@@ -513,14 +766,32 @@ export default function PdfToJpgClient() {
   );
 }
 
-function StatCard({ label, value }: { label: string; value: string }) {
+function StatCard({
+  label,
+  value,
+  highlight = false,
+}: {
+  label: string;
+  value: string;
+  highlight?: boolean;
+}) {
   return (
-    <div className="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
-      <div className="text-xs font-bold uppercase tracking-wide text-black/40">
+    <div
+      className={`rounded-2xl border p-5 shadow-sm ${
+        highlight
+          ? "border-black bg-black text-white"
+          : "border-black/10 bg-white text-black"
+      }`}
+    >
+      <div
+        className={`text-xs font-bold uppercase tracking-wide ${
+          highlight ? "text-white/50" : "text-black/40"
+        }`}
+      >
         {label}
       </div>
 
-      <div className="mt-2 text-lg font-black text-black">{value}</div>
+      <div className="mt-2 truncate text-lg font-black">{value}</div>
     </div>
   );
 }

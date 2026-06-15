@@ -1,7 +1,7 @@
 "use client";
 
 import { jsPDF } from "jspdf";
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import ToolErrorBox from "@/components/ToolErrorBox";
 import ToolInfoBox from "@/components/ToolInfoBox";
@@ -40,10 +40,28 @@ function createSafeFileName(value: string) {
   return `${cleaned || "jpg-images"}.pdf`;
 }
 
+function createImageId(file: File) {
+  if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
+    return `${file.name}-${file.size}-${crypto.randomUUID()}`;
+  }
+
+  return `${file.name}-${file.size}-${Date.now()}-${Math.random()
+    .toString(16)
+    .slice(2)}`;
+}
+
 function getMarginValue(margin: MarginSize) {
   if (margin === "none") return 0;
   if (margin === "small") return 18;
+
   return 36;
+}
+
+function getCompressionMode(quality: number) {
+  if (quality >= 0.9) return "SLOW";
+  if (quality >= 0.7) return "MEDIUM";
+
+  return "FAST";
 }
 
 function readImageFile(file: File) {
@@ -56,7 +74,7 @@ function readImageFile(file: File) {
 
       image.onload = () => {
         resolve({
-          id: `${file.name}-${file.size}-${crypto.randomUUID()}`,
+          id: createImageId(file),
           file,
           preview: URL.createObjectURL(file),
           dataUrl,
@@ -76,6 +94,8 @@ function readImageFile(file: File) {
 
 export default function JpgToPdfClient() {
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const imagesRef = useRef<UploadedJpg[]>([]);
+  const pdfUrlRef = useRef("");
 
   const [images, setImages] = useState<UploadedJpg[]>([]);
   const [fileName, setFileName] = useState("jpg-images.pdf");
@@ -87,6 +107,7 @@ export default function JpgToPdfClient() {
   const [pdfUrl, setPdfUrl] = useState("");
   const [pdfSize, setPdfSize] = useState<number | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
+  const [isReadingImages, setIsReadingImages] = useState(false);
   const [dragActive, setDragActive] = useState(false);
   const [error, setError] = useState("");
 
@@ -94,6 +115,27 @@ export default function JpgToPdfClient() {
     () => images.reduce((sum, image) => sum + image.file.size, 0),
     [images]
   );
+
+  const averageImageSize = images.length > 0 ? totalUploadSize / images.length : 0;
+  const safePdfName = createSafeFileName(fileName);
+
+  useEffect(() => {
+    imagesRef.current = images;
+  }, [images]);
+
+  useEffect(() => {
+    pdfUrlRef.current = pdfUrl;
+  }, [pdfUrl]);
+
+  useEffect(() => {
+    return () => {
+      imagesRef.current.forEach((image) => URL.revokeObjectURL(image.preview));
+
+      if (pdfUrlRef.current) {
+        URL.revokeObjectURL(pdfUrlRef.current);
+      }
+    };
+  }, []);
 
   function revokePdfUrl() {
     if (pdfUrl) {
@@ -118,6 +160,7 @@ export default function JpgToPdfClient() {
 
       return (
         file.type === "image/jpeg" ||
+        file.type === "image/pjpeg" ||
         name.endsWith(".jpg") ||
         name.endsWith(".jpeg")
       );
@@ -127,6 +170,8 @@ export default function JpgToPdfClient() {
       setError("Please select valid JPG or JPEG images.");
       return;
     }
+
+    setIsReadingImages(true);
 
     try {
       const processedImages = await Promise.all(jpgFiles.map(readImageFile));
@@ -140,11 +185,11 @@ export default function JpgToPdfClient() {
           (image) => !existingKeys.has(`${image.file.name}-${image.file.size}`)
         );
 
-        const duplicates = processedImages.filter((image) =>
+        const duplicateImages = processedImages.filter((image) =>
           existingKeys.has(`${image.file.name}-${image.file.size}`)
         );
 
-        clearImagePreviews(duplicates);
+        clearImagePreviews(duplicateImages);
 
         if (!newImages.length) {
           setError("These JPG images are already in the list.");
@@ -161,6 +206,8 @@ export default function JpgToPdfClient() {
       setError(
         "Something went wrong while reading the JPG images. Please try again with valid JPG or JPEG files."
       );
+    } finally {
+      setIsReadingImages(false);
     }
   }
 
@@ -192,6 +239,7 @@ export default function JpgToPdfClient() {
   function resetTool() {
     revokePdfUrl();
     clearImagePreviews(images);
+
     setImages([]);
     setFileName("jpg-images.pdf");
     setPdfFormat("a4");
@@ -200,6 +248,8 @@ export default function JpgToPdfClient() {
     setMargin("small");
     setJpegQuality(0.92);
     setIsGenerating(false);
+    setIsReadingImages(false);
+    setDragActive(false);
     setError("");
 
     if (inputRef.current) {
@@ -229,6 +279,19 @@ export default function JpgToPdfClient() {
     });
   }
 
+  function reverseImageOrder() {
+    revokePdfUrl();
+    setImages((current) => [...current].reverse());
+  }
+
+  function sortImagesByName() {
+    revokePdfUrl();
+
+    setImages((current) =>
+      [...current].sort((a, b) => a.file.name.localeCompare(b.file.name))
+    );
+  }
+
   async function generatePdf() {
     setError("");
     revokePdfUrl();
@@ -249,6 +312,7 @@ export default function JpgToPdfClient() {
       });
 
       const marginValue = getMarginValue(margin);
+      const compressionMode = getCompressionMode(jpegQuality);
 
       images.forEach((image, index) => {
         if (index > 0) {
@@ -294,7 +358,7 @@ export default function JpgToPdfClient() {
           drawWidth,
           drawHeight,
           undefined,
-          jpegQuality >= 0.85 ? "SLOW" : "FAST"
+          compressionMode
         );
       });
 
@@ -307,7 +371,7 @@ export default function JpgToPdfClient() {
       const link = document.createElement("a");
 
       link.href = url;
-      link.download = createSafeFileName(fileName);
+      link.download = safePdfName;
       document.body.appendChild(link);
       link.click();
       link.remove();
@@ -326,7 +390,7 @@ export default function JpgToPdfClient() {
     const link = document.createElement("a");
 
     link.href = pdfUrl;
-    link.download = createSafeFileName(fileName);
+    link.download = safePdfName;
     document.body.appendChild(link);
     link.click();
     link.remove();
@@ -347,7 +411,9 @@ export default function JpgToPdfClient() {
 
       <div className="grid gap-4 sm:grid-cols-3">
         <StatCard label="Selected images" value={String(images.length)} />
+
         <StatCard label="Total size" value={formatFileSize(totalUploadSize)} />
+
         <StatCard label="Privacy" value="Browser-based" />
       </div>
 
@@ -364,11 +430,11 @@ export default function JpgToPdfClient() {
         onDrop={(event) => {
           event.preventDefault();
           setDragActive(false);
-          addImages(event.dataTransfer.files);
+          void addImages(event.dataTransfer.files);
         }}
         className={`rounded-[2rem] border-2 border-dashed p-6 text-center transition sm:p-8 ${
           dragActive
-            ? "border-black bg-white"
+            ? "border-black bg-[#fff3bd]"
             : "border-black/15 bg-[#fff8df] hover:border-black/25"
         }`}
       >
@@ -379,7 +445,7 @@ export default function JpgToPdfClient() {
           multiple
           onChange={(event) => {
             if (event.target.files) {
-              addImages(event.target.files);
+              void addImages(event.target.files);
             }
           }}
           className="hidden"
@@ -401,9 +467,10 @@ export default function JpgToPdfClient() {
         <button
           type="button"
           onClick={() => inputRef.current?.click()}
-          className="mt-5 rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90"
+          disabled={isReadingImages || isGenerating}
+          className="mt-5 rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
         >
-          Choose JPG images
+          {isReadingImages ? "Reading images..." : "Choose JPG images"}
         </button>
       </div>
 
@@ -421,11 +488,15 @@ export default function JpgToPdfClient() {
         />
 
         <p className="mt-2 text-xs leading-5 text-black/50">
-          The file will be saved as {createSafeFileName(fileName)}.
+          The file will be saved as {safePdfName}.
         </p>
       </label>
 
       {error && <ToolErrorBox message={error} />}
+
+      {isReadingImages && (
+        <ToolInfoBox>Reading JPG images and creating previews...</ToolInfoBox>
+      )}
 
       {images.length > 0 ? (
         <>
@@ -517,6 +588,10 @@ export default function JpgToPdfClient() {
                   }}
                   className="mt-5 w-full"
                 />
+
+                <p className="mt-2 text-xs leading-5 text-black/50">
+                  Higher quality may create a larger PDF.
+                </p>
               </label>
             </div>
           </ToolResultBox>
@@ -525,6 +600,35 @@ export default function JpgToPdfClient() {
             <div className="mb-5 rounded-2xl border border-black/10 bg-[#fff8df] p-5 text-sm leading-7 text-black/65">
               The PDF page order follows the image list below. Move images up or
               down before creating your PDF.
+            </div>
+
+            <div className="mb-5 flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={sortImagesByName}
+                disabled={images.length < 2 || isGenerating}
+                className="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold transition hover:bg-black/5 disabled:opacity-40"
+              >
+                Sort A-Z
+              </button>
+
+              <button
+                type="button"
+                onClick={reverseImageOrder}
+                disabled={images.length < 2 || isGenerating}
+                className="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold transition hover:bg-black/5 disabled:opacity-40"
+              >
+                Reverse order
+              </button>
+
+              <button
+                type="button"
+                onClick={() => inputRef.current?.click()}
+                disabled={isReadingImages || isGenerating}
+                className="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold transition hover:bg-black/5 disabled:opacity-40"
+              >
+                Add more images
+              </button>
             </div>
 
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -582,6 +686,22 @@ export default function JpgToPdfClient() {
               ))}
             </div>
           </ToolResultBox>
+
+          <ToolResultBox title="PDF summary">
+            <div className="grid gap-4 sm:grid-cols-3">
+              <StatCard label="Pages" value={String(images.length)} highlight />
+
+              <StatCard
+                label="Upload size"
+                value={formatFileSize(totalUploadSize)}
+              />
+
+              <StatCard
+                label="Avg. image size"
+                value={formatFileSize(averageImageSize)}
+              />
+            </div>
+          </ToolResultBox>
         </>
       ) : (
         <ToolInfoBox>
@@ -594,7 +714,7 @@ export default function JpgToPdfClient() {
         <button
           type="button"
           onClick={generatePdf}
-          disabled={!images.length || isGenerating}
+          disabled={!images.length || isGenerating || isReadingImages}
           className="rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
         >
           {isGenerating ? "Creating PDF..." : "Create PDF"}
@@ -613,7 +733,7 @@ export default function JpgToPdfClient() {
         <button
           type="button"
           onClick={clearImages}
-          disabled={!images.length || isGenerating}
+          disabled={!images.length || isGenerating || isReadingImages}
           className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:bg-black/5 disabled:cursor-not-allowed disabled:opacity-40"
         >
           Clear images
@@ -622,7 +742,7 @@ export default function JpgToPdfClient() {
         <button
           type="button"
           onClick={resetTool}
-          disabled={isGenerating}
+          disabled={isGenerating || isReadingImages}
           className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:bg-black/5 disabled:cursor-not-allowed disabled:opacity-40"
         >
           Reset
@@ -638,11 +758,16 @@ export default function JpgToPdfClient() {
             can download it again without reprocessing the images.
           </p>
 
-          {pdfSize !== null && (
-            <div className="mt-4 text-sm font-bold text-black/60">
-              Output size: {formatFileSize(pdfSize)}
-            </div>
-          )}
+          <div className="mt-4 grid gap-4 sm:grid-cols-3">
+            <StatCard label="Output file" value={safePdfName} highlight />
+
+            <StatCard
+              label="Output size"
+              value={pdfSize !== null ? formatFileSize(pdfSize) : "Ready"}
+            />
+
+            <StatCard label="PDF pages" value={String(images.length)} />
+          </div>
         </div>
       )}
 
@@ -654,14 +779,32 @@ export default function JpgToPdfClient() {
   );
 }
 
-function StatCard({ label, value }: { label: string; value: string }) {
+function StatCard({
+  label,
+  value,
+  highlight = false,
+}: {
+  label: string;
+  value: string;
+  highlight?: boolean;
+}) {
   return (
-    <div className="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
-      <div className="text-xs font-bold uppercase tracking-wide text-black/40">
+    <div
+      className={`rounded-2xl border p-5 shadow-sm ${
+        highlight
+          ? "border-black bg-black text-white"
+          : "border-black/10 bg-white text-black"
+      }`}
+    >
+      <div
+        className={`text-xs font-bold uppercase tracking-wide ${
+          highlight ? "text-white/50" : "text-black/40"
+        }`}
+      >
         {label}
       </div>
 
-      <div className="mt-2 text-lg font-black text-black">{value}</div>
+      <div className="mt-2 truncate text-lg font-black">{value}</div>
     </div>
   );
 }
