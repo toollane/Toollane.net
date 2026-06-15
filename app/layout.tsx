@@ -48,10 +48,6 @@ icons: {
     },
   },
 
-  alternates: {
-    canonical: siteConfig.url,
-  },
-
   openGraph: {
     type: "website",
     siteName: siteConfig.name,
