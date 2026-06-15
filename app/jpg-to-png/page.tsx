@@ -5,19 +5,16 @@ import ToolPageLayout from "@/components/ToolPageLayout";
 import JpgToPngClient from "./JpgToPngClient";
 
 export const metadata: Metadata = {
-  title: "JPG to PNG Converter | Toollane",
-
+  title: "JPG to PNG Converter | Convert JPG Images Online | Toollane",
   description:
-    "Convert JPG images to PNG instantly with Toollane's free online JPG to PNG converter.",
+    "Convert JPG images to PNG online for free. Upload a JPG or JPEG image and download a lossless PNG file directly in your browser.",
 };
 
 export default function JpgToPngPage() {
   return (
     <ToolPageLayout
       title="JPG to PNG Converter"
-      description="Convert JPG images to PNG instantly online."
-
-
+      description="Convert JPG images to PNG instantly online. Upload a JPG or JPEG image and download a lossless PNG file directly in your browser."
       href="/jpg-to-png"
     >
       <JpgToPngClient />
