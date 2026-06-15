@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { useMemo, useState } from "react";
 
 import ToolErrorBox from "@/components/ToolErrorBox";
@@ -667,7 +668,10 @@ export default function CacCalculatorClient() {
             </div>
           </ToolResultBox>
 
-          <ToolResultBox title="Customer volume scenarios">
+          <TogglePanel
+            title="Customer volume scenarios"
+            description="Open the detailed table to compare how CAC and payback change when customer volume increases."
+          >
             <div className="overflow-hidden rounded-2xl border border-black/10">
               <div className="hidden grid-cols-4 bg-black px-4 py-3 text-xs font-bold uppercase tracking-wide text-white/70 sm:grid">
                 <div>Scenario</div>
@@ -721,7 +725,7 @@ export default function CacCalculatorClient() {
                 ))}
               </div>
             </div>
-          </ToolResultBox>
+          </TogglePanel>
         </>
       )}
 
@@ -730,6 +734,45 @@ export default function CacCalculatorClient() {
         acquired. For cleaner analysis, use the same time period for costs and
         customers. This calculator provides estimates only.
       </ToolInfoBox>
+    </div>
+  );
+}
+
+function TogglePanel({
+  title,
+  description,
+  children,
+}: {
+  title: string;
+  description: string;
+  children: ReactNode;
+}) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="rounded-[2rem] border border-black/10 bg-white p-5 shadow-sm">
+      <button
+        type="button"
+        onClick={() => setOpen((current) => !current)}
+        aria-expanded={open}
+        className="flex w-full items-start justify-between gap-5 text-left"
+      >
+        <div>
+          <h3 className="text-lg font-black tracking-tight text-black">
+            {title}
+          </h3>
+
+          <p className="mt-2 text-sm leading-6 text-black/60">
+            {description}
+          </p>
+        </div>
+
+        <span className="shrink-0 rounded-full border border-black/10 bg-black px-4 py-2 text-xs font-bold text-white">
+          {open ? "Hide" : "Show"}
+        </span>
+      </button>
+
+      {open && <div className="mt-5">{children}</div>}
     </div>
   );
 }
