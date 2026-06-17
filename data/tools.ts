@@ -726,6 +726,160 @@ categorySlug:
     },
   ],
 },
+
+{
+  category: "Calculators",
+  categorySlug: "calculators",
+  name: "Rent vs Buy Calculator",
+  shortName: "Rent vs Buy",
+  description:
+    "Compare the long-term cost of renting vs buying a home, including mortgage payments, rent growth, home equity, selling costs and investment returns.",
+  seoTitle: "Rent vs Buy Calculator | Compare Renting vs Buying",
+  seoDescription:
+    "Use Toollane's free rent vs buy calculator to compare mortgage costs, rent payments, home equity, selling costs and investment returns.",
+  href: "/rent-vs-buy-calculator",
+  icon: "🏠",
+  popular: false,
+  keywords: [
+    "rent vs buy calculator",
+    "rent or buy calculator",
+    "buying vs renting calculator",
+    "home rent vs buy calculator",
+    "is it better to rent or buy calculator",
+  ],
+  faqs: [
+    {
+      question: "What does the rent vs buy calculator compare?",
+      answer:
+        "It compares estimated buying costs with renting costs over time, including mortgage payments, rent increases, home appreciation, selling costs and investment returns.",
+    },
+    {
+      question: "Does the calculator include home equity?",
+      answer:
+        "Yes. The buying estimate includes future home value, remaining mortgage balance and estimated net sale proceeds.",
+    },
+    {
+      question: "Is renting always cheaper than buying?",
+      answer:
+        "No. The better option depends on home price, rent, mortgage rate, time horizon, taxes, maintenance, appreciation and investment returns.",
+    },
+  ],
+},
+{
+  category: "Calculators",
+  categorySlug: "calculators",
+  name: "Home Affordability Calculator",
+  shortName: "Home Affordability",
+  description:
+    "Estimate how much house you can afford based on income, debts, down payment, mortgage rate, property taxes, insurance and DTI limits.",
+  seoTitle: "Home Affordability Calculator | How Much House Can I Afford?",
+  seoDescription:
+    "Use Toollane's free home affordability calculator to estimate how much house you can afford based on income, debts, down payment, mortgage rate and monthly costs.",
+  href: "/home-affordability-calculator",
+  icon: "🏡",
+  popular: false,
+  keywords: [
+    "home affordability calculator",
+    "how much house can I afford",
+    "house affordability calculator",
+    "mortgage affordability calculator",
+    "home buying affordability calculator",
+  ],
+  faqs: [
+    {
+      question: "How does the home affordability calculator work?",
+      answer:
+        "It estimates an affordable home price based on income, monthly debts, down payment, mortgage rate, taxes, insurance, HOA fees and debt-to-income limits.",
+    },
+    {
+      question: "What is debt-to-income ratio?",
+      answer:
+        "Debt-to-income ratio compares monthly debt payments with gross monthly income. Lenders often use it to estimate mortgage affordability.",
+    },
+    {
+      question: "Is this calculator a mortgage approval?",
+      answer:
+        "No. It provides an estimate only. Actual approval depends on lender rules, credit profile, income verification, rates and local costs.",
+    },
+  ],
+},
+{
+  category: "Calculators",
+  categorySlug: "calculators",
+  name: "Mortgage Refinance Calculator",
+  shortName: "Refinance",
+  description:
+    "Compare your current mortgage with a refinance option and estimate monthly savings, break-even time, refinance costs and lifetime savings.",
+  seoTitle: "Mortgage Refinance Calculator | Refinance Savings Calculator",
+  seoDescription:
+    "Use Toollane's free mortgage refinance calculator to compare current and new mortgage payments, closing costs, break-even time and lifetime savings.",
+  href: "/mortgage-refinance-calculator",
+  icon: "🔁",
+  popular: false,
+  keywords: [
+    "mortgage refinance calculator",
+    "refinance calculator",
+    "mortgage refi calculator",
+    "refinance savings calculator",
+    "mortgage break even calculator",
+  ],
+  faqs: [
+    {
+      question: "What does the mortgage refinance calculator show?",
+      answer:
+        "It compares your current mortgage with a refinance option and estimates monthly savings, break-even time, total refinance costs and lifetime savings.",
+    },
+    {
+      question: "What is the refinance break-even point?",
+      answer:
+        "The break-even point estimates how long it takes for monthly savings to recover refinance costs.",
+    },
+    {
+      question: "Should I refinance my mortgage?",
+      answer:
+        "Refinancing may be useful if it lowers your payment, reduces interest, shortens your loan or improves your financial position after costs.",
+    },
+  ],
+},
+{
+  category: "Calculators",
+  categorySlug: "calculators",
+  name: "Mortgage Payoff Calculator",
+  shortName: "Mortgage Payoff",
+  description:
+    "Calculate how extra mortgage payments can shorten your loan, reduce interest and help you pay off your mortgage faster.",
+  seoTitle: "Mortgage Payoff Calculator | Extra Payment Calculator",
+  seoDescription:
+    "Use Toollane's free mortgage payoff calculator to estimate how extra monthly, annual or one-time payments can reduce interest and shorten your mortgage.",
+  href: "/mortgage-payoff-calculator",
+  icon: "✅",
+  popular: false,
+  keywords: [
+    "mortgage payoff calculator",
+    "extra mortgage payment calculator",
+    "early mortgage payoff calculator",
+    "pay off mortgage early calculator",
+    "mortgage principal payment calculator",
+  ],
+  faqs: [
+    {
+      question: "How does the mortgage payoff calculator work?",
+      answer:
+        "It simulates your mortgage month by month and shows how extra payments can reduce interest and shorten the payoff timeline.",
+    },
+    {
+      question: "Do extra mortgage payments save interest?",
+      answer:
+        "Yes, if extra payments are applied to principal, they can reduce the loan balance faster and lower total interest paid.",
+    },
+    {
+      question: "Can I include one-time extra payments?",
+      answer:
+        "Yes. The calculator supports extra monthly payments, annual extra payments and a one-time extra payment.",
+    },
+  ],
+},
+
 {
   category:
     "Calculators",
