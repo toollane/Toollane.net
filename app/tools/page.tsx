@@ -85,7 +85,7 @@ export default function HomePage() {
           </div>
 
           <h1 className="mt-6 max-w-4xl text-4xl font-black tracking-tight sm:text-6xl lg:text-7xl">
-            Free Online Tools for SEO, PDF, Business and Productivity
+           Free Online Tools for SEO, PDF, Business and Productivity
           </h1>
 
           <p className="mt-8 max-w-2xl text-lg leading-8 text-black/65 sm:text-xl">
@@ -95,40 +95,14 @@ export default function HomePage() {
 
           <div className="mt-6 flex flex-wrap gap-2">
             <span className="rounded-full border border-black/10 bg-white/70 px-3 py-2 text-xs font-bold text-black/60">
-              {tools.length} free tools
-            </span>
-
-            <span className="rounded-full border border-black/10 bg-white/70 px-3 py-2 text-xs font-bold text-black/60">
-              {categories.length} categories
-            </span>
-
-            <span className="rounded-full border border-black/10 bg-white/70 px-3 py-2 text-xs font-bold text-black/60">
               No signup required
             </span>
-
             <span className="rounded-full border border-black/10 bg-white/70 px-3 py-2 text-xs font-bold text-black/60">
               Works on mobile
             </span>
-
             <span className="rounded-full border border-black/10 bg-white/70 px-3 py-2 text-xs font-bold text-black/60">
               Browser-based tools
             </span>
-          </div>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/tools"
-              className="rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90"
-            >
-              Browse all tools
-            </Link>
-
-            <a
-              href="#categories"
-              className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-sm font-bold text-black transition hover:border-black/20 hover:shadow-sm"
-            >
-              Browse categories
-            </a>
           </div>
 
           <div id="tools" className="mt-10 max-w-5xl">
@@ -138,23 +112,11 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <h2 className="text-3xl font-black tracking-tight">
-              Popular Tools
-            </h2>
-
-            <p className="mt-3 text-black/60">
-              Start with the tools people use most.
-            </p>
-          </div>
-
-          <Link
-            href="/tools"
-            className="inline-flex rounded-2xl border border-black/10 bg-white px-5 py-3 text-sm font-bold text-black transition hover:border-black/20 hover:shadow-sm"
-          >
-            View all tools →
-          </Link>
+        <div className="mb-8">
+          <h2 className="text-3xl font-black tracking-tight">Popular Tools</h2>
+          <p className="mt-3 text-black/60">
+            Start with the tools people use most.
+          </p>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -184,7 +146,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="categories" className="border-y border-black/10 bg-white/40">
+      <section className="border-y border-black/10 bg-white/40">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
           <h2 className="text-3xl font-black tracking-tight">
             Browse Categories
@@ -222,7 +184,6 @@ export default function HomePage() {
           <h2 className="text-3xl font-black tracking-tight">
             Featured Tool Collections
           </h2>
-
           <p className="mt-3 max-w-2xl text-black/60">
             Toollane is organized into useful collections for search,
             productivity, documents, creators and daily work.
@@ -237,14 +198,10 @@ export default function HomePage() {
               className="rounded-[2rem] border border-black/10 bg-white/75 p-7 shadow-sm transition hover:-translate-y-1 hover:border-black/20 hover:shadow-lg"
             >
               <h3 className="text-2xl font-black">{collection.title}</h3>
-
               <p className="mt-4 text-sm leading-7 text-black/60">
                 {collection.description}
               </p>
-
-              <div className="mt-6 text-sm font-bold">
-                Explore collection →
-              </div>
+              <div className="mt-6 text-sm font-bold">Explore collection →</div>
             </Link>
           ))}
         </div>
@@ -278,15 +235,6 @@ export default function HomePage() {
                 practical tools that save time without unnecessary signups,
                 clutter or slow workflows.
               </p>
-
-              <div className="pt-2">
-                <Link
-                  href="/tools"
-                  className="inline-flex rounded-2xl bg-black px-5 py-3 text-sm font-bold text-white transition hover:opacity-90"
-                >
-                  Explore all Toollane tools →
-                </Link>
-              </div>
             </div>
           </div>
         </div>
@@ -304,7 +252,6 @@ export default function HomePage() {
               className="rounded-[2rem] border border-black/10 bg-white/80 p-6 shadow-sm"
             >
               <h3 className="text-lg font-black">{item.question}</h3>
-
               <p className="mt-3 text-sm leading-7 text-black/60">
                 {item.answer}
               </p>
