@@ -552,7 +552,7 @@ export default function MortgagePayoffCalculatorClient() {
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <div className="text-sm font-black text-black">
-                  Calculated payment
+                  Estimated monthly payment
                 </div>
 
                 <p className="mt-1 text-xs leading-5 text-black/60">
@@ -568,7 +568,7 @@ export default function MortgagePayoffCalculatorClient() {
                 onClick={useCalculatedPayment}
                 className="rounded-2xl bg-black px-5 py-3 text-sm font-bold text-white transition hover:opacity-90"
               >
-                Use calculated
+                Use this payment
               </button>
             </div>
           </div>
