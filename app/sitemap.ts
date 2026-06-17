@@ -45,6 +45,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: `${baseUrl}/tools`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
       url: `${baseUrl}/about`,
       lastModified: now,
       changeFrequency: "monthly",
@@ -75,9 +81,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
 
-    ...babyNameLandingPages,
-    ...babyNameDetailPages,
     ...categoryPages,
     ...toolPages,
+    ...babyNameLandingPages,
+    ...babyNameDetailPages,
   ];
 }
