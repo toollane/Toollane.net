@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Scan QR codes instantly with Toollane's free online QR code scanner.",
+
+
+  alternates: {
+    canonical: "/qr-code-scanner",
+  },
 };
 
 export default function QrCodeScannerPage() {

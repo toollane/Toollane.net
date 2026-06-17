@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Convert PNG images to SVG instantly with Toollane's free online PNG to SVG converter.",
+
+
+  alternates: {
+    canonical: "/png-to-svg",
+  },
 };
 
 export default function PngToSvgPage() {

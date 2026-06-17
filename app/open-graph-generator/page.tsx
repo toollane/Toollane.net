@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 
   description:
     "Generate Open Graph meta tags instantly with Toollane's free online Open Graph generator.",
+
+
+  alternates: {
+    canonical: "/open-graph-generator",
+  },
 };
 
 export default function OpenGraphGeneratorPage() {

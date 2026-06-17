@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: "LBS to KG Converter | Toollane",
   description:
     "Convert pounds to kilograms instantly with Toollane's free online converter.",
+
+
+  alternates: {
+    canonical: "/lbs-to-kg",
+  },
 };
 
 export default function LbsToKgPage() {

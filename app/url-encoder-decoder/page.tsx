@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Encode and decode URLs instantly with Toollane's free online URL encoder decoder.",
+
+
+  alternates: {
+    canonical: "/url-encoder-decoder",
+  },
 };
 
 export default function UrlEncoderDecoderPage() {

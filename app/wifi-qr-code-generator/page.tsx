@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 
   description:
     "Generate WiFi QR codes instantly with Toollane's free online WiFi QR generator.",
+
+
+  alternates: {
+    canonical: "/wifi-qr-generator",
+  },
 };
 
 export default function WifiQrGeneratorPage() {

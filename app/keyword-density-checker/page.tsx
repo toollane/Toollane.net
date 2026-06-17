@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Check keyword density, keyword frequency and SEO content usage instantly with Toollane's free online keyword density checker.",
+
+
+  alternates: {
+    canonical: "/keyword-density-checker",
+  },
 };
 
 export default function KeywordDensityCheckerPage() {

@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 
   description:
     "Remove image backgrounds instantly with Toollane's free online background remover.",
+
+
+  alternates: {
+    canonical: "/background-remover",
+  },
 };
 
 export default function BackgroundRemoverPage() {

@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Plan study time and calculate daily study minutes instantly with Toollane's free online study time calculator.",
+
+
+  alternates: {
+    canonical: "/study-time-calculator",
+  },
 };
 
 export default function StudyTimeCalculatorPage() {

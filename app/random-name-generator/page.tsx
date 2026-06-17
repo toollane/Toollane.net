@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Generate random male, female and full names instantly with Toollane's free online random name generator.",
+
+
+  alternates: {
+    canonical: "/random-name-generator",
+  },
 };
 
 export default function RandomNameGeneratorPage() {

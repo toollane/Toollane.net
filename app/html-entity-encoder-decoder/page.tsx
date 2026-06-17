@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Encode and decode HTML entities instantly with Toollane's free online HTML entity tool.",
+
+
+  alternates: {
+    canonical: "/html-entity-encoder-decoder",
+  },
 };
 
 export default function HtmlEntityEncoderDecoderPage() {

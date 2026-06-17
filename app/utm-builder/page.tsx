@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Build UTM tracking URLs instantly with Toollane's free online UTM builder.",
+
+
+  alternates: {
+    canonical: "/utm-builder",
+  },
 };
 
 export default function UtmBuilderPage() {

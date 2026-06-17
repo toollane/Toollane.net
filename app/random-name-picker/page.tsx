@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Pick a random name instantly with Toollane's free online random name picker.",
+
+
+  alternates: {
+    canonical: "/random-name-picker",
+  },
 };
 
 export default function RandomNamePickerPage() {

@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 
   description:
     "Create mobile link hub pages instantly with Toollane's free online link in bio generator.",
+
+
+  alternates: {
+    canonical: "/link-in-bio-generator",
+  },
 };
 
 export default function LinkInBioGeneratorPage() {

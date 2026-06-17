@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 
   description:
     "Estimate YouTube earnings instantly with Toollane's free online YouTube money calculator.",
+
+
+  alternates: {
+    canonical: "/youtube-money-calculator",
+  },
 };
 
 export default function YoutubeMoneyCalculatorPage() {

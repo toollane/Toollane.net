@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 
   description:
     "Create printable receipts instantly with Toollane's free online receipt generator.",
+
+
+  alternates: {
+    canonical: "/receipt-generator",
+  },
 };
 
 export default function ReceiptGeneratorPage() {

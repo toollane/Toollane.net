@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Flip images horizontally or vertically instantly with Toollane's free online image flip tool.",
+
+
+  alternates: {
+    canonical: "/image-flip-tool",
+  },
 };
 
 export default function ImageFlipToolPage() {

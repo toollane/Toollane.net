@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "WEBP to PNG Converter | Toollane",
   description:
     "Convert WEBP images to PNG instantly with Toollane's free online WEBP to PNG converter.",
+
+
+  alternates: {
+    canonical: "/webp-to-png",
+  },
 };
 
 export default function WebpToPngPage() {

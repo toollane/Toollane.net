@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Sort lists alphabetically online with Toollane's free list sorter.",
+
+
+  alternates: {
+    canonical: "/list-sorter",
+  },
 };
 
 export default function ListSorterPage() {

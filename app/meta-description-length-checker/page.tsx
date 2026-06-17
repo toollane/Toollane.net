@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 
   description:
     "Check meta description length instantly with Toollane's free online SEO description checker.",
+
+
+  alternates: {
+    canonical: "/meta-description-length-checker",
+  },
 };
 
 export default function MetaDescriptionLengthCheckerPage() {

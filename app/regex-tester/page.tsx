@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 
   description:
     "Test regular expressions instantly with Toollane's free online regex tester.",
+
+
+  alternates: {
+    canonical: "/regex-tester",
+  },
 };
 
 export default function RegexTesterPage() {

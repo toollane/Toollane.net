@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Remove line breaks from text instantly with Toollane's free online line break remover.",
+
+
+  alternates: {
+    canonical: "/remove-line-breaks",
+  },
 };
 
 export default function RemoveLineBreaksPage() {

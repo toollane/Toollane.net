@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Format SQL queries instantly with Toollane's free online SQL formatter.",
+
+
+  alternates: {
+    canonical: "/sql-formatter",
+  },
 };
 
 export default function SqlFormatterPage() {

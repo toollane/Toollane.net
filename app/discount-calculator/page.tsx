@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Discount Calculator | Sale Price & Savings | Toollane",
   description:
     "Calculate discounts, sale prices, savings, stacked discounts, tax, shipping and final price online with Toollane's free discount calculator.",
+
+
+  alternates: {
+    canonical: "/discount-calculator",
+  },
 };
 
 export default function DiscountCalculatorPage() {

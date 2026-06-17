@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "PDF Page Extractor | Extract Pages from PDF | Toollane",
   description:
     "Extract specific pages from a PDF instantly with Toollane's free online PDF page extractor. Select pages, ranges, odd pages, even pages or split a PDF in your browser.",
+
+
+  alternates: {
+    canonical: "/pdf-page-extractor",
+  },
 };
 
 export default function PdfPageExtractorPage() {

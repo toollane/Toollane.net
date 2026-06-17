@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Convert Markdown to HTML instantly with Toollane's free online Markdown to HTML converter.",
+
+
+  alternates: {
+    canonical: "/markdown-to-html",
+  },
 };
 
 export default function MarkdownToHtmlPage() {

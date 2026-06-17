@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Create favicons instantly with Toollane's free online favicon generator.",
+
+
+  alternates: {
+    canonical: "/favicon-generator",
+  },
 };
 
 export default function FaviconGeneratorPage() {

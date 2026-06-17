@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Generate username ideas instantly with Toollane's free online username generator.",
+
+
+  alternates: {
+    canonical: "/username-generator",
+  },
 };
 
 export default function UsernameGeneratorPage() {

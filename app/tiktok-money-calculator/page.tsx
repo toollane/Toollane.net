@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Estimate TikTok earnings instantly with Toollane's free online TikTok money calculator.",
+
+
+  alternates: {
+    canonical: "/tiktok-money-calculator",
+  },
 };
 
 export default function TiktokMoneyCalculatorPage() {

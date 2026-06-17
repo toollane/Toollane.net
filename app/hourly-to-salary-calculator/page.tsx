@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 
   description:
     "Convert hourly pay to annual salary instantly with Toollane's free online calculator.",
+
+
+  alternates: {
+    canonical: "/hourly-to-salary-calculator",
+  },
 };
 
 export default function HourlyToSalaryCalculatorPage() {

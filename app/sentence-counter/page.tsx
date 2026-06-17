@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Count sentences and words instantly with Toollane's free online sentence counter.",
+
+
+  alternates: {
+    canonical: "/sentence-counter",
+  },
 };
 
 export default function SentenceCounterPage() {

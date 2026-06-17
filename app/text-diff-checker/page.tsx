@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Compare two texts line by line with Toollane's free online text diff checker.",
+
+
+  alternates: {
+    canonical: "/text-diff-checker",
+  },
 };
 
 export default function TextDiffCheckerPage() {

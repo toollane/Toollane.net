@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "CSS Border Radius Generator | Toollane",
   description:
     "Create CSS border radius values visually with Toollane's free online border radius generator.",
+
+
+  alternates: {
+    canonical: "/border-radius-generator",
+  },
 };
 
 export default function BorderRadiusGeneratorPage() {

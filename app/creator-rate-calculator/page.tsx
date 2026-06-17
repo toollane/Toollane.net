@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate creator project rates, usage fees and total pricing with Toollane's free online creator rate calculator.",
+
+
+  alternates: {
+    canonical: "/creator-rate-calculator",
+  },
 };
 
 export default function CreatorRateCalculatorPage() {

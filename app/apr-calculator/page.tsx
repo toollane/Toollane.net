@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "APR Calculator | Loan Fees & Borrowing Cost | Toollane",
   description:
     "Estimate APR, loan fees, monthly payment, amount received, finance charge and total borrowing cost with Toollane's free online APR calculator.",
+
+
+  alternates: {
+    canonical: "/apr-calculator",
+  },
 };
 
 export default function AprCalculatorPage() {

@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "CAC Calculator | Customer Acquisition Cost Calculator | Toollane",
   description:
     "Calculate customer acquisition cost online. Estimate CAC from marketing, sales, team and tool costs, then compare CAC with LTV and payback period.",
+
+
+  alternates: {
+    canonical: "/cac-calculator",
+  },
 };
 
 export default function CacCalculatorPage() {

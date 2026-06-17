@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Generate random sample profiles instantly with Toollane's free online random profile generator.",
+
+
+  alternates: {
+    canonical: "/random-profile-generator",
+  },
 };
 
 export default function RandomProfileGeneratorPage() {

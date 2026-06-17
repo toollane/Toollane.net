@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Estimate sponsorship rates from views, CPM and placements with Toollane's free online sponsorship rate calculator.",
+
+
+  alternates: {
+    canonical: "/sponsorship-rate-calculator",
+  },
 };
 
 export default function SponsorshipRateCalculatorPage() {

@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate price increase amount and new price instantly with Toollane's free online price increase calculator.",
+
+
+  alternates: {
+    canonical: "/price-increase-calculator",
+  },
 };
 
 export default function PriceIncreaseCalculatorPage() {

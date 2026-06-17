@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Roll a virtual dice instantly with Toollane's free online dice roller.",
+
+
+  alternates: {
+    canonical: "/dice-roller",
+  },
 };
 
 export default function DiceRollerPage() {

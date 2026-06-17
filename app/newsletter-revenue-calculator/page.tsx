@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Estimate newsletter sponsorship revenue from subscribers, open rate and CPM with Toollane's free online calculator.",
+
+
+  alternates: {
+    canonical: "/newsletter-revenue-calculator",
+  },
 };
 
 export default function NewsletterRevenueCalculatorPage() {

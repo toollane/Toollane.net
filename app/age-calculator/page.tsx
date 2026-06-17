@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate your exact age in years, months and days instantly with Toollane's free online age calculator.",
+
+
+  alternates: {
+    canonical: "/age-calculator",
+  },
 };
 
 export default function AgeCalculatorPage() {

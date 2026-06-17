@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate discounts and price decreases instantly with Toollane's free online price decrease calculator.",
+
+
+  alternates: {
+    canonical: "/price-decrease-calculator",
+  },
 };
 
 export default function PriceDecreaseCalculatorPage() {

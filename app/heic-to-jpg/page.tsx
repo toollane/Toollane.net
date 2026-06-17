@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: "HEIC to JPG Converter | Toollane",
   description:
     "Convert HEIC images to JPG instantly with Toollane's free online HEIC to JPG converter.",
+
+
+  alternates: {
+    canonical: "/heic-to-jpg",
+  },
 };
 
 export default function HeicToJpgPage() {

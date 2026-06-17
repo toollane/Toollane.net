@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 
   description:
     "Generate secure random passwords instantly with Toollane's free online password generator.",
+
+
+  alternates: {
+    canonical: "/password-generator",
+  },
 };
 
 export default function PasswordGeneratorPage() {

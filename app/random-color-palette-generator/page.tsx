@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Generate random color palettes instantly with Toollane's free online color palette generator.",
+
+
+  alternates: {
+    canonical: "/random-color-palette-generator",
+  },
 };
 
 export default function RandomColorPaletteGeneratorPage() {

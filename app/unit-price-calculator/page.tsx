@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate price per unit and compare value instantly with Toollane's free online unit price calculator.",
+
+
+  alternates: {
+    canonical: "/unit-price-calculator",
+  },
 };
 
 export default function UnitPriceCalculatorPage() {

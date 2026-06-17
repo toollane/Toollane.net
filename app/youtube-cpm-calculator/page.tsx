@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate YouTube CPM from revenue and views with Toollane's free online YouTube CPM calculator.",
+
+
+  alternates: {
+    canonical: "/youtube-cpm-calculator",
+  },
 };
 
 export default function YoutubeCpmCalculatorPage() {

@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Generate SEO-friendly URL slugs instantly with Toollane's free online slug generator.",
+
+
+  alternates: {
+    canonical: "/slug-generator",
+  },
 };
 
 export default function SlugGeneratorPage() {

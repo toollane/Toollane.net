@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Use a free online countdown timer for focus, studying, workouts, cooking and daily tasks.",
+
+
+  alternates: {
+    canonical: "/countdown-timer",
+  },
 };
 
 export default function CountdownTimerPage() {

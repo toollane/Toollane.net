@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Generate barcodes instantly with Toollane's free online barcode generator.",
+
+
+  alternates: {
+    canonical: "/barcode-generator",
+  },
 };
 
 export default function BarcodeGeneratorPage() {

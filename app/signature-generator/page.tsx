@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 
   description:
     "Create digital signatures instantly with Toollane's free online signature generator.",
+
+
+  alternates: {
+    canonical: "/signature-generator",
+  },
 };
 
 export default function SignatureGeneratorPage() {

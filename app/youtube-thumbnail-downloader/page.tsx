@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 
   description:
     "Download YouTube thumbnails instantly with Toollane's free online YouTube thumbnail downloader.",
+
+
+  alternates: {
+    canonical: "/youtube-thumbnail-downloader",
+  },
 };
 
 export default function YoutubeThumbnailDownloaderPage() {

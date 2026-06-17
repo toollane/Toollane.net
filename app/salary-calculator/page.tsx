@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Salary Calculator | Annual, Monthly & Hourly Pay | Toollane",
   description:
     "Convert annual salary into monthly, weekly, daily and hourly pay online. Estimate gross pay, net pay, taxes, bonus and effective hourly rate.",
+
+
+  alternates: {
+    canonical: "/salary-calculator",
+  },
 };
 
 export default function SalaryCalculatorPage() {

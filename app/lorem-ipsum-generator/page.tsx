@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Generate Lorem Ipsum dummy text instantly with Toollane's free online Lorem Ipsum generator.",
+
+
+  alternates: {
+    canonical: "/lorem-ipsum-generator",
+  },
 };
 
 export default function LoremIpsumGeneratorPage() {

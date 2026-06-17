@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Image to PDF Converter | Convert JPG & PNG Online | Toollane",
   description:
     "Convert images to PDF online for free. Upload JPG, JPEG or PNG files, arrange the page order, adjust page settings and download your PDF directly in your browser.",
+
+
+  alternates: {
+    canonical: "/image-to-pdf",
+  },
 };
 
 export default function ImageToPdfPage() {

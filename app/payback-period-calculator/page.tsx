@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Payback Period Calculator | Investment Recovery | Toollane",
   description:
     "Calculate payback period, discounted payback, monthly cash flow, investment recovery time and ROI with Toollane's free online payback period calculator.",
+
+
+  alternates: {
+    canonical: "/payback-period-calculator",
+  },
 };
 
 export default function PaybackPeriodCalculatorPage() {

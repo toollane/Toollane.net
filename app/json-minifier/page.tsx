@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Minify JSON instantly with Toollane's free online JSON minifier.",
+
+
+  alternates: {
+    canonical: "/json-minifier",
+  },
 };
 
 export default function JsonMinifierPage() {

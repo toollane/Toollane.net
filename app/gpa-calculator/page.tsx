@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate GPA instantly with Toollane's free online GPA calculator.",
+
+
+  alternates: {
+    canonical: "/gpa-calculator",
+  },
 };
 
 export default function GpaCalculatorPage() {

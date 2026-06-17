@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Estimate ad revenue from pageviews and RPM with Toollane's free online ad revenue calculator.",
+
+
+  alternates: {
+    canonical: "/ad-revenue-calculator",
+  },
 };
 
 export default function AdRevenueCalculatorPage() {

@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "JPG to PNG Converter | Convert JPG Images Online | Toollane",
   description:
     "Convert JPG images to PNG online for free. Upload a JPG or JPEG image and download a lossless PNG file directly in your browser.",
+
+
+  alternates: {
+    canonical: "/jpg-to-png",
+  },
 };
 
 export default function JpgToPngPage() {

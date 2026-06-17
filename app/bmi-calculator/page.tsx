@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate your body mass index instantly with Toollane's free online BMI calculator.",
+
+
+  alternates: {
+    canonical: "/bmi-calculator",
+  },
 };
 
 export default function BmiCalculatorPage() {

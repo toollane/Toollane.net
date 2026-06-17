@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate profit per unit, total profit and margin with Toollane's free online profit per unit calculator.",
+
+
+  alternates: {
+    canonical: "/profit-per-unit-calculator",
+  },
 };
 
 export default function ProfitPerUnitCalculatorPage() {

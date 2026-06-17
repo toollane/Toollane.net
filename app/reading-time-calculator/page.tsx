@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Estimate article and text reading time instantly with Toollane's free online reading time calculator.",
+
+
+  alternates: {
+    canonical: "/reading-time-calculator",
+  },
 };
 
 export default function ReadingTimeCalculatorPage() {

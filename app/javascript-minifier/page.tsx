@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 
   description:
     "Minify JavaScript instantly with Toollane's free online JavaScript minifier.",
+
+
+  alternates: {
+    canonical: "/javascript-minifier",
+  },
 };
 
 export default function JavascriptMinifierPage() {

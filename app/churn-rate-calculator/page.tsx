@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Churn Rate Calculator | SaaS Churn Calculator | Toollane",
   description:
     "Calculate customer churn, revenue churn, retention, NRR, GRR and MRR growth online with Toollane's free churn rate calculator.",
+
+
+  alternates: {
+    canonical: "/churn-rate-calculator",
+  },
 };
 
 export default function ChurnRateCalculatorPage() {

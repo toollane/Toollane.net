@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Image Resizer | Resize JPG, PNG & WEBP Online | Toollane",
   description:
     "Resize images online for free. Change image width and height, lock aspect ratio, choose JPG, PNG or WEBP output and download resized images directly in your browser.",
+
+
+  alternates: {
+    canonical: "/image-resizer",
+  },
 };
 
 export default function ImageResizerPage() {

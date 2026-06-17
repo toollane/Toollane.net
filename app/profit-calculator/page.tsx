@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Profit Calculator | Net Profit & Margin | Toollane",
   description:
     "Calculate gross profit, net profit, profit margin, expenses, transaction fees and estimated taxes online with Toollane's free profit calculator.",
+
+
+  alternates: {
+    canonical: "/profit-calculator",
+  },
 };
 
 export default function ProfitCalculatorPage() {

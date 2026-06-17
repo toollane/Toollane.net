@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: "Percentage Calculator | Toollane",
   description:
     "Calculate percentages, percentage increases and percentage decreases instantly with Toollane's free online percentage calculator.",
+
+
+  alternates: {
+    canonical: "/percentage-calculator",
+  },
 };
 
 export default function PercentageCalculatorPage() {

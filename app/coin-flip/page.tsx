@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Flip a virtual coin instantly with Toollane's free online coin flip tool.",
+
+
+  alternates: {
+    canonical: "/coin-flip",
+  },
 };
 
 export default function CoinFlipPage() {

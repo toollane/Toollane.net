@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Create CSS gradients visually with Toollane's free online CSS gradient generator.",
+
+
+  alternates: {
+    canonical: "/css-gradient-generator",
+  },
 };
 
 export default function CssGradientGeneratorPage() {

@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 
   description:
     "Minify CSS instantly with Toollane's free online CSS minifier.",
+
+
+  alternates: {
+    canonical: "/css-minifier",
+  },
 };
 
 export default function CssMinifierPage() {

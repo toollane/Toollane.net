@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Net Worth Calculator | Assets, Debts & Equity | Toollane",
   description:
     "Calculate total assets, total liabilities, net worth, debt-to-asset ratio and equity ratio with Toollane's free online net worth calculator.",
+
+
+  alternates: {
+    canonical: "/net-worth-calculator",
+  },
 };
 
 export default function NetWorthCalculatorPage() {

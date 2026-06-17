@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Repeat text multiple times instantly with Toollane's free online text repeater.",
+
+
+  alternates: {
+    canonical: "/text-repeater",
+  },
 };
 
 export default function TextRepeaterPage() {

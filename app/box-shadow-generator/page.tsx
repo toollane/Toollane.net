@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Create CSS box shadows visually with Toollane's free online box shadow generator.",
+
+
+  alternates: {
+    canonical: "/box-shadow-generator",
+  },
 };
 
 export default function BoxShadowGeneratorPage() {

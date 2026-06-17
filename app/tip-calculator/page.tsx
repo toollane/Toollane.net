@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate tips, totals and split bills instantly with Toollane's free online tip calculator.",
+
+
+  alternates: {
+    canonical: "/tip-calculator",
+  },
 };
 
 export default function TipCalculatorPage() {

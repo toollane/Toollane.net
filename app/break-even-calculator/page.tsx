@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Break-Even Calculator | Units, Revenue & Margin | Toollane",
   description:
     "Calculate break-even units, break-even revenue, contribution margin, target profit and safety margin online with Toollane's free break-even calculator.",
+
+
+  alternates: {
+    canonical: "/break-even-calculator",
+  },
 };
 
 export default function BreakEvenCalculatorPage() {

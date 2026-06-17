@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "PDF to JPG Converter | Convert PDF Pages Online | Toollane",
   description:
     "Convert PDF pages to JPG images online for free. Upload a PDF, choose pages, image quality and output resolution, then download JPG files directly in your browser.",
+
+
+  alternates: {
+    canonical: "/pdf-to-jpg",
+  },
 };
 
 export default function PdfToJpgPage() {

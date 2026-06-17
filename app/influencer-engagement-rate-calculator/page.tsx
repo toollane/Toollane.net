@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate influencer engagement rate instantly with Toollane's free online engagement rate calculator.",
+
+
+  alternates: {
+    canonical: "/influencer-engagement-rate-calculator",
+  },
 };
 
 export default function InfluencerEngagementRateCalculatorPage() {

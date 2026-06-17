@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate sales tax and final price instantly with Toollane's free online sales tax calculator.",
+
+
+  alternates: {
+    canonical: "/sales-tax-calculator",
+  },
 };
 
 export default function SalesTaxCalculatorPage() {

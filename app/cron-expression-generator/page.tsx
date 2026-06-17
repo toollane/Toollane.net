@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 
   description:
     "Generate cron expressions instantly with Toollane's free online cron expression generator.",
+
+
+  alternates: {
+    canonical: "/cron-expression-generator",
+  },
 };
 
 export default function CronExpressionGeneratorPage() {

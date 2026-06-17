@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Simple Interest Calculator | Principal, Rate & Time | Toollane",
   description:
     "Calculate simple interest, final amount, after-tax interest, inflation-adjusted value and return with Toollane's free online simple interest calculator.",
+
+
+  alternates: {
+    canonical: "/simple-interest-calculator",
+  },
 };
 
 export default function SimpleInterestCalculatorPage() {

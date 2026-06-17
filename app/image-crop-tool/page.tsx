@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Image Crop Tool | Crop JPG, PNG & WEBP Online | Toollane",
   description:
     "Crop images online for free. Upload JPG, PNG or WEBP files, use aspect-ratio presets, crop by exact pixel values and download the result directly in your browser.",
+
+
+  alternates: {
+    canonical: "/image-crop-tool",
+  },
 };
 
 export default function ImageCropToolPage() {

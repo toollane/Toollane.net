@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate the difference between two dates instantly with Toollane's free online date difference calculator.",
+
+
+  alternates: {
+    canonical: "/date-difference-calculator",
+  },
 };
 
 export default function DateDifferenceCalculatorPage() {

@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate revenue from units sold and price per unit with Toollane's free online revenue calculator.",
+
+
+  alternates: {
+    canonical: "/revenue-calculator",
+  },
 };
 
 export default function RevenueCalculatorPage() {

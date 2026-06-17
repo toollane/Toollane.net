@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Debt Payoff Calculator | Snowball & Avalanche | Toollane",
   description:
     "Calculate debt payoff time, total interest, payoff order and compare debt snowball vs avalanche strategies with Toollane's free online debt payoff calculator.",
+
+
+  alternates: {
+    canonical: "/debt-payoff-calculator",
+  },
 };
 
 export default function DebtPayoffCalculatorPage() {

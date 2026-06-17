@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Reverse text instantly with Toollane's free online reverse text generator.",
+
+
+  alternates: {
+    canonical: "/reverse-text-generator",
+  },
 };
 
 export default function ReverseTextGeneratorPage() {

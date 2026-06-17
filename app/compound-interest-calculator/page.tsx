@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Compound Interest Calculator | Future Value & Growth | Toollane",
   description:
     "Calculate compound interest, future value, recurring contributions, interest earned, taxes and inflation-adjusted growth online with Toollane.",
+
+
+  alternates: {
+    canonical: "/compound-interest-calculator",
+  },
 };
 
 export default function CompoundInterestCalculatorPage() {

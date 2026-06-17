@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 
   description:
     "Generate robots.txt files instantly with Toollane's free online robots.txt generator.",
+
+
+  alternates: {
+    canonical: "/robots-txt-generator",
+  },
 };
 
 export default function RobotsTxtGeneratorPage() {

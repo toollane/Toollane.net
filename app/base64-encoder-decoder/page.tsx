@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Encode and decode Base64 instantly with Toollane's free online Base64 tool.",
+
+
+  alternates: {
+    canonical: "/base64-encoder-decoder",
+  },
 };
 
 export default function Base64EncoderDecoderPage() {

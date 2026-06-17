@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Convert JSON to CSV instantly with Toollane's free online JSON to CSV converter.",
+
+
+  alternates: {
+    canonical: "/json-to-csv",
+  },
 };
 
 export default function JsonToCsvPage() {

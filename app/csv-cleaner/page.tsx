@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Clean CSV data instantly with Toollane's free online CSV cleaner.",
+
+
+  alternates: {
+    canonical: "/csv-cleaner",
+  },
 };
 
 export default function CsvCleanerPage() {

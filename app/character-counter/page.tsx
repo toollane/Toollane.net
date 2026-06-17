@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Count characters, characters without spaces and lines instantly with Toollane's free online character counter.",
+
+
+  alternates: {
+    canonical: "/character-counter",
+  },
 };
 
 export default function CharacterCounterPage() {

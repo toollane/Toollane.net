@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "PDF Compressor | Compress PDF Files Online | Toollane",
   description:
     "Compress PDF files online for free. Reduce and optimize PDF file size directly in your browser without uploading your document.",
+
+
+  alternates: {
+    canonical: "/pdf-compressor",
+  },
 };
 
 export default function PdfCompressorPage() {

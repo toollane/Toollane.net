@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Generate startup name ideas instantly with Toollane's free online startup name generator.",
+
+
+  alternates: {
+    canonical: "/startup-name-generator",
+  },
 };
 
 export default function StartupNameGeneratorPage() {

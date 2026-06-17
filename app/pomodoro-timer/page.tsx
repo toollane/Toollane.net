@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Use a free online Pomodoro timer for focus, productivity, studying and work sessions.",
+
+
+  alternates: {
+    canonical: "/pomodoro-timer",
+  },
 };
 
 export default function PomodoroTimerPage() {

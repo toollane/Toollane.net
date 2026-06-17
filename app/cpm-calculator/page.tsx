@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate cost per thousand impressions instantly with Toollane's free online CPM calculator.",
+
+
+  alternates: {
+    canonical: "/cpm-calculator",
+  },
 };
 
 export default function CpmCalculatorPage() {

@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate conversion rate instantly with Toollane's free online conversion rate calculator.",
+
+
+  alternates: {
+    canonical: "/conversion-rate-calculator",
+  },
 };
 
 export default function ConversionRateCalculatorPage() {

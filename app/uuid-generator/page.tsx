@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Generate random UUIDs instantly with Toollane's free online UUID generator.",
+
+
+  alternates: {
+    canonical: "/uuid-generator",
+  },
 };
 
 export default function UuidGeneratorPage() {

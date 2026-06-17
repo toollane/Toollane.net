@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Generate slogan ideas instantly with Toollane's free online slogan generator.",
+
+
+  alternates: {
+    canonical: "/slogan-generator",
+  },
 };
 
 export default function SloganGeneratorPage() {

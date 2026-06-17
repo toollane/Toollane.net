@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 
   description:
     "Preview Markdown instantly with Toollane's free online Markdown previewer.",
+
+
+  alternates: {
+    canonical: "/markdown-previewer",
+  },
 };
 
 export default function MarkdownPreviewerPage() {

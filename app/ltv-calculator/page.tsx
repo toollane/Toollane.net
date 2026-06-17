@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "LTV Calculator | Customer Lifetime Value Calculator | Toollane",
   description:
     "Calculate customer lifetime value online. Estimate LTV from ARPA, gross margin and monthly churn, then compare it with CAC and payback period.",
+
+
+  alternates: {
+    canonical: "/ltv-calculator",
+  },
 };
 
 export default function LtvCalculatorPage() {

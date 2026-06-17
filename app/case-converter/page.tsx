@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Convert text case instantly with Toollane's free online case converter.",
+
+
+  alternates: {
+    canonical: "/case-converter",
+  },
 };
 
 export default function CaseConverterPage() {

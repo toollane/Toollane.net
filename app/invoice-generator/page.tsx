@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Create invoices instantly with Toollane's free online invoice generator.",
+
+
+  alternates: {
+    canonical: "/invoice-generator",
+  },
 };
 
 export default function InvoiceGeneratorPage() {

@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate your freelance hourly rate, monthly revenue target and annual revenue goal with Toollane's free online calculator.",
+
+
+  alternates: {
+    canonical: "/freelance-rate-calculator",
+  },
 };
 
 export default function FreelanceRateCalculatorPage() {

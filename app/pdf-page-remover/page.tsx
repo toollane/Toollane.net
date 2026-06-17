@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "PDF Page Remover | Delete Pages from PDF | Toollane",
   description:
     "Remove specific pages from a PDF instantly with Toollane's free online PDF page remover. Delete pages, ranges, odd pages or even pages directly in your browser.",
+
+
+  alternates: {
+    canonical: "/pdf-page-remover",
+  },
 };
 
 export default function PdfPageRemoverPage() {

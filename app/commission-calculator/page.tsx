@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate sales commission instantly with Toollane's free online commission calculator.",
+
+
+  alternates: {
+    canonical: "/commission-calculator",
+  },
 };
 
 export default function CommissionCalculatorPage() {

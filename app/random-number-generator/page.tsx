@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Generate random numbers instantly with Toollane's free online random number generator.",
+
+
+  alternates: {
+    canonical: "/random-number-generator",
+  },
 };
 
 export default function RandomNumberGeneratorPage() {

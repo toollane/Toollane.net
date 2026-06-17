@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 
   description:
     "Generate business and startup name ideas instantly with Toollane's free online business name generator.",
+
+
+  alternates: {
+    canonical: "/business-name-generator",
+  },
 };
 
 export default function BusinessNameGeneratorPage() {

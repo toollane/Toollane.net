@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Retirement Calculator | Savings & Retirement Goal | Toollane",
   description:
     "Estimate retirement savings, required nest egg, monthly contributions, retirement income and savings gap online with Toollane's free retirement calculator.",
+
+
+  alternates: {
+    canonical: "/retirement-calculator",
+  },
 };
 
 export default function RetirementCalculatorPage() {

@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "PDF Merger | Merge PDF Files Online | Toollane",
   description:
     "Merge multiple PDF files into one PDF online for free. Reorder files, combine PDFs and download the merged document directly in your browser.",
+
+
+  alternates: {
+    canonical: "/pdf-merger",
+  },
 };
 
 export default function PdfMergerPage() {

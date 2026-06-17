@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Loan Calculator | Monthly Payment & Interest | Toollane",
   description:
     "Calculate monthly loan payments, total interest, total repayment and payoff time online with Toollane's free loan calculator.",
+
+
+  alternates: {
+    canonical: "/loan-calculator",
+  },
 };
 
 export default function LoanCalculatorPage() {

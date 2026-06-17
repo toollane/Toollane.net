@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate grade percentage and letter grade instantly with Toollane's free online grade calculator.",
+
+
+  alternates: {
+    canonical: "/grade-calculator",
+  },
 };
 
 export default function GradeCalculatorPage() {

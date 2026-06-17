@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate weekdays and working days between two dates with Toollane's free online calculator.",
+
+
+  alternates: {
+    canonical: "/working-days-calculator",
+  },
 };
 
 export default function WorkingDaysCalculatorPage() {

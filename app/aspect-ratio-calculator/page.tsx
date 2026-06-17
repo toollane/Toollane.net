@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate image and video aspect ratios instantly with Toollane's free online aspect ratio calculator.",
+
+
+  alternates: {
+    canonical: "/aspect-ratio-calculator",
+  },
 };
 
 export default function AspectRatioCalculatorPage() {

@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "WEBP to JPG Converter | Convert WEBP Images Online | Toollane",
   description:
     "Convert WEBP images to JPG online for free. Adjust JPG quality, resize width, choose a background color for transparency and download the result directly in your browser.",
+
+
+  alternates: {
+    canonical: "/webp-to-jpg",
+  },
 };
 
 export default function WebpToJpgPage() {

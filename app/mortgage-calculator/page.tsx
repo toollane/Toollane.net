@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Mortgage Calculator | Monthly Payment & Interest | Toollane",
   description:
     "Calculate monthly mortgage payments, principal, interest, taxes, insurance, PMI, HOA fees and total repayment online with Toollane's free mortgage calculator.",
+
+
+  alternates: {
+    canonical: "/mortgage-calculator",
+  },
 };
 
 export default function MortgageCalculatorPage() {

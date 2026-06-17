@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Format and beautify JSON instantly with Toollane's free online JSON formatter.",
+
+
+  alternates: {
+    canonical: "/json-formatter",
+  },
 };
 
 export default function JsonFormatterPage() {

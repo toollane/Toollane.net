@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Check meta title length instantly with Toollane's free online SEO title length checker.",
+
+
+  alternates: {
+    canonical: "/meta-title-length-checker",
+  },
 };
 
 export default function MetaTitleLengthCheckerPage() {

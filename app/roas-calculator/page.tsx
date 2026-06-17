@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate return on ad spend instantly with Toollane's free online ROAS calculator.",
+
+
+  alternates: {
+    canonical: "/roas-calculator",
+  },
 };
 
 export default function RoasCalculatorPage() {

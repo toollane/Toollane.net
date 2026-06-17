@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Generate YouTube video title ideas instantly with Toollane's free online YouTube title generator.",
+
+
+  alternates: {
+    canonical: "/youtube-title-generator",
+  },
 };
 
 export default function YoutubeTitleGeneratorPage() {

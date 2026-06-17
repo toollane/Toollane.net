@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Auto Loan Calculator | Car Payment & Interest | Toollane",
   description:
     "Calculate car loan payments, auto loan interest, sales tax, fees, trade-in value, down payment and total vehicle financing cost with Toollane's free auto loan calculator.",
+
+
+  alternates: {
+    canonical: "/auto-loan-calculator",
+  },
 };
 
 export default function AutoLoanCalculatorPage() {

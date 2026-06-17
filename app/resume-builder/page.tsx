@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 
   description:
     "Create professional resumes instantly with Toollane's free online resume builder.",
+
+
+  alternates: {
+    canonical: "/resume-builder",
+  },
 };
 
 export default function ResumeBuilderPage() {

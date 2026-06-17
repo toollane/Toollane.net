@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Investment Calculator | Growth & Future Value | Toollane",
   description:
     "Calculate investment growth, future value, recurring contributions, fees, taxes and inflation-adjusted returns online with Toollane's free investment calculator.",
+
+
+  alternates: {
+    canonical: "/investment-calculator",
+  },
 };
 
 export default function InvestmentCalculatorPage() {

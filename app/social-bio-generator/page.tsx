@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Generate social media bio ideas instantly with Toollane's free online bio generator.",
+
+
+  alternates: {
+    canonical: "/social-bio-generator",
+  },
 };
 
 export default function SocialBioGeneratorPage() {

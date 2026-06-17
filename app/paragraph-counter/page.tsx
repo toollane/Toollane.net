@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Count paragraphs and characters instantly with Toollane's free online paragraph counter.",
+
+
+  alternates: {
+    canonical: "/paragraph-counter",
+  },
 };
 
 export default function ParagraphCounterPage() {

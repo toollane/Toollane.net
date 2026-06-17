@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Find and replace text instantly with Toollane's free online find and replace tool.",
+
+
+  alternates: {
+    canonical: "/find-and-replace",
+  },
 };
 
 export default function FindAndReplacePage() {

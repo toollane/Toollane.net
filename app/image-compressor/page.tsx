@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Image Compressor | Compress JPG, PNG & WEBP Online | Toollane",
   description:
     "Compress images online for free. Reduce JPG, PNG and WEBP file size, adjust quality and resize images directly in your browser.",
+
+
+  alternates: {
+    canonical: "/image-compressor",
+  },
 };
 
 export default function ImageCompressorPage() {

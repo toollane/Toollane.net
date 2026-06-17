@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Runway Calculator | Startup Runway & Burn Rate Calculator | Toollane",
   description:
     "Calculate startup runway online. Estimate cash runway, burn rate, break-even gap, cash-out date and 24-month cash projection.",
+
+
+  alternates: {
+    canonical: "/runway-calculator",
+  },
 };
 
 export default function RunwayCalculatorPage() {

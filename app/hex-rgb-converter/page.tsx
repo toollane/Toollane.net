@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Convert HEX color codes to RGB instantly with Toollane's free online HEX to RGB converter.",
+
+
+  alternates: {
+    canonical: "/hex-rgb-converter",
+  },
 };
 
 export default function HexRgbConverterPage() {

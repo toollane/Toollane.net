@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Screenshot to PDF Converter | Convert Screenshots Online | Toollane",
   description:
     "Convert screenshots to PDF online for free. Upload mobile or desktop screenshots, arrange the page order, adjust PDF settings and download your PDF directly in your browser.",
+
+
+  alternates: {
+    canonical: "/screenshot-to-pdf",
+  },
 };
 
 export default function ScreenshotToPdfPage() {

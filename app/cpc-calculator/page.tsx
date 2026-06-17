@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate cost per click instantly with Toollane's free online CPC calculator.",
+
+
+  alternates: {
+    canonical: "/cpc-calculator",
+  },
 };
 
 export default function CpcCalculatorPage() {

@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Savings Calculator | Interest & Future Balance | Toollane",
   description:
     "Calculate savings growth, future balance, recurring contributions, interest, taxes and inflation-adjusted value online with Toollane's free savings calculator.",
+
+
+  alternates: {
+    canonical: "/savings-calculator",
+  },
 };
 
 export default function SavingsCalculatorPage() {

@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Calculate time duration between two times instantly with Toollane's free online time duration calculator.",
+
+
+  alternates: {
+    canonical: "/time-duration-calculator",
+  },
 };
 
 export default function TimeDurationCalculatorPage() {

@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Remove duplicate lines from text instantly with Toollane's free online duplicate line remover.",
+
+
+  alternates: {
+    canonical: "/remove-duplicate-lines",
+  },
 };
 
 export default function RemoveDuplicateLinesPage() {

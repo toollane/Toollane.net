@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Inflation Calculator | Future Cost & Purchasing Power | Toollane",
   description:
     "Calculate future cost, cumulative inflation, purchasing power loss and income growth impact with Toollane's free online inflation calculator.",
+
+
+  alternates: {
+    canonical: "/inflation-calculator",
+  },
 };
 
 export default function InflationCalculatorPage() {

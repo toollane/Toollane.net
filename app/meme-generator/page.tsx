@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Create memes instantly with Toollane's free online meme generator.",
+
+
+  alternates: {
+    canonical: "/meme-generator",
+  },
 };
 
 export default function MemeGeneratorPage() {

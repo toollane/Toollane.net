@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 
   description:
     "Generate trending hashtags instantly with Toollane's free online hashtag generator.",
+
+
+  alternates: {
+    canonical: "/hashtag-generator",
+  },
 };
 
 export default function HashtagGeneratorPage() {

@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 
   description:
     "Convert XML to JSON instantly with Toollane's free online XML to JSON converter.",
+
+
+  alternates: {
+    canonical: "/xml-to-json",
+  },
 };
 
 export default function XmlToJsonPage() {

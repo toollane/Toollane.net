@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Count characters for social media posts, captions and titles with Toollane's free online character counter.",
+
+
+  alternates: {
+    canonical: "/social-media-character-counter",
+  },
 };
 
 export default function SocialMediaCharacterCounterPage() {

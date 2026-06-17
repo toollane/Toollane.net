@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Estimate podcast ad revenue from downloads, CPM and ad slots with Toollane's free online podcast revenue calculator.",
+
+
+  alternates: {
+    canonical: "/podcast-revenue-calculator",
+  },
 };
 
 export default function PodcastRevenueCalculatorPage() {

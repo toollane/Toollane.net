@@ -9,6 +9,11 @@ export const metadata: Metadata = {
 
   description:
     "Estimate Instagram earnings and post value with Toollane's free online Instagram money calculator.",
+
+
+  alternates: {
+    canonical: "/instagram-money-calculator",
+  },
 };
 
 export default function InstagramMoneyCalculatorPage() {

@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "VAT Calculator | Add or Remove VAT Online | Toollane",
   description:
     "Calculate VAT online for free. Add VAT to a net price, remove VAT from a gross price and estimate VAT amount, net amount and gross amount.",
+
+
+  alternates: {
+    canonical: "/vat-calculator",
+  },
 };
 
 export default function VatCalculatorPage() {

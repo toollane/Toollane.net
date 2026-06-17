@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Credit Card Payoff Calculator | Interest & Time | Toollane",
   description:
     "Calculate credit card payoff time, total interest, monthly payments, interest saved and payoff timeline with Toollane's free online credit card payoff calculator.",
+
+
+  alternates: {
+    canonical: "/credit-card-payoff-calculator",
+  },
 };
 
 export default function CreditCardPayoffCalculatorPage() {
