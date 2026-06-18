@@ -316,23 +316,22 @@ function DetailBox({
 
       <div className="mt-5 flex flex-wrap gap-2">
         {items.map((item) => {
-          if (title === "Origins") {
-            return (
-              <Link
-                key={item}
-                href={`/baby-names/${createBabyNameSlug(item)}-baby-names`}
-                className="rounded-full border border-black/10 bg-[#fff8df] px-3 py-2 text-xs font-bold text-black/70 transition hover:border-black hover:text-black"
-              >
-                {item}
-              </Link>
-            );
-          }
+          const targetSlug =
+            title === "Origins"
+              ? `${createBabyNameSlug(item)}-baby-names`
+              : title === "Styles"
+                ? `${createBabyNameSlug(item)}-baby-name-ideas`
+                : "";
 
-          if (title === "Styles") {
+          const targetPage = targetSlug
+            ? babyNamePages.find((page) => page.slug === targetSlug)
+            : undefined;
+
+          if (targetPage) {
             return (
               <Link
                 key={item}
-                href={`/baby-names/${createBabyNameSlug(item)}-baby-name-ideas`}
+                href={`/baby-names/${targetPage.slug}`}
                 className="rounded-full border border-black/10 bg-[#fff8df] px-3 py-2 text-xs font-bold text-black/70 transition hover:border-black hover:text-black"
               >
                 {item}
