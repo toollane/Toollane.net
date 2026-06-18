@@ -267,13 +267,17 @@ function NameGrid({ names }: { names: BabyName[] }) {
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {names.map((name) => (
-        <article
+        <Link
           key={name.id}
-          className="rounded-[2rem] border border-black/10 bg-white/80 p-6 shadow-sm"
+          href={`/baby-name/${name.id}`}
+          className="group rounded-[2rem] border border-black/10 bg-white/80 p-6 shadow-sm transition hover:-translate-y-1 hover:border-black/20 hover:shadow-md"
         >
           <div className="flex items-start justify-between gap-4">
             <div>
-              <h3 className="text-2xl font-black">{name.name}</h3>
+              <h3 className="text-2xl font-black group-hover:underline">
+                {name.name}
+              </h3>
+
               <p className="mt-1 text-sm font-bold capitalize text-black/45">
                 {name.gender}
               </p>
@@ -313,7 +317,11 @@ function NameGrid({ names }: { names: BabyName[] }) {
               Similar: {name.similar.slice(0, 3).join(", ")}
             </p>
           )}
-        </article>
+
+          <div className="mt-5 text-sm font-bold text-black">
+            View name meaning →
+          </div>
+        </Link>
       ))}
     </div>
   );
