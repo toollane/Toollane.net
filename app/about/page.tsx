@@ -236,7 +236,7 @@ export default function AboutPage() {
 
             <div className="mt-6">
               <Link
-                href="/privacy"
+                href="/privacy-policy"
                 className="text-sm font-bold underline underline-offset-4"
               >
                 Read the Privacy Policy →
