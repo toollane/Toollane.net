@@ -4,6 +4,9 @@ import { categories, tools } from "@/data/tools";
 import { babyNames } from "@/data/baby-names";
 import { babyNamePages } from "@/data/baby-names/pages";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 const baseUrl = "https://toollane.net";
 
 export default function sitemap(): MetadataRoute.Sitemap {
