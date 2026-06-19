@@ -10,7 +10,6 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import ToolSchema from "@/components/ToolSchema";
 import ToolContentSection from "@/components/ToolContentSection";
-import AdSenseBlock from "@/components/AdSenseBlock";
 
 type FAQ = {
   question: string;
@@ -204,7 +203,6 @@ export default function ToolPageLayout({
 
           <RelatedTools currentHref={pageHref} categorySlug={categorySlug} />
 
-          <AdSenseBlock slot="1234567890" />
 
           {pageFaqs.length > 0 && (
             <div className="mt-14">
