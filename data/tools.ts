@@ -881,6 +881,83 @@ categorySlug:
 },
 
 {
+  category: "Calculators",
+  categorySlug: "calculators",
+  name: "Closing Cost Calculator",
+  shortName: "Closing Costs",
+  description:
+    "Estimate buyer closing costs, prepaid taxes, insurance reserves, lender fees, title fees and total cash needed to close on a home.",
+  seoTitle: "Closing Cost Calculator | Estimate Home Closing Costs",
+  seoDescription:
+    "Use Toollane's free closing cost calculator to estimate buyer closing costs, lender fees, title fees, taxes, insurance reserves and total cash needed to close.",
+  href: "/closing-cost-calculator",
+  icon: "🏠",
+  popular: false,
+  keywords: [
+    "closing cost calculator",
+    "home closing costs calculator",
+    "buyer closing cost calculator",
+    "cash to close calculator",
+    "mortgage closing costs calculator",
+  ],
+  faqs: [
+    {
+      question: "What does the closing cost calculator estimate?",
+      answer:
+        "It estimates common buyer closing costs such as lender fees, appraisal fees, title fees, transfer taxes, prepaid property taxes, insurance reserves and other costs.",
+    },
+    {
+      question: "Are closing costs the same everywhere?",
+      answer:
+        "No. Closing costs vary by location, lender, loan type, title company, taxes, insurance and purchase agreement.",
+    },
+    {
+      question: "Does this calculator include the down payment?",
+      answer:
+        "Yes. The calculator shows estimated closing costs and total cash needed to close, including the down payment.",
+    },
+  ],
+},
+{
+  category: "Calculators",
+  categorySlug: "calculators",
+  name: "Down Payment Calculator",
+  shortName: "Down Payment",
+  description:
+    "Calculate your target down payment, total cash needed, savings gap and estimated time to reach your home buying goal.",
+  seoTitle: "Down Payment Calculator | Home Buying Savings Calculator",
+  seoDescription:
+    "Use Toollane's free down payment calculator to estimate your target down payment, closing costs, savings gap and time needed to save for a home.",
+  href: "/down-payment-calculator",
+  icon: "💰",
+  popular: false,
+  keywords: [
+    "down payment calculator",
+    "home down payment calculator",
+    "house down payment calculator",
+    "home savings calculator",
+    "mortgage down payment calculator",
+  ],
+  faqs: [
+    {
+      question: "What does the down payment calculator show?",
+      answer:
+        "It estimates your target down payment, closing cost allowance, total cash target, current savings gap and estimated time to reach your goal.",
+    },
+    {
+      question: "Does the calculator include closing costs?",
+      answer:
+        "Yes. You can include estimated closing costs as a percentage of the home price to calculate a more realistic cash target.",
+    },
+    {
+      question: "How long will it take to save for a down payment?",
+      answer:
+        "The calculator estimates the timeline based on your current savings, monthly savings and optional savings return assumption.",
+    },
+  ],
+},
+
+{
   category:
     "Calculators",
 
