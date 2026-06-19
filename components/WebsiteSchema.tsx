@@ -5,11 +5,12 @@ export default function WebsiteSchema() {
     name: "Toollane",
     url: "https://toollane.net",
     description:
-      "Fast, free and modern online tools for SEO, PDFs, images, development, productivity and business.",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: "https://toollane.net/?q={search_term_string}",
-      "query-input": "required name=search_term_string",
+      "Fast, free and mobile-friendly online tools for SEO, PDFs, images, business, creators, developers and everyday work.",
+    inLanguage: "en",
+    publisher: {
+      "@type": "Organization",
+      name: "Toollane",
+      url: "https://toollane.net",
     },
   };
 
