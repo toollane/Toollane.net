@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 
 import { categories, tools } from "@/data/tools";
+import { hubs } from "@/data/hubs";
 import { babyNames } from "@/data/baby-names";
 import { babyNamePages } from "@/data/baby-names/pages";
 
@@ -11,6 +12,13 @@ const baseUrl = "https://toollane.net";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
+
+  const hubPages = hubs.map((hub) => ({
+    url: `${baseUrl}${hub.href}`,
+    lastModified: now,
+    changeFrequency: hub.changeFrequency,
+    priority: hub.priority,
+  }));
 
   const toolPages = tools.map((tool) => ({
     url: `${baseUrl}${tool.href}`,
@@ -54,12 +62,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
-      url: `${baseUrl}/real-estate-calculators`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.85,
-    },
-    {
       url: `${baseUrl}/about`,
       lastModified: now,
       changeFrequency: "monthly",
@@ -90,6 +92,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
 
+    ...hubPages,
     ...categoryPages,
     ...toolPages,
     ...babyNameLandingPages,
