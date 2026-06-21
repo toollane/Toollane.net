@@ -21,4 +21,14 @@ export const hubs = [
       "/down-payment-calculator",
     ],
   },
+  {
+    name: "Baby Names",
+    href: "/baby-names",
+    changeFrequency: "weekly",
+    priority: 0.9,
+    linkTitle: "Explore all baby name collections",
+    linkDescription:
+      "Browse baby names by gender, origin, style, popularity and starting letter, or use the Baby Name Generator for personalized ideas.",
+    toolHrefs: ["/baby-name-generator"],
+  },
 ] as const;
