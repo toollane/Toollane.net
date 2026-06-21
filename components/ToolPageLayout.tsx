@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import Link from "next/link";
 
 import { tools } from "@/data/tools";
+import { hubs } from "@/data/hubs";
 
 import FAQSection from "@/components/FAQSection";
 import FAQSchema from "@/components/FAQSchema";
@@ -40,6 +41,8 @@ type Props = {
   children: ReactNode;
 };
 
+type Hub = (typeof hubs)[number];
+
 function getCategoryBenefit(categoryName: string) {
   switch (categoryName) {
     case "Calculators":
@@ -59,6 +62,12 @@ function getCategoryBenefit(categoryName: string) {
     default:
       return "Use a fast, simple and mobile-friendly online tool directly in your browser.";
   }
+}
+
+function getMatchingHub(pageHref: string) {
+  return hubs.find((hub) =>
+    hub.toolHrefs.some((toolHref) => toolHref === pageHref)
+  );
 }
 
 export default function ToolPageLayout({
@@ -86,6 +95,7 @@ export default function ToolPageLayout({
   const categoryName = matchedTool?.category || "Tools";
   const categorySlug = matchedTool?.categorySlug || "tools";
   const pageFaqs = faqs?.length ? faqs : matchedTool?.faqs || [];
+  const matchingHub = getMatchingHub(pageHref);
 
   return (
     <>
@@ -129,8 +139,14 @@ export default function ToolPageLayout({
 
             <div className="mt-7 grid gap-3 sm:grid-cols-3">
               <TrustCard title="No signup" text="Use the tool instantly." />
-              <TrustCard title="Mobile-ready" text="Works on phones and desktop." />
-              <TrustCard title="Fast results" text="Get answers directly on the page." />
+              <TrustCard
+                title="Mobile-ready"
+                text="Works on phones and desktop."
+              />
+              <TrustCard
+                title="Fast results"
+                text="Get answers directly on the page."
+              />
             </div>
 
             <div className="mt-7 flex flex-wrap gap-3">
@@ -158,6 +174,8 @@ export default function ToolPageLayout({
           >
             {children}
           </div>
+
+          {matchingHub && <ToolHubLink hub={matchingHub} />}
 
           <section className="mt-10 grid gap-4 lg:grid-cols-3">
             <InfoPanel
@@ -203,7 +221,6 @@ export default function ToolPageLayout({
 
           <RelatedTools currentHref={pageHref} categorySlug={categorySlug} />
 
-
           {pageFaqs.length > 0 && (
             <div className="mt-14">
               <FAQSection faqs={pageFaqs} />
@@ -212,6 +229,35 @@ export default function ToolPageLayout({
         </section>
       </main>
     </>
+  );
+}
+
+function ToolHubLink({ hub }: { hub: Hub }) {
+  return (
+    <section className="mt-10 rounded-[2rem] border border-black/10 bg-black p-6 text-white shadow-sm sm:p-8">
+      <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+        <div>
+          <div className="text-xs font-bold uppercase tracking-wide text-white/50">
+            Related tool collection
+          </div>
+
+          <h2 className="mt-2 text-2xl font-black tracking-tight">
+            {hub.linkTitle}
+          </h2>
+
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-white/65 sm:text-base">
+            {hub.linkDescription}
+          </p>
+        </div>
+
+        <Link
+          href={hub.href}
+          className="shrink-0 rounded-2xl bg-white px-6 py-4 text-center text-sm font-bold text-black transition hover:opacity-90"
+        >
+          Open collection →
+        </Link>
+      </div>
+    </section>
   );
 }
 
