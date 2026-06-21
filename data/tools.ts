@@ -883,6 +883,159 @@ categorySlug:
 {
   category: "Calculators",
   categorySlug: "calculators",
+  name: "Property Tax Calculator",
+  shortName: "Property Tax",
+  description:
+    "Estimate annual property tax, monthly tax cost, effective tax rate and projected property taxes based on home value and local tax rate.",
+  seoTitle: "Property Tax Calculator | Estimate Property Taxes",
+  seoDescription:
+    "Use Toollane's free property tax calculator to estimate annual property tax, monthly tax cost, effective tax rate and projected property taxes over time.",
+  href: "/property-tax-calculator",
+  icon: "🏠",
+  popular: false,
+  keywords: [
+    "property tax calculator",
+    "real estate tax calculator",
+    "home property tax calculator",
+    "annual property tax calculator",
+    "monthly property tax calculator",
+  ],
+  faqs: [
+    {
+      question: "What does the property tax calculator estimate?",
+      answer:
+        "It estimates annual property tax, monthly property tax, effective tax rate and projected taxes over time based on property value, tax rate and assessment assumptions.",
+    },
+    {
+      question: "What is assessed value percentage?",
+      answer:
+        "Assessed value percentage is the share of the property value that is taxable. Use 100% if the full property value is taxed in your estimate.",
+    },
+    {
+      question: "Are property taxes the same everywhere?",
+      answer:
+        "No. Property taxes vary by location, local tax rates, assessment rules, exemptions, special districts and changes in property value.",
+    },
+  ],
+},
+{
+  category: "Calculators",
+  categorySlug: "calculators",
+  name: "Rental Property Calculator",
+  shortName: "Rental Property",
+  description:
+    "Estimate rental property cash flow, cap rate, cash-on-cash return, net operating income, expense ratio and break-even rent.",
+  seoTitle: "Rental Property Calculator | Estimate Rental Cash Flow",
+  seoDescription:
+    "Use Toollane's free rental property calculator to estimate cash flow, cap rate, cash-on-cash return, net operating income and break-even rent.",
+  href: "/rental-property-calculator",
+  icon: "🏘️",
+  popular: false,
+  keywords: [
+    "rental property calculator",
+    "rental cash flow calculator",
+    "investment property calculator",
+    "cap rate calculator",
+    "cash on cash return calculator",
+  ],
+  faqs: [
+    {
+      question: "What does the rental property calculator show?",
+      answer:
+        "It estimates monthly cash flow, annual cash flow, net operating income, cap rate, cash-on-cash return, expense ratio and break-even rent.",
+    },
+    {
+      question: "Does the calculator include mortgage payments?",
+      answer:
+        "Yes. You can estimate the mortgage payment from purchase price, down payment, interest rate and loan term, or enter your own monthly mortgage payment.",
+    },
+    {
+      question: "Is this rental property calculator investment advice?",
+      answer:
+        "No. It provides estimates for planning and comparison only. Actual rental property returns can vary due to financing, taxes, vacancy, repairs, local rules and market conditions.",
+    },
+  ],
+},
+{
+  category: "Calculators",
+  categorySlug: "calculators",
+  name: "Mortgage Comparison Calculator",
+  shortName: "Mortgage Compare",
+  description:
+    "Compare mortgage options by monthly payment, interest rate, upfront costs, full-term interest and estimated cost over your ownership period.",
+  seoTitle: "Mortgage Comparison Calculator | Compare Mortgage Offers",
+  seoDescription:
+    "Use Toollane's free mortgage comparison calculator to compare mortgage offers by monthly payment, interest, upfront costs and estimated ownership-period cost.",
+  href: "/mortgage-comparison-calculator",
+  icon: "🏦",
+  popular: false,
+  keywords: [
+    "mortgage comparison calculator",
+    "compare mortgage offers",
+    "mortgage rate comparison calculator",
+    "loan comparison calculator",
+    "mortgage payment comparison",
+  ],
+  faqs: [
+    {
+      question: "What does the mortgage comparison calculator compare?",
+      answer:
+        "It compares mortgage options by monthly payment, interest rate, term, upfront costs, monthly add-ons, full-term interest and estimated financing cost during your ownership period.",
+    },
+    {
+      question: "Why does the ownership period matter?",
+      answer:
+        "The best mortgage can depend on how long you keep the loan. A lower rate with higher upfront costs may only make sense if you keep the mortgage long enough to break even.",
+    },
+    {
+      question: "Does this calculator include taxes and insurance?",
+      answer:
+        "No. It focuses on mortgage offer comparison. Property taxes, homeowners insurance and other housing costs should be estimated separately.",
+    },
+  ],
+},
+{
+  category: "Calculators",
+  categorySlug: "calculators",
+  name: "Amortization Calculator",
+  shortName: "Amortization",
+  description:
+    "Calculate monthly loan payments, total interest, payoff date and an amortization schedule with optional extra payments.",
+  seoTitle: "Amortization Calculator | Loan Payment Schedule",
+  seoDescription:
+    "Use Toollane's free amortization calculator to estimate monthly payments, total interest, payoff date and an annual loan amortization schedule.",
+  href: "/amortization-calculator",
+  icon: "📊",
+  popular: false,
+  keywords: [
+    "amortization calculator",
+    "loan amortization calculator",
+    "mortgage amortization calculator",
+    "amortization schedule calculator",
+    "loan payment schedule",
+  ],
+  faqs: [
+    {
+      question: "What does the amortization calculator show?",
+      answer:
+        "It estimates the monthly payment, total interest, total paid, payoff date and an annual amortization schedule showing principal, interest and remaining balance.",
+    },
+    {
+      question: "Can I include extra payments?",
+      answer:
+        "Yes. You can add extra monthly payments, a one-time extra payment and annual extra payments to estimate interest savings and faster payoff.",
+    },
+    {
+      question: "What is an amortization schedule?",
+      answer:
+        "An amortization schedule shows how each loan payment is split between interest and principal over time, and how the remaining balance decreases.",
+    },
+  ],
+},
+
+{
+  category: "Calculators",
+  categorySlug: "calculators",
   name: "Closing Cost Calculator",
   shortName: "Closing Costs",
   description:
