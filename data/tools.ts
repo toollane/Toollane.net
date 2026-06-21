@@ -163,6 +163,48 @@ categorySlug:
     },
   ],
 },
+
+{
+  category: "Generators",
+  categorySlug: "generators",
+  name: "Pet Name Generator",
+  shortName: "Pet Names",
+  description:
+    "Generate pet name ideas for dogs, cats, horses, rabbits, birds, hamsters, fish and other pets by type, style, gender and starting letter.",
+  seoTitle: "Pet Name Generator | Dog, Cat & Animal Name Ideas",
+  seoDescription:
+    "Use Toollane's free pet name generator to find dog names, cat names and animal name ideas by pet type, style, gender, personality and starting letter.",
+  href: "/pet-name-generator",
+  icon: "🐾",
+  popular: false,
+  keywords: [
+    "pet name generator",
+    "dog name generator",
+    "cat name generator",
+    "animal name generator",
+    "cute pet names",
+    "unique pet names",
+    "funny pet names",
+  ],
+  faqs: [
+    {
+      question: "What does the pet name generator do?",
+      answer:
+        "It helps you generate pet name ideas for dogs, cats, horses, rabbits, birds, hamsters, fish and other pets using filters like pet type, style, gender and starting letter.",
+    },
+    {
+      question: "Can I generate dog and cat names?",
+      answer:
+        "Yes. You can choose a pet type such as dog or cat, then filter names by style, gender, popularity, length and starting letter.",
+    },
+    {
+      question: "Are the pet names based on real data?",
+      answer:
+        "The generator is structured so it can be expanded with open pet license datasets and curated name tags. The current name list is a starter dataset for inspiration.",
+    },
+  ],
+},
+
 {
   category: "Generators",
 
@@ -3094,6 +3136,7 @@ categorySlug:
     },
   ],
 },
+
 {
   category:
     "Generators",
