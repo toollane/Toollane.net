@@ -411,6 +411,95 @@ Status:
 Später
 ```
 
+# 8.5 P5.5 – Save to Home Screen / App-like Experience
+
+Status:
+
+```txt id="mfl0wr"
+Später
+```
+
+Idee:
+
+Toollane-Tools sollen sich langfristig app-ähnlicher anfühlen.
+
+Auf wichtigen Tool-Seiten könnte ein kleiner Hinweis erscheinen:
+
+```txt id="hdn8b8"
+Need this tool often? Save it to your phone.
+```
+
+Oder:
+
+```txt id="v64m3b"
+Use this tool like an app — add it to your home screen.
+```
+
+Mögliche Umsetzung:
+
+* kleiner Button oder Hinweis unter dem Tool
+* Anleitung für iPhone
+* Anleitung für Android
+* keine störende Pop-up-Lösung
+* kein aggressives Banner
+* nur auf wichtigen Tools
+* mobile-first
+* optional später mit PWA/Web Manifest kombinieren
+
+Mögliche Anleitung für iPhone:
+
+```txt id="lpexd9"
+1. Tap the Share button in Safari.
+2. Choose "Add to Home Screen".
+3. Tap "Add".
+```
+
+Mögliche Anleitung für Android:
+
+```txt id="mfwcvj"
+1. Open the menu in Chrome.
+2. Choose "Add to Home screen".
+3. Confirm with "Add".
+```
+
+Warum sinnvoll:
+
+* erhöht Wiederkehrer-Potenzial
+* Tools fühlen sich nützlicher an
+* stärkt die Marke Toollane
+* besonders passend für häufig genutzte Rechner und Converter
+* kann langfristig App-ähnliches Nutzungsverhalten erzeugen
+
+Geeignete erste Tools:
+
+* Mortgage Calculator
+* Baby Name Generator
+* Pet Name Generator
+* PDF Compressor
+* Image Compressor
+* VAT Calculator
+* Discount Calculator
+* Loan Calculator
+
+Nicht vor AdSense umsetzen.
+
+Grund:
+
+```txt id="hcuuhy"
+Aktuell soll die Live-Seite stabil bleiben.
+Die Idee ist gut, aber kein unmittelbarer AdSense-Fix.
+```
+
+Spätere Ausbaustufe:
+
+* Web Manifest
+* App Icon
+* PWA-Grundstruktur
+* Offline-/recent-tools-Konzept
+* “Recently used tools”
+* “Favorite tools”
+
+
 ---
 
 # 9. P6 – Mehrsprachigkeit
