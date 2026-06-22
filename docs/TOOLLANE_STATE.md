@@ -1,16 +1,17 @@
-# Toollane – Project State
+# Toollane – Master Project State
 
-Stand: nach Real-Estate-Hub, Pet Name Generator und zentraler Hub-Verlinkung
+Stand: Juni 2026
+Zweck: Diese Datei ist das zentrale Projektbriefing für neue Chats und zukünftige Arbeit an Toollane.
 
-## 1. Projektüberblick
+---
+
+# 1. Projektüberblick
 
 Toollane ist eine SEO-getriebene Online-Tools-Plattform unter:
 
 https://toollane.net
 
-Ziel ist der Aufbau eines langfristigen digitalen Assets mit kostenlosen Online-Tools, organischem Google-Traffic und späterer Monetarisierung über Werbung, Affiliate-Partnerschaften und eventuell weitere digitale Modelle.
-
-Toollane soll langfristig eine moderne, schnelle, mobile und nutzerfreundliche Alternative zu bekannten Online-Tool-Plattformen werden.
+Ziel ist der Aufbau eines langfristigen digitalen Assets mit vielen kostenlosen Online-Tools, organischem Google-Traffic und späterer Monetarisierung.
 
 Vergleichbare Vorbilder:
 
@@ -21,31 +22,45 @@ Vergleichbare Vorbilder:
 * RapidTables
 * Convertio
 
+Toollane soll moderner, schneller, mobiler, nutzerfreundlicher und strukturierter sein.
+
 Langfristige Ziele:
 
-* viele hochwertige Tools
-* starke SEO-Cluster
-* organischer Google-Traffic
-* AdSense-Freigabe
-* später ggf. bessere Werbenetzwerke
-* Affiliate-Monetarisierung in passenden Clustern
+* 150+ hochwertige kostenlose Online-Tools
+* langfristig 100.000+ monatliche Besucher
+* später 500.000+ bis 1.000.000+ monatliche Besucher
+* Monetarisierung über Google AdSense
+* später ggf. Ezoic, Mediavine oder Raptive
+* Affiliate-Marketing in passenden Clustern
+* hohe Automatisierung
+* möglichst wenig manuelle Pflege
 * langfristig möglichst passives Einkommen
 
-Die Website ist auf Englisch. Der Betreiber sitzt in Deutschland.
+Die Website ist auf Englisch.
+Der Betreiber sitzt in Deutschland.
+
+Deshalb relevant:
+
+* DSGVO
+* Cookie Consent
+* Impressum
+* Datenschutzerklärung
+* Affiliate-Kennzeichnung
+* EU-Recht
 
 ---
 
-## 2. Tech-Stack
+# 2. Tech-Stack
 
-Toollane ist ein Next.js-Projekt mit:
+Toollane nutzt:
 
-* App Router
+* Next.js App Router
 * TypeScript
 * Tailwind CSS
 * GitHub
 * Vercel
 * VS Code auf Windows
-* PowerShell als bevorzugte Kommandozeile
+* PowerShell
 
 Deployment:
 
@@ -55,15 +70,103 @@ Deployment:
 * Git push
 * Vercel deployed automatisch
 
-Live-Domain:
+---
 
-https://toollane.net
+# 3. Grundprinzipien
+
+## Mobile First
+
+Toollane wird primär für mobile Nutzer optimiert.
+
+Alle neuen Tools, Hubs und Komponenten müssen zuerst auf Smartphone-Nutzung ausgelegt sein.
+
+## Geschwindigkeit
+
+Jede Änderung muss Performance berücksichtigen.
+
+Bevorzugt:
+
+* Server Components
+* Static Generation
+* wenig JavaScript
+* keine unnötigen Libraries
+* lokale Verarbeitung im Browser
+
+Vermeiden:
+
+* unnötige Client Components
+* unnötige API-Aufrufe
+* große Datenmengen im Frontend
+* unnötige Einzeloptimierungen
+
+## SEO First
+
+Jede Seite soll langfristig ranken können.
+
+Wichtig:
+
+* klare Suchintention
+* saubere H1
+* gute H2-Struktur
+* Meta Title
+* Meta Description
+* Canonical
+* interne Links
+* Kategorie- oder Hub-Struktur
+* FAQ-Bereiche
+* Keyword-Fokus
+* hilfreicher Inhalt statt generischem Fülltext
+
+## UX
+
+Prioritäten:
+
+1. Geschwindigkeit
+2. Bedienbarkeit
+3. Übersichtlichkeit
+4. Mobile UX
+5. Vertrauen
+6. klares Design
+7. klare Ergebnisse
 
 ---
 
-## 3. Wichtige Projektstruktur
+# 4. Wichtige Arbeitsregel
 
-Aktuelle Grundstruktur:
+Nicht jede Datei einzeln mehrfach optimieren.
+
+Der bisherige Fehler war:
+
+* einzelne Clients mehrfach anfassen
+* einzelne `page.tsx` mehrfach ersetzen
+* dieselben Dateien immer wieder manuell korrigieren
+
+Ab jetzt gilt:
+
+## Fokus auf Systeme
+
+Bevorzugt werden zentrale Lösungen:
+
+* zentrale Metadata
+* zentrale Layouts
+* zentrale Sitemap
+* zentrale SEO-Strukturen
+* zentrale Datenquellen
+* zentrale Hub-Verlinkung
+* zentrale Tool-Architektur
+
+Wenn eine Änderung viele Seiten betrifft, muss eine systematische Lösung bevorzugt werden.
+
+Beispiel:
+
+Nicht 11 Real-Estate-Tool-Seiten einzeln anfassen.
+Stattdessen `ToolPageLayout` + `data/hubs.ts` zentral erweitern.
+
+---
+
+# 5. Aktuelle Projektstruktur
+
+Wichtige Struktur:
 
 ```txt
 app/
@@ -84,6 +187,7 @@ app/
     BabyNameGeneratorClient.tsx
 
   baby-names/
+    page.tsx
     [type]/
       page.tsx
 
@@ -108,6 +212,9 @@ components/
   ToolSchema.tsx
   WebsiteSchema.tsx
   BabyNameSchema.tsx
+  ConsentManager.tsx
+  GoogleAnalytics.tsx
+  AdSenseScript.tsx
 
 data/
   tools.ts
@@ -117,39 +224,34 @@ data/
     database/
       baby-names.master.json
     incoming/
-      boy-candidates.json
-      boys.final.json
-      girl-candidates.json
-      girls.final.json
-      unisex-candidates.json
-      unisex.final.json
     sources/
-      ssa/
-        yob2025.txt
     boys.json
     girls.json
-    index.ts
+    unisex.json
     names.json
+    index.ts
     pages.ts
     taxonomy.ts
-    unisex.json
 
   pet-names/
     index.ts
     database/
     incoming/
     sources/
+
+docs/
+  TOOLLANE_STATE.md
 ```
 
 ---
 
-## 4. Zentrale Datenquellen
+# 6. Zentrale Datenquellen
 
-### `data/tools.ts`
+## `data/tools.ts`
 
-Diese Datei ist die zentrale Quelle für normale Tools.
+Zentrale Quelle für normale Tools.
 
-Neue Tools müssen hier eingetragen werden, damit sie erscheinen in:
+Neue Tools müssen in `data/tools.ts` eingetragen werden, damit sie erscheinen in:
 
 * `/tools`
 * Kategorie-Seiten
@@ -181,155 +283,103 @@ Typischer Tool-Eintrag:
 }
 ```
 
-### `data/hubs.ts`
+## `data/hubs.ts`
 
-Diese Datei ist die zentrale Quelle für kuratierte Hub-Seiten, die keine normalen Tools und keine normalen Kategorien sind.
+Zentrale Quelle für kuratierte Hub-Seiten.
 
 Aktuell enthalten:
 
 * Real Estate Calculators
+* Baby Names
 
-Beispiel:
+Diese Hubs werden in der Sitemap automatisch über `hubPages` aufgenommen.
 
-```ts
-export const hubs = [
-  {
-    name: "Real Estate Calculators",
-    href: "/real-estate-calculators",
-    changeFrequency: "weekly",
-    priority: 0.85,
-    linkTitle: "Explore all real estate calculators",
-    linkDescription:
-      "Compare mortgage, home buying, refinancing, property tax, rent vs buy and rental property calculators in one place.",
-    toolHrefs: [
-      "/mortgage-calculator",
-      "/rent-vs-buy-calculator",
-      "/home-affordability-calculator",
-      "/property-tax-calculator",
-      "/rental-property-calculator",
-      "/mortgage-comparison-calculator",
-      "/amortization-calculator",
-      "/mortgage-refinance-calculator",
-      "/mortgage-payoff-calculator",
-      "/closing-cost-calculator",
-      "/down-payment-calculator",
-    ],
-  },
-] as const;
-```
+`data/hubs.ts` enthält außerdem `toolHrefs`. Dadurch weiß `ToolPageLayout`, welche Tools automatisch eine Hub-Linkbox anzeigen sollen.
 
-Wichtig:
+Beispiele:
 
-* Normale Tools gehören in `data/tools.ts`.
-* Kuratierte Hub-Seiten gehören in `data/hubs.ts`.
-* Kategorien kommen aus `categories` in `data/tools.ts`.
-* Baby-Name-Landingpages kommen aus `data/baby-names/pages.ts`.
+* Real-Estate-Tools verlinken automatisch auf `/real-estate-calculators`
+* Baby Name Generator verlinkt automatisch auf `/baby-names`
 
----
+## `data/baby-names/pages.ts`
 
-## 5. Sitemap-System
-
-Datei:
+Zentrale Quelle für Baby-Name-Landingpages unter:
 
 ```txt
-app/sitemap.ts
+/baby-names/[type]
 ```
 
-Die Sitemap zieht aktuell dynamisch aus:
+Beispiele:
 
-* statischen Seiten
-* `data/hubs.ts`
-* `categories` aus `data/tools.ts`
-* `tools` aus `data/tools.ts`
-* `babyNamePages`
-* `babyNames`
+* `/baby-names/girl`
+* `/baby-names/boy`
+* `/baby-names/unisex`
+* `/baby-names/german-baby-names`
+* `/baby-names/rare-baby-names`
+* `/baby-names/girl-names-starting-with-a`
 
-Oben in `app/sitemap.ts` steht:
+## `data/baby-names/database/baby-names.master.json`
 
-```ts
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-```
+Master-Datenbank für Baby-Name-Detailseiten.
 
-Aktueller bestätigter Sitemap-Stand:
+Aktueller Stand:
+
+* boys: 523
+* girls: 509
+* unisex: 211
+* master: 1243
+
+Summe:
 
 ```txt
-1608 URLs
-```
-
-Bestätigt enthalten:
-
-```txt
-real-estate-calculators -> True
-pet-name-generator -> True
-```
-
-Wichtiger PowerShell-Test:
-
-```powershell
-$sitemapLines = curl.exe -L -s "https://toollane.net/sitemap.xml?cachebust=$(Get-Random)"
-$sitemapText = $sitemapLines -join "`n"
-
-$sitemapText.Contains("real-estate-calculators")
-$sitemapText.Contains("pet-name-generator")
-([regex]::Matches($sitemapText, "<loc>")).Count
+523 + 509 + 211 = 1243
 ```
 
 ---
 
-## 6. Aktuelle Kategorien
+# 7. Kategorien
 
-Toollane hat aktuell folgende Hauptkategorien:
+Aktuelle Hauptkategorien:
 
-```txt
-Calculators
-Generators
-Image & PDF
-Developer
-SEO
-Business
-Text Tools
-```
+* Calculators
+* Generators
+* Image & PDF
+* Developer
+* SEO
+* Business
+* Text Tools
 
-Kategorie-Seiten werden automatisch über:
+Kategorie-Seiten laufen über:
 
 ```txt
 /category/[slug]
 ```
 
-erzeugt.
-
 Beispiele:
 
-```txt
-/category/calculators
-/category/generators
-/category/image-pdf-tools
-/category/developer-tools
-/category/seo-tools
-/category/business-tools
-/category/text-tools
-```
+* `/category/calculators`
+* `/category/generators`
+* `/category/image-pdf-tools`
+* `/category/developer-tools`
+* `/category/seo-tools`
+* `/category/business-tools`
+* `/category/text-tools`
 
-Diese Kategorie-Seiten sind keine Sonder-Hubs, sondern generische Kategorie-Seiten.
+Die Navbar nutzt bewusst wenige Hauptkategorien, damit sie nicht überladen wirkt.
 
 ---
 
-## 7. Unterschied zwischen Kategorien, Tools und Hubs
+# 8. Unterschied zwischen Tools, Kategorien und Hubs
 
-Wichtig für neue Chats:
-
-### Normales Tool
+## Normales Tool
 
 Beispiel:
 
-```txt
-/pet-name-generator
-/mortgage-calculator
-/image-compressor
-```
+* `/pet-name-generator`
+* `/mortgage-calculator`
+* `/image-compressor`
 
-Ein normales Tool braucht:
+Ein Tool braucht:
 
 ```txt
 app/[tool-slug]/page.tsx
@@ -339,280 +389,249 @@ data/tools.ts Eintrag
 
 Dann erscheint es automatisch in:
 
-```txt
-/tools
-/category/[slug]
-Related Tools
-Sitemap
-```
+* `/tools`
+* Kategorie-Seiten
+* Related Tools
+* Sitemap
 
-### Kategorie-Seite
+## Kategorie-Seite
 
 Beispiel:
 
-```txt
-/category/calculators
-/category/seo-tools
-```
+* `/category/calculators`
+* `/category/seo-tools`
 
-Wird aus `categories` in `data/tools.ts` erzeugt.
+Wird automatisch aus `categories` in `data/tools.ts` erzeugt.
 
-### Kuratierter Hub
+## Kuratierter Hub
 
 Beispiel:
 
-```txt
-/real-estate-calculators
-```
+* `/real-estate-calculators`
+* `/baby-names`
 
-Ein kuratierter Hub braucht:
+Ein Hub braucht:
 
 ```txt
 app/[hub-slug]/page.tsx
 data/hubs.ts Eintrag
 ```
 
-Dann erscheint er automatisch in der Sitemap über `hubPages`.
+Dann wird er über `data/hubs.ts` in die Sitemap aufgenommen.
 
 ---
 
-## 8. Aktueller Real-Estate-/Mortgage-Cluster
+# 9. Aktueller Sitemap-Stand
 
-Aktuelle relevante Tools:
+Aktuelle bestätigte Sitemap:
 
 ```txt
-Mortgage Calculator
-Rent vs Buy Calculator
-Home Affordability Calculator
-Mortgage Refinance Calculator
-Mortgage Payoff Calculator
-Closing Cost Calculator
-Down Payment Calculator
-Property Tax Calculator
-Rental Property Calculator
-Mortgage Comparison Calculator
-Amortization Calculator
+1609 URLs
 ```
 
-Aktueller Hub:
+Enthalten:
+
+* normale Tools
+* Kategorien
+* statische Seiten
+* Hub-Seiten aus `data/hubs.ts`
+* Baby-Name-Landingpages
+* Baby-Name-Detailseiten
+
+Bestätigt:
 
 ```txt
-/real-estate-calculators
-```
-
-Diese Hub-Seite verlinkt auf alle wichtigen Real-Estate-Tools.
-
-Zusätzlich wurde `ToolPageLayout.tsx` so erweitert, dass Real-Estate-Tool-Seiten automatisch eine Hub-Linkbox anzeigen, wenn ihre `href` in `data/hubs.ts` unter `toolHrefs` enthalten ist.
-
-Dadurch werden die Real-Estate-Tools zentral und einheitlich mit dem Hub verbunden.
-
----
-
-## 9. Pet Name Generator
-
-Der Pet Name Generator wurde als neues Tool gestartet.
-
-Dateien:
-
-```txt
-app/pet-name-generator/page.tsx
-app/pet-name-generator/PetNameGeneratorClient.tsx
-data/pet-names/index.ts
-```
-
-Die Datenstruktur wurde bewusst ähnlich wie beim Baby-Name-Bereich vorbereitet:
-
-```txt
-data/pet-names/
-  index.ts
-  database/
-  incoming/
-  sources/
-```
-
-Aktuell ist `data/pet-names/index.ts` ein Starter-Datensatz mit kuratierten Pet Names, Tierarten, Styles, Gender, Popularity und Breed-/Personality-Presets.
-
-Langfristig soll der Pet-Name-Datensatz mit offenen Datenquellen erweitert werden, z. B.:
-
-* Seattle Pet Licenses
-* NYC Dog Licensing Dataset
-* Cambridge dog license data
-
-Wichtig:
-
-Der Pet Name Generator ist ein normales Tool und steht daher in `data/tools.ts`.
-
-Aktueller Sitemap-Test:
-
-```txt
+real-estate-calculators -> True
 pet-name-generator -> True
+baby-names root hub -> True
+```
+
+Wichtiger Sitemap-Test:
+
+```powershell
+$sitemapLines = curl.exe -L -s "https://toollane.net/sitemap.xml?cachebust=$(Get-Random)"
+$sitemapText = $sitemapLines -join "`n"
+
+([regex]::Matches($sitemapText, "<loc>")).Count
+$sitemapText.Contains("real-estate-calculators")
+$sitemapText.Contains("pet-name-generator")
+$sitemapText.Contains("<loc>https://toollane.net/baby-names</loc>")
+```
+
+PowerShell-Hinweis:
+
+`curl.exe` gibt oft ein Zeilenarray zurück. Für `.Contains()` immer vorher joinen:
+
+```powershell
+$sitemapText = $sitemapLines -join "`n"
 ```
 
 ---
 
-## 10. Baby Name Generator
+# 10. SEO- und Search-Console-Stand
 
-Der Baby Name Generator ist kein kleines Einzeltool mehr, sondern bereits ein größerer Cluster.
+Search Console ist eingerichtet.
 
-Aktuelle Struktur:
+Sitemap wurde bereits eingereicht.
 
-```txt
-app/baby-name/[id]/page.tsx
-app/baby-name-generator/page.tsx
-app/baby-name-generator/BabyNameGeneratorClient.tsx
-app/baby-names/[type]/page.tsx
+Bekannte Situation:
 
-data/baby-names/
-  database/
-  incoming/
-  sources/
-  index.ts
-  pages.ts
-  taxonomy.ts
-```
-
-Es gibt rund 1500 Baby-Name-Seiten.
-
-Der Baby-Name-Bereich enthält bereits:
-
-* Boy Names
-* Girl Names
-* Unisex Names
-* Old Names
-* weitere Cluster/Landingpages
-* Detailseiten
-* Filter im Generator
-* Favorites
-* Copy-Funktion
-* Surname Compatibility
-* Origin/Country Style
-* Style-Filter
-* Popularity
-* Starts With
-* Ends With
-* Max Length
+* Google erkennt viele URLs
+* aber Indexierung ist noch niedrig
+* zuletzt waren deutlich weniger Seiten indexiert als in der Sitemap vorhanden
+* Domain ist jung
+* viele URLs wurden auf einmal erzeugt
+* Google muss Seiten erst crawlen, bewerten und indexieren
 
 Wichtig:
 
-Vor neuen Baby-Name-Arbeiten muss der aktuelle Stand genauer analysiert werden. Nicht davon ausgehen, dass Boy/Girl/Old Names noch fehlen.
+```txt
+Sitemap True = Google kann die URL finden
+Indexiert = Google hat die Seite aufgenommen
+Ranking = Google hält die Seite für relevant genug
+Traffic = Nutzer klicken auf Suchergebnisse
+Umsatz = Traffic wird monetarisiert
+```
+
+Sitemap `True` bedeutet nicht automatisch Indexierung oder Ranking.
 
 ---
 
-## 11. Aktueller SEO-/Indexierungsstand
+# 11. Bereits behobene SEO-Probleme
 
-Wichtige bestätigte technische Punkte:
+## Globales Canonical-Problem
+
+Früher gab es wahrscheinlich ein globales Canonical zur Homepage.
+
+Das wurde korrigiert.
+
+Jetzt:
+
+* Root global canonical entfernt bzw. nicht mehr falsch
+* Tool-Seiten haben eigene Canonicals
+* wichtige Live-Tests waren positiv
+
+## Sitemap-Probleme
+
+Zwischenzeitlich erkannte Search Console nur ca. 30 URLs.
+
+Später wurden 1595, 1602, 1608 und zuletzt 1609 URLs erkannt.
+
+Ursachen waren u. a.:
+
+* veraltete Search-Console-Sitemap
+* neue Tools fehlten in `data/tools.ts`
+* PowerShell-Test war zunächst falsch
+* Sitemap wurde dynamisch erzwungen
+
+Aktuell gelöst.
+
+## WebsiteSchema SearchAction
+
+Früher gab es in `components/WebsiteSchema.tsx` eine ungültige SearchAction:
 
 ```txt
-robots.txt okay
-Sitemap live okay
-Statuscodes okay
-kein noindex bekannt
-Canonicals wurden korrigiert
-SearchAction aus WebsiteSchema entfernt
-Sitemap dynamisch erzwungen
+https://toollane.net/?q={search_term_string}
 ```
 
-Aktueller Sitemap-Stand:
+Das wurde entfernt.
+
+Live-Test ergab:
 
 ```txt
-1608 URLs
+SearchAction -> False
+search_term_string -> False
+potentialAction -> False
 ```
-
-Search Console hatte zuletzt deutlich weniger indexierte Seiten als vorhandene Sitemap-URLs.
-
-Einschätzung:
-
-```txt
-kein klarer aktiver großer technischer Fehler bekannt
-Google verarbeitet die neue Struktur noch
-Domain ist jung
-viele URLs wurden auf einmal erzeugt
-Indexierung braucht Zeit
-Qualitätssignale müssen wachsen
-```
-
-Wichtig:
-
-Sitemap `True` bedeutet nur, dass Google die URL finden kann. Es bedeutet nicht automatisch Indexierung oder Ranking.
 
 ---
 
-## 12. AdSense-Status
+# 12. AdSense-Status
 
 AdSense hatte Toollane wegen „Low Value Content“ abgelehnt.
 
 Bereits verbessert:
 
-```txt
-ads.txt autorisiert
-AdSense-Platzhalter entfernt
-Homepage verbessert
-/tools-Seite verbessert
-About-Seite verbessert
-Contact-Seite verbessert
-Privacy Policy verbessert
-Terms verbessert
-Imprint verbessert
-ToolContentSection verbessert
-Sitemap korrigiert
-Canonicals korrigiert
-SearchAction entfernt
-Real-Estate-Cluster gestärkt
-Pet Name Generator ergänzt
-```
+* `ads.txt` autorisiert
+* leere Anzeigen-Platzhalter entfernt
+* Homepage verbessert
+* `/tools` verbessert
+* About verbessert
+* Contact verbessert
+* Privacy Policy verbessert
+* Terms verbessert
+* Imprint verbessert
+* ToolContentSection verbessert
+* Sitemap korrigiert
+* Canonicals korrigiert
+* SearchAction entfernt
+* Real-Estate-Cluster gestärkt
+* Baby-Name-Hub ergänzt
+* Pet Name Generator ergänzt
 
 Wichtig:
 
-Vor erneutem AdSense-Review nicht ständig Legal-/Canonical-/Sitemap-Struktur ändern, solange kein klarer Fehler vorliegt.
+Aktuell keine hektischen Legal-/Canonical-/Sitemap-Änderungen ohne klaren Fehler.
 
-Ziel vor erneuter Einreichung:
+Vor erneutem AdSense-Review:
 
-```txt
-mehr hochwertige Cluster
-bessere interne Verlinkung
-stabiler technischer Stand
-keine leeren Anzeigenplätze
-keine unfertigen Tools live
-```
+* technische Basis stabil lassen
+* keine leeren Anzeigenplätze
+* keine unfertigen Tools live
+* mehr hochwertige Cluster
+* bessere interne Verlinkung
+
+Nach AdSense-Freigabe:
+
+* echte AdSense-Slots einbauen
+* nicht zu aggressiv
+* EU-/Cookie-Consent sauber berücksichtigen
+* Datenschutzseite ggf. final anpassen
 
 ---
 
-## 13. Wichtige Code-Konventionen
+# 13. Consent und rechtliche Seiten
 
-### Numerische Inputs
+Vorhanden:
 
-Numerische Inputs sollen als String-State gehalten werden.
+* About
+* Contact
+* Privacy Policy
+* Terms
+* Imprint
 
-Richtig:
+Cookie-/Consent-System vorhanden:
 
-```tsx
-const [value, setValue] = useState("1000");
+* Analytics Opt-In
+* Marketing Opt-In
+* Google Consent Mode
 
-<input
-  type="text"
-  inputMode="decimal"
-  value={value}
-  onChange={(event) => setValue(event.target.value)}
-/>
-```
+Dateien:
 
-Nicht direkt Number-State verwenden.
+* `ConsentManager.tsx`
+* `GoogleAnalytics.tsx`
+* `AdSenseScript.tsx`
 
-### ToolErrorBox
+Wichtig:
 
-`ToolErrorBox` erwartet:
+Vor AdSense-Genehmigung keine aggressiven Anzeigenplätze einbauen.
 
-```tsx
-<ToolErrorBox message={error} />
-```
+---
 
-Nicht:
+# 14. ToolPageLayout
 
-```tsx
-<ToolErrorBox>{error}</ToolErrorBox>
-```
+`components/ToolPageLayout.tsx` ist zentral.
 
-### ToolPageLayout
+Vorhanden:
+
+* Breadcrumbs
+* Breadcrumb Schema
+* Tool Schema
+* FAQ Schema
+* FAQ Section
+* Related Tools
+* Tool Content Section
+* automatische Hub-Linkbox über `data/hubs.ts`
 
 Neue Tools nutzen typischerweise:
 
@@ -626,29 +645,239 @@ Neue Tools nutzen typischerweise:
 </ToolPageLayout>
 ```
 
-`ToolPageLayout` erzeugt:
+Wichtig:
 
-* Breadcrumbs
-* ToolSchema
-* FAQSchema
-* ToolContentSection
-* RelatedTools
-* ggf. automatische Hub-Linkbox über `data/hubs.ts`
+Wenn ein Tool in `data/hubs.ts` unter `toolHrefs` steht, zeigt `ToolPageLayout` automatisch eine Hub-Linkbox.
 
 ---
 
-## 14. Design-Stil
+# 15. ToolContentSection
+
+`ToolContentSection` ist vorhanden.
+
+Enthält u. a.:
+
+* About Tool
+* How To Use
+* Benefits
+* Who Is This Tool For
+* Why Use Toollane
+
+Mit kategoriebasierten Texten.
+
+---
+
+# 16. RelatedTools
+
+`RelatedTools` ist implementiert.
+
+Zeigt ähnliche Tools derselben Kategorie.
+
+Wichtig:
+
+Für thematisch stärkere Cluster werden zusätzlich Hub-Links über `data/hubs.ts` verwendet.
+
+---
+
+# 17. Baby Name Cluster
+
+Der Baby-Name-Bereich ist das größte SEO-Projekt bisher.
+
+Aktueller Stand:
+
+* 1243 Baby-Name-Detailseiten
+* 178 Baby-Name-Landingpages
+* Baby Name Generator
+* Root-Hub `/baby-names`
+
+Struktur:
+
+```txt
+/baby-names                    -> zentraler Hub
+/baby-name-generator           -> Tool
+/baby-names/[type]             -> Landingpages
+/baby-name/[id]                -> Detailseiten
+```
+
+Vorhandene Landingpage-Typen:
+
+* Gender
+* Origins
+* Styles
+* Popularity
+* Starting Letter
+* curated SEO collections
+
+Beispiele:
+
+* `/baby-names/girl`
+* `/baby-names/boy`
+* `/baby-names/unisex`
+* `/baby-names/german-baby-names`
+* `/baby-names/french-baby-names`
+* `/baby-names/girl-names-starting-with-a`
+* `/baby-names/rare-baby-names`
+* `/baby-names/old-money-baby-names`
+
+Generator-Features:
+
+* Gender
+* Origin / country style
+* Style
+* Popularity
+* Starts with
+* Ends with
+* Surname compatibility
+* Max length
+* Favorites
+* Copy results
+* Copy favorites
+
+Wichtig:
+
+Nicht mehr einfach blind weitere Baby-Name-Seiten erzeugen.
+
+Nächste sinnvolle Baby-Name-Arbeiten:
+
+* interne Links weiter verbessern
+* dünne Landingpages identifizieren
+* stärkste Landingpages priorisieren
+* Detailseiten qualitativ verbessern
+* Pet Names langfristig ähnlich, aber kontrollierter aufbauen
+
+---
+
+# 18. Pet Name Generator
+
+Pet Name Generator wurde gestartet.
+
+Dateien:
+
+```txt
+app/pet-name-generator/page.tsx
+app/pet-name-generator/PetNameGeneratorClient.tsx
+data/pet-names/index.ts
+```
+
+Datenstruktur bewusst ähnlich wie Baby Names vorbereitet:
+
+```txt
+data/pet-names/
+  index.ts
+  database/
+  incoming/
+  sources/
+```
+
+Aktueller Status:
+
+* Starter-Datensatz mit kuratierten Pet Names
+* Tierart
+* Gender
+* Style
+* Popularity
+* Breed-/Personality-Presets
+* Filter im Generator
+* Favorites
+* Copy results
+* Copy favorites
+
+Langfristig soll der Datensatz datenbasiert erweitert werden.
+
+Mögliche offene Datenquellen:
+
+* Seattle Pet Licenses
+* NYC Dog Licensing Dataset
+* Cambridge dog license data
+
+Wichtig:
+
+Pet Name Generator ist ein normales Tool und steht in `data/tools.ts`.
+
+Aktueller Sitemap-Test:
+
+```txt
+pet-name-generator -> True
+```
+
+---
+
+# 19. Real-Estate-/Mortgage-Cluster
+
+Aktuelle Real-Estate-/Mortgage-Tools:
+
+* Mortgage Calculator
+* Rent vs Buy Calculator
+* Home Affordability Calculator
+* Mortgage Refinance Calculator
+* Mortgage Payoff Calculator
+* Closing Cost Calculator
+* Down Payment Calculator
+* Property Tax Calculator
+* Rental Property Calculator
+* Mortgage Comparison Calculator
+* Amortization Calculator
+
+Hub:
+
+```txt
+/real-estate-calculators
+```
+
+Der Hub verlinkt auf alle wichtigen Real-Estate-Tools.
+
+`ToolPageLayout` zeigt auf Real-Estate-Tools automatisch eine Hub-Linkbox, weil diese Tools in `data/hubs.ts` unter `toolHrefs` gelistet sind.
+
+Aktueller Sitemap-Test:
+
+```txt
+real-estate-calculators -> True
+```
+
+---
+
+# 20. Pet / Baby / Real-Estate aktuelle URL-Zahlen
+
+Aktuelle Sitemap:
+
+```txt
+1609 URLs
+```
+
+Baby Names:
+
+```txt
+Baby name detail pages -> 1243
+Baby name landing pages -> 178
+Baby name generator -> True
+Baby names root hub -> True
+```
+
+Pet Names:
+
+```txt
+pet-name-generator -> True
+```
+
+Real Estate:
+
+```txt
+real-estate-calculators -> True
+```
+
+---
+
+# 21. Design- und UX-Standard
 
 Toollane-Design:
 
-```txt
-clean
-modern
-rounded
-mobile-first
-weiß/schwarz/gelblich
-premium Tool-Gefühl
-```
+* clean
+* modern
+* rounded
+* mobile-first
+* schnell
+* weiß/schwarz/gelblich
+* Premium-Tool-Gefühl
 
 Typische Klassen:
 
@@ -670,9 +899,77 @@ rounded-2xl
 font-bold
 ```
 
+Neue Premium-Tools sollen mindestens enthalten:
+
+* klare Input Cards
+* gute Ergebnisboxen
+* Presets / Beispiele
+* bessere Fehlermeldungen
+* mobile-first Layout
+* klare Call-to-Actions
+* hilfreiche Hinweise
+* ggf. Copy / Download / Favorites
+* Browser-based Privacy Hinweis bei Datei-Tools
+* FAQ
+* Related Tools
+* Hub-Verlinkung, wenn relevant
+
 ---
 
-## 15. Git-/Build-Workflow
+# 22. Code-Konventionen
+
+## Client-Dateien
+
+Client-Dateien verwenden:
+
+```tsx
+"use client";
+```
+
+## Numerische Inputs
+
+Numerische Inputs sollen als String-State gehalten werden.
+
+Richtig:
+
+```tsx
+const [value, setValue] = useState("1000");
+
+<input
+  type="text"
+  inputMode="decimal"
+  value={value}
+  onChange={(event) => setValue(event.target.value)}
+/>
+```
+
+Nicht direkt Number-State verwenden.
+
+Grund:
+
+Bei `type="number"` und Number-State entstehen Bugs wie:
+
+```txt
+0 -> 10 eingeben -> 010
+```
+
+## ToolErrorBox
+
+Richtig:
+
+```tsx
+<ToolErrorBox message={error} />
+```
+
+Falsch:
+
+```tsx
+<ToolErrorBox>{error}</ToolErrorBox>
+```
+
+---
+
+# 23. Git-Workflow
 
 Immer erst Build testen:
 
@@ -686,38 +983,32 @@ Dann Status:
 git status -sb
 ```
 
-Dann gezielt adden, keine unüberlegten `git add .` verwenden.
+Dann gezielt adden.
+
+Nicht blind `git add .`, wenn ungetrackte oder unfertige Dateien vorhanden sind.
 
 Beispiel:
 
 ```powershell
-git add app/pet-name-generator/page.tsx
-git add app/pet-name-generator/PetNameGeneratorClient.tsx
-git add data/pet-names/index.ts
-git add data/tools.ts
-```
-
-Dann:
-
-```powershell
-git status -sb
-git commit -m "Commit message"
+git add app/baby-names/page.tsx
+git add data/hubs.ts
+git commit -m "Add baby names hub"
 git push
 ```
 
 Nach Push:
 
 ```txt
-Vercel → Deployments → neuester Commit muss Ready sein
+Vercel -> Deployments -> neuester Commit muss Ready sein
 ```
 
 Dann Sitemap prüfen.
 
 ---
 
-## 16. Wichtige PowerShell-Tests
+# 24. PowerShell-Tests
 
-### Sitemap abrufen
+## Sitemap abrufen
 
 ```powershell
 $sitemapLines = curl.exe -L -s "https://toollane.net/sitemap.xml?cachebust=$(Get-Random)"
@@ -726,82 +1017,166 @@ $sitemapText = $sitemapLines -join "`n"
 ([regex]::Matches($sitemapText, "<loc>")).Count
 ```
 
-### Slug prüfen
+## Slug prüfen
 
 ```powershell
 $sitemapText.Contains("pet-name-generator")
 $sitemapText.Contains("real-estate-calculators")
+$sitemapText.Contains("<loc>https://toollane.net/baby-names</loc>")
 ```
 
-### Datei lokal prüfen
+## Statuscodes prüfen
 
 ```powershell
-Test-Path ".\app\pet-name-generator\page.tsx"
-Test-Path ".\app\pet-name-generator\PetNameGeneratorClient.tsx"
+$pages = @(
+  "https://toollane.net/",
+  "https://toollane.net/tools",
+  "https://toollane.net/baby-names",
+  "https://toollane.net/baby-name-generator",
+  "https://toollane.net/real-estate-calculators",
+  "https://toollane.net/pet-name-generator"
+)
+
+foreach ($url in $pages) {
+  $code = curl.exe -L -s -o NUL -w "%{http_code}" $url
+  "$code -> $url"
+}
 ```
 
-### Inhalt prüfen
+## noindex prüfen
 
 ```powershell
-$toolsText = Get-Content ".\data\tools.ts" -Raw
-$toolsText.Contains("pet-name-generator")
+$pages = @(
+  "https://toollane.net/",
+  "https://toollane.net/tools",
+  "https://toollane.net/baby-names",
+  "https://toollane.net/baby-name-generator",
+  "https://toollane.net/real-estate-calculators",
+  "https://toollane.net/pet-name-generator"
+)
+
+foreach ($url in $pages) {
+  $html = (Invoke-WebRequest -Uri $url -UseBasicParsing).Content
+  "$url -> noindex: " + ($html -match "noindex")
+}
+```
+
+## SearchAction prüfen
+
+```powershell
+$html = (Invoke-WebRequest -Uri "https://toollane.net?cachebust=$(Get-Random)" -UseBasicParsing).Content
+
+$html.Contains("SearchAction")
+$html.Contains("search_term_string")
+$html.Contains("potentialAction")
+```
+
+Soll:
+
+```txt
+False
+False
+False
 ```
 
 ---
 
-## 17. Aktuelle Roadmap
+# 25. Alte Zahlen, die überholt sind
 
-### Kurzfristig
+Diese alten Angaben aus früheren Briefings sind überholt:
 
-```txt
-1. Technischen Stand stabil halten
-2. Real-Estate-Cluster mit Hub-Linkbox stärken
-3. Pet Name Generator prüfen und später erweitern
-4. docs/TOOLLANE_STATE.md aktuell halten
-5. Search Console beobachten
-```
+* 156 Tools live
+* 1596 statische Seiten
+* 1602 Sitemap URLs
+* 309 Baby Names
+* Property Tax / Rental Property noch geplant
+* Real-Estate-Hub noch geplant
 
-### Danach
+Aktuell gilt:
 
-```txt
-1. Baby-Name-Cluster analysieren
-2. Pet-Name-Datensatz mit Open Data erweitern
+* Sitemap: 1609 URLs
+* Baby Names: 1243 Detailseiten
+* Baby Name Landingpages: 178
+* Real-Estate-Hub: live
+* Pet Name Generator: live
+* Baby Names Root Hub: live
+
+---
+
+# 26. Aktuelle Strategie
+
+Nicht einfach mehr Seiten bauen.
+
+Stattdessen:
+
+1. Bestehende Cluster stärken
+2. Hubs ausbauen
+3. interne Links verbessern
+4. Top-Tools premiumisieren
+5. Search Console auswerten
+6. AdSense-Freigabe vorbereiten
+7. erst danach weitere große Cluster bauen
+
+Wichtige Cluster:
+
+* Baby Names
+* Pet Names
+* Real Estate / Mortgage
+* PDF / Image
+* Business / Finance
+* Calculators
+
+---
+
+# 27. Aktuelle Prioritäten
+
+## Kurzfristig
+
+1. Dokumentation aktuell halten
+2. Baby-Name-Hub live prüfen
+3. Hub-Linkbox auf Baby Name Generator prüfen
+4. Search Console beobachten
+5. AdSense-Stabilität vorbereiten
+6. keine hektischen SEO-Strukturänderungen ohne klaren Grund
+
+## Danach
+
+1. Baby-Name-Cluster qualitativ verbessern
+2. Pet-Name-Datenbasis mit Open Data erweitern
 3. Top-Tools premiumisieren
-4. Weitere sinnvolle Hubs identifizieren
-5. AdSense erneut vorbereiten
-```
+4. Real-Estate-Cluster weiter optimieren
+5. PDF/Image Top-Tools verbessern
 
-### Später
+## Später
 
-```txt
 1. Pet-Name-Cluster ausbauen
-2. weitere Landingpages nur bei echter Qualität
-3. Real-Estate-Cluster weiter vertiefen
-4. Business-/Finance-Tools monetarisierbarer machen
-5. Affiliate-Möglichkeiten prüfen
-```
+2. weitere Hubs nur bei echter Notwendigkeit
+3. Affiliate-Möglichkeiten prüfen
+4. AdSense-Slots nach Genehmigung sauber integrieren
+5. bessere Ad Networks bei ausreichend Traffic
 
 ---
 
-## 18. Was aktuell nicht gemacht werden sollte
+# 28. Was aktuell nicht gemacht werden sollte
 
 Aktuell nicht:
 
-```txt
-keine zufälligen Massen-Seiten
-keine unfertigen Tools live lassen
-keine neuen Hubs ohne Datenquelle
-keine doppelten Hub-Systeme
-keine unüberlegten Sitemap-Umbauten
-keine AdSense-Platzhalter vor Genehmigung
-keine ständigen Legal-Seiten-Änderungen
-```
+* keine zufälligen Massen-Seiten
+* keine unfertigen Tools live lassen
+* keine neuen Hubs ohne Datenquelle
+* keine doppelten Hub-Systeme
+* keine unüberlegten Sitemap-Umbauten
+* keine AdSense-Platzhalter vor Genehmigung
+* keine ständigen Legal-Seiten-Änderungen
+* keine 100+ Seiten manuell anfassen, wenn zentrale Lösung möglich ist
 
 ---
 
-## 19. Arbeitsweise für neue Chats
+# 29. Arbeitsweise für neue Chats
 
-In neuen Chats immer zuerst sagen:
+Neue Chats sollen immer zuerst diese Datei lesen.
+
+Startprompt für neue Chats:
 
 ```txt
 Bitte arbeite anhand von docs/TOOLLANE_STATE.md.
@@ -810,42 +1185,44 @@ Antworte auf Deutsch.
 Gib vollständige Dateien, keine kleinen Snippets.
 Schreibe exakte PowerShell-Commands.
 Keine Platzhalter wie git add ...
+SEO, AdSense, interne Verlinkung, Sitemap und langfristige Monetarisierung immer mitdenken.
 ```
 
-Wenn möglich, zusätzlich relevante Datei einfügen, z. B.:
+Wenn Code geliefert wird:
 
-```txt
-components/ToolPageLayout.tsx
-app/sitemap.ts
-data/tools.ts Ausschnitt
-BabyNameGeneratorClient.tsx
-```
+* komplette Datei liefern
+* keine Fragmente
+* keine unklaren Einfügeorte
+* exakte Dateipfade nennen
+* nach Möglichkeit zentrale Lösung bevorzugen
 
 ---
 
-## 20. Nächster sinnvoller Schritt
+# 30. Nächster sinnvoller Schritt
 
-Nach aktuellem Stand ist der nächste sinnvolle Schritt:
+Nach aktuellem Stand:
+
+1. `docs/TOOLLANE_STATE.md` speichern
+2. `npm run build`
+3. Dokumentation committen
+4. prüfen, ob `/baby-names` und Hub-Linkbox live korrekt sind
+5. danach entscheiden:
+
+Option A:
+
+* Baby-Name-Cluster intern weiter verbessern
+
+Option B:
+
+* Pet-Name-Datenbasis mit Open Data vorbereiten
+
+Option C:
+
+* Top-Tools premiumisieren
+
+Empfohlener nächster Arbeitsblock:
 
 ```txt
-Baby-Name-Cluster analysieren
-```
-
-Dafür nicht tausende Zeilen kopieren, sondern zunächst diese Dateien oder Ausschnitte bereitstellen:
-
-```txt
-data/baby-names/pages.ts
-data/baby-names/taxonomy.ts
-data/baby-names/index.ts
-BabyNameGeneratorClient.tsx
-```
-
-Danach kann entschieden werden:
-
-```txt
-welche Baby-Name-Seiten verbessert werden
-welche internen Links fehlen
-welche Cluster stark sind
-welche Cluster noch Potenzial haben
-ob Pet Names ähnlich aufgebaut werden sollen
+Baby-Name-Hub und Baby-Name-Generator-Verlinkung prüfen.
+Danach Baby-Name-Cluster qualitative Verbesserungen planen.
 ```
