@@ -8,14 +8,14 @@ import { categories, tools } from "@/data/tools";
 export const metadata: Metadata = {
   title: "All Free Online Tools | Toollane",
   description:
-    "Browse all free Toollane tools for SEO, PDFs, images, calculators, business, developers, text, generators and everyday productivity.",
+    "Browse free Toollane tools by task, category and workflow. Find calculators, PDF tools, image tools, SEO tools, text tools, developer utilities and generators.",
   alternates: {
     canonical: "https://toollane.net/tools",
   },
   openGraph: {
     title: "All Free Online Tools | Toollane",
     description:
-      "Browse all free Toollane tools for SEO, PDFs, images, calculators, business, developers, text, generators and everyday productivity.",
+      "Browse free Toollane tools by task, category and workflow. Find calculators, PDF tools, image tools, SEO tools, text tools, developer utilities and generators.",
     url: "https://toollane.net/tools",
     siteName: "Toollane",
     type: "website",
@@ -24,30 +24,84 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "All Free Online Tools | Toollane",
     description:
-      "Browse all free Toollane tools for SEO, PDFs, images, calculators, business, developers, text, generators and everyday productivity.",
+      "Browse free Toollane tools by task, category and workflow. Find calculators, PDF tools, image tools, SEO tools, text tools, developer utilities and generators.",
   },
 };
+
+type Tool = (typeof tools)[number];
+
+type WorkflowCard = {
+  title: string;
+  description: string;
+  href: string;
+  label: string;
+};
+
+const workflowCards: WorkflowCard[] = [
+  {
+    title: "Choose a baby name",
+    description:
+      "Use the Baby Name Generator and curated baby name collections to explore names by gender, meaning, origin and style.",
+    href: "/baby-names",
+    label: "Open name tools",
+  },
+  {
+    title: "Plan a home decision",
+    description:
+      "Estimate affordability, mortgage payments, closing costs, property taxes and rent vs buy scenarios.",
+    href: "/real-estate-calculators",
+    label: "Open real estate tools",
+  },
+  {
+    title: "Work with PDF files",
+    description:
+      "Compress, merge, split or convert PDF files directly in your browser with focused document tools.",
+    href: "/category/pdf-tools",
+    label: "Open PDF tools",
+  },
+  {
+    title: "Optimize images",
+    description:
+      "Resize, compress, crop or convert images for websites, uploads, documents and everyday use.",
+    href: "/category/image-tools",
+    label: "Open image tools",
+  },
+  {
+    title: "Clean up text or code",
+    description:
+      "Format, convert, count, clean and transform text, JSON, XML, CSV and developer-friendly content.",
+    href: "/category/developer-tools",
+    label: "Open developer tools",
+  },
+  {
+    title: "Calculate everyday numbers",
+    description:
+      "Use practical calculators for finance, business, health, time, real estate and daily planning.",
+    href: "/category/calculators",
+    label: "Open calculators",
+  },
+];
 
 const faqs = [
   {
     question: "What can I find on the Toollane tools page?",
     answer:
-      "The tools page lists Toollane's free online tools by category, including calculators, SEO tools, PDF tools, image tools, business tools, text tools, developer tools and generators.",
+      "The tools page helps you find free Toollane tools by task, workflow and category, including calculators, PDF tools, image tools, text tools, developer tools, SEO tools and generators.",
   },
   {
-    question: "Are all Toollane tools free?",
+    question: "Are Toollane tools free?",
     answer:
-      "Yes. Toollane tools are designed to be free to use without requiring an account.",
+      "Yes. Toollane tools are designed to be free to use and do not require an account for normal use.",
   },
   {
-    question: "How are Toollane tools organized?",
+    question: "How should I choose the right tool?",
     answer:
-      "Tools are grouped by category so users can quickly find related tools for the same task or workflow.",
+      "Start with the task you want to complete. You can search directly, open a workflow such as baby names or real estate, or browse tools by category.",
   },
   {
     question: "Can I use Toollane tools on mobile?",
     answer:
-      "Yes. Toollane is designed to work on phones, tablets and desktop devices.",
+      "Yes. Toollane is designed for phones, tablets and desktop devices, although some file tools may be easier to use on larger screens.",
   },
 ];
 
@@ -83,9 +137,10 @@ export default function ToolsPage() {
             </h1>
 
             <p className="mt-8 max-w-3xl text-lg leading-8 text-black/65 sm:text-xl">
-              Browse every Toollane tool in one place. Find free online tools
-              for SEO, PDFs, images, calculators, business, developers, text,
-              generators and everyday productivity.
+              Find the right Toollane tool by task, workflow or category. Search
+              for a tool, start with a common workflow, or browse calculators,
+              PDF tools, image tools, text tools, developer utilities and
+              generators.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2">
@@ -108,18 +163,18 @@ export default function ToolsPage() {
 
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href="#all-categories"
+                href="#workflows"
                 className="rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90"
+              >
+                Start by workflow
+              </a>
+
+              <a
+                href="#all-categories"
+                className="rounded-2xl border border-black/10 bg-white/80 px-6 py-4 text-sm font-bold text-black transition hover:border-black"
               >
                 Browse categories
               </a>
-
-              <Link
-                href="/"
-                className="rounded-2xl border border-black/10 bg-white/80 px-6 py-4 text-sm font-bold text-black transition hover:border-black"
-              >
-                Back to homepage
-              </Link>
             </div>
 
             <div className="mt-10 max-w-5xl">
@@ -128,126 +183,150 @@ export default function ToolsPage() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-          <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <h2 className="text-3xl font-black tracking-tight">
-                Popular Tools
-              </h2>
+        <section
+          id="workflows"
+          className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16"
+        >
+          <div className="mb-8 max-w-3xl">
+            <h2 className="text-3xl font-black tracking-tight">
+              Start with what you want to do
+            </h2>
 
-              <p className="mt-3 max-w-2xl text-black/60">
-                Start with commonly used tools for calculations, documents,
-                search, text, files and everyday productivity.
-              </p>
-            </div>
-
-            <a
-              href="#all-tools"
-              className="inline-flex rounded-2xl border border-black/10 bg-white px-5 py-3 text-sm font-bold text-black transition hover:border-black/20 hover:shadow-sm"
-            >
-              View all tools →
-            </a>
+            <p className="mt-3 text-black/60">
+              Toollane is organized around practical tasks. Choose a workflow if
+              you know the result you want, or use search when you already know
+              the tool name.
+            </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {popularTools.map((tool) => (
-              <Link
-                key={tool.href}
-                href={tool.href}
-                className="group rounded-[2rem] border border-black/10 bg-white/80 p-6 shadow-sm transition hover:-translate-y-1 hover:border-black/20 hover:shadow-lg"
-              >
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-sm font-bold text-white">
-                  {tool.icon}
-                </div>
-
-                <h3 className="text-lg font-bold group-hover:underline">
-                  {tool.name}
-                </h3>
-
-                <p className="mt-3 line-clamp-3 text-sm leading-6 text-black/60">
-                  {tool.description}
-                </p>
-
-                <div className="mt-5 text-sm font-semibold text-black">
-                  Open Tool →
-                </div>
-              </Link>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {workflowCards.map((workflow) => (
+              <WorkflowCard key={workflow.href} workflow={workflow} />
             ))}
+          </div>
+        </section>
+
+        <section className="border-y border-black/10 bg-white/40">
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+            <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <h2 className="text-3xl font-black tracking-tight">
+                  Popular Tools
+                </h2>
+
+                <p className="mt-3 max-w-2xl text-black/60">
+                  Start with commonly used tools for documents, calculations,
+                  search, text, files and everyday productivity.
+                </p>
+              </div>
+
+              <a
+                href="#all-tools"
+                className="inline-flex rounded-2xl border border-black/10 bg-white px-5 py-3 text-sm font-bold text-black transition hover:border-black/20 hover:shadow-sm"
+              >
+                View all tools →
+              </a>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {popularTools.map((tool) => (
+                <ToolCard key={tool.href} tool={tool} />
+              ))}
+            </div>
           </div>
         </section>
 
         <section
           id="all-categories"
-          className="border-y border-black/10 bg-white/40"
+          className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16"
         >
-          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-            <div className="mb-8">
-              <h2 className="text-3xl font-black tracking-tight">
-                Tool Categories
-              </h2>
+          <div className="mb-8">
+            <h2 className="text-3xl font-black tracking-tight">
+              Browse tools by category
+            </h2>
 
-              <p className="mt-3 max-w-3xl text-black/60">
-                Categories help you find related tools for the same workflow.
-                Use the directory to jump to calculators, SEO tools, PDF and
-                image tools, text tools, business tools, generators and
-                developer utilities.
-              </p>
-            </div>
+            <p className="mt-3 max-w-3xl text-black/60">
+              Categories group related tools by purpose. Use them when you want
+              to explore a full area such as calculators, PDF tools, image
+              tools, SEO tools, text tools, business tools, generators or
+              developer utilities.
+            </p>
+          </div>
 
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {categories.map((category) => {
-                const categoryTools = getToolsByCategory(category.slug);
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {categories.map((category) => {
+              const categoryTools = getToolsByCategory(category.slug);
 
-                return (
-                  <a
-                    key={category.slug}
-                    href={`#${category.slug}`}
-                    className="rounded-[2rem] border border-black/10 bg-[#fff8df] p-6 transition hover:border-black/20 hover:shadow-md"
-                  >
-                    <h3 className="text-xl font-bold">{category.name}</h3>
+              return (
+                <a
+                  key={category.slug}
+                  href={`#${category.slug}`}
+                  className="rounded-[2rem] border border-black/10 bg-white/80 p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-black/20 hover:shadow-md"
+                >
+                  <h3 className="text-xl font-bold">{category.name}</h3>
 
-                    <p className="mt-3 text-sm leading-6 text-black/60">
-                      {category.description}
-                    </p>
+                  <p className="mt-3 text-sm leading-6 text-black/60">
+                    {category.description}
+                  </p>
 
-                    <div className="mt-5 text-sm font-semibold">
-                      {categoryTools.length} tools →
-                    </div>
-                  </a>
-                );
-              })}
-            </div>
+                  <div className="mt-5 text-sm font-semibold">
+                    {categoryTools.length} tools →
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </section>
 
-        <section className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
-          <div className="rounded-[2.5rem] border border-black/10 bg-white/70 p-8 shadow-sm backdrop-blur sm:p-12">
-            <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
-              A Complete Directory of Practical Online Tools
-            </h2>
+        <section className="border-y border-black/10 bg-white/40">
+          <div className="mx-auto grid max-w-7xl gap-6 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_0.85fr] lg:px-8 lg:py-16">
+            <div className="rounded-[2.5rem] border border-black/10 bg-white/80 p-8 shadow-sm sm:p-10">
+              <h2 className="text-3xl font-black tracking-tight">
+                How to use Toollane
+              </h2>
 
-            <div className="mt-8 space-y-6 text-black/65 leading-8">
-              <p>
-                The Toollane tools directory brings together free online tools
-                for everyday digital tasks. Instead of searching across multiple
-                websites, users can browse tools by category, open the right
-                tool and complete a focused task directly in the browser.
-              </p>
+              <div className="mt-8 grid gap-4">
+                <StepCard
+                  number="1"
+                  title="Search or choose a workflow"
+                  description="Use the search bar when you know the tool you need, or start from a workflow such as baby names, real estate, PDFs or images."
+                />
+                <StepCard
+                  number="2"
+                  title="Open a focused tool"
+                  description="Each tool is designed around one practical task, with inputs, results and guidance on the same page."
+                />
+                <StepCard
+                  number="3"
+                  title="Review the result"
+                  description="Use results as helpful output, then check important calculations, file changes, names or data before relying on them."
+                />
+              </div>
+            </div>
 
-              <p>
-                Toollane includes calculators, SEO utilities, PDF and image
-                tools, business helpers, text tools, developer utilities and
-                generators. Each tool is designed around a specific workflow, so
-                users can quickly understand what the tool does and how to use
-                it.
-              </p>
+            <div className="rounded-[2.5rem] border border-black/10 bg-black p-8 text-white shadow-sm sm:p-10">
+              <h2 className="text-3xl font-black tracking-tight">
+                What Toollane is built for
+              </h2>
 
-              <p>
-                Many tools are built for fast browser-based use and do not
-                require an account. File-based tools, calculators and generators
-                may have different settings or limitations, so users should
-                always review the result before using it for important work.
-              </p>
+              <div className="mt-6 space-y-5 text-sm leading-7 text-white/65 sm:text-base">
+                <p>
+                  Toollane is built for fast browser-based tasks: calculating,
+                  formatting, compressing, converting, generating and comparing.
+                </p>
+
+                <p>
+                  The goal is to help users complete small but important tasks
+                  without signing up, installing software or switching between
+                  many different websites.
+                </p>
+
+                <p>
+                  For important financial, legal, medical or business decisions,
+                  Toollane results should be treated as estimates or working
+                  outputs, not professional advice.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -258,7 +337,7 @@ export default function ToolsPage() {
         >
           <div className="mb-10">
             <h2 className="text-3xl font-black tracking-tight">
-              Browse All Tools by Category
+              All tools by category
             </h2>
 
             <p className="mt-3 max-w-3xl text-black/60">
@@ -302,27 +381,7 @@ export default function ToolsPage() {
 
                   <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     {categoryTools.map((tool) => (
-                      <Link
-                        key={tool.href}
-                        href={tool.href}
-                        className="group rounded-[2rem] border border-black/10 bg-white/80 p-6 shadow-sm transition hover:-translate-y-1 hover:border-black/20 hover:shadow-lg"
-                      >
-                        <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-sm font-bold text-white">
-                          {tool.icon}
-                        </div>
-
-                        <h4 className="text-lg font-bold group-hover:underline">
-                          {tool.name}
-                        </h4>
-
-                        <p className="mt-3 line-clamp-3 text-sm leading-6 text-black/60">
-                          {tool.description}
-                        </p>
-
-                        <div className="mt-5 text-sm font-semibold text-black">
-                          Open Tool →
-                        </div>
-                      </Link>
+                      <ToolCard key={tool.href} tool={tool} />
                     ))}
                   </div>
                 </section>
@@ -334,7 +393,7 @@ export default function ToolsPage() {
         <section className="border-t border-black/10 bg-white/40">
           <div className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
             <h2 className="text-3xl font-black tracking-tight">
-              Frequently Asked Questions
+              Frequently asked questions
             </h2>
 
             <div className="mt-8 grid gap-4">
@@ -355,5 +414,74 @@ export default function ToolsPage() {
         </section>
       </main>
     </>
+  );
+}
+
+function WorkflowCard({ workflow }: { workflow: WorkflowCard }) {
+  return (
+    <Link
+      href={workflow.href}
+      className="group rounded-[2rem] border border-black/10 bg-white/80 p-6 shadow-sm transition hover:-translate-y-1 hover:border-black/20 hover:shadow-lg"
+    >
+      <h3 className="text-xl font-black tracking-tight text-black">
+        {workflow.title}
+      </h3>
+
+      <p className="mt-3 text-sm leading-7 text-black/60">
+        {workflow.description}
+      </p>
+
+      <div className="mt-5 text-sm font-bold text-black">
+        {workflow.label}{" "}
+        <span className="inline-block transition group-hover:translate-x-1">
+          →
+        </span>
+      </div>
+    </Link>
+  );
+}
+
+function ToolCard({ tool }: { tool: Tool }) {
+  return (
+    <Link
+      href={tool.href}
+      className="group rounded-[2rem] border border-black/10 bg-white/80 p-6 shadow-sm transition hover:-translate-y-1 hover:border-black/20 hover:shadow-lg"
+    >
+      <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-sm font-bold text-white">
+        {tool.icon}
+      </div>
+
+      <h3 className="text-lg font-bold group-hover:underline">{tool.name}</h3>
+
+      <p className="mt-3 line-clamp-3 text-sm leading-6 text-black/60">
+        {tool.description}
+      </p>
+
+      <div className="mt-5 text-sm font-semibold text-black">Open Tool →</div>
+    </Link>
+  );
+}
+
+function StepCard({
+  number,
+  title,
+  description,
+}: {
+  number: string;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="flex gap-4 rounded-2xl border border-black/10 bg-white p-4">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-black text-sm font-black text-white">
+        {number}
+      </div>
+
+      <div>
+        <h3 className="text-sm font-black text-black">{title}</h3>
+
+        <p className="mt-1 text-sm leading-6 text-black/60">{description}</p>
+      </div>
+    </div>
   );
 }
