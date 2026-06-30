@@ -2,13 +2,16 @@ import { MetadataRoute } from "next";
 
 import { categories, tools } from "@/data/tools";
 import { hubs } from "@/data/hubs";
-import { babyNames } from "@/data/baby-names";
 import { babyNamePages } from "@/data/baby-names/pages";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 const baseUrl = "https://toollane.net";
+
+function isRecoveryBlockedBabyNameLandingPage(slug: string) {
+  return slug.includes("starting-with");
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -34,19 +37,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const babyNameLandingPages = babyNamePages.map((page) => ({
-    url: `${baseUrl}/baby-names/${page.slug}`,
-    lastModified: now,
-    changeFrequency: "weekly" as const,
-    priority: 0.8,
-  }));
-
-  const babyNameDetailPages = babyNames.map((name) => ({
-    url: `${baseUrl}/baby-name/${name.id}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
+  const babyNameLandingPages = babyNamePages
+    .filter((page) => !isRecoveryBlockedBabyNameLandingPage(page.slug))
+    .map((page) => ({
+      url: `${baseUrl}/baby-names/${page.slug}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.75,
+    }));
 
   return [
     {
@@ -96,6 +94,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...categoryPages,
     ...toolPages,
     ...babyNameLandingPages,
-    ...babyNameDetailPages,
   ];
 }

@@ -13,6 +13,10 @@ type Props = {
   }>;
 };
 
+function isRecoveryBlockedBabyNameLandingPage(slug: string) {
+  return slug.includes("starting-with");
+}
+
 export function generateStaticParams() {
   return babyNamePages.map((page) => ({
     type: page.slug,
@@ -26,15 +30,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!page) {
     return {
       title: "Baby Names Not Found",
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
+  const isBlockedForRecovery = isRecoveryBlockedBabyNameLandingPage(page.slug);
   const url = `${baseUrl}/baby-names/${page.slug}`;
   const ogImage = `${baseUrl}/og-image.png`;
 
   return {
     title: page.seoTitle,
     description: page.seoDescription,
+    robots: isBlockedForRecovery
+      ? {
+          index: false,
+          follow: true,
+        }
+      : undefined,
     alternates: {
       canonical: url,
     },
@@ -70,9 +85,13 @@ export default async function BabyNamesPage({ params }: Props) {
     notFound();
   }
 
+  const isBlockedForRecovery = isRecoveryBlockedBabyNameLandingPage(page.slug);
+
   const names = babyNames
     .filter(page.filter)
-    .sort((a, b) => b.popularity - a.popularity || a.name.localeCompare(b.name));
+    .sort(
+      (a, b) => b.popularity - a.popularity || a.name.localeCompare(b.name)
+    );
 
   if (!names.length) {
     notFound();
@@ -88,6 +107,10 @@ export default async function BabyNamesPage({ params }: Props) {
   const styles = Array.from(
     new Set(names.flatMap((name) => name.styles))
   ).sort();
+
+  const curatedBabyNamePages = babyNamePages.filter(
+    (item) => !isRecoveryBlockedBabyNameLandingPage(item.slug)
+  );
 
   return (
     <main className="min-h-screen bg-[#fff8df] text-black">
@@ -111,12 +134,20 @@ export default async function BabyNamesPage({ params }: Props) {
             <span className="rounded-full border border-black/10 bg-white/70 px-3 py-2 text-xs font-bold text-black/60">
               {names.length} names
             </span>
+
             <span className="rounded-full border border-black/10 bg-white/70 px-3 py-2 text-xs font-bold text-black/60">
               Meanings included
             </span>
+
             <span className="rounded-full border border-black/10 bg-white/70 px-3 py-2 text-xs font-bold text-black/60">
               Origins included
             </span>
+
+            {isBlockedForRecovery && (
+              <span className="rounded-full border border-black/10 bg-white/70 px-3 py-2 text-xs font-bold text-black/60">
+                Browseable collection
+              </span>
+            )}
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -125,6 +156,13 @@ export default async function BabyNamesPage({ params }: Props) {
               className="rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:opacity-90"
             >
               Open Baby Name Generator
+            </Link>
+
+            <Link
+              href="/baby-names"
+              className="rounded-2xl border border-black/10 bg-white/80 px-6 py-4 text-sm font-bold text-black transition hover:border-black"
+            >
+              Browse Baby Names
             </Link>
 
             <Link
@@ -179,15 +217,15 @@ export default async function BabyNamesPage({ params }: Props) {
 
           <div className="mt-8 space-y-6 leading-8 text-black/65">
             <p>
-              Choosing a baby name is personal. A good name often combines sound,
-              meaning, origin, family preference and long-term usability.
+              Choosing a baby name is personal. A good name often combines
+              sound, meaning, origin, family preference and long-term usability.
             </p>
 
             <p>
-              Use this page to compare {page.title.toLowerCase()} by popularity,
-              meaning and origin. You can also open the baby name generator to
-              filter names by style, length, first letter and surname
-              compatibility.
+              Use this page to compare {page.title.toLowerCase()} by
+              popularity, meaning and origin. You can also open the baby name
+              generator to filter names by style, length, first letter and
+              surname compatibility.
             </p>
 
             <p>
@@ -244,14 +282,20 @@ export default async function BabyNamesPage({ params }: Props) {
           Explore more baby names
         </h2>
 
+        <p className="mt-3 max-w-2xl text-black/60">
+          Continue with curated baby name collections by gender, origin, style
+          and popularity.
+        </p>
+
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {babyNamePages.map((item) => (
+          {curatedBabyNamePages.map((item) => (
             <Link
               key={item.slug}
               href={`/baby-names/${item.slug}`}
               className="rounded-[2rem] border border-black/10 bg-white/80 p-6 shadow-sm transition hover:-translate-y-1 hover:border-black/20 hover:shadow-md"
             >
               <h3 className="text-xl font-black">{item.title}</h3>
+
               <p className="mt-3 line-clamp-3 text-sm leading-6 text-black/60">
                 {item.description}
               </p>
