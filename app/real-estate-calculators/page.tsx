@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Real Estate Calculators | Mortgage & Home Buying Tools",
   description:
-    "Use free real estate calculators for mortgages, home affordability, closing costs, property tax, rent vs buy, refinancing and rental property analysis.",
+    "Use free real estate calculators to plan home affordability, mortgage payments, closing costs, property tax, rent vs buy decisions, refinancing and rental property returns.",
   alternates: {
     canonical: "https://toollane.net/real-estate-calculators",
   },
@@ -30,6 +30,14 @@ type PathItem = {
     label: string;
     href: string;
   }[];
+};
+
+type DecisionCard = {
+  title: string;
+  question: string;
+  description: string;
+  href: string;
+  label: string;
 };
 
 const toolGroups: ToolGroup[] = [
@@ -151,6 +159,41 @@ const toolGroups: ToolGroup[] = [
         badge: "Investing",
       },
     ],
+  },
+];
+
+const decisionCards: DecisionCard[] = [
+  {
+    title: "Buying power",
+    question: "Can I afford this home?",
+    description:
+      "Start with income, monthly debts, down payment and estimated mortgage rate before looking at a specific property.",
+    href: "/home-affordability-calculator",
+    label: "Check affordability",
+  },
+  {
+    title: "Monthly payment",
+    question: "What would the mortgage cost each month?",
+    description:
+      "Estimate principal, interest and the long-term impact of loan amount, rate and term.",
+    href: "/mortgage-calculator",
+    label: "Estimate payment",
+  },
+  {
+    title: "Cash needed",
+    question: "How much money do I need before closing?",
+    description:
+      "Compare your down payment target with estimated closing costs, prepaid costs and savings gap.",
+    href: "/closing-cost-calculator",
+    label: "Estimate cash to close",
+  },
+  {
+    title: "Rent or buy",
+    question: "Is buying better than renting?",
+    description:
+      "Compare ownership costs, rent growth, home equity and time horizon before assuming buying is always better.",
+    href: "/rent-vs-buy-calculator",
+    label: "Compare rent vs buy",
   },
 ];
 
@@ -294,32 +337,53 @@ export default function RealEstateCalculatorsPage() {
           </h1>
 
           <p className="mt-5 max-w-3xl text-base leading-8 text-black/65 sm:text-lg">
-            Plan home buying, compare mortgage options, estimate property taxes,
-            analyze rent vs buy decisions and calculate rental property returns
-            with free online real estate calculators.
+            Plan real estate decisions step by step. Estimate what you can
+            afford, compare mortgage payments, review buying costs, test rent vs
+            buy scenarios and analyze rental property assumptions before making
+            a bigger financial decision.
           </p>
 
           <div className="mt-8 grid gap-3 sm:grid-cols-3">
-            <HeroStat label="Calculators" value="11" />
-            <HeroStat label="Cost" value="Free" />
-            <HeroStat label="Access" value="No signup" />
+            <HeroStat label="Start with" value="Budget" />
+            <HeroStat label="Compare" value="Scenarios" />
+            <HeroStat label="Use for" value="Planning" />
           </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
-              href="/mortgage-calculator"
+              href="/home-affordability-calculator"
               className="rounded-2xl bg-black px-6 py-4 text-center text-sm font-bold text-white transition hover:opacity-90"
             >
-              Start with Mortgage Calculator
+              Start with Affordability
             </Link>
 
             <Link
-              href="/tools"
+              href="/mortgage-calculator"
               className="rounded-2xl border border-black/10 bg-white px-6 py-4 text-center text-sm font-bold text-black transition hover:border-black"
             >
-              Browse all tools
+              Open Mortgage Calculator
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="mt-10 rounded-[2rem] border border-black/10 bg-white p-5 shadow-sm sm:p-6">
+        <div className="max-w-3xl">
+          <h2 className="text-2xl font-black tracking-tight text-black">
+            Start with the real estate question you need to answer
+          </h2>
+
+          <p className="mt-3 text-sm leading-7 text-black/60 sm:text-base">
+            A calculator is most useful when it answers a specific decision.
+            Choose the question that matches your situation, then compare a few
+            realistic scenarios instead of relying on a single estimate.
+          </p>
+        </div>
+
+        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {decisionCards.map((card) => (
+            <DecisionQuestionCard key={card.href} card={card} />
+          ))}
         </div>
       </section>
 
@@ -360,6 +424,48 @@ export default function RealEstateCalculatorsPage() {
               </div>
             </section>
           ))}
+        </div>
+      </section>
+
+      <section className="mt-10 rounded-[2rem] border border-black/10 bg-[#fff8df] p-5 shadow-sm sm:p-6">
+        <div className="max-w-3xl">
+          <h2 className="text-2xl font-black tracking-tight text-black">
+            What to compare before making a real estate decision
+          </h2>
+
+          <p className="mt-3 text-sm leading-7 text-black/60 sm:text-base">
+            Real estate decisions are rarely about one number. A low monthly
+            payment can still come with high closing costs, property taxes,
+            repairs or long-term interest. Use these checks to compare the full
+            picture.
+          </p>
+        </div>
+
+        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <PlanningCard
+            title="Monthly payment"
+            description="Compare principal, interest, estimated taxes, insurance and other recurring costs."
+          />
+          <PlanningCard
+            title="Cash needed upfront"
+            description="Look beyond the down payment. Closing costs, prepaid taxes, insurance and reserves can change the true cash requirement."
+          />
+          <PlanningCard
+            title="Interest over time"
+            description="A lower payment is not always cheaper if the loan lasts longer or carries higher total interest."
+          />
+          <PlanningCard
+            title="Time horizon"
+            description="The better option may change if you plan to move in three years versus staying for ten or more years."
+          />
+          <PlanningCard
+            title="Risk and flexibility"
+            description="Consider job stability, emergency savings, maintenance costs and whether the payment leaves room for other goals."
+          />
+          <PlanningCard
+            title="Local assumptions"
+            description="Taxes, insurance, closing costs, rent growth and property expenses can vary widely by location."
+          />
         </div>
       </section>
 
@@ -468,6 +574,39 @@ export default function RealEstateCalculatorsPage() {
       </section>
 
       <section className="mt-10 rounded-[2rem] border border-black/10 bg-white p-5 shadow-sm sm:p-6">
+        <div className="max-w-3xl">
+          <h2 className="text-2xl font-black tracking-tight text-black">
+            Common input mistakes to avoid
+          </h2>
+
+          <p className="mt-3 text-sm leading-7 text-black/60 sm:text-base">
+            Small input changes can create very different results. Before using
+            an estimate for planning, review the assumptions that usually move
+            real estate calculations the most.
+          </p>
+        </div>
+
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <MistakeCard
+            title="Using only the listing price"
+            description="The purchase price is only one part of the decision. Taxes, insurance, loan costs, repairs and closing costs can change the real budget."
+          />
+          <MistakeCard
+            title="Ignoring interest-rate changes"
+            description="Mortgage rates can strongly affect affordability and monthly payments. Compare more than one rate scenario."
+          />
+          <MistakeCard
+            title="Forgetting ongoing costs"
+            description="Maintenance, insurance, HOA fees, vacancy, utilities and property tax increases can matter after the purchase."
+          />
+          <MistakeCard
+            title="Treating estimates as guarantees"
+            description="Calculator results depend on your inputs. Actual loan terms, taxes, fees and investment returns can differ."
+          />
+        </div>
+      </section>
+
+      <section className="mt-10 rounded-[2rem] border border-black/10 bg-white p-5 shadow-sm sm:p-6">
         <h2 className="text-2xl font-black tracking-tight text-black">
           Frequently asked questions
         </h2>
@@ -520,6 +659,34 @@ function HeroStat({ label, value }: { label: string; value: string }) {
   );
 }
 
+function DecisionQuestionCard({ card }: { card: DecisionCard }) {
+  return (
+    <Link
+      href={card.href}
+      className="group rounded-2xl border border-black/10 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-black hover:shadow-md"
+    >
+      <div className="inline-flex rounded-full border border-black/10 bg-[#fff8df] px-3 py-1 text-xs font-bold text-black/60">
+        {card.title}
+      </div>
+
+      <h3 className="mt-4 text-lg font-black tracking-tight text-black">
+        {card.question}
+      </h3>
+
+      <p className="mt-2 text-sm leading-6 text-black/60">
+        {card.description}
+      </p>
+
+      <div className="mt-4 text-sm font-bold text-black">
+        {card.label}{" "}
+        <span className="inline-block transition group-hover:translate-x-1">
+          →
+        </span>
+      </div>
+    </Link>
+  );
+}
+
 function ToolCard({ tool }: { tool: HubTool }) {
   return (
     <Link
@@ -545,6 +712,38 @@ function ToolCard({ tool }: { tool: HubTool }) {
         </span>
       </div>
     </Link>
+  );
+}
+
+function PlanningCard({
+  title,
+  description,
+}: {
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+      <h3 className="text-base font-black text-black">{title}</h3>
+
+      <p className="mt-2 text-sm leading-7 text-black/60">{description}</p>
+    </div>
+  );
+}
+
+function MistakeCard({
+  title,
+  description,
+}: {
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="rounded-2xl border border-black/10 bg-[#fff8df] p-5">
+      <h3 className="text-base font-black text-black">{title}</h3>
+
+      <p className="mt-2 text-sm leading-7 text-black/60">{description}</p>
+    </div>
   );
 }
 
