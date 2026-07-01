@@ -6,9 +6,9 @@ type Props = {
 
 type CategoryContent = {
   intro: string;
-  useCases: string[];
-  bestPractices: string[];
-  limitations: string;
+  usefulFor: string[];
+  reviewChecks: string[];
+  limitation: string;
 };
 
 function getCategoryContent(category?: string): CategoryContent {
@@ -16,80 +16,72 @@ function getCategoryContent(category?: string): CategoryContent {
     case "Calculators":
       return {
         intro:
-          "Calculator tools help turn inputs into clear estimates, comparisons and planning numbers. They are useful when you want to understand a result quickly without building a spreadsheet from scratch.",
-        useCases: [
-          "Estimate costs, payments, savings, percentages or financial outcomes.",
-          "Compare different scenarios before making a decision.",
-          "Check assumptions quickly while planning a purchase, project or budget.",
-          "Use the result as a starting point for deeper research or professional advice.",
+          "Calculator tools are useful when you want a quick estimate, comparison or planning number without creating a spreadsheet from scratch.",
+        usefulFor: [
+          "Estimating costs, payments, savings, percentages or time-based outcomes.",
+          "Comparing different scenarios before making a decision.",
+          "Testing assumptions while planning a purchase, project or budget.",
         ],
-        bestPractices: [
-          "Double-check important inputs such as rates, prices, terms and percentages.",
-          "Test more than one scenario to understand how sensitive the result is.",
-          "Use realistic assumptions when estimating future costs or returns.",
-          "For legal, tax, mortgage or investment decisions, confirm the result with a qualified professional.",
+        reviewChecks: [
+          "Double-check important inputs such as rates, prices, dates and percentages.",
+          "Try more than one scenario to understand how sensitive the result is.",
+          "Treat results as estimates, not as financial, tax, legal or professional advice.",
         ],
-        limitations:
-          "Calculator results are estimates based on the values you enter. They do not replace professional financial, legal, tax, medical or technical advice.",
+        limitation:
+          "Calculator outputs depend on the values entered. For important decisions, verify results with a qualified professional or trusted source.",
       };
 
     case "Image & PDF Tools":
       return {
         intro:
-          "Image and PDF tools help you prepare, convert, resize, compress or organize files directly in a focused online workflow. They are useful when you need a quick file task without installing heavy software.",
-        useCases: [
-          "Convert files into a more useful format for sharing, uploading or archiving.",
-          "Reduce file size before sending documents or images online.",
-          "Prepare images and PDFs for websites, forms, presentations or email attachments.",
-          "Organize document pages or create cleaner files for everyday work.",
+          "Image and PDF tools help you prepare, convert, resize, compress or organize files in a focused browser-based workflow.",
+        usefulFor: [
+          "Reducing file size before uploading, sending or archiving files.",
+          "Converting or preparing files for websites, forms, email or documents.",
+          "Completing simple file tasks without installing heavy software.",
         ],
-        bestPractices: [
-          "Keep an original copy of important files before editing or converting them.",
+        reviewChecks: [
+          "Keep an original copy before editing or converting important files.",
           "Check the downloaded result before deleting the source file.",
           "Use reasonable compression settings when quality matters.",
-          "For sensitive documents, review the tool description and privacy notes before processing files.",
         ],
-        limitations:
+        limitation:
           "File results can vary depending on the original file, browser support, file size, image quality and selected settings.",
       };
 
     case "Developer Tools":
       return {
         intro:
-          "Developer tools help format, validate, convert and inspect technical content such as code, structured data, URLs and configuration values. They are designed for fast checks during everyday development work.",
-        useCases: [
-          "Format or clean structured data before using it in a project.",
-          "Convert technical values, encodings or data formats.",
-          "Inspect code, strings, URLs or configuration snippets.",
-          "Save time on small development tasks without opening a full IDE workflow.",
+          "Developer tools help format, validate, convert and inspect technical content such as code, structured data, URLs and configuration values.",
+        usefulFor: [
+          "Formatting or cleaning structured data before using it in a project.",
+          "Converting technical values, encodings or data formats.",
+          "Inspecting code, strings, URLs or configuration snippets during everyday development work.",
         ],
-        bestPractices: [
+        reviewChecks: [
           "Review generated or formatted output before using it in production.",
-          "Avoid pasting secrets, private keys or sensitive credentials into online tools.",
-          "Validate important data with your own test cases.",
-          "Use the result as a helper, not as a replacement for proper testing.",
+          "Do not paste secrets, private keys or sensitive credentials into online tools.",
+          "Validate important output with your own test cases.",
         ],
-        limitations:
-          "Developer tools can simplify common tasks, but they cannot guarantee that output is correct for every framework, runtime or production environment.",
+        limitation:
+          "Developer tools simplify common tasks, but they cannot guarantee correctness for every framework, runtime or production environment.",
       };
 
     case "SEO Tools":
       return {
         intro:
-          "SEO tools help prepare metadata, content, URLs and search-related assets. They are useful for quick checks before publishing or improving a page.",
-        useCases: [
-          "Review titles, descriptions, URLs and content elements before publishing.",
-          "Generate or inspect metadata for search and social sharing.",
-          "Check content structure, keyword usage or technical SEO details.",
-          "Improve consistency across website pages and marketing assets.",
+          "SEO tools help prepare metadata, content, URLs and search-related assets before publishing or improving a page.",
+        usefulFor: [
+          "Reviewing titles, descriptions, URLs and content elements.",
+          "Preparing metadata for search engines and social sharing.",
+          "Checking consistency across website pages and marketing assets.",
         ],
-        bestPractices: [
+        reviewChecks: [
           "Write for real users first, not only for search engines.",
           "Keep titles and descriptions accurate to the page content.",
-          "Avoid keyword stuffing or repetitive low-value text.",
-          "Use SEO tools together with Search Console data and real user intent.",
+          "Avoid keyword stuffing, duplicated copy or low-value filler text.",
         ],
-        limitations:
+        limitation:
           "SEO tools can help with preparation and checks, but they cannot guarantee rankings, indexing or traffic.",
       };
 
@@ -97,79 +89,71 @@ function getCategoryContent(category?: string): CategoryContent {
       return {
         intro:
           "Business tools help create practical calculations, documents, templates and planning outputs for freelancers, creators, founders and small teams.",
-        useCases: [
-          "Estimate revenue, costs, margins, rates or business performance.",
-          "Prepare simple business documents or planning assets.",
-          "Create quick outputs for client work, internal planning or personal organization.",
-          "Save time on repetitive business tasks.",
+        usefulFor: [
+          "Estimating revenue, costs, margins, rates or business performance.",
+          "Preparing simple business documents or planning assets.",
+          "Saving time on repetitive business and client-work tasks.",
         ],
-        bestPractices: [
+        reviewChecks: [
           "Review business outputs before sending them to clients or partners.",
           "Use realistic assumptions when calculating revenue, cost or profitability.",
-          "Keep records of important financial or contractual decisions.",
-          "For accounting, legal or tax matters, verify results with a professional.",
+          "Verify accounting, legal or tax matters with a qualified professional.",
         ],
-        limitations:
+        limitation:
           "Business tools are designed for planning and productivity. They do not replace legal, accounting, tax or financial advice.",
       };
 
     case "Text Tools":
       return {
         intro:
-          "Text tools help clean, count, transform, compare and prepare written content. They are useful for writing, editing, publishing and everyday office tasks.",
-        useCases: [
-          "Count words, characters, sentences or reading time.",
-          "Clean lists, remove duplicates or reformat text.",
-          "Convert text between different styles or formats.",
-          "Prepare content for websites, documents, emails or social posts.",
+          "Text tools help clean, count, transform, compare and prepare written content for writing, editing, publishing and everyday office work.",
+        usefulFor: [
+          "Counting words, characters, sentences or estimated reading time.",
+          "Cleaning lists, removing duplicates or reformatting text.",
+          "Preparing content for websites, documents, emails or social posts.",
         ],
-        bestPractices: [
+        reviewChecks: [
           "Review transformed text before publishing or sending it.",
           "Keep a copy of the original text when making large changes.",
           "Check formatting after copying results into another app.",
-          "Use text tools to speed up editing, not to replace careful review.",
         ],
-        limitations:
-          "Text tools can help with formatting and cleanup, but they may not understand context, tone or meaning the way a human editor can.",
+        limitation:
+          "Text tools help with formatting and cleanup, but they may not understand context, tone or meaning the way a human editor can.",
       };
 
     case "Generators":
       return {
         intro:
-          "Generator tools help create ideas, names, codes, prompts and other starting points quickly. They are useful for brainstorming and speeding up creative work.",
-        useCases: [
-          "Generate ideas when starting a project, brand, profile or piece of content.",
-          "Create names, codes, labels or creative variations.",
-          "Explore multiple options before choosing a final result.",
-          "Use generated output as inspiration for your own work.",
+          "Generator tools help create ideas, names, prompts, codes or starting points quickly when you want inspiration or a first draft.",
+        usefulFor: [
+          "Generating ideas when starting a project, brand, profile or piece of content.",
+          "Creating names, labels, codes or creative variations.",
+          "Exploring multiple options before choosing a final result.",
         ],
-        bestPractices: [
+        reviewChecks: [
           "Review generated ideas before using them publicly.",
-          "Check trademarks, availability or originality when naming a business or product.",
+          "Check availability, trademarks or originality when naming a business or product.",
           "Adjust generated results to match your own brand, audience or purpose.",
-          "Avoid relying on generated output without human review.",
         ],
-        limitations:
+        limitation:
           "Generated results are suggestions and starting points. They may need editing, verification or originality checks before final use.",
       };
 
     default:
       return {
         intro:
-          "Toollane tools are built to make common online tasks easier, faster and more accessible. Each tool focuses on a specific task and presents the result directly on the page.",
-        useCases: [
-          "Complete a focused online task without installing extra software.",
-          "Save time on repetitive calculations, conversions or formatting work.",
-          "Use a simple mobile-friendly interface on different devices.",
-          "Get a practical result that can be copied, downloaded or applied.",
+          "Toollane tools are built to make common online tasks easier, faster and more accessible with a focused page for each task.",
+        usefulFor: [
+          "Completing a focused online task without installing extra software.",
+          "Saving time on repetitive calculations, conversions or formatting work.",
+          "Getting a practical result that can be copied, downloaded or applied.",
         ],
-        bestPractices: [
+        reviewChecks: [
           "Review important results before using them in professional work.",
-          "Check your inputs carefully if the result depends on numbers or settings.",
+          "Check inputs carefully if the result depends on numbers, files or settings.",
           "Keep copies of important files, text or data before editing.",
-          "Use Toollane as a helpful online resource, not as a replacement for expert advice.",
         ],
-        limitations:
+        limitation:
           "Toollane tools are designed for convenience and productivity. Results may depend on your inputs, browser, files or selected settings.",
       };
   }
@@ -181,34 +165,24 @@ export default function ToolContentSection({
   category,
 }: Props) {
   const content = getCategoryContent(category);
-  const toolName = title.toLowerCase();
 
   return (
-    <section className="mt-14 rounded-[2rem] border border-black/10 bg-white/75 p-6 shadow-sm backdrop-blur sm:p-8">
+    <section className="mt-12 rounded-[2rem] border border-black/10 bg-white/75 p-6 shadow-sm backdrop-blur sm:p-8">
       <h2 className="text-2xl font-black tracking-tight text-black">
         About the {title}
       </h2>
 
-      <div className="mt-6 space-y-6 leading-8 text-black/65">
+      <div className="mt-5 space-y-5 leading-8 text-black/65">
         <p>{description}</p>
-
-        <p>
-          The {toolName} is designed to help users complete a specific task with
-          a clear, focused workflow. Instead of switching between apps,
-          spreadsheets or manual steps, you can enter the relevant information,
-          review the result and continue with your work.
-        </p>
 
         <p>{content.intro}</p>
 
         <div className="grid gap-5 lg:grid-cols-2">
           <div className="rounded-2xl border border-black/10 bg-white p-5">
-            <h3 className="text-lg font-black text-black">
-              Common use cases
-            </h3>
+            <h3 className="text-lg font-black text-black">Useful for</h3>
 
             <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-black/65">
-              {content.useCases.map((item) => (
+              {content.usefulFor.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
@@ -216,11 +190,11 @@ export default function ToolContentSection({
 
           <div className="rounded-2xl border border-black/10 bg-white p-5">
             <h3 className="text-lg font-black text-black">
-              Tips for best results
+              Before you rely on the result
             </h3>
 
             <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-black/65">
-              {content.bestPractices.map((item) => (
+              {content.reviewChecks.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
@@ -233,42 +207,9 @@ export default function ToolContentSection({
           </h3>
 
           <p className="mt-3 text-sm leading-7 text-black/65">
-            {content.limitations}
+            {content.limitation}
           </p>
         </div>
-
-        <h3 className="pt-4 text-xl font-bold text-black">
-          How to use the {title}
-        </h3>
-
-        <ol className="grid gap-4 text-sm leading-7 text-black/65 sm:text-base lg:grid-cols-3">
-          <li className="rounded-2xl border border-black/10 bg-white p-5">
-            <strong className="block text-black">1. Add your input</strong>
-            Enter the values, text, files or settings required by the tool.
-          </li>
-
-          <li className="rounded-2xl border border-black/10 bg-white p-5">
-            <strong className="block text-black">2. Review the result</strong>
-            Check the output directly on the page and adjust your input if
-            needed.
-          </li>
-
-          <li className="rounded-2xl border border-black/10 bg-white p-5">
-            <strong className="block text-black">3. Use the output</strong>
-            Copy, download, compare or apply the result to your task.
-          </li>
-        </ol>
-
-        <h3 className="pt-4 text-xl font-bold text-black">
-          Why use Toollane?
-        </h3>
-
-        <p>
-          Toollane focuses on practical browser-based tools with a clean
-          interface, fast results and useful supporting information. The goal is
-          to make everyday online tasks easier without unnecessary distractions
-          or complicated setup steps.
-        </p>
       </div>
     </section>
   );

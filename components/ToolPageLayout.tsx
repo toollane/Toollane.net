@@ -43,27 +43,6 @@ type Props = {
 
 type Hub = (typeof hubs)[number];
 
-function getCategoryBenefit(categoryName: string) {
-  switch (categoryName) {
-    case "Calculators":
-      return "Built for fast calculations, quick estimates and everyday decisions.";
-    case "Image & PDF Tools":
-      return "Process files directly in your browser with a clean, privacy-friendly workflow.";
-    case "Developer Tools":
-      return "Format, validate, convert and inspect technical data without opening heavy software.";
-    case "SEO Tools":
-      return "Prepare metadata, content and URLs for better search visibility.";
-    case "Business Tools":
-      return "Create practical business documents, assets and calculations faster.";
-    case "Text Tools":
-      return "Clean, format, count and transform text with simple browser-based tools.";
-    case "Generators":
-      return "Generate ideas, names, codes and creative assets in seconds.";
-    default:
-      return "Use a fast, simple and mobile-friendly online tool directly in your browser.";
-  }
-}
-
 function getMatchingHub(pageHref: string) {
   return hubs.find((hub) =>
     hub.toolHrefs.some((toolHref) => toolHref === pageHref)
@@ -126,7 +105,7 @@ export default function ToolPageLayout({
             />
 
             <div className="mt-6 inline-flex items-center rounded-full border border-black/10 bg-white/75 px-4 py-2 text-xs font-bold uppercase tracking-wide text-black/70 shadow-sm backdrop-blur sm:text-sm">
-              ⚡ Free · Fast · Mobile-Friendly
+              Free online tool
             </div>
 
             <h1 className="mt-6 max-w-4xl text-4xl font-black tracking-tight text-black sm:text-5xl lg:text-6xl">
@@ -138,14 +117,14 @@ export default function ToolPageLayout({
             </p>
 
             <div className="mt-7 grid gap-3 sm:grid-cols-3">
-              <TrustCard title="No signup" text="Use the tool instantly." />
+              <TrustCard title="No signup" text="Use the tool directly." />
               <TrustCard
-                title="Mobile-ready"
-                text="Works on phones and desktop."
+                title="Focused workflow"
+                text="Inputs and results stay on one page."
               />
               <TrustCard
-                title="Fast results"
-                text="Get answers directly on the page."
+                title="Mobile-friendly"
+                text="Designed for phone and desktop use."
               />
             </div>
 
@@ -176,42 +155,6 @@ export default function ToolPageLayout({
           </div>
 
           {matchingHub && <ToolHubLink hub={matchingHub} />}
-
-          <section className="mt-10 grid gap-4 lg:grid-cols-3">
-            <InfoPanel
-              title="Built for speed"
-              text={getCategoryBenefit(categoryName)}
-            />
-            <InfoPanel
-              title="Browser-based"
-              text="Toollane tools are designed to work directly in your browser with a simple, focused interface."
-            />
-            <InfoPanel
-              title="Use it again"
-              text="Need this tool often? Save this page to your phone home screen for quick access."
-            />
-          </section>
-
-          <div className="mt-10 rounded-[2rem] border border-black/10 bg-white/70 p-6 shadow-sm sm:p-8">
-            <h2 className="text-2xl font-black tracking-tight text-black">
-              How to use the {pageTitle}
-            </h2>
-
-            <ol className="mt-5 grid gap-4 text-sm leading-7 text-black/65 sm:text-base lg:grid-cols-3">
-              <li className="rounded-2xl border border-black/10 bg-white p-5">
-                <strong className="block text-black">1. Enter your input</strong>
-                Add the values, text, files or settings required by the tool.
-              </li>
-              <li className="rounded-2xl border border-black/10 bg-white p-5">
-                <strong className="block text-black">2. Check the result</strong>
-                Review the instant result directly on the page.
-              </li>
-              <li className="rounded-2xl border border-black/10 bg-white p-5">
-                <strong className="block text-black">3. Copy or use it</strong>
-                Copy, download or apply the result to your task.
-              </li>
-            </ol>
-          </div>
 
           <ToolContentSection
             title={pageTitle}
@@ -266,15 +209,6 @@ function TrustCard({ title, text }: { title: string; text: string }) {
     <div className="rounded-2xl border border-black/10 bg-white/75 p-4 shadow-sm backdrop-blur">
       <div className="text-sm font-black text-black">{title}</div>
       <div className="mt-1 text-xs leading-5 text-black/55">{text}</div>
-    </div>
-  );
-}
-
-function InfoPanel({ title, text }: { title: string; text: string }) {
-  return (
-    <div className="rounded-[2rem] border border-black/10 bg-white/75 p-6 shadow-sm">
-      <h2 className="text-lg font-black text-black">{title}</h2>
-      <p className="mt-3 text-sm leading-7 text-black/60">{text}</p>
     </div>
   );
 }
