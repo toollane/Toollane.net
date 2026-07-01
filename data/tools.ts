@@ -169,14 +169,12 @@ categorySlug:
   categorySlug: "generators",
   name: "Pet Name Generator",
   shortName: "Pet Names",
-  description:
-    "Generate pet name ideas for dogs, cats, horses, rabbits, birds, hamsters, fish and other pets by type, style, gender and starting letter.",
+  description: "Generate dog, cat and pet name ideas by animal type, style, gender, personality and starting letter.",
   seoTitle: "Pet Name Generator | Dog, Cat & Animal Name Ideas",
-  seoDescription:
-    "Use Toollane's free pet name generator to find dog names, cat names and animal name ideas by pet type, style, gender, personality and starting letter.",
+  seoDescription: "Use Toollane's free pet name generator to find dog names, cat names and pet name ideas by animal type, style, personality, gender and starting letter.",
   href: "/pet-name-generator",
   icon: "🐾",
-  popular: false,
+  popular: true,
   keywords: [
     "pet name generator",
     "dog name generator",
@@ -214,13 +212,11 @@ categorySlug:
 
   shortName: "Baby Names",
 
-  description:
-    "Find baby names by gender, origin, country style, meaning, popularity and surname compatibility.",
+  description: "Generate and shortlist baby names by gender, origin, style, popularity, length, first letter and surname fit.",
 
   seoTitle: "Baby Name Generator | Toollane",
 
-  seoDescription:
-    "Find unique baby names for boys, girls and unisex names by origin, style, meaning, popularity and surname compatibility.",
+  seoDescription: "Use Toollane's free baby name generator to find and shortlist girl, boy and unisex names by origin, style, meaning, popularity, length and surname fit.",
 
   href: "/baby-name-generator",
 
@@ -457,21 +453,19 @@ categorySlug:
   shortName:
     "Mortgage",
 
-  description:
-    "Calculate mortgage payments and total interest instantly.",
+  description: "Estimate monthly mortgage payments, total interest and total repayment from loan amount, interest rate and loan term.",
 
   seoTitle:
     "Mortgage Calculator | Toollane",
 
-  seoDescription:
-    "Calculate mortgage payments, loan amount, total interest and total repayment with Toollane's free online mortgage calculator.",
+  seoDescription: "Use Toollane's free mortgage calculator to estimate monthly payments, total interest and total repayment from loan amount, interest rate and loan term.",
 
   href:
     "/mortgage-calculator",
 
   icon: "🏠",
 
-  popular: false,
+  popular: true,
 
   keywords: [
     "mortgage calculator",
@@ -774,14 +768,12 @@ categorySlug:
   categorySlug: "calculators",
   name: "Rent vs Buy Calculator",
   shortName: "Rent vs Buy",
-  description:
-    "Compare the long-term cost of renting vs buying a home, including mortgage payments, rent growth, home equity, selling costs and investment returns.",
+  description: "Compare renting vs buying over time with mortgage costs, rent growth, home equity, selling costs and investment return assumptions.",
   seoTitle: "Rent vs Buy Calculator | Compare Renting vs Buying",
-  seoDescription:
-    "Use Toollane's free rent vs buy calculator to compare mortgage costs, rent payments, home equity, selling costs and investment returns.",
+  seoDescription: "Use Toollane's free rent vs buy calculator to compare renting and buying with mortgage costs, rent growth, home equity and investment assumptions.",
   href: "/rent-vs-buy-calculator",
   icon: "🏠",
-  popular: false,
+  popular: true,
   keywords: [
     "rent vs buy calculator",
     "rent or buy calculator",
@@ -812,14 +804,12 @@ categorySlug:
   categorySlug: "calculators",
   name: "Home Affordability Calculator",
   shortName: "Home Affordability",
-  description:
-    "Estimate how much house you can afford based on income, debts, down payment, mortgage rate, property taxes, insurance and DTI limits.",
+  description: "Estimate how much house you may afford from income, monthly debts, down payment, mortgage rate, taxes, insurance and DTI limits.",
   seoTitle: "Home Affordability Calculator | How Much House Can I Afford?",
-  seoDescription:
-    "Use Toollane's free home affordability calculator to estimate how much house you can afford based on income, debts, down payment, mortgage rate and monthly costs.",
+  seoDescription: "Use Toollane's free home affordability calculator to estimate how much house you may afford from income, debt, down payment, mortgage rate and monthly costs.",
   href: "/home-affordability-calculator",
   icon: "🏡",
-  popular: false,
+  popular: true,
   keywords: [
     "home affordability calculator",
     "how much house can I afford",
@@ -2777,14 +2767,12 @@ categorySlug:
   shortName:
     "JSON Formatter",
 
-  description:
-    "Format and beautify JSON instantly.",
+  description: "Format, beautify and validate JSON so API responses and structured data are easier to read.",
 
   seoTitle:
     "JSON Formatter | Toollane",
 
-  seoDescription:
-    "Format and beautify JSON instantly with Toollane's free online JSON formatter.",
+  seoDescription: "Format and validate JSON with Toollane's free online JSON formatter. Beautify API responses and structured data for easier reading.",
 
   href:
     "/json-formatter",
@@ -3646,14 +3634,12 @@ categorySlug:
   shortName:
     "Meta Title Checker",
 
-  description:
-    "Check meta title length instantly.",
+  description: "Check SEO title length, character count and search snippet readability before publishing a page.",
 
   seoTitle:
     "Meta Title Length Checker | Toollane",
 
-  seoDescription:
-    "Check meta title length instantly with Toollane's free online SEO title length checker.",
+  seoDescription: "Check meta title length with Toollane's free SEO title checker. Review character count and snippet readability before publishing.",
 
   href:
     "/meta-title-length-checker",
@@ -3708,14 +3694,12 @@ categorySlug:
   shortName:
     "QR Generator",
 
-  description:
-    "Generate QR codes instantly.",
+  description: "Create downloadable QR codes for URLs, text, contact details, WiFi access and everyday sharing.",
 
   seoTitle:
     "QR Code Generator | Toollane",
 
-  seoDescription:
-    "Generate QR codes instantly with Toollane's free online QR code generator.",
+  seoDescription: "Create QR codes with Toollane's free online QR code generator for URLs, text, contact details, WiFi access and everyday sharing.",
 
   href:
     "/qr-code-generator",
@@ -5940,14 +5924,12 @@ categorySlug:
   shortName:
     "Word Counter",
 
-  description:
-    "Count words, characters and sentences instantly.",
+  description: "Count words, characters, sentences and text length for writing, SEO, school and content work.",
 
   seoTitle:
     "Word Counter | Toollane",
 
-  seoDescription:
-    "Count words, characters and sentences instantly with Toollane's free online word counter.",
+  seoDescription: "Count words, characters and sentences with Toollane's free online word counter for writing, SEO, school and content work.",
 
   href:
     "/word-counter",
@@ -6858,14 +6840,12 @@ categorySlug:
   shortName:
     "Image Compressor",
 
-  description:
-    "Compress images instantly in your browser.",
+  description: "Reduce image file size in your browser with adjustable compression for uploads, websites and documents.",
 
   seoTitle:
     "Image Compressor | Toollane",
 
-  seoDescription:
-    "Compress images online instantly with Toollane's free browser-based image compressor.",
+  seoDescription: "Compress images with Toollane's free browser-based image compressor. Reduce image file size locally for uploads, websites and documents.",
 
   href:
     "/image-compressor",
@@ -7540,21 +7520,19 @@ categorySlug:
   shortName:
     "PDF Split",
 
-  description:
-    "Split PDF files instantly.",
+  description: "Split a PDF into separate page files directly in your browser.",
 
   seoTitle:
     "PDF Splitter | Toollane",
 
-  seoDescription:
-    "Split PDF files instantly with Toollane's free online PDF splitter.",
+  seoDescription: "Split PDF files with Toollane's free browser-based PDF splitter. Separate PDF pages locally and download the results.",
 
   href:
     "/pdf-splitter",
 
   icon: "PDF",
 
-  popular: false,
+  popular: true,
 
   keywords: [
     "pdf splitter",
@@ -7602,21 +7580,19 @@ categorySlug:
   shortName:
     "Compress PDF",
 
-  description:
-    "Compress PDF files instantly.",
+  description: "Reduce PDF file size directly in your browser and check the compressed result before downloading.",
 
   seoTitle:
     "PDF Compressor | Toollane",
 
-  seoDescription:
-    "Compress PDF files instantly with Toollane's free online PDF compressor.",
+  seoDescription: "Compress PDF files with Toollane's free browser-based PDF compressor. Reduce file size locally and download the compressed result.",
 
   href:
     "/pdf-compressor",
 
   icon: "PDF",
 
-  popular: false,
+  popular: true,
 
   keywords: [
     "pdf compressor",
@@ -9040,14 +9016,12 @@ categorySlug:
   shortName:
     "Invoice",
 
-  description:
-    "Create invoices instantly.",
+  description: "Create a simple invoice in your browser and save it as a printable PDF using your browser print dialog.",
 
   seoTitle:
     "Invoice Generator | Toollane",
 
-  seoDescription:
-    "Create invoices instantly with Toollane's free online invoice generator.",
+  seoDescription: "Create invoices with Toollane's free browser-based invoice generator. Fill in invoice details and save the result as a printable PDF.",
 
   href:
     "/invoice-generator",
@@ -9166,14 +9140,12 @@ categorySlug:
   shortName:
     "PDF Merge",
 
-  description:
-    "Merge PDF files instantly.",
+  description: "Combine multiple PDF files into one document directly in your browser.",
 
   seoTitle:
     "PDF Merger | Toollane",
 
-  seoDescription:
-    "Merge PDF files instantly with Toollane's free online PDF merger.",
+  seoDescription: "Merge PDF files with Toollane's free browser-based PDF merger. Combine multiple PDFs locally into one document.",
 
   href:
     "/pdf-merger",
@@ -9352,21 +9324,19 @@ categorySlug:
   shortName:
     "Image Resizer",
 
-  description:
-    "Resize images instantly online.",
+  description: "Resize images by width and height directly in your browser for websites, uploads, documents and social posts.",
 
   seoTitle:
     "Image Resizer | Toollane",
 
-  seoDescription:
-    "Resize images online instantly with Toollane's free browser-based image resizer.",
+  seoDescription: "Resize images with Toollane's free browser-based image resizer. Change image dimensions locally for websites, uploads and documents.",
 
   href:
     "/image-resizer",
 
   icon: "🖼️",
 
-  popular: false,
+  popular: true,
 
   keywords: [
     "image resizer",
@@ -10158,21 +10128,19 @@ categorySlug:
   shortName:
     "XML to JSON",
 
-  description:
-    "Convert XML data to JSON instantly.",
+  description: "Convert XML data into JSON in your browser for APIs, imports and development workflows.",
 
   seoTitle:
     "XML to JSON Converter | Toollane",
 
-  seoDescription:
-    "Convert XML to JSON instantly with Toollane's free online XML to JSON converter.",
+  seoDescription: "Convert XML to JSON with Toollane's free browser-based XML to JSON converter for APIs, imports and development workflows.",
 
   href:
     "/xml-to-json",
 
   icon: "XML",
 
-  popular: false,
+  popular: true,
 
   keywords: [
     "xml to json",

@@ -31,6 +31,7 @@ function getCategoryContent(category?: string): CategoryContent {
           "Calculator outputs depend on the values entered. For important decisions, verify results with a qualified professional or trusted source.",
       };
 
+    case "Image & PDF":
     case "Image & PDF Tools":
       return {
         intro:
@@ -49,6 +50,7 @@ function getCategoryContent(category?: string): CategoryContent {
           "File results can vary depending on the original file, browser support, file size, image quality and selected settings.",
       };
 
+    case "Developer":
     case "Developer Tools":
       return {
         intro:
@@ -67,6 +69,7 @@ function getCategoryContent(category?: string): CategoryContent {
           "Developer tools simplify common tasks, but they cannot guarantee correctness for every framework, runtime or production environment.",
       };
 
+    case "SEO":
     case "SEO Tools":
       return {
         intro:
@@ -85,6 +88,7 @@ function getCategoryContent(category?: string): CategoryContent {
           "SEO tools can help with preparation and checks, but they cannot guarantee rankings, indexing or traffic.",
       };
 
+    case "Business":
     case "Business Tools":
       return {
         intro:
